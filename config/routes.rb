@@ -1,5 +1,26 @@
 Rails.application.routes.draw do
   devise_for :registrations
+
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users
+
+  resources :jobs, only: [:show] do
+    resources :favorites, only: [:create]
+    resources :application, only: [:create]
+  end
+
+  resources :favorites, only: [:destroy]
+
+  resources :application, only: [:update, :destroy] do
+    member do
+      patch 'rejected'
+      patch 'in_progress'
+      patch 'matched'
+    end
+  end
+
+  resources :dashboard, only: [:index]
+
 end
+
