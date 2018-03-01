@@ -16,9 +16,10 @@ Favorite.destroy_all
 
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
-100.times do |job|
+
+10.times do |job|
   puts "creating job"
-  Job.create(
+  job = Job.new(
     title: Faker::Job.title,
     company: Faker::Company.name,
     description: "Lorem ipsum dolor amet activated charcoal XOXO gentrify biodiesel street art succulents. Pug farm-to-table dreamcatcher, small batch helvetica affogato beard austin. Thundercats beard tacos ennui kombucha squid brunch hammock everyday carry swag echo park af occupy tumeric selfies. Plaid air plant bicycle rights celiac taxidermy succulents. Deep v kombucha gentrify schlitz. Godard mlkshk letterpress unicorn quinoa, adaptogen banjo meh lyft four loko woke mixtape tilde poke.
@@ -26,6 +27,17 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     I bet you’re still using Bootstrap too…",
     location: Faker::Address.city,
   )
+
+   job.save
+
+  5.times do |i|
+    job.skill_list.add(Job::SKILLS.sample)
+    job.save
+    job.value_list.add(Job::VALUES.sample)
+    job.save
+  end
+  job.salary_list.add(Job::SALARIES.sample)
+  job.save!
 end
 
 10.times do |register|
