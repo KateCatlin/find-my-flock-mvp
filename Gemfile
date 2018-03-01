@@ -16,6 +16,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
+gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
