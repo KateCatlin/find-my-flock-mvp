@@ -6,16 +6,18 @@ class UsersController < ApplicationController
   end
 
   def new
-
     @user = User.new
   end
 
   def create
-    raise
     user = User.new(user_params)
+    user.registration = current_registration
     if user.save
+      byebug
+      user.add_tags(params[:tags])
       redirect_to dashboard_index_path(user)
     else
+      render plain: "hello guys, I didnt save"
     end
   end
 
@@ -44,9 +46,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  private
+
   def set_collections
     @skills = User::SKILLS
     @values = User::VALUES
     @salaries = User::SALARIES
   end
+
 end

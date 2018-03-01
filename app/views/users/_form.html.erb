@@ -1,43 +1,37 @@
 
+<html>
+<body>
+  <div class="container ">
+    <div class="row">
+      <div class="col-xs-9">
+        <%= simple_form_for(@user) do |f| %>
+        <%= f.error_notification %>
 
-
-<div class="container ">
-  <div class="row">
-
-
-
-
-
-
-    <div class="col-xs-9">
-      <%= simple_form_for(@user) do |f| %>
-      <%= f.error_notification %>
-
-      <div class="form-inputs">
-        <h1>Some info about you: </h1>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :location %>
-        <%= f.input :resume_file_path %>
-        <h1> What skills do you bring to the table? </h1>
-        <%= simple_fields_for :tags do |t| %>
-        <%= t.input :skills, collection: @skills, input_html: { class: 'select2', multiple: true, checkbox: true } %>
-        <h1>Choose what's important in a role: </h1>
-        <p>Note: You will ONLY see jobs with these values.</p>
-        <%= t.input :values, collection: @values, input_html: { class: 'select2', multiple: true } %>
-        <h1>Choose salary ranges you would consider: </h1>
-        <%= t.input :salaries, collection: @salaries, input_html: { class: 'select2', multiple: true } %>
-        <% end %>
-        <%= f.button :submit,  'Create My Profile', class: 'btn btn-treehouse'%>
-        <% end %>
-      </div>
+        <div class="form-inputs">
+          <h1>Some info about you: </h1>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :location %>
+          <%= f.input :resume_file_path %>
+          <h1> What skills do you bring to the table? </h1>
+          <%= simple_fields_for :tags do |t| %>
+          <%= t.input :skills, collection: @skills, input_html: { class: 'select2', multiple: true, checkbox: true } %>
+          <h1>Choose what's important in a role: </h1>
+          <p>Note: You will ONLY see jobs with these values.</p>
+          <%= t.input :values, collection: @values, input_html: { class: 'select2', multiple: true } %>
+          <h1>Choose salary ranges you would consider: </h1>
+          <%= t.input :salaries, collection: @salaries, input_html: { class: 'select2', multiple: true } %>
+          <% end %>
+          <%= f.button :submit,  'Create My Profile', class: 'btn btn-treehouse'%>
+          <% end %>
+        </div>
 
 
 
-      <script>
-        function addRemoveListener(button) {
-          button.addEventListener('click', (e) => {
-            e.preventDefault();
+        <script>
+          function addRemoveListener(button) {
+            button.addEventListener('click', (e) => {
+              e.preventDefault();
       //  REMOVE TAG FROM ARRAY
       const tag = removeWhiteSpace(button.parentElement.innerText);
       const index = tagArray.indexOf(tag);
@@ -45,10 +39,10 @@
       // REMOVE HTML ELEMENT
       button.parentElement.remove();
     })
-        };
+          };
 
-        searchButton.addEventListener('click', (e) => {
-          e.preventDefault();
+          searchButton.addEventListener('click', (e) => {
+            e.preventDefault();
     // Grab the value of the search button and emptying.
     const query_input = document.getElementById('invoice_search_input')
     const query = removeWhiteSpace(query_input.value.toLowerCase());
@@ -61,31 +55,12 @@
 
     addButtonToDocument(query);
   })
-      }
-    </script>
+        }
+      </script>
 
-  </div>
-</div>
-</div>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
+
+</body>
+</html>
