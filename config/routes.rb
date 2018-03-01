@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-
-
-  get 'pages/home'
-
   devise_for :registrations
 
   root to: 'pages#home'
