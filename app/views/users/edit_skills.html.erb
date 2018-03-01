@@ -1,0 +1,20 @@
+
+
+
+<html>
+<body>
+  <div class="container ">
+    <div class="row">
+      <div class="col-xs-9">
+        <%= simple_fields_for @skills_numeric_hash.each do |t| %>
+        <%= t.input collection: @skills, input_html: { class: 'agt_prof_slider' } %>
+        <% end %>
+        <%= t.button :submit, 'Update My Skills', class: 'btn btn-treehouse'%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- render 'int_skill_fields', :f => hash -->

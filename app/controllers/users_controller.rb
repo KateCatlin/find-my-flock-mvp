@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_collections, only: [:new]
-  before_action :set_user, only: [:show, :edit, :destroy]
+  before_action :set_user, only: [:show, :edit, :destroy, :edit_skills]
 
   def index
   end
@@ -14,8 +14,7 @@ class UsersController < ApplicationController
     user.registration = current_registration
     if user.save
       user.add_tags(params[:tags])
-      binding.pry
-      redirect_to dashboard_index_path(user)
+      redirect_to edit_skills_user_path(user)
     else
       render plain: "hello guys, I didnt save"
     end
@@ -44,6 +43,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def edit_skills
+    @skills_numeric_hash = @user.return_skills_hash
   end
 
   private

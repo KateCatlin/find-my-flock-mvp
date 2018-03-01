@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :users
+  resources :users do
+    get 'edit_skills', on: :member
+  end
 
   resources :jobs, only: [:show] do
     resources :favorites, only: [:create]

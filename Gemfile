@@ -18,7 +18,8 @@ gem 'webpacker'
 gem 'devise'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem 'faker'
-
+gem 'jquery-rails'
+gem 'bootstrap-slider-rails'
 
 
 group :development do

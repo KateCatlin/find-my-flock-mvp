@@ -36,4 +36,43 @@ class User < ApplicationRecord
     self.save
   end
 
+  def return_skills_hash
+    skills_hash = {}
+    self.skill_list.each do |skill|
+      if skill =~ /\d/
+        skills_hash[skill[0...-1].parameterize.underscore.to_sym] = skill.slice(-1).to_i
+      else
+        skills_hash[skill.parameterize.underscore.to_sym] = 1
+      end
+    end
+    return skills_hash
+    binding.pry
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
