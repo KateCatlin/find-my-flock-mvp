@@ -10,18 +10,30 @@ class User < ApplicationRecord
   acts_as_taggable_on :skills, :values, :salaries
 
   def add_tags(tags)
-    save_salaries
+    save_salaries(tags["salaries"].compact)
+    save_skills(tags["skills"])
+    save_values(tags["values"])
   end
 
-  def save_salaries
-    binding.pry
-    tags = params[:tags]["salaries"].compact
-    puts salaries
-    tags.each do |category|
-      # category.each do |tag|
-      current_user.salary_list.add('salary')
+  def save_salaries(salaries)
+    salaries.each do |salary|
+      self.salary_list.add(salary)
     end
-    puts @user.skills
+    self.save
+  end
+
+  def save_skills(skills)
+    skills.each do |skill|
+      self.skill_list.add(skill)
+    end
+    self.save
+  end
+
+  def save_values(values)
+    skills.each do |value|
+      self.value_list.add(value)
+    end
+    self.save
   end
 
 end

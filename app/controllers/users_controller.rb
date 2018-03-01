@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     user.registration = current_registration
     if user.save
-      byebug
       user.add_tags(params[:tags])
+      binding.pry
       redirect_to dashboard_index_path(user)
     else
       render plain: "hello guys, I didnt save"
