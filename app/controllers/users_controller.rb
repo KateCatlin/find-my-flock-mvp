@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
-  before_action :set_user, only [:show, :edit, :destroy]
+  before_action :set_collections, only: [:new]
+  before_action :set_user, only: [:show, :edit, :destroy]
 
   def index
   end
 
   def new
+
     @user = User.new
   end
 
   def create
+    raise
     user = User.new(user_params)
     if user.save
       redirect_to dashboard_index_path(user)
@@ -39,5 +42,11 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_collections
+    @skills = User::SKILLS
+    @values = User::VALUES
+    @salaries = User::SALARIES
   end
 end
