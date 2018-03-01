@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
-  has_many :applications
-  has_many :favorites
+  has_many :applications, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :title, presence: true
   validates :company, presence: true
