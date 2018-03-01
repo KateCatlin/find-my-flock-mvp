@@ -16,7 +16,7 @@ Favorite.destroy_all
 
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
-10.times do |job|
+100.times do |job|
   puts "creating job"
   Job.create(
     title: Faker::Job.title,
@@ -36,15 +36,25 @@ end
   )
 end
 
+i= 1
 10.times do |user|
   puts "creating user"
-  User.create(
+  user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     location: Faker::Address.city,
     resume_file_path: Faker::File.mime_type,
-    registration_id: Registration.all.sample
+    registration_id: Registration.find(i).id
     )
+  user.save
+  5.times do |i|
+    user.skill_list.add(User::SKILLS.sample)
+    user.save
+    user.value_list.add(User::VALUES.sample)
+    user.save
+  end
+  i += 1
+  user.save!
 end
 
 
