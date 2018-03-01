@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
+gem 'faker'
 
 
 group :development do

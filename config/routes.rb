@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+
+  get 'pages/home'
+
   devise_for :registrations
 
   root to: 'pages#home'
@@ -7,12 +11,12 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:show] do
     resources :favorites, only: [:create]
-    resources :application, only: [:create]
+    resources :applications, only: [:create]
   end
 
   resources :favorites, only: [:destroy]
 
-  resources :application, only: [:update, :destroy] do
+  resources :applications, only: [:update, :destroy] do
     member do
       patch 'rejected'
       patch 'in_progress'
