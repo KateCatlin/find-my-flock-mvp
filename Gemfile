@@ -20,6 +20,7 @@ gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem 'faker'
 
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
