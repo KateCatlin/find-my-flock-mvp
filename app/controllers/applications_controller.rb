@@ -2,25 +2,26 @@ class ApplicationsController < ApplicationController
   before_action :set_application, except: [:create]
 
   def create
-    application = Application.new(application_params)
+    application = Application.new(job_id: params[:job_id])
+    application.user = current_user
     if application.save
-      redirect_to job_path(application.job_id)
+      redirect_to job_path(application.job)
     else
     end
   end
 
   def rejected
-    @application.status = "rejected"
+    @application.state = "rejected"
     @application.save
   end
 
   def in_progress
-    @application.status = "in_progress"
+    @application.state = "in_progress"
     @application.save
   end
 
   def matched
-    @application.status = "matched"
+    @application.state = "matched"
     @application.save
   end
 

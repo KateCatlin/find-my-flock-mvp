@@ -4,3 +4,10 @@
 <h2><%= @job.company %></h2>
 <h3><%= @job.location %></h3>
 <p><%= @job.description %></p>
+ <%= @application %>
+
+  <% if @already_applied%>
+  <p>pending</p>
+  <% else %>
+  <%= link_to 'Apply', job_applications_path(@job), method: :create %>
+  <% end %>
