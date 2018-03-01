@@ -5,3 +5,49 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+require 'pry'
+
+User.destroy_all
+Job.destroy_all
+Application.destroy_all
+Favorite.destroy_all
+
+puts "Drop it like it's Seed, drop it likes it's Seed.."
+
+10.times do |job|
+  puts "creating job"
+  Job.create(
+    title: Faker::Job.title,
+    company: Faker::Company.name,
+    description: "Lorem ipsum dolor amet activated charcoal XOXO gentrify biodiesel street art succulents. Pug farm-to-table dreamcatcher, small batch helvetica affogato beard austin. Thundercats beard tacos ennui kombucha squid brunch hammock everyday carry swag echo park af occupy tumeric selfies. Plaid air plant bicycle rights celiac taxidermy succulents. Deep v kombucha gentrify schlitz. Godard mlkshk letterpress unicorn quinoa, adaptogen banjo meh lyft four loko woke mixtape tilde poke.
+    Oh. You need a little dummy text for your mockup? How quaint.
+    I bet you’re still using Bootstrap too…",
+    location: Faker::Address.city,
+  )
+end
+
+10.times do |register|
+  puts "generating Registration"
+  Registration.create(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(8)
+  )
+end
+
+10.times do |user|
+  puts "creating user"
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    location: Faker::Address.city,
+    resume_file_path: Faker::File.mime_type,
+    registration_id: Registration.all.sample
+    )
+end
+
+
+
+
+

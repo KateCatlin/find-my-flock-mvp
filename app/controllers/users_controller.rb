@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only [:show, :edit, :destroy]
+  before_action :set_user, only: [:show, :edit, :destroy]
 
   def index
   end
