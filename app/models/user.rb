@@ -36,20 +36,18 @@ class User < ApplicationRecord
     self.save
   end
 
-  def update_skills(hashes)
-    remove_all_skills
-    hashes.each do |key, value|
-      self.skill_list.add(key+value)
-      self.save
-    end
-  end
-
   def remove_all_skills
     self.skill_list.each do |skill|
       self.skill_list.remove(skill.to_s)
     end
+    self.skill_list.remove(self.skill_list.first)
     self.skill_list.remove(self.skill_list.last)
     self.save
+  end
+
+  def competency_description(selection)
+    competencies = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
+    return competencies[selection]
   end
 
   def return_skills_hash

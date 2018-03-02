@@ -30,8 +30,9 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
 
    job.save
 
+
   5.times do |i|
-    job.skill_list.add(Job::SKILLS.sample)
+    job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
     job.save
     job.value_list.add(Job::VALUES.sample)
     job.save
@@ -60,7 +61,7 @@ i= 1
     )
   user.save
   5.times do |i|
-    user.skill_list.add(User::SKILLS.sample)
+    user.skill_list.add(User::SKILLS.sample+"#{rand(1..5)}")
     user.save
     user.value_list.add(User::VALUES.sample)
     user.save

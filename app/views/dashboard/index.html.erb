@@ -1,23 +1,79 @@
 <h1>Dashboard#index</h1>
+<%= link_to 'View My Profile', user_path(current_user), class: 'btn' %>
 
+<div class="tabs">
+  <ul class="list-inline">
+    <a href="#" class="select-tab" data-target="job-list">
+      <li>Jobs</li>
+    </a>
+    <a href="#" class="select-tab" data-target="favorite-list">
+      <li>Favorites</li>
+    </a>
+     <a href="#" class="select-tab" data-target="applied-list">
+      <li>Applied</li>
+    </a>
+  </ul>
+</div>
+
+<div id="job-list" class="job-listings">
+  <h1>Jobs</h1>
   <% @jobs.each do |job| %>
   <%= link_to job_path(job) do %>
   <h3><%= job.title %></h3>
   <h3><%= job.company %></h3>
   <p><%= job.location %></p>
+  <% if job.favorited?(current_user) %>
+  <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
+  <% else %>
+  <%= link_to "fav", job_favorites_path(job), method: :create %>
   <% end %>
   <% end %>
-
+  <% end %>
 </div>
 
+<div id="favorite-list" class="job-listings" hidden>
+  <h1>Favorites</h1>
 
+  <% @favorited.each do |job| %>
+  <%= link_to job_path(job) do %>
+  <h3><%= job.title %></h3>
+  <h3><%= job.company %></h3>
+  <p><%= job.location %></p>
+  <% if job.favorited?(current_user) %>
+  <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
+  <% else %>
+  <%= link_to "fav", job_favorites_path(job), method: :create %>
+  <% end %>
+  <% end %>
+  <% end %>
+</div>
 
+<div id="applied-list" class="job-listings" hidden>
+  <h1>Applied</h1>
 
+  <% @applied.each do |job| %>
+    <%= link_to job_path(job) do %>
+      <h3><%= job.title %></h3>
+      <h3><%= job.company %></h3>
+      <p><%= job.location %></p>
+      <% if job.favorited?(current_user) %>
+        <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
+      <% else %>
+        <%= link_to "fav", job_favorites_path(job), method: :create %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
 
-
-<!-- dashboard_index GET    /dashboard(.:format)     dashboard#index -->
-
-<!-- t.string "title"
-    t.string "company"
-    t.string "location"
-    t.text "description" -->
+<script>
+  const tabs = document.querySelectorAll(".select-tab")
+  const lists = document.querySelectorAll(".job-listings")
+  tabs.forEach(function(tab) {
+    tab.addEventListener("click", function(event) {
+      let target = tab.getAttribute("data-target");
+      let toActivateTab = document.getElementById(target);
+      lists.forEach(list => list.hidden = true);
+      toActivateTab.hidden = false
+    })
+  })
+</script>
