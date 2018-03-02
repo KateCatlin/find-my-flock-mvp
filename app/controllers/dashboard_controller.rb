@@ -6,6 +6,6 @@ class DashboardController < ApplicationController
     # end
 
     @jobs = Job.all
-    @favorited = current_user.favorites.where(job: @job).any?
+    @favorited = current_user.favorites.map(&:job)
   end
 end

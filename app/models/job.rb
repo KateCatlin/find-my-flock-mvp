@@ -9,6 +9,7 @@ class Job < ApplicationRecord
 
   acts_as_taggable_on :skills, :values, :salaries
 
+
   def favorited?(user)
     self.favorites.where(user_id: user.id).any?
   end
@@ -16,4 +17,8 @@ class Job < ApplicationRecord
   def favorite_by(user)
     self.favorites.where(user_id: user.id).first
   end
+
+  # def self.isfavorited(user)
+  #   where(favorited: true)
+  # end
 end
