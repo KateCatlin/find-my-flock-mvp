@@ -1,5 +1,7 @@
 <h1>Dashboard#index</h1>
 
+<%= link_to 'Edit My Profile', edit_user_path(@user), class:'btn' %>
+
   <% @jobs.each do |job| %>
   <%= link_to job_path(job) do %>
   <h3><%= job.title %></h3>

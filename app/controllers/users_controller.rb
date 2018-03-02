@@ -25,11 +25,13 @@ class UsersController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
     if @user.update(set_user)
-      redirect_to user_path(@user)
+      user.add_tags(params[:tags])
+      redirect_to edit_skills_user_path(user)
     else
     end
   end
@@ -51,10 +53,14 @@ class UsersController < ApplicationController
   end
 
   def edit_skills_return
-    safe_params = params.permit("net", "android", "apex", "angularjs", "bash", "c")
-    safe_params.to_h
-    @user.update_skills(safe_params.to_h)
-    redirect_to dashboard_index_path(current_user)
+    @user.remove_all_skills
+    params.each do |key, value|
+      if key.start_with?('skills')
+        @user.skill_list.add(value)
+      end
+    end
+    binding.pry
+    redirect_to dashboard_index_path(@user)
   end
 
   private
