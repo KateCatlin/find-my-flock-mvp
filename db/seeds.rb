@@ -64,6 +64,8 @@ i= 1
     user.save
     user.value_list.add(User::VALUES.sample)
     user.save
+    user.salary_list.add(User::SALARIES.sample)
+    user.save
   end
   i += 1
   user.save!
