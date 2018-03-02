@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_collections, only: [:new]
+  before_action :set_collections, only: [:new, :edit]
   before_action :set_user, only: [:show, :edit, :destroy, :update, :edit_skills, :edit_skills_return]
 
   def index
@@ -25,13 +25,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-    if @user.update(set_user)
-      user.add_tags(params[:tags])
-      redirect_to edit_skills_user_path(user)
+    if @user.update(user_params)
+      @user.remove_all_skills
+      @user.add_tags(params[:tags])
+      redirect_to edit_skills_user_path(@user)
     else
     end
   end
@@ -60,7 +60,6 @@ class UsersController < ApplicationController
         @user.save
       end
     end
-    binding.pry
     redirect_to dashboard_index_path(@user)
   end
 
