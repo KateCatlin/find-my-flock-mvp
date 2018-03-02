@@ -9,7 +9,7 @@
     <a href="#" class="select-tab" data-target="favorite-list">
       <li>Favorites</li>
     </a>
-     <a href="#" class="select-tab" data-target="applied-list">
+    <a href="#" class="select-tab" data-target="applied-list">
       <li>Applied</li>
     </a>
   </ul>
@@ -17,17 +17,21 @@
 
 <div id="job-list" class="job-listings">
   <h1>Jobs</h1>
-  <% @jobs.each do |job| %>
-  <%= link_to job_path(job) do %>
-  <h3><%= job.title %></h3>
-  <h3><%= job.company %></h3>
-  <p><%= job.location %></p>
-  <% if job.favorited?(current_user) %>
-  <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
+  <% if !@my_matched_jobs.nil? %>
+    <% @my_matched_jobs.each do |job| %>
+    <%= link_to job_path(job) do %>
+    <h3><%= job.title %></h3>
+    <h3><%= job.company %></h3>
+    <p><%= job.location %></p>
+    <% if job.favorited?(current_user) %>
+    <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
+    <% else %>
+    <%= link_to "fav", job_favorites_path(job), method: :create %>
+    <% end %>
+    <% end %>
+    <% end %>
   <% else %>
-  <%= link_to "fav", job_favorites_path(job), method: :create %>
-  <% end %>
-  <% end %>
+    <p> Sorry, no matches now! </p>
   <% end %>
 </div>
 
@@ -52,16 +56,16 @@
   <h1>Applied</h1>
 
   <% @applied.each do |job| %>
-    <%= link_to job_path(job) do %>
-      <h3><%= job.title %></h3>
-      <h3><%= job.company %></h3>
-      <p><%= job.location %></p>
-      <% if job.favorited?(current_user) %>
-        <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
-      <% else %>
-        <%= link_to "fav", job_favorites_path(job), method: :create %>
-      <% end %>
-    <% end %>
+  <%= link_to job_path(job) do %>
+  <h3><%= job.title %></h3>
+  <h3><%= job.company %></h3>
+  <p><%= job.location %></p>
+  <% if job.favorited?(current_user) %>
+  <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
+  <% else %>
+  <%= link_to "fav", job_favorites_path(job), method: :create %>
+  <% end %>
+  <% end %>
   <% end %>
 </div>
 
