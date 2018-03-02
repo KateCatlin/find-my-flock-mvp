@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    binding.pry
     user.registration = current_registration
     if user.save
       user.add_tags(params[:tags])
@@ -50,7 +51,8 @@ class UsersController < ApplicationController
   end
 
   def edit_skills_return
-    raise
+    binding.pry
+
   end
 
   private

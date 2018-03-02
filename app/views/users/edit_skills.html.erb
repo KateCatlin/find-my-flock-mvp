@@ -4,39 +4,44 @@
   <div class="container ">
     <div class="row">
       <div class="col-xs-9">
-        <form action="<%= edit_skills_return_user_path(@user)%>" method="post">
+        <%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
           <% @skills_numeric_hash.each do |hash| %>
           <h1> How skilled are you with <%= hash[0] %>? </h1>
-          <div id= "<% hash[0] %>" class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default active form-check-label">
-              <input class="form-check-input" type="radio" checked autocomplete="off"> 1
-            </label>
-            <label class="btn btn-default form-check-label">
-              <input class="form-check-input" type="radio" autocomplete="off">  2
-            </label>
-            <label class="btn btn-default form-check-label">
-              <input class="form-check-input" type="radio" autocomplete="off">  3
-            </label>
-            <label class="btn btn-default form-check-label">
-              <input class="form-check-input" type="radio" autocomplete="off">  4
-            </label>
-            <label class="btn btn-default form-check-label">
-              <input class="form-check-input" type="radio" autocomplete="off">  5
-            </label>
-          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="<%=hash[0]%>" id="<%=hash[0]%>-radio" value="1" checked>
+              <label class="form-check-label" for="<%=hash[0]%>-radio">
+                Only a little knowledge
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="<%=hash[0]%>" id="<%=hash[0]%>-radio" value="2">
+              <label class="form-check-label" for="<%=hash[0]%>-radio">
+                Gaining competency
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="<%=hash[0]%>" id="<%=hash[0]%>-radio" value="3" >
+              <label class="form-check-label" for="<%=hash[0]%>-radio">
+                Individual competency
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="<%=hash[0]%>" id="<%=hash[0]%>-radio" value="3" >
+              <label class="form-check-label" for="<%=hash[0]%>-radio">
+                Strong competency
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="<%=hash[0]%>" id="<%=hash[0]%>-radio" value="3" >
+              <label class="form-check-label" for="<%=hash[0]%>-radio">
+                Expert
+              </label>
+            </div>
           <% end %>
-          <input type="submit">
-        </form>
+          <%= f.button :submit %>
+        <% end %>
       </div>
     </div>
 
-    <script>
-      const romain = document.getElementById("romain");
-      romain.addEventListener("click", (event) => {
-        console.log(event);
-        console.log(event.currentTarget);
-      });
-    }
-  </script>
 </body>
 </html>

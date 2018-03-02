@@ -6,6 +6,10 @@
       <div class="col-xs-9">
         <%= simple_form_for(@user) do |f| %>
         <%= f.error_notification %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :location %>
+        <%= f.input :resume_file_path %>
 
         <div class="form-inputs">
           <h1> What skills do you bring to the table? </h1>

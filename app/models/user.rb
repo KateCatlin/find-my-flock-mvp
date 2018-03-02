@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def save_values(values)
-    skills.each do |value|
+    values.each do |value|
       self.value_list.add(value)
     end
     self.save
