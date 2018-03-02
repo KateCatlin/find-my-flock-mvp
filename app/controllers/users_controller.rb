@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_collections, only: [:new]
-  before_action :set_user, only: [:show, :edit, :destroy, :edit_skills]
+  before_action :set_user, only: [:show, :edit, :destroy, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    binding.pry
     user.registration = current_registration
     if user.save
       user.add_tags(params[:tags])
@@ -51,8 +50,10 @@ class UsersController < ApplicationController
   end
 
   def edit_skills_return
-    binding.pry
-
+    safe_params = params.permit("net", "android", "apex", "angularjs", "bash", "c")
+    safe_params.to_h
+    @user.update_skills(safe_params.to_h)
+    redirect_to dashboard_index_path(current_user)
   end
 
   private

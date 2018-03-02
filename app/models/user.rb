@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   def save_skills(skills)
     skills.each do |skill|
-      self.skill_list.add(skill)
+      self.skill_list.add(skill.downcase)
     end
     self.save
   end
@@ -33,6 +33,22 @@ class User < ApplicationRecord
     values.each do |value|
       self.value_list.add(value)
     end
+    self.save
+  end
+
+  def update_skills(hashes)
+    remove_all_skills
+    hashes.each do |key, value|
+      self.skill_list.add(key+value)
+      self.save
+    end
+  end
+
+  def remove_all_skills
+    self.skill_list.each do |skill|
+      self.skill_list.remove(skill.to_s)
+    end
+    self.skill_list.remove(self.skill_list.last)
     self.save
   end
 
