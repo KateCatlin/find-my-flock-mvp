@@ -57,6 +57,7 @@ class UsersController < ApplicationController
     params.each do |key, value|
       if key.start_with?('skills')
         @user.skill_list.add(value)
+        @user.save
       end
     end
     binding.pry
