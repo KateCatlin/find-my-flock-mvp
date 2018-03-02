@@ -46,7 +46,6 @@ class User < ApplicationRecord
       end
     end
     return skills_hash
-    binding.pry
   end
 
 end

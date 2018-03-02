@@ -1,20 +1,42 @@
 
-
-
 <html>
 <body>
   <div class="container ">
     <div class="row">
       <div class="col-xs-9">
-        <%= simple_fields_for @skills_numeric_hash.each do |t| %>
-        <%= t.input collection: @skills, input_html: { class: 'agt_prof_slider' } %>
-        <% end %>
-        <%= t.button :submit, 'Update My Skills', class: 'btn btn-treehouse'%>
-        <% end %>
+        <form action="<%= edit_skills_return_user_path(@user)%>" method="post">
+          <% @skills_numeric_hash.each do |hash| %>
+          <h1> How skilled are you with <%= hash[0] %>? </h1>
+          <div id= "<% hash[0] %>" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default active form-check-label">
+              <input class="form-check-input" type="radio" checked autocomplete="off"> 1
+            </label>
+            <label class="btn btn-default form-check-label">
+              <input class="form-check-input" type="radio" autocomplete="off">  2
+            </label>
+            <label class="btn btn-default form-check-label">
+              <input class="form-check-input" type="radio" autocomplete="off">  3
+            </label>
+            <label class="btn btn-default form-check-label">
+              <input class="form-check-input" type="radio" autocomplete="off">  4
+            </label>
+            <label class="btn btn-default form-check-label">
+              <input class="form-check-input" type="radio" autocomplete="off">  5
+            </label>
+          </div>
+          <% end %>
+          <input type="submit">
+        </form>
       </div>
     </div>
-  </div>
+
+    <script>
+      const romain = document.getElementById("romain");
+      romain.addEventListener("click", (event) => {
+        console.log(event);
+        console.log(event.currentTarget);
+      });
+    }
+  </script>
 </body>
 </html>
-
-<!-- render 'int_skill_fields', :f => hash -->

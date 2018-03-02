@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'edit_skills', on: :member
+    get 'edit_skills_return', on: :member
   end
 
   resources :jobs, only: [:show] do

@@ -4,4 +4,3 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require user
-//= require bootstrap-slider

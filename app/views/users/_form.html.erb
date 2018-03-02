@@ -8,11 +8,6 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <h1>Some info about you: </h1>
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
-          <%= f.input :location %>
-          <%= f.input :resume_file_path %>
           <h1> What skills do you bring to the table? </h1>
           <%= simple_fields_for :tags do |t| %>
           <%= t.input :skills, collection: @skills, input_html: { class: 'select2', multiple: true, checkbox: true } %>

@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     @skills_numeric_hash = @user.return_skills_hash
   end
 
+  def edit_skills_return
+    raise
+  end
+
   private
 
   def set_collections
