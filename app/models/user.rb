@@ -45,6 +45,11 @@ class User < ApplicationRecord
     self.save
   end
 
+  def competency_description(selection)
+    competencies = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
+    return competencies[selection]
+  end
+
   def return_skills_hash
     skills_hash = {}
     self.skill_list.each do |skill|
