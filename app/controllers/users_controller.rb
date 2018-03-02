@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :destroy, :update]
+
+  before_action :set_collections, only: [:new]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -10,9 +12,12 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    user.registration = current_registration
     if user.save
-      redirect_to dashboard_index_path(user)
+      user.add_tags(params[:tags])
+      redirect_to edit_skills_user_path(user)
     else
+      render plain: "hello guys, I didnt save"
     end
   end
 
@@ -40,4 +45,24 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+  def edit_skills
+    @skills_numeric_hash = @user.return_skills_hash
+  end
+
+  def edit_skills_return
+    safe_params = params.permit("net", "android", "apex", "angularjs", "bash", "c")
+    safe_params.to_h
+    @user.update_skills(safe_params.to_h)
+    redirect_to dashboard_index_path(current_user)
+  end
+
+  private
+
+  def set_collections
+    @skills = User::SKILLS
+    @values = User::VALUES
+    @salaries = User::SALARIES
+  end
+
 end

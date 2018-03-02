@@ -1,2 +1,23 @@
 <h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+
+  <% @jobs.each do |job| %>
+  <%= link_to job_path(job) do %>
+  <h3><%= job.title %></h3>
+  <h3><%= job.company %></h3>
+  <p><%= job.location %></p>
+  <% end %>
+  <% end %>
+
+</div>
+
+
+
+
+
+
+<!-- dashboard_index GET    /dashboard(.:format)     dashboard#index -->
+
+<!-- t.string "title"
+    t.string "company"
+    t.string "location"
+    t.text "description" -->
