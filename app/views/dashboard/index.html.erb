@@ -1,23 +1,18 @@
 <h1>Dashboard#index</h1>
 
+
+
   <% @jobs.each do |job| %>
-  <%= link_to job_path(job) do %>
-  <h3><%= job.title %></h3>
-  <h3><%= job.company %></h3>
-  <p><%= job.location %></p>
-  <% end %>
+    <%= link_to job_path(job) do %>
+      <h3><%= job.title %></h3>
+      <h3><%= job.company %></h3>
+      <p><%= job.location %></p>
+      <% if job.favorited?(current_user) %>
+        <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
+      <% else %>
+        <%= link_to "fav", job_favorites_path(job), method: :create %>
+      <% end %>
+    <% end %>
   <% end %>
 
 </div>
-
-
-
-
-
-
-<!-- dashboard_index GET    /dashboard(.:format)     dashboard#index -->
-
-<!-- t.string "title"
-    t.string "company"
-    t.string "location"
-    t.text "description" -->
