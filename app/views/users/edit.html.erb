@@ -1,2 +1,22 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <h1>Hi <%= current_user.first_name%> <%= current_user.last_name %></h1>
+  <div class="container">
+    <%= simple_form_for current_user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name%>
+    <%= f.input :location %>
+    <%= f.input :resume_file_path %>
+
+    <% current_user.skill_list.each do |skill| %>
+
+      <%= f.input :skill_list %>
+      <% end %>
+
+    <% current_user.value_list.each do |skill| %>
+      <%= f.input :values %>
+      <% end %>
+    <%= f.button :submit %>
+  <% end %>
+
+  </div>
+</div>
