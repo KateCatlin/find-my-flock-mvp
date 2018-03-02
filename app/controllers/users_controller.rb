@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+
   before_action :set_collections, only: [:new]
-  before_action :set_user, only: [:show, :edit, :destroy, :edit_skills, :edit_skills_return]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(set_user)
       redirect_to user_path(@user)
     else
     end
