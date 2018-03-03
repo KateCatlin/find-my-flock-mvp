@@ -1,24 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
 require 'pry'
 
 Favorite.destroy_all
-User.destroy_all
-Job.destroy_all
+puts "Destroyed favorites"
 Application.destroy_all
+puts "Destroyed applications"
+User.destroy_all
+puts "Destroyed users"
+Job.destroy_all
+puts "Destroyed jobs"
 
 
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
 
-100.times do |job|
+3000.times do |job|
   puts "creating job"
   job = Job.new(
     title: Faker::Job.title,
@@ -27,19 +23,25 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     Oh. You need a little dummy text for your mockup? How quaint.
     I bet you’re still using Bootstrap too…",
     location: Faker::Address.city,
-  )
+    )
+  job.save
 
-   job.save
-
-
-  5.times do |i|
-    job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
-    job.save
+  3.times do |i|
     job.salary_list.add(Job::SALARIES.sample)
     job.save
   end
 
-  18.times do |i|
+  2.times do |i|
+    job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
+    job.save
+  end
+
+  job.value_list.add("30+ Days Parental Leave")
+  job.value_list.add("401(k)")
+  job.value_list.add("80\%+ Covered Health Insurance")
+  job.value_list.add("Dental Insurance")
+
+  8.times do |i|
     job.value_list.add(Job::VALUES.sample)
     job.save
   end
@@ -52,7 +54,7 @@ end
   Registration.create(
     email: Faker::Internet.email,
     password: Faker::Internet.password(8)
-  )
+    )
 end
 
 i= 1
@@ -75,6 +77,7 @@ i= 1
     user.salary_list.add(User::SALARIES.sample)
     user.save
   end
+  user.save_skills(user.skill_list)
   i += 1
   user.save!
 end

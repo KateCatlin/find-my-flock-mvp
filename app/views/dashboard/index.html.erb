@@ -24,8 +24,9 @@
   <div id="job-list" class="job-listings">
     <h2>Jobs</h2>
 
+    <% if !@my_matched_jobs.empty? %>
     <div class="card-deck">
-      <% @jobs.each do |job| %>
+      <% @my_matched_jobs.each do |job| %>
       <%= link_to job_path(job) do %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card text-center">
@@ -56,13 +57,15 @@
           </div>
         </div>
       </div>
-    <% end %>
-    <% end %>
+      <% end %>
+      <% end %>
     </div>
+    <% else %>
+    <p> Great! Thanks for the info! We'll be back in touch if any jobs come up matching your profile. Feel free to go home and relax. </p>
+    <% end %>
   </div>
 
-
-<div id="favorite-list" class="job-listings" hidden>
+  <div id="favorite-list" class="job-listings" hidden>
     <h2>Favorites</h2>
 
     <div class="card-deck">
@@ -98,8 +101,8 @@
           </div>
         </div>
       </div>
-    <% end %>
-    <% end %>
+      <% end %>
+      <% end %>
     </div>
   </div>
 
@@ -140,8 +143,8 @@
           </div>
         </div>
       </div>
-    <% end %>
-    <% end %>
+      <% end %>
+      <% end %>
     </div>
   </div>
 
