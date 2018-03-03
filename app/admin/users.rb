@@ -1,8 +1,8 @@
-ActiveAdmin.register Job do
+ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :location, :company, :description, :job
+permit_params :first_name, :last_name, :location, :resume_file_path, :photo, :user
 #
 # or
 #
