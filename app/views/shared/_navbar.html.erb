@@ -9,10 +9,12 @@
     </div>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav">
+      <% if current_user %>
         <%= link_to "My Profile", user_path(current_user), class: "nav-item nav-link" %>
         <%= link_to "Dashboard", dashboard_index_path, class: "nav-item nav-link" %>
         <%= link_to "Log Out", destroy_registration_session_path(@registration), method: :delete, class: "nav-item nav-link" %>
-      </li>
+      <% else %>
+      <% end %>
     </ul>
   </div>
 </nav>
