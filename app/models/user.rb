@@ -3,8 +3,8 @@ class User < ApplicationRecord
   mount_uploader :resume_file_path, PdfUploader
 
   belongs_to :registration
-  has_many :applications
-  has_many :favorites
+  has_many :applications, :dependent => :destroy
+  has_many :favorites, :dependent => :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
