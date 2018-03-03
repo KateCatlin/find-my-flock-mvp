@@ -2,9 +2,13 @@ require 'faker'
 require 'pry'
 
 Favorite.destroy_all
-User.destroy_all
-Job.destroy_all
+puts "Destroyed favorites"
 Application.destroy_all
+puts "Destroyed applications"
+User.destroy_all
+puts "Destroyed users"
+Job.destroy_all
+puts "Destroyed jobs"
 
 
 puts "Drop it like it's Seed, drop it likes it's Seed.."
@@ -19,8 +23,8 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     Oh. You need a little dummy text for your mockup? How quaint.
     I bet you’re still using Bootstrap too…",
     location: Faker::Address.city,
-  )
-   job.save
+    )
+  job.save
 
   3.times do |i|
     job.salary_list.add(Job::SALARIES.sample)
@@ -32,7 +36,12 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     job.save
   end
 
-  12.times do |i|
+  job.value_list.add("30+ Days Parental Leave")
+  job.value_list.add("401(k)")
+  job.value_list.add("80\%+ Covered Health Insurance")
+  job.value_list.add("Dental Insurance")
+
+  8.times do |i|
     job.value_list.add(Job::VALUES.sample)
     job.save
   end
@@ -45,7 +54,7 @@ end
   Registration.create(
     email: Faker::Internet.email,
     password: Faker::Internet.password(8)
-  )
+    )
 end
 
 i= 1
