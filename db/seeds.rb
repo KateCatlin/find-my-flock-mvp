@@ -10,7 +10,7 @@ Application.destroy_all
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
 
-1000.times do |job|
+3000.times do |job|
   puts "creating job"
   job = Job.new(
     title: Faker::Job.title,
@@ -27,7 +27,7 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     job.save
   end
 
-  3.times do |i|
+  2.times do |i|
     job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
     job.save
   end

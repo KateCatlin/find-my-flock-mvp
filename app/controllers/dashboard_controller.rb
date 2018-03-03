@@ -22,21 +22,3 @@ class DashboardController < ApplicationController
     return skill_matched_jobs
   end
 end
-
-
-    # skill_matched_jobs = []
-    # value_matched_jobs.each do |job|
-    # binding.pry
-    #   if (job.skill_list - current_user.skill_list).empty?
-    #     skill_matched_jobs << job
-    #     binding.pry
-    #   end
-    #   return skill_matched_jobs
-    # end
-
-
-    # value_matched_jobs.each do |job|
-    #   if User.tagged_with(job.skill_list).include?(current_user)
-    #     skill_matched_jobs << job
-    #   end
-    # end
