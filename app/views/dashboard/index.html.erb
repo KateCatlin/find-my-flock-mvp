@@ -1,7 +1,8 @@
-<%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
 <body id="dashboard-body">
   <div class="dashboard-header">
     <h1>Dashboard</h1>
+
+<%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
   </div>
 
   <div class="tabs">
@@ -35,7 +36,7 @@
             <% if job.favorited?(current_user) %>
 
             <ul class="list-inline">
-              <%= link_to favorite_path(job.favorite_by(current_user)), method: :delete do %>
+              <%= link_to favorite_path(job.favorite_by(current_user)), remote: true, method: :delete do %>
               <li class="card-text saveme">Delete me! </li>
               <li><i class="fas fa-heart unfav">  </i></li>
               <% end %>
@@ -43,7 +44,7 @@
 
             <% else %>
             <ul class="list-inline">
-              <%= link_to job_favorites_path(job), method: :create do %>
+              <%= link_to job_favorites_path(job), remote: true, method: :create do %>
               <li class="card-text saveme">Save me! </li>
               <li><i class="fas fa-heart fav"> </i></li>
               <% end %>

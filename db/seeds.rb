@@ -64,6 +64,7 @@ i= 1
     location: Faker::Address.city,
     resume_file_path: Faker::File.mime_type,
     registration_id: Registration.find(i).id
+
     )
   user.save
   5.times do |i|

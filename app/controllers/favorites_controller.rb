@@ -9,7 +9,6 @@ class FavoritesController < ApplicationController
     end
   end
 
-
   def destroy
     @favorite = Favorite.find(params[:id])
     @favorite.user = current_user
@@ -21,3 +20,5 @@ class FavoritesController < ApplicationController
   end
 
 end
+
+
