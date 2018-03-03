@@ -1,4 +1,5 @@
 <h1>Dashboard#index</h1>
+<%= link_to 'View My Profile', user_path(current_user), class: 'btn' %>
 
 <div class="tabs">
   <ul class="list-inline">
@@ -8,7 +9,7 @@
     <a href="#" class="select-tab" data-target="favorite-list">
       <li>Favorites</li>
     </a>
-     <a href="#" class="select-tab" data-target="applied-list">
+    <a href="#" class="select-tab" data-target="applied-list">
       <li>Applied</li>
     </a>
   </ul>
@@ -16,52 +17,84 @@
 
 <div id="job-list" class="job-listings">
   <h1>Jobs</h1>
-  <% @jobs.each do |job| %>
+
+  <div class="card-deck">
+    <% @jobs.each do |job| %>
     <%= link_to job_path(job) do %>
-      <h3><%= job.title %></h3>
-      <h3><%= job.company %></h3>
-      <p><%= job.location %></p>
-      <% if job.favorited?(current_user) %>
-        <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
-      <% else %>
-        <%= link_to "fav", job_favorites_path(job), method: :create %>
-      <% end %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card text-center">
+      <img class="card-img-top" src="../../assets/images/peopleoffice.jpg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title"><%= job.title %></h4>
+        <p class="card-text"><%= job.company %></p>
+        <p class="card-text"><p><%= job.location %></p>
+        <% if job.favorited?(current_user) %>
+        <p class="card-text"><%= link_to "unfav", favorite_path(job.favorite_by(current_user)), class: "btn btn-primary", method: :delete %></p>
+        <% else %>
+        <p class="card-text"><%= link_to "fav", job_favorites_path(job), class: "btn btn-primary", method: :create %></p>
+        <% end %>
+      </div>
+    </div>
+      </div>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div id="favorite-list" class="job-listings" hidden>
   <h1>Favorites</h1>
 
-  <% @favorited.each do |job| %>
+  <div class="card-deck">
+
+    <% @favorited.each do |job| %>
     <%= link_to job_path(job) do %>
-      <h3><%= job.title %></h3>
-      <h3><%= job.company %></h3>
-      <p><%= job.location %></p>
-      <% if job.favorited?(current_user) %>
-        <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
-      <% else %>
-        <%= link_to "fav", job_favorites_path(job), method: :create %>
-      <% end %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card text-center">
+      <img class="card-img-top" src="../../assets/images/peopleoffice.jpg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title"><%= job.title %></h4>
+        <p class="card-text"><%= job.company %></p>
+        <p class="card-text"><p><%= job.location %></p>
+        <% if job.favorited?(current_user) %>
+        <p class="card-text"><%= link_to "unfav", favorite_path(job.favorite_by(current_user)), class: "btn btn-primary", method: :delete %></p>
+        <% else %>
+        <p class="card-text"><%= link_to "fav", job_favorites_path(job), class: "btn btn-primary", method: :create %></p>
+        <% end %>
+      </div>
+    </div>
+      </div>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
+</div>
+
 </div>
 
 <div id="applied-list" class="job-listings" hidden>
   <h1>Applied</h1>
 
-  <% @applied.each do |job| %>
+  <div class="card-deck">
+
+    <% @applied.each do |job| %>
     <%= link_to job_path(job) do %>
-      <h3><%= job.title %></h3>
-      <h3><%= job.company %></h3>
-      <p><%= job.location %></p>
-      <% if job.favorited?(current_user) %>
-        <%= link_to "unfav", favorite_path(job.favorite_by(current_user)), method: :delete %>
-      <% else %>
-        <%= link_to "fav", job_favorites_path(job), method: :create %>
-      <% end %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card text-center">
+      <img class="card-img-top" src="../../assets/images/peopleoffice.jpg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title"><%= job.title %></h4>
+        <p class="card-text"><%= job.company %></p>
+        <p class="card-text"><p><%= job.location %></p>
+        <% if job.favorited?(current_user) %>
+        <p class="card-text"><%= link_to "unfav", favorite_path(job.favorite_by(current_user)), class: "btn btn-primary", method: :delete %></p>
+        <% else %>
+        <p class="card-text"><%= link_to "fav", job_favorites_path(job), class: "btn btn-primary", method: :create %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <script>

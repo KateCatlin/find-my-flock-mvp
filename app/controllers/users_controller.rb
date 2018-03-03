@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :destroy]
+
+  before_action :set_collections, only: [:new, :edit]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -10,9 +12,12 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    user.registration = current_registration
     if user.save
-      redirect_to dashboard_index_path(user)
+      user.add_tags(params[:tags])
+      redirect_to edit_skills_user_path(user)
     else
+      render plain: "hello guys, I didnt save"
     end
   end
 
@@ -24,7 +29,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user)
+      @user.remove_all_skills
+      @user.add_tags(params[:tags])
+      redirect_to edit_skills_user_path(@user)
     else
     end
   end
@@ -40,4 +47,28 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+  def edit_skills
+    @skills_numeric_hash = @user.return_skills_hash
+  end
+
+  def edit_skills_return
+    @user.remove_all_skills
+    params.each do |key, value|
+      if key.start_with?('skills')
+        @user.skill_list.add(value)
+        @user.save
+      end
+    end
+    redirect_to dashboard_index_path(@user)
+  end
+
+  private
+
+  def set_collections
+    @skills = User::SKILLS
+    @values = User::VALUES
+    @salaries = User::SALARIES
+  end
+
 end
