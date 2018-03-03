@@ -1,7 +1,10 @@
-<%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
 <body id="dashboard-body">
   <div class="dashboard-header">
     <h1>Dashboard</h1>
+
+  <div id="dashboard-photo">
+  <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
+    </div>
   </div>
 
   <div class="tabs">
@@ -32,24 +35,25 @@
             <h4 class="card-title"><%= job.title %></h4>
             <p class="card-text company"><%= job.company %></p>
             <p class="card-text"><p><%= job.location %></p>
+            <div data-job-id='<%= job.id %>'>
+              <% if favorite = job.user_favorite(current_user) %>
 
-            <% if job.favorited?(current_user) %>
+              <ul class="list-inline">
+                <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
+                <li class="card-text saveme">Delete me! </li>
+                <li><i class="fas fa-heart unfav">  </i></li>
+                <% end %>
+              </ul>
 
-            <ul class="list-inline">
-              <%= link_to favorite_path(job.favorite_by(current_user)), method: :delete do %>
-              <li class="card-text saveme">Delete me! </li>
-              <li><i class="fas fa-heart unfav">  </i></li>
+              <% else %>
+              <ul class="list-inline">
+                <%= link_to job_favorites_path(job), remote: true, method: :post do %>
+                <li class="card-text saveme">Save me! </li>
+                <li><i class="fas fa-heart fav"> </i></li>
+                <% end %>
+              </ul>
               <% end %>
-            </ul>
-
-            <% else %>
-            <ul class="list-inline">
-              <%= link_to job_favorites_path(job), method: :create do %>
-              <li class="card-text saveme">Save me! </li>
-              <li><i class="fas fa-heart fav"> </i></li>
-              <% end %>
-            </ul>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -75,23 +79,25 @@
             <p class="card-text company"><%= job.company %></p>
             <p class="card-text"><p><%= job.location %></p>
 
-            <% if job.favorited?(current_user) %>
+            <div data-job-id='<%= job.id %>'>
+              <% if favorite = job.user_favorite(current_user) %>
 
-            <ul class="list-inline">
-              <%= link_to favorite_path(job.favorite_by(current_user)), method: :delete do %>
-              <li class="card-text saveme">Delete me! </li>
-              <li><i class="fas fa-heart unfav">  </i></li>
-              <% end %>
-            </ul>
+              <ul class="list-inline">
+                <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
+                <li class="card-text saveme">Delete me! </li>
+                <li><i class="fas fa-heart unfav">  </i></li>
+                <% end %>
+              </ul>
 
-            <% else %>
-            <ul class="list-inline">
-              <%= link_to job_favorites_path(job), method: :create do %>
-              <li class="card-text saveme">Save me! </li>
-              <li><i class="fas fa-heart fav"> </i></li>
+              <% else %>
+              <ul class="list-inline">
+                <%= link_to job_favorites_path(job), remote: true, method: :post do %>
+                <li class="card-text saveme">Save me! </li>
+                <li><i class="fas fa-heart fav"> </i></li>
+                <% end %>
+              </ul>
               <% end %>
-            </ul>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -115,23 +121,25 @@
             <p class="card-text company"><%= job.company %></p>
             <p class="card-text"><p><%= job.location %></p>
 
-            <% if job.favorited?(current_user) %>
+           <div data-job-id='<%= job.id %>'>
+              <% if favorite = job.user_favorite(current_user) %>
 
-            <ul class="list-inline">
-              <%= link_to favorite_path(job.favorite_by(current_user)), method: :delete do %>
-              <li class="card-text saveme">Delete me! </li>
-              <li><i class="fas fa-heart unfav">  </i></li>
-              <% end %>
-            </ul>
+              <ul class="list-inline">
+                <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
+                <li class="card-text saveme">Delete me! </li>
+                <li><i class="fas fa-heart unfav">  </i></li>
+                <% end %>
+              </ul>
 
-            <% else %>
-            <ul class="list-inline">
-              <%= link_to job_favorites_path(job), method: :create do %>
-              <li class="card-text saveme">Save me! </li>
-              <li><i class="fas fa-heart fav"> </i></li>
+              <% else %>
+              <ul class="list-inline">
+                <%= link_to job_favorites_path(job), remote: true, method: :post do %>
+                <li class="card-text saveme">Save me! </li>
+                <li><i class="fas fa-heart fav"> </i></li>
+                <% end %>
+              </ul>
               <% end %>
-            </ul>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -139,6 +147,7 @@
       <% end %>
     </div>
   </div>
+
   <script>
     const tabs = document.querySelectorAll(".select-tab")
     const lists = document.querySelectorAll(".job-listings")
