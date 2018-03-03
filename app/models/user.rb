@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
+  mount_uploader :resume_file_path, PdfUploader
+
   belongs_to :registration
   has_many :applications
   has_many :favorites

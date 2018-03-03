@@ -9,7 +9,9 @@
         <%= f.input :first_name %>
         <%= f.input :last_name %>
         <%= f.input :location %>
-        <%= f.input :resume_file_path %>
+        <%= f.input :resume_file_path, label: "Upload your profile image" %>
+        <%= f.input :resume_file_path_cache, as: :hidden %>
+
         <%= f.input :photo, label: "Upload your profile image" %>
         <%= f.input :photo_cache, as: :hidden %>
 
