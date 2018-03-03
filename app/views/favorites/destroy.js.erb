@@ -1,0 +1,6 @@
+function refreshFavorite() {
+  let favorite = document.querySelector("[data-job-id='<%= @job.id %>']")
+  favorite.innerHTML = "<%= j render 'show', job: @job, favorite: false %>"
+}
+
+refreshFavorite();
