@@ -10,4 +10,7 @@
   <p>pending</p>
   <% else %>
   <%= link_to 'Apply', job_applications_path(@job), method: :create %>
+  <%= link_to 'Back', dashboard_index_path(@job), method: :create %>
+
+
   <% end %>
