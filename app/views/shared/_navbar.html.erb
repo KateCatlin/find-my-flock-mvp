@@ -14,6 +14,8 @@
         <%= link_to "Dashboard", dashboard_index_path, class: "nav-item nav-link" %>
         <%= link_to "Log Out", destroy_registration_session_path(@registration), method: :delete, class: "nav-item nav-link" %>
       <% else %>
+        <%= link_to "Log In", new_registration_session_path, class: "nav-item nav-link" %>
+        <%= link_to "Sign In", new_registration_registration_path, class: "nav-item nav-link" %>
       <% end %>
     </ul>
   </div>
