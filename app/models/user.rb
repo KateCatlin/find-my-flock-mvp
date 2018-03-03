@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :registration
   has_many :applications
   has_many :favorites
