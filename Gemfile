@@ -21,6 +21,7 @@ gem 'activeadmin'
 gem 'jquery-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'figaro'
 
 
 group :development do
