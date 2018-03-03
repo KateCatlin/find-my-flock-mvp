@@ -1,6 +1,4 @@
 <body id="dashboard-body">
-
-
   <div class="dashboard-header">
     <h1>Dashboard</h1>
   </div>
@@ -137,17 +135,16 @@
     <% end %>
     </div>
   </div>
-
-<script>
-  const tabs = document.querySelectorAll(".select-tab")
-  const lists = document.querySelectorAll(".job-listings")
-  tabs.forEach(function(tab) {
-    tab.addEventListener("click", function(event) {
-      let target = tab.getAttribute("data-target");
-      let toActivateTab = document.getElementById(target);
-      lists.forEach(list => list.hidden = true);
-      toActivateTab.hidden = false
+  <script>
+    const tabs = document.querySelectorAll(".select-tab")
+    const lists = document.querySelectorAll(".job-listings")
+    tabs.forEach(function(tab) {
+      tab.addEventListener("click", function(event) {
+        let target = tab.getAttribute("data-target");
+        let toActivateTab = document.getElementById(target);
+        lists.forEach(list => list.hidden = true);
+        toActivateTab.hidden = false
+      })
     })
-  })
-</script>
+  </script>
 </body>

@@ -9,15 +9,16 @@
 require 'faker'
 require 'pry'
 
+Favorite.destroy_all
 User.destroy_all
 Job.destroy_all
 Application.destroy_all
-Favorite.destroy_all
+
 
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
 
-10.times do |job|
+100.times do |job|
   puts "creating job"
   job = Job.new(
     title: Faker::Job.title,
@@ -34,10 +35,15 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
   5.times do |i|
     job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
     job.save
+    job.salary_list.add(Job::SALARIES.sample)
+    job.save
+  end
+
+  18.times do |i|
     job.value_list.add(Job::VALUES.sample)
     job.save
   end
-  job.salary_list.add(Job::SALARIES.sample)
+
   job.save!
 end
 
@@ -76,3 +82,4 @@ end
 
 
 
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

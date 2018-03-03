@@ -29,7 +29,6 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      @user.remove_all_skills
       @user.add_tags(params[:tags])
       redirect_to edit_skills_user_path(@user)
     else
@@ -53,13 +52,13 @@ class UsersController < ApplicationController
   end
 
   def edit_skills_return
-    @user.remove_all_skills
+    skills_to_add = []
     params.each do |key, value|
       if key.start_with?('skills')
-        @user.skill_list.add(value)
-        @user.save
+        skills_to_add << value
       end
     end
+    @user.save_skills(skills_to_add)
     redirect_to dashboard_index_path(@user)
   end
 
