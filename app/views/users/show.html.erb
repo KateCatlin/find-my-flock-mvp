@@ -20,13 +20,8 @@
   </div>
   <div>
     <h5>Your CV:</h5>
-    <% if current_user.resume_file_path %>
-      <%= current_user.resume_file_path %>
-      <% else %>
-       <%= image_tag "https://i.pinimg.com/originals/38/ff/fa/38fffa2d45ae50a492bcb9c0584f0d19.jpg", height: 300, width: 400, crop: :fill  %>
-    <% end %>
+    <%= cl_image_tag(current_user.resume_file_path, :density => 50, :format => :png) %>
   </div>
-    <%= image_tag "https://i.pinimg.com/originals/38/ff/fa/38fffa2d45ae50a492bcb9c0584f0d19.jpg", height: 300, width: 400, crop: :fill  %>
 </div>
 
 

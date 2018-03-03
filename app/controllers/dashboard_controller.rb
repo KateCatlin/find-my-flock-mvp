@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
     @applied = current_user.applications.map(&:job)
   end
 
+
   def matched_jobs
     value_matched_jobs = Job.tagged_with(current_user.value_list, :on => :values)
     skill_matched_jobs = []

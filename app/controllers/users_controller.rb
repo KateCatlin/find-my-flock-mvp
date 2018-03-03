@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       user.add_tags(params[:tags])
       redirect_to edit_skills_user_path(user)
     else
-      render plain: "hello all, I didnt save"
+      render plain: "hello guys, I didnt save"
     end
   end
 
@@ -29,7 +29,6 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      # @user.remove_all_skills
       @user.add_tags(params[:tags])
       redirect_to edit_skills_user_path(@user)
     else
@@ -41,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path)
+    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo)
   end
 
   def set_user

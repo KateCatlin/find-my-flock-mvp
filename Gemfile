@@ -18,7 +18,12 @@ gem 'webpacker'
 gem 'devise'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem 'faker'
+gem 'activeadmin'
 gem 'jquery-rails'
+gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

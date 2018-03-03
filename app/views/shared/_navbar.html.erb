@@ -1,0 +1,17 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-logo mr-auto">
+   <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "flock_logo.png", height: 50 %>
+    <% end %>
+    </div>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav">
+        <%= link_to "My Profile", user_path(current_user), class: "nav-item nav-link" %>
+        <%= link_to "Dashboard", dashboard_index_path, class: "nav-item nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>

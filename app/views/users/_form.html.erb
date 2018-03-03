@@ -9,7 +9,11 @@
         <%= f.input :first_name %>
         <%= f.input :last_name %>
         <%= f.input :location %>
-        <%= f.input :resume_file_path %>
+        <%= f.input :resume_file_path, label: "Upload your Resume" %>
+        <%= f.input :resume_file_path_cache, as: :hidden %>
+
+        <%= f.input :photo, label: "Upload your profile image" %>
+        <%= f.input :photo_cache, as: :hidden %>
 
         <div class="form-inputs">
           <h1> What skills do you bring to the table? </h1>
@@ -24,6 +28,7 @@
           <%= f.button :submit,  'Submit', class: 'btn btn-treehouse'%>
           <% end %>
         </div>
+
 
 
 
@@ -60,6 +65,5 @@
     </div>
   </div>
 </div>
-
-</body>
+  </body>
 </html>
