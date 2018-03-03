@@ -15,12 +15,21 @@ class User < ApplicationRecord
   def add_tags(tags)
     self.salary_list = tags["salaries"].compact
     self.save!
-    save_skills(tags["skills"])
     self.value_list = tags["values"]
     self.save!
+    save_skills(tags["skills"])
   end
 
   def save_skills(skills)
+    skills.each do |skill|
+      i = skill.slice(-1).to_i
+      temp_skill = skill
+      while i > 1 do
+        temp_skill = "#{skill.chop}#{(i-1).to_s}"
+        skills << temp_skill
+        i -= 1
+      end
+    end
     self.skill_list = skills
     self.save!
   end
@@ -34,7 +43,7 @@ class User < ApplicationRecord
     skills_hash = {}
     self.skill_list.each do |skill|
       if skill =~ /\d/
-        skills_hash[skill[0...-1].parameterize.underscore.to_sym] = skill.slice(-1).to_i
+        skills_hash[skill.chop.parameterize.underscore.to_sym] = skill.slice(-1).to_i
       else
         skills_hash[skill.parameterize.underscore.to_sym] = 1
       end
@@ -43,7 +52,6 @@ class User < ApplicationRecord
   end
 
 end
-
 
 
 

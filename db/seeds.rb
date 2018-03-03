@@ -31,6 +31,7 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
 
    job.save
 
+
   5.times do |i|
     job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
     job.save
