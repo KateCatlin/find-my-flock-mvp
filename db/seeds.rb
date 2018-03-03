@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
 require 'pry'
 
@@ -18,7 +10,7 @@ Application.destroy_all
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
 
-100.times do |job|
+1000.times do |job|
   puts "creating job"
   job = Job.new(
     title: Faker::Job.title,
@@ -28,17 +20,19 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     I bet you’re still using Bootstrap too…",
     location: Faker::Address.city,
   )
-
    job.save
 
-  5.times do |i|
-    job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
-    job.save
+  3.times do |i|
     job.salary_list.add(Job::SALARIES.sample)
     job.save
   end
 
-  18.times do |i|
+  3.times do |i|
+    job.skill_list.add(Job::SKILLS.sample+"#{rand(1..5)}")
+    job.save
+  end
+
+  12.times do |i|
     job.value_list.add(Job::VALUES.sample)
     job.save
   end
@@ -73,6 +67,7 @@ i= 1
     user.salary_list.add(User::SALARIES.sample)
     user.save
   end
+  user.save_skills(user.skill_list)
   i += 1
   user.save!
 end

@@ -17,7 +17,7 @@
 
 <div id="job-list" class="job-listings">
   <h1>Jobs</h1>
-  <% if !@my_matched_jobs.nil? %>
+  <% if !@my_matched_jobs.empty? %>
     <% @my_matched_jobs.each do |job| %>
     <%= link_to job_path(job) do %>
     <h3><%= job.title %></h3>
