@@ -14,7 +14,7 @@ class Registration < ApplicationRecord
      if registered_registration
        return registered_registration
      else
-       registration = Registration.create(name:auth.info.first_name, provider:auth.provider, uid:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20],
+       registration = Registration.create(provider:auth.provider, uid:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20],
          )
      end
    end
