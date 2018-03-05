@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :registrations
+  devise_for :registrations, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   root to: 'pages#home'
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :applications, only: [:create]
   end
 
-resources :favorites, only: [:destroy]
+  resources :favorites, only: [:destroy]
 
   resources :applications, only: [:update, :destroy] do
     member do
