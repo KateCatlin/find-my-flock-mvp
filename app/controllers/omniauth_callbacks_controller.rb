@@ -7,7 +7,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
      sign_in_and_redirect @registration, :event => :authentication
    else
      session["devise.linkedin_uid"] = request.env["omniauth.auth"]
-     redirect_to new_user_path(@user)
+     redirect_to new_registration_registration_url
    end
  end
+
+ def after_sign_up_path_for(resource)
+  new_user_path(@user)
+end
 end
