@@ -1,10 +1,14 @@
 class DashboardController < ApplicationController
 
   def index
-    @jobs = Job.all
-    @my_matched_jobs = matched_jobs
-    @favorited = current_user.favorites.map(&:job)
-    @applied = current_user.applications.map(&:job)
+    if current_user.nil?
+      redirect_to new_user_path
+    else
+      @jobs = Job.all
+      @my_matched_jobs = matched_jobs
+      @favorited = current_user.favorites.map(&:job)
+      @applied = current_user.applications.map(&:job)
+    end
   end
 
 
