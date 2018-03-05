@@ -5,6 +5,8 @@
     <div id="home-title">Find my Flock</div>
 
     <% if registration_signed_in? %>
+  <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-secondary login-home" %>
+  <%= link_to "Dashboard", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
   <%= link_to "Log out", destroy_registration_session_path,:method => :delete, class: "btn btn-outline-secondary login-home" %>
   <% else %>
   <%= link_to "Sign in", new_registration_session_path, class: "btn btn-outline-secondary login-home" %>
