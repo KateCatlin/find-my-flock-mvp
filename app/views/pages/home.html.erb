@@ -1,9 +1,7 @@
 <body>
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0, 145, 168, 0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/7095/people-coffee-notes-tea.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
-
     <div class="banner-nav">
       <div id="home-title">Find my Flock</div>
-
       <% if registration_signed_in? %>
       <% if current_user  %>
       <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-secondary login-home" %>
@@ -16,11 +14,9 @@
       <%= link_to "Sign in", new_registration_session_path, class: "btn btn-outline-secondary login-home" %>
       <% end %>
     </div>
-
     <div class="banner-content">
       <!--     <div id="loginbutton"></div> -->
       <div id="home-subtitle">jobs you want.</div>
-
       <% if registration_signed_in? %>
       <% if current_user  %>
       <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
@@ -30,15 +26,12 @@
       <% else %>
       <%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
       <% end %>
-
     </div>
   </div>
-
   <div class="divider">
     <h2>Jobs Sample</h2>
     <hr>
   </div>
-
   <div class="cards-container card-sample ">
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card card-home text-center ">
@@ -50,7 +43,6 @@
         </div>
       </div>
     </div>
-
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
@@ -61,7 +53,6 @@
         </div>
       </div>
     </div>
-
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
@@ -73,16 +64,12 @@
       </div>
     </div>
   </div>
-
   <h2 class="divider">They trust us</h2>
   <hr>
   <%= image_tag "logos.png", class: "company-logos" %>
-
 </div>
-
 <h2 class="divider">Why joining us?</h2>
 <hr>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4">
@@ -99,7 +86,5 @@
       </dl>
     </div>
   </div>
-
 </div>
-
 </body>
