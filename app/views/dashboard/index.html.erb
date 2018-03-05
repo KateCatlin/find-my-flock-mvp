@@ -2,8 +2,8 @@
   <div class="dashboard-header">
     <h1>Dashboard</h1>
 
-  <div id="dashboard-photo">
-  <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
+    <div id="dashboard-photo">
+      <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
     </div>
   </div>
 
@@ -121,7 +121,7 @@
             <p class="card-text company"><%= job.company %></p>
             <p class="card-text"><p><%= job.location %></p>
 
-           <div data-job-id='<%= job.id %>'>
+            <div data-job-id='<%= job.id %>'>
               <% if favorite = job.user_favorite(current_user) %>
 
               <ul class="list-inline">
@@ -147,6 +147,15 @@
       <% end %>
     </div>
   </div>
+
+  <% if registration_signed_in? %>
+  Signed in as <%= current_user.first_name %> <%= current_user.last_name %>. Not you?
+  <%= link_to "Sign out", destroy_registration_session_path,:method => :delete %>
+  <% else %>
+  <%= link_to "Sign up", new_registration_registration_path %> or
+  <%= link_to "Sign in", new_registration_session_path %>
+  <%= link_to "Sign in with Linkedin",registration_omniauth_authorize_path(:linkedin) %>
+  <% end %>
 
   <script>
     const tabs = document.querySelectorAll(".select-tab")
