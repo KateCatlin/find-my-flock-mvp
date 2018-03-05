@@ -9,10 +9,19 @@
     color: black;
     font-family: 'Montserrat', sans-serif;
   }
-
-
 }
 
+
+  .card-home {
+  width: 25rem;
+  height: 40rem;
+  margin: auto;
+  a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+  }
+  }
 #dashboard-body {
           background-color: white;
 
@@ -36,6 +45,7 @@
 
 .card-title {
   font-size: 25px;
+  line-height: 50px;
 }
 
 .dashboard-header {
@@ -46,3 +56,28 @@
 #dashboard-photo {
   border-radius: 10px;
 }
+
+/////////
+
+.cards-container {
+  position: relative;
+  justify-content: space-around;
+}
+
+.company {
+  font-weight: bolder;
+}
+
+.location {
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+
+.card-sample {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
