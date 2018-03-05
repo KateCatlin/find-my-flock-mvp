@@ -1,6 +1,96 @@
-<h1>Welcome to the best job site ever! </h1>
+<body>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0, 145, 168, 0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/7095/people-coffee-notes-tea.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
 
-<%= link_to 'Create a Profile', new_user_path(@user), class:'btn' %>
+  <div class="banner-nav">
+    <div id="home-title">Find my Flock</div>
 
-<%= link_to 'View My Dasboard', dashboard_index_path, class:'btn' %>
+    <% if registration_signed_in? %>
+  <%= link_to "Log out", destroy_registration_session_path,:method => :delete, class: "btn btn-outline-secondary login-home" %>
+  <% else %>
+  <%= link_to "Sign in", new_registration_session_path, class: "btn btn-outline-secondary login-home" %>
+  <% end %>
+  </div>
 
+  <div class="banner-content">
+<!--     <div id="loginbutton"></div> -->
+    <div id="home-subtitle">jobs you want.</div>
+
+     <% if registration_signed_in? %>
+  <%= link_to "Edit your Profile", user_path(current_user), class: "btn btn-outline-secondary login-home" %>
+  <% else %>
+<%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
+  <% end %>
+
+  </div>
+</div>
+
+
+<div class="divider">
+  <h2>Jobs Sample</h2>
+  <hr>
+</div>
+
+<div class="cards-container card-sample ">
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card card-home text-center ">
+      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+      <div class="card-block">
+        <h4 class="card-title"> Full Stack Dev</h4>
+        <p class="card-text company"> Google </p>
+        <p class="card-text location"> Paris</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card card-home text-center">
+      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+      <div class="card-block">
+        <h4 class="card-title"> DevOps</h4>
+        <p class="card-text company"> Microsoft </p>
+        <p class="card-text location"> Los Angeles</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card card-home text-center">
+      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+      <div class="card-block">
+        <h4 class="card-title"> Data Engineer </h4>
+        <p class="card-text company"> Apple  </p>
+        <p class="card-text location"> Dublin </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <h2 class="divider">They trust us</h2>
+  <hr>
+    <%= image_tag "logos.png", class: "company-logos" %>
+
+</div>
+
+  <h2 class="divider">Why joining us?</h2>
+  <hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4">
+      <img class="img-thumbnail rounded float-left" src="https://i.pinimg.com/564x/9b/ad/5b/9bad5b872ae3d8e6e4cfbfbef8ac8a3f.jpg" style=" height: 300px;">
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-8">
+      <dl>
+        <dt>Import your LinkedIn Profile</dt>
+        <dd>Complete your profile in only a few seconds.</dd>
+        <dt>Unique algorithm to match your ideal job</dt>
+        <dd>Select your skills and values, and match with the jobs meeting your most fundamental criterias.</dd>
+        <dt>Apply in one click</dt>
+        <dd>One click will sent all the information provided by your profile to the recruiter linked to the job. One click is enough!</dd>
+      </dl>
+    </div>
+  </div>
+
+</div>
+
+</body>

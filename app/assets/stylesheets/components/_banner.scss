@@ -1,0 +1,68 @@
+.banner {
+  color: white;
+  text-align: left;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.btn-outline-secondary {
+  display: relative;
+  justify-content: flex-end;
+}
+
+.banner-nav {
+  position: absolute;
+  top: 0;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.banner-content {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#home-title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  align-items: flex-start;
+
+}
+
+#home-subtitle {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: bolder;
+  padding-top: 120px;
+}
+
+
+
+.btn {
+  .signin-home {
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+}
+
