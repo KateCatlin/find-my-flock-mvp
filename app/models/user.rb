@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :location, presence: true
 
+
   acts_as_taggable_on :skills, :values, :salaries
 
   def add_tags(tags)

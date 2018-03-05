@@ -1,26 +1,48 @@
+
 <div class="container">
-  <h1>Hi <%= current_user.first_name %> <%= current_user.last_name %></h1>
-  <%= link_to 'Edit', edit_user_path(current_user), class:'btn' %>
-  <h5>You are based in <em><%= current_user.location %></em></h5>
 
-  <div>
-    <h5>Your skils are:</h5>
-    <ul>
-    <% current_user.skill_list.each do |skill| %>
-      <li><%= skill.chop %> (Competency: <%= current_user.competency_description(skill.slice(-1).to_i - 1) %>)</li>
-    <% end %>
+ <div class="row justify-content-center">
+    <div class="col-xs-3">
+      <div class="profile-img">
+      <%= image_tag("rahel", class: "avatar") %>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="form-box">
+        <h3>Hi <%= current_user.first_name %> <%= current_user.last_name %></h3>
+        <h5>You are based in <em><%= current_user.location %></em></h5>
+        <p><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn btn-stroke" %></p>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <h5>Your values are:</h5>
-    <ul>
-    <% current_user.value_list.each do |value| %>
-      <li><%= value %></li>
-    <% end %>
-  </div>
-  <div>
-    <h5>Your CV:</h5>
-    <%= cl_image_tag(current_user.resume_file_path, :density => 50, :format => :png) %>
+  <div class="row justify-content-center">
+    <div class="col-xs-9">
+
+
+      <div class="form-box">
+        <h3>Your skills</h3>
+        <ul>
+        <% current_user.skill_list.each do |skill| %>
+          <li><%= skill.chop %> (Competency: <%= current_user.competency_description(skill.slice(-1).to_i - 1) %>)</li>
+        <% end %>
+      </div>
+
+
+      <div class="form-box">
+        <h3>Your values</h3>
+        <ul>
+        <% current_user.value_list.each do |value| %>
+          <li><%= value %></li>
+        <% end %>
+        </ul>
+      </div>
+
+      <div class="form-box justify-content-center">
+        <h3>Your CV</h3>
+          <%= cl_image_tag(current_user.resume_file_path, :density => 50, :format => :png, width: 650, :crop => :fill) %>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -1,0 +1,14 @@
+.btn-stroke {
+  border: 1px solid $gray;
+  color: $gray;
+  min-width: 150px;
+}
+
+.btn-stroke:hover {
+  background-color: $gray;
+  color: #fff;
+}
+
+.center {
+  margin: auto;
+}
