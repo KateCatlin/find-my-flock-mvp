@@ -56,8 +56,8 @@
             button.addEventListener('click', (e) => {
               e.preventDefault();
       //  REMOVE TAG FROM ARRAY
-      const tag = removeWhiteSpace(button.parentElement.innerText);
-      const index = tagArray.indexOf(tag);
+      var tag = removeWhiteSpace(button.parentElement.innerText);
+      var index = tagArray.indexOf(tag);
       tagArray.splice(index, 1);
       // REMOVE HTML ELEMENT
       button.parentElement.remove();
@@ -67,8 +67,8 @@
           searchButton.addEventListener('click', (e) => {
             e.preventDefault();
     // Grab the value of the search button and emptying.
-    const query_input = document.getElementById('invoice_search_input')
-    const query = removeWhiteSpace(query_input.value.toLowerCase());
+    var query_input = document.getElementById('invoice_search_input')
+    var query = removeWhiteSpace(query_input.value.toLowerCase());
     query_input.value = "";
 
     if (tagArray.includes(query)) {

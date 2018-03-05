@@ -158,8 +158,8 @@
   <% end %>
 
   <script>
-    const tabs = document.querySelectorAll(".select-tab")
-    const lists = document.querySelectorAll(".job-listings")
+    var tabs = document.querySelectorAll(".select-tab")
+    var lists = document.querySelectorAll(".job-listings")
     tabs.forEach(function(tab) {
       tab.addEventListener("click", function(event) {
         var target = tab.getAttribute("data-target");
