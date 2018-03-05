@@ -16,7 +16,11 @@
       <div id="home-subtitle">jobs you want.</div>
 
       <% if registration_signed_in? %>
-      <%# link_to "Edit your Profile", user_path(current_user), class: "btn btn-outline-secondary login-home" %>
+      <% if current_user  %>
+      <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
+      <% else %>
+      <%= link_to "Create Your Profile", new_user_path, class: "btn btn-outline-secondary signin-home" %>
+      <% end %>
       <% else %>
       <%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
       <% end %>
