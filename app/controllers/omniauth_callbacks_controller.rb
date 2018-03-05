@@ -10,4 +10,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
      redirect_to new_registration_registration_url
    end
  end
+
+ def after_sign_up_path_for(resource)
+  new_user_path(@user)
+end
 end
