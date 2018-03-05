@@ -19,4 +19,5 @@ class Registration < ApplicationRecord
      end
    end
  end
+
 end

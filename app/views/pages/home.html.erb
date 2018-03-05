@@ -3,18 +3,30 @@
 
   <div class="banner-nav">
     <div id="home-title">Find my Flock</div>
-    <button type="button" class="btn btn-outline-secondary login-home">Log In</button>
+
+    <% if registration_signed_in? %>
+  <%= link_to "Log out", destroy_registration_session_path,:method => :delete, class: "btn btn-outline-secondary login-home" %>
+  <% else %>
+  <%= link_to "Sign in", new_registration_session_path, class: "btn btn-outline-secondary login-home" %>
+  <% end %>
   </div>
 
   <div class="banner-content">
 <!--     <div id="loginbutton"></div> -->
     <div id="home-subtitle">jobs you want.</div>
-     <%= link_to 'Create a Profile', new_user_path(@user), class: "btn btn-outline-secondary signin-home" %>
+
+     <% if registration_signed_in? %>
+  <%= link_to "Edit your Profile", user_path(current_user), class: "btn btn-outline-secondary login-home" %>
+  <% else %>
+<%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
+  <% end %>
+
   </div>
 </div>
 
+
 <div class="divider">
-  <h2>Job Samples</h2>
+  <h2>Jobs Sample</h2>
   <hr>
 </div>
 
