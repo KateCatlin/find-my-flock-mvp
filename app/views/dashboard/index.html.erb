@@ -162,8 +162,8 @@
     const lists = document.querySelectorAll(".job-listings")
     tabs.forEach(function(tab) {
       tab.addEventListener("click", function(event) {
-        let target = tab.getAttribute("data-target");
-        let toActivateTab = document.getElementById(target);
+        var target = tab.getAttribute("data-target");
+        var toActivateTab = document.getElementById(target);
         lists.forEach(list => list.hidden = true);
         toActivateTab.hidden = false
       })
