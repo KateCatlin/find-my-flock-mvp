@@ -8,15 +8,12 @@ class Registration < ApplicationRecord
   def self.connect_to_linkedin(auth, signed_in_resource=nil)
     registration = Registration.where(:provider => auth.provider, :uid => auth.uid).first
     if registration
-     binding.pry
      return registration
    else
      registered_registration = Registration.where(:email => auth.info.email).first
      if registered_registration
-      binding.pry
       return registered_registration
     else
-      binding.pry
       registration = Registration.create(provider:auth.provider, uid:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20])
       image_url = auth.extra.raw_info.pictureUrl rescue nil
       user = User.where(email: auth.info.email).first rescue nil
