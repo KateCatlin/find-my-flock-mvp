@@ -9,3 +9,14 @@
 .cv-box {
   max-width: 100%;
 }
+
+a.nav-link {
+   color: $gray;
+
+  &:hover {
+    color: $orange;
+  }
+  &:visited {
+    color: black;
+  }
+}
