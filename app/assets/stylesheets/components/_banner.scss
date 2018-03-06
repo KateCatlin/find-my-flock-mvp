@@ -1,9 +1,28 @@
 .banner {
-  color: white;
-  text-align: left;
-  height: 100vh;
+  display: flex;
+  height: calc(100vh - 15vh);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-  position: relative;
-  margin-bottom: 50px;
+  align-items: center;
+  justify-content: center;
 }
+
+.headline {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.secondline {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+.underlined {
+  border-bottom: 1px solid #afafaf;
+  padding-bottom: 10px;
+
+}
+ .home-list {
+  text-align: center;
+ }
