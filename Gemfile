@@ -24,14 +24,15 @@ gem 'carrierwave', '~> 1.2'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-linkedin'
+gem 'pry-byebug'
+gem 'pry-rails'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
 group :development, :test do
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
