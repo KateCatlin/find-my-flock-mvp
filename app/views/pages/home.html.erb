@@ -1,5 +1,6 @@
 <body>
   <div class="banner">
+
       <% if registration_signed_in? %>
         <% if current_user  %>
         <ul class="container">
@@ -18,7 +19,7 @@
     </div>
     <div class="banner-content">
       <!--     <div id="loginbutton"></div> -->
-      <div id="home-subtitle">Jobs you want.</div>
+      <div id="home-subtitle">Jobs you <em>want</em>.</div>
       <% if registration_signed_in? %>
       <% if current_user  %>
       <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
