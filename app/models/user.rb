@@ -6,9 +6,9 @@ class User < ApplicationRecord
   has_many :applications, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :location, presence: true
+  validates :first_name, presence: true, on: :update
+  validates :last_name, presence: true, on: :update
+  validates :location, presence: true, on: :update
 
 
   acts_as_taggable_on :skills, :values, :salaries
