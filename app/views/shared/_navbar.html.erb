@@ -1,13 +1,13 @@
     <% if current_user %>
-    <ul class="container">
-      <li id="logo">Find my Flock</li>
-      <li id="nav-right"> <%= link_to "My Profile", user_path(current_user) %></li>
-      <li id="nav-right"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <ul class="container navbar-container">
+      <li id="nav-left"> <%= link_to "Find my Flock", root_path %></li>
+      <li id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
+      <li id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
       <li id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
 
       <% else %>
-      <li id="logo">Find my Flock</li>
-      <li id="nav-right"><%= link_to "Log In", new_registration_session_path %></li>
+      <li id="nav-left">Find my Flock</li>
+      <li id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
       <li id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
       <% end %>
     </ul>
