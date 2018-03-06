@@ -20,3 +20,21 @@ a.nav-link {
     color: black;
   }
 }
+
+.nav-tabs .nav-link:hover {
+  background-color: $gray;
+  color: white;
+}
+
+.nav-tabs .nav-link:active {
+}
+
+.nav-tabs {
+  margin-bottom: -22px;
+}
+
+.nav-tabs {
+  border-bottom: 0px solid #ddd;
+}
+
+
