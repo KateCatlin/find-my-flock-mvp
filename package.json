@@ -2,11 +2,12 @@
   "name": "Find_My_Flock",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.2.2",
+    "@rails/webpacker": "^3.3.0",
     "bootstrap": "3",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
+    "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
   }
 }
