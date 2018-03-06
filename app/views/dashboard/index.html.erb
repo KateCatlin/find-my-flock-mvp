@@ -3,7 +3,7 @@
     <h1>Dashboard</h1>
 
     <div id="dashboard-photo">
-      <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag current_user.photo %>
     </div>
   </div>
 
@@ -159,12 +159,12 @@
   <% end %>
 
   <script>
-    const tabs = document.querySelectorAll(".select-tab")
-    const lists = document.querySelectorAll(".job-listings")
+    var tabs = document.querySelectorAll(".select-tab")
+    var lists = document.querySelectorAll(".job-listings")
     tabs.forEach(function(tab) {
       tab.addEventListener("click", function(event) {
-        let target = tab.getAttribute("data-target");
-        let toActivateTab = document.getElementById(target);
+        var target = tab.getAttribute("data-target");
+        var toActivateTab = document.getElementById(target);
         lists.forEach(list => list.hidden = true);
         toActivateTab.hidden = false
       })
