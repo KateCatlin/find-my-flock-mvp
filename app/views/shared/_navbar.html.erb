@@ -1,24 +1,14 @@
-<nav class="navbar navbar-toggleable-md navbar-trans navbar-light">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="navbar-logo mr-auto">
-   <%= link_to root_path do %>
-    <%= image_tag "flock_logo.png", height: 50 %>
-    <% end %>
-    </div>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav">
-      <% if current_user %>
-      <p><% current_user %></p>
-        <%= link_to "My Profile", user_path(current_user), class: "nav-item nav-link" %>
-        <%= link_to "Dashboard", dashboard_index_path, class: "nav-item nav-link" %>
-        <%= link_to "Log Out", destroy_registration_session_path(@registration), method: :delete, class: "nav-item nav-link" %>
+    <% if current_user %>
+    <ul class="container navbar-container">
+      <li id="nav-left"> <%= link_to "Find my Flock", root_path %></li>
+      <li id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
+      <li id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+      <li id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+
       <% else %>
-        <%= link_to "Log In", new_registration_session_path, class: "nav-item nav-link" %>
-        <%= link_to "Sign Up", new_registration_registration_path, class: "nav-item nav-link" %>
+      <li id="nav-left">Find my Flock</li>
+      <li id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
+      <li id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
       <% end %>
     </ul>
-  </div>
-</nav>
 
