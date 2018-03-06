@@ -8,14 +8,12 @@
   top: 0;
   background-color: white;
   padding: 3%;
+  z-index: 1;
 
   a {
     text-decoration: none;
     color: black;
     letter-spacing: 5px;
-  }
-  a:hover {
-    text-decoration: none;
   }
 }
 
@@ -43,7 +41,6 @@
   font-size: 20px;
   text-transform: uppercase;
   padding: 0;
-  display: block;
   font-weight: bolder;
 }
 
