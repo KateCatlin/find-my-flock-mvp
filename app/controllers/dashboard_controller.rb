@@ -3,6 +3,8 @@ class DashboardController < ApplicationController
   def index
     if current_user.nil?
       redirect_to new_user_path
+    elsif current_user.skills.empty?
+      redirect_to edit_user_path(current_user)
     else
       @jobs = Job.all
       @my_matched_jobs = matched_jobs
