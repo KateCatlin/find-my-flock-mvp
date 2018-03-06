@@ -17,7 +17,16 @@
     </ul>
 
   <div class="banner">
-    <div class="headline">Jobs you <em>want</em>.</div>
+    <ul class="home-list">
+    <div class="headline underlined">Jobs you <em>want</em>.</div>
+
+    <div class="typedjs">
+      <h3>Find the jobs that match your</h3> <div class="secondline"><span id="banner-typed-text"></span></div>
+      </div>
+
+    </ul>
+
+
       <% if registration_signed_in? %>
       <% if current_user %>
       <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
