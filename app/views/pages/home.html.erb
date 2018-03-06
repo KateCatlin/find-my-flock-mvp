@@ -17,23 +17,19 @@
     </ul>
 
   <div class="banner">
-  </div>
-
-  <div class="banner-content">
-    <!--     <div id="loginbutton"></div> -->
-
-    <div id="home-subtitle">Jobs you <em>want</em>.</div>
-    <% if registration_signed_in? %>
-    <% if current_user  %>
-    <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
-    <% else %>
-    <%= link_to "Create Your Profile", new_user_path, class: "btn btn-outline-secondary signin-home" %>
-    <% end %>
-    <% else %>
-    <%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
-    <% end %>
+    <div class="headline">Jobs you <em>want</em>.</div>
+      <% if registration_signed_in? %>
+      <% if current_user %>
+      <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
+      <% else %>
+      <%= link_to "Create Your Profile", new_user_path, class: "btn btn-outline-secondary signin-home" %>
+      <% end %>
+      <% else %>
+      <%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
+      <% end %>
   </div>
 </div>
+
 <div class="divider">
   <h2>Jobs Sample</h2>
   <hr>
