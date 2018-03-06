@@ -5,40 +5,40 @@
       <div class="col-xs-9">
 
         <div class="form-box">
-        <%= simple_form_for(@user) do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :location %>
-        <%= f.input :resume_file_path, label: "Upload your Resume" %>
-        <%= f.input :resume_file_path_cache, as: :hidden , class: "btn-stroke" %>
+          <%= simple_form_for(@user) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :location %>
+          <%= f.input :resume_file_path, label: "Upload your Resume" %>
+          <%= f.input :resume_file_path_cache, as: :hidden , class: "btn-stroke" %>
 
-        <%= f.input :photo, label: "Upload your profile image" %>
-        <%= f.input :photo_cache, as: :hidden %>
-      </div>
-
-      <h1> What skills do you bring to the table? </h1>
-
-      <div class="form-box">
-        <div class="form-inputs">
-          <%= simple_fields_for :tags do |t| %>
-          <%= t.input :skills, collection: @skills, input_html: { class: 'select2', multiple: true, checkbox: true } %>
+          <%= f.input :photo, label: "Upload your profile image" %>
+          <%= f.input :photo_cache, as: :hidden %>
         </div>
-      </div>
+
+        <h1> What skills do you bring to the table? </h1>
+
+        <div class="form-box">
+          <div class="form-inputs">
+            <%= simple_fields_for :tags do |t| %>
+            <%= t.input :skills, collection: @skills, input_html: { class: 'select2', multiple: true, checkbox: true } %>
+          </div>
+        </div>
 
         <h1>Choose what's important in a role: </h1>
         <p>Note: You will ONLY see jobs with these values.</p>
 
-      <div class="form-box">
-        <%= t.input :values, collection: @values, input_html: { class: 'select2', multiple: true } %>
-      </div>
+        <div class="form-box">
+          <%= t.input :values, collection: @values, input_html: { class: 'select2', multiple: true } %>
+        </div>
 
         <h1>Choose salary ranges you would consider: </h1>
 
-      <div class="form-box">
-        <%= t.input :salaries, collection: @salaries, input_html: { class: 'select2', multiple: true } %>
-        <% end %>
-      </div>
+        <div class="form-box">
+          <%= t.input :salaries, collection: @salaries, input_html: { class: 'select2', multiple: true } %>
+          <% end %>
+        </div>
 
 
 
@@ -83,5 +83,5 @@
     </div>
   </div>
 </div>
-  </body>
+</body>
 </html>
