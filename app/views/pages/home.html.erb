@@ -1,22 +1,26 @@
 <body>
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0, 145, 168, 0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/7095/people-coffee-notes-tea.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
-    <div class="banner-nav">
-      <div id="home-title">Find my Flock</div>
+  <div class="banner">
+
       <% if registration_signed_in? %>
-      <% if current_user  %>
-      <%= link_to "My Profile", user_path(current_user), class: "btn btn-outline-secondary login-home" %>
-      <%= link_to "Dashboard", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
-      <%= link_to "Log out", destroy_registration_session_path,:method => :delete, class: "btn btn-outline-secondary login-home" %>
+        <% if current_user  %>
+        <ul class="container">
+          <li id="logo">Find my Flock</li>
+          <li id="nav-right-profile"> <%= link_to "My Profile", user_path(current_user) %></li>
+          <li id="nav-right-dashboard"><%= link_to "Dashboard", dashboard_index_path %></li>
+          <li id="nav-right-logout"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+        </ul>
+
       <% else %>
-      <%= link_to "Create Your Profile", new_user_path, class: "btn btn-outline-secondary signin-home" %>
+      <%= link_to "Create Your Profile", new_user_path %>
       <% end %>
       <% else %>
-      <%= link_to "Sign in", new_registration_session_path, class: "btn btn-outline-secondary login-home" %>
+      <%= link_to "Sign in", new_registration_session_path %>
       <% end %>
     </div>
     <div class="banner-content">
       <!--     <div id="loginbutton"></div> -->
-      <div id="home-subtitle">jobs you want.</div>
+
+      <div id="home-subtitle">Jobs you <em>want</em>.</div>
       <% if registration_signed_in? %>
       <% if current_user  %>
       <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
