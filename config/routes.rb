@@ -12,12 +12,12 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:show] do
     resources :favorites, only: [:create, :destroy]
-    resources :applications, only: [:create]
+    resources :applications, only: [:create, :destroy]
   end
 
   resources :favorites, only: [:destroy]
 
-  resources :applications, only: [:update, :destroy] do
+  resources :applications, only: [:update] do
     member do
       patch 'rejected'
       patch 'in_progress'

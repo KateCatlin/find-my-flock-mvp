@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_action :set_application, except: [:create]
+  before_action :set_application, except: [:create, :destroy]
 
  def create
   application = Application.new(job_id: params[:job_id])
@@ -29,9 +29,15 @@ def update
 end
 
 def destroy
+  @job = Job.find(params[:job_id])
+  @application = Application.find(params[:id])
   @application.destroy
-  redirect_to job_path(@application.job_id)
+  redirect_to job_path(@job)
 end
+
+
+
+private
 
 def application_params
   params.require(:application).permit(:user_id, :job_id)
