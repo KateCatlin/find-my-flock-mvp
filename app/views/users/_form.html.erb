@@ -3,8 +3,8 @@
   <div class="row justify-content-center">
     <div class="col-xs-9">
       <div class = "heading-box">
-        <h2>Hi <%= current_user.first_name  %> ,</h2>
-        <h5>Please tell us a little more about you</h5>
+        <h2>Hi<% if current_user %> <%= current_user.first_name  %>, <% else %>!<% end %></h2>
+        <h5>Please tell us a little more about you.</h5>
       </div>
       <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -37,8 +37,6 @@
             <%= f.error_notification %>
             <%= f.input :first_name %>
             <%= f.input :last_name %>
-            <%= f.input :location %>
-
             <br>
             <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
         </div>
