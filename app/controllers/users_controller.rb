@@ -68,6 +68,7 @@ class UsersController < ApplicationController
     @skills = User::SKILLS
     @values = User::VALUES
     @salaries = User::SALARIES
+    @locations = User::LOCATIONS
   end
 
 end

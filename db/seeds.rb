@@ -12,11 +12,6 @@ puts "Destroyed users"
 Job.destroy_all
 puts "Destroyed jobs"
 
-locations_serialized = open('db/locations.json').read
-locations = JSON.parse(locations_serialized)
-puts "Loaded locations"
-
-
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
 
@@ -82,7 +77,7 @@ i= 1
     user.salary_list.add(User::SALARIES.sample)
     user.save
   end
-  user.save_skills(user.skill_list)
+  user.save_skills(Job::LOCATIONS.sample)
   i += 1
   user.save!
 end
