@@ -32,10 +32,9 @@
 }
 
 #nav-right {
-    font-size: 11px;
-    text-transform: uppercase;
-    padding: 0;
-    display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: block;
 }
 
 // LOGO
@@ -65,9 +64,32 @@ ul {
   // border-bottom: 1px solid black;
   padding-bottom: 5px;
   box-shadow: inset 0px -12px 0px 0px #bfbfbf;
-
 }
 
+
+.sign-up {
+  padding: 10px 15px;
+  border: 1px solid $gray;
+  transition: 0.1s background-color ease-in-out;
+  text-decoration: none;
+  color: black;
+  letter-spacing: 5px;
+}
+
+.sign-up:hover {
+
+  background-color: $light-orange;
+  border: 1px solid $light-orange;
+  text-decoration: none;
+    color: white;
+    letter-spacing: 5px;
+
+a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 5px;
+}
+}
 
 // .navbar-trans {
 //   background: transparent; }

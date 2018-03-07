@@ -3,8 +3,13 @@
   <div class="row justify-content-center">
     <div class="col-xs-9">
       <div class = "heading-box">
+        <% if current_user.nil? %>
+        <h2>Welcome !</h2>
+        <% else %>
         <h2>Hi <%= current_user.first_name  %> ,</h2>
+        <% end %>
         <h5>Please tell us a little more about you</h5>
+
       </div>
       <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
