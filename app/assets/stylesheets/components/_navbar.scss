@@ -15,11 +15,7 @@
     color: black;
     letter-spacing: 5px;
   }
-
 }
-  ul, ol {
-    margin-bottom: 0px;
-  }
 
 // LINKS ON THE RIGHT SIDE
 
@@ -53,21 +49,6 @@ ul {
   padding: 0;
   list-style: none;
   }
-
-.underline a:hover {
-  // border-bottom: 1px solid black;
-  padding-bottom: 5px;
-  box-shadow: inset 0px -12px 0px 0px $light-orange;
-
-}
-
-.underline-logout a:hover {
-  // border-bottom: 1px solid black;
-  padding-bottom: 5px;
-  box-shadow: inset 0px -12px 0px 0px #bfbfbf;
-
-}
-
 
 // .navbar-trans {
 //   background: transparent; }
