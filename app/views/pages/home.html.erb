@@ -1,76 +1,73 @@
 <body>
 
-    <% if registration_signed_in? %>
-      <% if current_user %>
-        <ul class="container navbar-container">
-          <li id="nav-left"> <%= link_to "Find my Flock", root_path %></li>
-          <li class="underline" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
-          <li class="underline" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
-          <li class="underline" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+  <% if registration_signed_in? %>
+  <% if current_user %>
+  <ul class="container navbar-container">
+    <li id="nav-left"> <%= link_to "Find my Flock", root_path %></li>
+    <li class="underline" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
+    <li class="underline" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li class="underline" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
 
-          <% else %>
-          <li id="nav-left">Find my Flock</li>
-          <li class="underline" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
-          <li class="underline" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
-        <% end %>
-      <% end %>
-    </ul>
+    <% else %>
+    <li id="nav-left">Find my Flock</li>
+    <li class="underline" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
+    <li class="underline" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
+    <% end %>
+    <% end %>
+  </ul>
 
   <div class="banner">
     <ul class="home-list">
-    <div class="headline underlined">Jobs you <em>want</em>.</div>
-
-    <div class="typedjs">
-      <h3>Find the jobs that match your</h3> <div class="secondline"><span id="banner-typed-text"></span></div>
+      <div class="headline underlined">Jobs you <em>want</em>.</div>
+      <div class="typedjs">
+        <h3>Find the jobs that match your</h3> <div class="secondline"><span id="banner-typed-text"></span></div>
       </div>
-
     </ul>
 
-
-      <% if registration_signed_in? %>
-      <% if current_user %>
-      <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
-      <% else %>
-      <%= link_to "Create Your Profile", new_user_path, class: "btn btn-outline-secondary signin-home" %>
-      <% end %>
-      <% else %>
-      <%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
-      <% end %>
+    <% if registration_signed_in? %>
+    <% if current_user %>
+    <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
+    <% else %>
+    <%= link_to "Create Your Profile", new_user_path, class: "btn btn-outline-secondary signin-home" %>
+    <% end %>
+    <% else %>
+    <%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
+    <% end %>
   </div>
 </div>
 
-<div class="divider">
-  <h2>Jobs Sample</h2>
+<div class="job-samples">
+  <h2 class="centered padded-title">Jobs Sample</h2>
   <hr>
-</div>
-<div class="cards-container card-sample ">
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="card card-home text-center ">
-      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-      <div class="card-block">
-        <h4 class="card-title"> Full Stack Dev</h4>
-        <p class="card-text company"> Google </p>
-        <p class="card-text location"> Paris</p>
+  <div class="cards-container card-sample ">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card card-home text-center ">
+        <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-block">
+          <h4 class="card-title"> Full Stack Dev</h4>
+          <p class="card-text company"> Google </p>
+          <p class="card-text location"> Paris</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="card card-home text-center">
-      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-      <div class="card-block">
-        <h4 class="card-title"> DevOps</h4>
-        <p class="card-text company"> Microsoft </p>
-        <p class="card-text location"> Los Angeles</p>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card card-home text-center">
+        <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-block">
+          <h4 class="card-title"> DevOps</h4>
+          <p class="card-text company"> Microsoft </p>
+          <p class="card-text location"> Los Angeles</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="card card-home text-center">
-      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-      <div class="card-block">
-        <h4 class="card-title"> Data Engineer </h4>
-        <p class="card-text company"> Apple  </p>
-        <p class="card-text location"> Dublin </p>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card card-home text-center">
+        <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-block">
+          <h4 class="card-title"> Data Engineer </h4>
+          <p class="card-text company"> Apple  </p>
+          <p class="card-text location"> Dublin </p>
+        </div>
       </div>
     </div>
   </div>
@@ -99,3 +96,13 @@
   </div>
 </div>
 </body>
+
+<script>
+  $(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});
+
+</script>
