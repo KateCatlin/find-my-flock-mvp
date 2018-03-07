@@ -7,7 +7,7 @@ class Job < ApplicationRecord
   validates :description, presence: true
   validates :location, presence: true
 
-  acts_as_taggable_on :skills, :values, :salaries
+  acts_as_taggable_on :skills, :values, :salaries, :locations
 
 
   def user_favorite(user)

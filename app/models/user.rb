@@ -8,10 +8,8 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update
-  validates :location, presence: true, on: :update
 
-
-  acts_as_taggable_on :skills, :values, :salaries
+  acts_as_taggable_on :skills, :values, :salaries, :locations
 
   def add_tags(tags)
     self.salary_list = tags["salaries"].compact

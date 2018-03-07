@@ -16,6 +16,7 @@ class DashboardController < ApplicationController
 
   def matched_jobs
     value_matched_jobs = Job.tagged_with(current_user.value_list, :on => :values)
+    location_matched_jobs = value_matched_jobs.tagged_with(current_user.location, :any => true)
     skill_matched_jobs = []
     array_of_user_skills = current_user.skill_list
     array_of_job_skills =[]
