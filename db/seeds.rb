@@ -1,5 +1,7 @@
 require 'faker'
 require 'pry'
+require 'json'
+require 'open-uri'
 
 Favorite.destroy_all
 puts "Destroyed favorites"
@@ -10,6 +12,10 @@ puts "Destroyed users"
 Job.destroy_all
 puts "Destroyed jobs"
 
+locations_serialized = open('db/locations.json').read
+locations = JSON.parse(locations_serialized)
+puts "Loaded locations"
+
 
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
@@ -19,10 +25,8 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
   job = Job.new(
     title: Faker::Job.title,
     company: Faker::Company.name,
-    description: "Lorem ipsum dolor amet activated charcoal XOXO gentrify biodiesel street art succulents. Pug farm-to-table dreamcatcher, small batch helvetica affogato beard austin. Thundercats beard tacos ennui kombucha squid brunch hammock everyday carry swag echo park af occupy tumeric selfies. Plaid air plant bicycle rights celiac taxidermy succulents. Deep v kombucha gentrify schlitz. Godard mlkshk letterpress unicorn quinoa, adaptogen banjo meh lyft four loko woke mixtape tilde poke.
-    Oh. You need a little dummy text for your mockup? How quaint.
-    I bet you’re still using Bootstrap too…",
-    location: Faker::Address.city,
+    description: "Lorem ipsum dolor amet activated charcoal XOXO gentrify biodiesel street art succulents. Pug farm-to-table dreamcatcher, small batch helvetica affogato beard austin. Thundercats beard tacos ennui kombucha squid brunch hammock everyday carry swag echo park af occupy tumeric selfies. Plaid air plant bicycle rights celiac taxidermy succulents. Deep v kombucha gentrify schlitz. Godard mlkshk letterpress unicorn quinoa, adaptogen banjo meh lyft four loko woke mixtape tilde poke.",
+    location: ["Greater Denver Area", "Barcelona Area, Spain"].sample
     )
   job.save
 
@@ -63,7 +67,7 @@ i= 1
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    location: Faker::Address.city,
+    location: locations.sample,
     resume_file_path: Faker::File.mime_type,
     registration_id: Registration.find(i).id
 

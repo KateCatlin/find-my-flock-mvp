@@ -4,7 +4,7 @@
  <div class="row justify-content-center">
     <div class="col-xs-3">
       <div class="profile-img">
-      <%= image_tag("rahel", class: "avatar") %>
+      <%= cl_image_tag current_user.photo %>
       </div>
     </div>
     <div class="col-xs-6">
