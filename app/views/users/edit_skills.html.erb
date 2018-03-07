@@ -2,6 +2,91 @@
 <div class="container ">
   <div class="row">
     <div class="col-xs-9">
+<!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#personal-info" role="tab">Personal info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#cv" role="tab">CV & Photo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#skills" role="tab">skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#values" role="tab">Values</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#salary" role="tab">Salary</a>
+      </li>
+    </ul>
+
+<!-- Tab panes -->
+    <div class="tab-content active ">
+      <div class="tab-pane active" id="personal-info" role="tabpanel">
+
+
+          <div class="form-box">
+            <%= simple_form_for(@user) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.input :location %>
+
+            <br>
+            <a class="nav-link btn btn-wide" data-toggle="tab" href="#cv" role="tab">Next</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="cv" role="tabpanel">
+       <div class="form-box">
+          <div class="form-inputs">
+            <h2> Upload your CV & Profile picture </h2>
+            <div class="row">
+              <div class="col-sm-6">
+                 <%= f.input :resume_file_path, label: "Upload your Resume" %>
+                  <%= f.input :resume_file_path_cache, as: :hidden , class: "btn" %>
+              </div>
+              <div class="col-sm-6">
+                <%= f.input :photo, label: "Upload your profile image" %>
+                <%= f.input :photo_cache, as: :hidden, class: "btn" %>
+              </div>
+            </div>
+          </div>
+          <br>
+          <a class="nav-link btn btn-wide" data-toggle="tab" href="#skills" role="tab">Next</a>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="skills" role="tabpanel">
+       <div class="form-box">
+          <div class="form-inputs">
+            <h2> What skills do you bring to the table? </h2>
+            <%= simple_fields_for :tags do |t| %>
+            <%= t.input :skills, collection: @skills, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
+          </div>
+          <a class="nav-link btn btn-wide" data-toggle="tab" href="#values" role="tab">Next</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="values" role="tabpanel">
+        <div class="form-box">
+          <h2>Choose what's important in a role: </h2>
+          <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
+          <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+          <a class="nav-link btn btn-wide" data-toggle="tab" href="#salary" role="tab">Next</a>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="salary" role="tabpanel">
+        <div class="form-box">
+          <h4>Choose salary ranges you would consider: </h4>
+          <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+          <% end %>
+          <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified'%>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
 
 
 
