@@ -34,7 +34,7 @@
           <div class="card-block">
             <h4 class="card-title"><%= job.title %></h4>
             <p class="card-text company"><%= job.company %></p>
-            <p class="card-text"><p><%= job.location %></p>
+            <p class="card-text"><p><%= job.location_list %></p>
             <div data-job-id='<%= job.id %>'>
               <% if favorite = job.user_favorite(current_user) %>
 
@@ -78,7 +78,7 @@
           <div class="card-block">
             <h4 class="card-title"><%= job.title %></h4>
             <p class="card-text company"><%= job.company %></p>
-            <p class="card-text"><p><%= job.location %></p>
+            <p class="card-text"><p><%= job.location_list %></p>
 
             <div data-job-id='<%= job.id %>'>
               <% if favorite = job.user_favorite(current_user) %>
@@ -120,7 +120,7 @@
           <div class="card-block">
             <h4 class="card-title"><%= job.title %></h4>
             <p class="card-text company"><%= job.company %></p>
-            <p class="card-text"><p><%= job.location %></p>
+            <p class="card-text"><p><%= job.location_list %></p>
 
             <div data-job-id='<%= job.id %>'>
               <% if favorite = job.user_favorite(current_user) %>
