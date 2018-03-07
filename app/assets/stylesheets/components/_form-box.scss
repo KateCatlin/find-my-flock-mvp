@@ -25,9 +25,7 @@ a.nav-link {
 
 }
 
-.nav-tabs .nav-link:active {
 
-}
 
 .nav-tabs {
   padding-top: 10px;
@@ -41,4 +39,13 @@ a.nav-link {
   padding-left: 30px;
 }
 
+.submit-btn {
+  margin-left: 5%;
+}
+
+
+.skill-btn:active {
+    background-color: #4F4F4F;
+    color: white;
+}
 

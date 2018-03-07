@@ -46,27 +46,27 @@
     <div class="tab-pane" id="cv" role="tabpanel">
        <div class="form-box">
           <div class="form-inputs">
-            <h2> Upload your CV & Profile picture </h2>
+            <h4> Upload your CV & Profile picture </h4>
             <div class="row">
               <div class="col-sm-6">
                  <%= f.input :resume_file_path, label: "Upload your Resume" %>
-                  <%= f.input :resume_file_path_cache, as: :hidden , class: "btn" %>
+                  <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
               </div>
               <div class="col-sm-6">
                 <%= f.input :photo, label: "Upload your profile image" %>
-                <%= f.input :photo_cache, as: :hidden, class: "btn" %>
+                <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
               </div>
             </div>
           </div>
           <br>
-          <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#skills" data-next-tab="skills-tab" role="tab">Next</a>
+          <a class="nav-link btn btn-wide" data-toggle="tab" href="#skills" data-next-tab="skills-tab" role="tab">Next</a>
         </div>
     </div>
 
     <div class="tab-pane" id="skills" role="tabpanel">
        <div class="form-box">
           <div class="form-inputs">
-            <h2> What skills do you bring to the table? </h2>
+            <h4> What skills do you bring to the table? </h4>
             <%= simple_fields_for :tags do |t| %>
             <%= t.input :skills, collection: @skills, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
           </div>
