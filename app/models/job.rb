@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :company, presence: true
   validates :description, presence: true
-  validates :location, presence: true
+
 
   acts_as_taggable_on :skills, :values, :salaries, :locations
 

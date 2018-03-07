@@ -17,7 +17,7 @@ class Registration < ApplicationRecord
       user.remote_photo_url = image_url
       user.save
     else
-      user = User.create(registration_id: registration.id, first_name: auth.info.first_name, last_name: auth.info.last_name, location: auth.info.location)
+      user = User.create(registration_id: registration.id, first_name: auth.info.first_name, last_name: auth.info.last_name)
       user.remote_photo_url = image_url
       user.save
     end
