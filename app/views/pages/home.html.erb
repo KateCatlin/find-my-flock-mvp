@@ -16,11 +16,12 @@
     <% end %>
   </ul>
 
-  <div class="banner">
+  <div class="banner" style="background-image: url('<%= image_path 'officeimg.png', crop: :fill; %>') ;">
     <ul class="home-list">
-      <div class="headline underlined">Jobs you <em>want</em>.</div>
+      <div class="headline">Jobs you <em class="underlined">want</em>.</div>
+      <br />
       <div class="typedjs">
-        <h3>Find the jobs that match your</h3> <div class="secondline"><span id="banner-typed-text"></span></div>
+        <h3 class="upperlined">Find the jobs that match your</h3> <div class="secondline"><span id="banner-typed-text"></span></div>
       </div>
     </ul>
 
@@ -72,6 +73,8 @@
     </div>
   </div>
 </div>
+
+
 <h2 class="divider">They trust us</h2>
 <hr>
 <%= image_tag "logos.png", class: "company-logos" %>
@@ -96,13 +99,3 @@
   </div>
 </div>
 </body>
-
-<script>
-  $(function() {
-  $('a[href*=#]').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-  });
-});
-
-</script>
