@@ -2,7 +2,8 @@
 
 .job-samples {
   background-color: white;
-  padding-bottom: 50px;
+  padding-bottom: 120px;
+
 }
 
 .centered {
@@ -11,10 +12,90 @@
 
 
 .padded-title {
-  padding-top: 50px;
-  padding-bottom: 39px;
+  padding-top: 75px;
+  padding-bottom: 55px;
+  font-weight: 600;
+  font-size: 40px;
+
 }
 
 h2 {
     margin-top: 0px;
+    font-family: "Roboto Slab", "serif";
+    text-transform: capitalize;
+}
+
+
+// Colored cards for arguments: Why Joining Us?
+
+.arguments {
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
+.argument-box {
+  background-color: red;
+    padding-top: 4%;
+    padding-right: 8%;
+    padding-left: 8%;
+    height: 300px;
+    width: 80%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 4px;
+    color: white;
+    background-image: 'oneclick.png'
+
+
+
+    img {
+      margin-left: 30px;
+      transform: scale(1.5);
+      transition: .3s ease-in-out;
+    }
+
+    img:hover {
+      margin-left: 0;
+    }
+
+}
+
+.argument:hover {
+
+}
+
+.why-title {
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+.card-1 {
+  background-color: #ffe2e2;
+  margin-left: 10%;
+  margin-right: 10px;
+}
+
+.card-2 {
+  background-color: #e2e2e2;
+  margin-right: 10%;
+}
+
+.card-3 {
+  background-color: #ffe3cb;
+  height: 210px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+// Specific CSS for the argument boxes
+
+.hover05 figure img {
+  margin-left: 30px;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.hover05 figure:hover img {
+  margin-left: 0;
 }
