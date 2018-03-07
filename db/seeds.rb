@@ -27,7 +27,7 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
   job.save
 
   3.times do |i|
-    job.salary_list.add(Job::SALARIES.sample)
+    job.salary_list.add(Job::SALARIES.sample, parse: false)
     job.save
   end
 
@@ -46,7 +46,7 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     job.save
   end
 
-  job.location_list.add(["Greater Denver Area", "Barcelona Area, Spain"].sample)
+  job.location_list.add(["Greater Denver Area", "Remote"].sample)
 
   job.save!
 end
@@ -77,7 +77,7 @@ i= 1
     user.salary_list.add(User::SALARIES.sample)
     user.save
   end
-  user.save_skills(Job::LOCATIONS.sample)
+  user.location_list.add(User::LOCATIONS.sample)
   i += 1
   user.save!
 end

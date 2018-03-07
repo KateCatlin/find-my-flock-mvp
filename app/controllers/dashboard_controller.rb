@@ -15,6 +15,7 @@ class DashboardController < ApplicationController
 
 
   def matched_jobs
+    binding.pry
     if current_user.value_list.empty?
       value_matched_jobs = Job.all
     else
