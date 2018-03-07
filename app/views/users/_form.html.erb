@@ -9,21 +9,23 @@
       <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#personal-info" role="tab">Personal info</a>
+        <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal-info" role="tab">Personal info</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#cv" role="tab">CV & Photo</a>
+        <a class="nav-link" id="cv-tab" data-toggle="tab" href="#cv" role="tab">CV & Photo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#skills" role="tab">skills</a>
+        <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab">skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#values" role="tab">Values</a>
+        <a class="nav-link" data-toggle="tab" id="values-tab" href="#values" role="tab">Values</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#salary" role="tab">Salary</a>
+        <a class="nav-link" data-toggle="tab" id="salary-tab" href="#salary" role="tab">Salary</a>
       </li>
     </ul>
+
+
 
 <!-- Tab panes -->
     <div class="tab-content active ">
@@ -38,7 +40,7 @@
             <%= f.input :location %>
 
             <br>
-            <a class="nav-link btn btn-wide" data-toggle="tab" href="#cv" role="tab">Next</a>
+            <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
         </div>
     </div>
     <div class="tab-pane" id="cv" role="tabpanel">
@@ -57,7 +59,7 @@
             </div>
           </div>
           <br>
-          <a class="nav-link btn btn-wide" data-toggle="tab" href="#skills" role="tab">Next</a>
+          <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#skills" data-next-tab="skills-tab" role="tab">Next</a>
         </div>
     </div>
 
@@ -68,7 +70,7 @@
             <%= simple_fields_for :tags do |t| %>
             <%= t.input :skills, collection: @skills, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
           </div>
-          <a class="nav-link btn btn-wide" data-toggle="tab" href="#values" role="tab">Next</a>
+          <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
         </div>
     </div>
     <div class="tab-pane" id="values" role="tabpanel">
@@ -76,7 +78,7 @@
           <h2>Choose what's important in a role: </h2>
           <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
           <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
-          <a class="nav-link btn btn-wide" data-toggle="tab" href="#salary" role="tab">Next</a>
+          <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
         </div>
     </div>
 
@@ -95,4 +97,29 @@
 
   </div>
 
+
+<script>
+
+
+
+
+      // GRAB all the next buttons
+      const items = document.querySelectorAll('.nav-link');
+      const nextButtons = document.querySelectorAll('.next-btn');
+
+      // On each next button add an eventListener
+      nextButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+          let target = button.getAttribute('data-next-tab')
+          let nextTab = document.getElementById(target)
+          items.forEach(item => {
+            item.classList.remove("active")
+          })
+          nextTab.classList.add("active")
+          // When they click do the following
+          // Find the active item in the array
+        })
+      })
+
+    </script>
 
