@@ -1,0 +1,45 @@
+skills form
+
+<%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
+          <% @skills_numeric_hash.each_with_index do |hash, index| %>
+          <h1> How skilled are you with <%= hash[0] %>? </h1>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
+
+              <label class="form-check-label">
+                Only a little knowledge
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
+
+              <label class="form-check-label">
+                Gaining competency
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
+
+              <label class="form-check-label">
+                Individual competency
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
+
+              <label class="form-check-label">
+                Strong competency
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
+
+              <label class="form-check-label">
+                Expert
+              </label>
+            </div>
+
+          <% end %>
+          <%= f.button :submit %>
+        <% end %>
+

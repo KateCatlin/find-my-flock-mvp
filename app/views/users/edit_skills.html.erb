@@ -1,136 +1,142 @@
+<!--
+Have a small box in which you asses your skill
+On selecting, you go to the next
+We need to be able to select the next one too
+-->
 
-<div class="container ">
-  <div class="row">
+
+
+
+
+
+
+
+
+
+
+<div class="container form">
+  <div class="row justify-content-center">
+    <div class="col-xs-3">
+      <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+        <% @skills_numeric_hash.each_with_index do |hash, index|  %>
+          <button type="button" class="skill-button" data-form-target="data-<%= index %>"class="btn btn-secondary"><%= hash[0] %></button>
+        <% end %>
+      </div>
+    </div>
     <div class="col-xs-9">
-<!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#personal-info" role="tab">Personal info</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#cv" role="tab">CV & Photo</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#skills" role="tab">skills</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#values" role="tab">Values</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#salary" role="tab">Salary</a>
-      </li>
-    </ul>
-
-<!-- Tab panes -->
-    <div class="tab-content active ">
-      <div class="tab-pane active" id="personal-info" role="tabpanel">
 
 
-          <div class="form-box">
-            <%= simple_form_for(@user) do |f| %>
-            <%= f.error_notification %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :location %>
-
-            <br>
-            <a class="nav-link btn btn-wide" data-toggle="tab" href="#cv" role="tab">Next</a>
-        </div>
-    </div>
-    <div class="tab-pane" id="cv" role="tabpanel">
-       <div class="form-box">
-          <div class="form-inputs">
-            <h2> Upload your CV & Profile picture </h2>
-            <div class="row">
-              <div class="col-sm-6">
-                 <%= f.input :resume_file_path, label: "Upload your Resume" %>
-                  <%= f.input :resume_file_path_cache, as: :hidden , class: "btn" %>
-              </div>
-              <div class="col-sm-6">
-                <%= f.input :photo, label: "Upload your profile image" %>
-                <%= f.input :photo_cache, as: :hidden, class: "btn" %>
-              </div>
-            </div>
-          </div>
-          <br>
-          <a class="nav-link btn btn-wide" data-toggle="tab" href="#skills" role="tab">Next</a>
-        </div>
-    </div>
-
-    <div class="tab-pane" id="skills" role="tabpanel">
-       <div class="form-box">
-          <div class="form-inputs">
-            <h2> What skills do you bring to the table? </h2>
-            <%= simple_fields_for :tags do |t| %>
-            <%= t.input :skills, collection: @skills, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
-          </div>
-          <a class="nav-link btn btn-wide" data-toggle="tab" href="#values" role="tab">Next</a>
-        </div>
-    </div>
-    <div class="tab-pane" id="values" role="tabpanel">
-        <div class="form-box">
-          <h2>Choose what's important in a role: </h2>
-          <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
-          <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
-          <a class="nav-link btn btn-wide" data-toggle="tab" href="#salary" role="tab">Next</a>
-        </div>
-    </div>
-
-    <div class="tab-pane" id="salary" role="tabpanel">
-        <div class="form-box">
-          <h4>Choose salary ranges you would consider: </h4>
-          <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
-          <% end %>
-          <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified'%>
-        </div>
-
-      <% end %>
-    </div>
-  </div>
+      <!-- Nav tabs -->
 
 
 
 
-<%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
-          <% @skills_numeric_hash.each_with_index do |hash, index| %>
-          <h1> How skilled are you with <%= hash[0] %>? </h1>
-          <div class="form-check">
-              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
+      <!-- Tab panes -->
+      <div class="tab-content active ">
+        <%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
+        <% @skills_numeric_hash.each_with_index do |hash, index|  %>
+
+        <div class="form-box" id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
+          <div class="tab-pane active" id="personal-info" role="tabpanel">
+            <h4> How skilled are you with <%= hash[0] %>? </h4>
+            <div class="form-check">
+              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
 
               <label class="form-check-label">
                 Only a little knowledge
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
+              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
 
               <label class="form-check-label">
                 Gaining competency
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
+              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
 
               <label class="form-check-label">
                 Individual competency
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
+              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
 
               <label class="form-check-label">
                 Strong competency
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
+              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
 
               <label class="form-check-label">
                 Expert
               </label>
             </div>
-
-          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <div class="form-box" id="data-<%= @skills_numeric_hash.length %>" hidden>
           <%= f.button :submit %>
+        </div>
         <% end %>
       </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+
+
+
+
+<script>
+       // Get all the form boxes
+      const forms = document.querySelectorAll('.form-box')
+      // Get all the skill buttons
+      const buttons = document.querySelectorAll('.skill-button')
+      // Get all the inputs fields
+      const inputs = document.querySelectorAll('.form-check-input')
+    // On each input add an eventListener
+    inputs.forEach(input => {
+      input.addEventListener('click', function(event) {
+        // grab the index through the data-form-id custom html tag
+        let currentIndex = input.getAttribute('data-form-id')
+        // grab the box that is now NOT HIDDEN - or active
+        let activeBox = document.getElementById(`data-${currentIndex}`)
+        // changing the current index to an integer and going to the next one
+        let nextIndex = parseInt(currentIndex) + 1;
+        // Hidding the current box
+        activeBox.hidden = true;
+        let nextBox = document.getElementById(`data-${nextIndex}`)
+        // Unhiding the next one
+        nextBox.hidden = false;
+      })
+    })
+
+    buttons.forEach(button => {
+      // listen for when a button gets clicked
+      button.addEventListener('click', function(event){
+        // remove the active state from all buttons except current
+        buttons.forEach(button => button.classList.remove('active'))
+        button.classList.add('active');
+
+        forms.forEach(function(form) { form.hidden = true;})
+        let formId = button.getAttribute('data-form-target')
+        document.getElementById(formId).hidden = false;
+      })
+    })
+
+  </script>
+
+
+
+
+
+
+
