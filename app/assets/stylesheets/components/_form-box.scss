@@ -1,9 +1,9 @@
 .form-box {
   background-color: #fff;
-  padding: 10%;
-  margin-bottom: 15%;
-  margin-top: 5%;
+  padding: 5% 10%;
+  margin-bottom: 5%;
   outline: 1px solid $gray;
+  height: 50vh;
 }
 
 .cv-box {
@@ -12,11 +12,30 @@
 
 a.nav-link {
    color: $gray;
-
-  &:hover {
-    color: $orange;
-  }
-  &:visited {
-    color: black;
-  }
 }
+
+.nav-tabs .nav-link:hover {
+  background-color: $gray;
+  color: white;
+
+}
+
+.nav-tabs .nav-link:hover {
+ border-top: 1px solid #4F4F4F;
+
+}
+
+.nav-tabs .nav-link:active {
+
+}
+
+.nav-tabs {
+  padding-top: 10px;
+
+}
+
+.nav-tabs {
+  border-bottom: 2px solid #ddd;
+}
+
+
