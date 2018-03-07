@@ -1,35 +1,8 @@
-<!--
-Have a small box in which you asses your skill
-On selecting, you go to the next
-We need to be able to select the next one too
--->
 
-
-
-
-
-
-
-
-
-
-
-<div class="container form">
+<div class="container form-skills">
   <div class="row justify-content-center">
-    <div class="col-xs-3">
-      <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
-        <% @skills_numeric_hash.each_with_index do |hash, index|  %>
-          <button type="button" class="skill-button" data-form-target="data-<%= index %>"class="btn btn-secondary"><%= hash[0] %></button>
-        <% end %>
-      </div>
-    </div>
+
     <div class="col-xs-9">
-
-
-      <!-- Nav tabs -->
-
-
-
 
       <!-- Tab panes -->
       <div class="tab-content active ">
@@ -38,49 +11,64 @@ We need to be able to select the next one too
 
         <div class="form-box" id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
           <div class="tab-pane active" id="personal-info" role="tabpanel">
-            <h4> How skilled are you with <%= hash[0] %>? </h4>
+            <h4> How skilled are you with <b><%= hash[0]%>?</b> </h4>
+            <br>
             <div class="form-check">
               <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
 
               <label class="form-check-label">
-                Only a little knowledge
+                <p> Only a little knowledge</p>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
 
               <label class="form-check-label">
-                Gaining competency
+                <p>Gaining competency</p>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
 
               <label class="form-check-label">
-                Individual competency
+                <p>Individual competency</p>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
 
               <label class="form-check-label">
-                Strong competency
+                <p>Strong competency</p>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
 
               <label class="form-check-label">
-                Expert
+                <p>Expert</p>
               </label>
             </div>
+            <br>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              <% @skills_numeric_hash.each_with_index do |hash, index|  %>
+                <button type="button" class="skill-button" data-form-target="data-<%= index %>"class="btn btn-secondary"><%= hash[0] %></button>
+              <% end %>
+            </div>
+
           </div>
         </div>
         <% end %>
+
         <div class="form-box" id="data-<%= @skills_numeric_hash.length %>" hidden>
-          <%= f.button :submit %>
+
+
+              <%= f.button :submit, :class => 'btn btn-wide btn-group-justified'%>
+
+
+
         </div>
         <% end %>
+
       </div>
 
     </div>
