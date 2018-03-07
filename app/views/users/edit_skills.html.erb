@@ -11,7 +11,7 @@
 
         <div class="form-box" id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
           <div class="tab-pane active" id="personal-info" role="tabpanel">
-            <h4> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
+            <h4 class="no-space"> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
             <br>
             <div class="form-check">
               <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
