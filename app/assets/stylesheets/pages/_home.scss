@@ -28,36 +28,19 @@ h2 {
 
 // Specific CSS for the colored cards / argument boxes: Why Joining Us?
 
-.arguments {
-  padding-left: 0px;
-  padding-right: 0px;
-
-}
 
 .argument-box {
   background-color: red;
-    padding-top: 4%;
-    padding-right: 8%;
-    padding-left: 8%;
-    height: 300px;
-    width: 80%;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    border-radius: 4px;
-    color: white;
-    box-shadow: 0px 39px 134px -28px rgba(0,0,0,0.6);
-
-
-    img {
-      margin-left: 30px;
-      transform: scale(1.5);
-      transition: .3s ease-in-out;
-    }
-
-    img:hover {
-      margin-left: 0;
-    }
-
+  padding-top: 4%;
+  padding-right: 8%;
+  padding-left: 8%;
+  height: 300px;
+  width: 80%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 4px;
+  color: white;
+  box-shadow: 0px 39px 134px -28px rgba(0,0,0,0.6);
 }
 
 .argument:hover {
@@ -70,8 +53,7 @@ h2 {
 }
 .card-1 {
   background-color: #ffe2e2;
-  margin-left: 10%;
-  margin-right: 10px;
+  margin-left: 20%;
 }
 
 .card-2 {
