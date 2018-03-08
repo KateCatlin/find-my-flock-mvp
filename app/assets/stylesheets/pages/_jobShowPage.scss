@@ -4,6 +4,12 @@
   grid-template-rows: 50% 50%;
 }
 
+.grid-bordered {
+  border: 5px solid #e0e0e0;
+  padding: 21px 25px;
+  background-color: white;
+}
+
 .grid-first-column {
   grid-row: 1 / span 2;
 
@@ -42,4 +48,12 @@
   font-weight: 900;
   padding-bottom: 8px;
   margin-bottom: 12px;
+}
+
+.salary {
+  text-align: center;
+  font-size: 23px;
+  margin-top: -10px;
+
+
 }
