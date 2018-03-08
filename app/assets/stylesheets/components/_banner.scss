@@ -10,6 +10,7 @@
 .headline {
   font-size: 50px;
   font-weight: bolder;
+  color: black;
 
 }
 
@@ -23,6 +24,10 @@
 .underlined {
    padding-bottom: 5px;
   box-shadow: inset 0px -31px 0px 0px $light-orange;
+}
+
+.black-text {
+  color: black;
 }
 
 .upperlined {
