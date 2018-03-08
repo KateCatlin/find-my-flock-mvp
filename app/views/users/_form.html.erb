@@ -87,6 +87,7 @@
           <h4 class="no-space">Choose salary ranges you would consider: </h4>
           <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
           <% end %>
+          <br>
           <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified'%>
         </div>
 
