@@ -9,7 +9,7 @@
     </div>
     <div class="col-xs-6">
       <div class="heading-box">
-        <h3>Hi</h3><h3 class="underlined"> <%= current_user.first_name %></h3>
+        <h3>Hi <em class="underlined-thin"> <%= current_user.first_name %> <%= current_user.last_name %></em></h3>
         <br>
         <h5>You are looking for jobs in:</h5>
         <h5> <em><%= current_user.location_list %></em></h5>
@@ -20,30 +20,34 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-xs-9">
+    <div class="col-xs-4">
 
       <div class="profile-box">
         <h3>Your skills</h3>
         <br>
-
-          <p><i class="fas fa-arrow-alt-circle-up"></i><%= current_user.return_skills_hash %>  </p>
-
+          <% current_user.return_skills_hash.each do |skill| %>
+          <p><i class="fas fa-arrow-alt-circle-up"></i> <%= skill[0].capitalize %>
+              </p>
+              <% end %>
       </div>
+    </div>
 
-
+    <div class="col-xs-4">
       <div class="profile-box">
         <h3>Your values</h3>
-        <ul>
-        <% current_user.value_list.each do |value| %>
-          <li><%= value %></li>
-        <% end %>
-        </ul>
-      </div>
 
+        <% current_user.value_list.each do |value| %>
+          <p><i class="fas fa-arrow-alt-circle-up"></i><%= value %></p>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="row justify-content-center">
       <div class="profile-box justify-content-center">
         <h3>Your CV</h3>
           <%= cl_image_tag(current_user.resume_file_path, :density => 50, :format => :png, width: 650, :crop => :fill) %>
       </div>
+    </div>
     </div>
   </div>
 </div>

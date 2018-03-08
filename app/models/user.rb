@@ -20,6 +20,13 @@ class User < ApplicationRecord
     self.save!
     save_skills(tags["skills"])
   end
+  def clean_skill(skill)
+    skill.to_s.split(/\d/).first
+  end
+
+  def text_skills
+    self.skills.map { |skill| clean_skill(skill) }.uniq
+  end
 
   def save_locations(locations)
     delete_locations

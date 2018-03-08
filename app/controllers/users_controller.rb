@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user_readable_skills = @user.text_skills
   end
 
   def update
