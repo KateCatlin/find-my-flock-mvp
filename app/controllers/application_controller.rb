@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   attr_reader :current_user
   helper_method :current_user
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   def current_user
     @current_user ||= current_registration.try(:user)
   end
@@ -13,6 +17,6 @@ class ApplicationController < ActionController::Base
  end
 
  def after_sign_up_path_for(resource)
-  new_user_path
-end
+    new_user_path
+  end
 end
