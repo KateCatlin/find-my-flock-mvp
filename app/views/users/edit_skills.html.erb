@@ -70,17 +70,19 @@
             <% end %>
           </ul>
           <br>
-          <%= f.button :submit, :class => 'btn btn-wide btn-group-justified'%>
+          <%= f.button :submit, :class => 'btn btn-wide btn-group-justified submit-btn'%>
         </div>
         <% end %>
 
       </div>
-   <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-    <% @skills_numeric_hash.each_with_index do |hash, index|  %>
-    <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
-    <% end %>
-    <br>
-  </div>
+      <div class="form-box-buttons">
+     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+      <% @skills_numeric_hash.each_with_index do |hash, index|  %>
+      <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
+      <% end %>
+      <br>
+    </div>
+    </div>
     </div>
   </div>
 
