@@ -1,6 +1,6 @@
 .banner {
   display: flex;
-  height: calc(100vh - 15vh);
+  height: calc(103vh - 15vh);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   align-items: center;
@@ -10,22 +10,26 @@
 .headline {
   font-size: 50px;
   font-weight: bolder;
+
 }
 
 .secondline {
   font-size: 40px;
   font-weight: bold;
-  margin-bottom: 80px;
 }
 
 
 .underlined {
-  border-bottom: 1px solid #afafaf;
-  padding-bottom: 10px;
+   padding-bottom: 5px;
+  box-shadow: inset 0px -31px 0px 0px $light-orange;
+}
+
+.upperlined {
+ border-top: 1px solid #afafaf;
+  padding-top: 10px;
 
 }
+
  .home-list {
   text-align: center;
  }
-
-
