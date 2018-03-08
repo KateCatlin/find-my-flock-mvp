@@ -11,7 +11,7 @@
 
         <div class="form-box" id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
           <div class="tab-pane active" id="personal-info" role="tabpanel">
-            <h4> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
+            <h4 class="no-space"> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
             <br>
             <div class="form-check">
               <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
@@ -50,13 +50,7 @@
             </div>
             <br>
 
-            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-              <% @skills_numeric_hash.each_with_index do |hash, index|  %>
-                <button type="button" class="btn skill-button " data-form-target="data-<%= index %>"class="btn "><%= hash[0] %></button>
-              <% end %>
-              <br>
 
-            </div>
 
             <%= f.button :submit, :class => 'btn submit-btn '%>
           </div>
@@ -64,17 +58,27 @@
         <% end %>
 
         <div class="form-box" id="data-<%= @skills_numeric_hash.length %>" hidden>
-
-
-              <%= f.button :submit, :class => 'btn btn-wide btn-group-justified'%>
-
-
-
+          <br>
+          <ul class="skills-list">
+            <% @skills_numeric_hash.each_with_index do |skill, index|  %>
+            <li>
+              <p class="bold"><%= skill[0].to_s.capitalize %></p>
+              <p><%= current_user.competency_description(skill.slice(-1).to_i - 1) %></p>
+            </li>
+            <% end %>
+          </ul>
+          <br>
+          <%= f.button :submit, :class => 'btn btn-wide btn-group-justified'%>
         </div>
         <% end %>
 
       </div>
-
+   <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <% @skills_numeric_hash.each_with_index do |hash, index|  %>
+    <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
+    <% end %>
+    <br>
+  </div>
     </div>
   </div>
 
@@ -89,7 +93,7 @@
 
 <script>
        // Get all the form boxes
-      const forms = document.querySelectorAll('.form-box')
+       const forms = document.querySelectorAll('.form-box')
       // Get all the skill buttons
       const buttons = document.querySelectorAll('.skill-button')
       // Get all the inputs fields
@@ -108,15 +112,24 @@
         let nextBox = document.getElementById(`data-${nextIndex}`)
         // Unhiding the next one
         nextBox.hidden = false;
+
+        let nextId = nextBox.getAttribute('id')
+        let activeBtn = document.querySelector(`[data-form-target=${nextId}]`)
+        deactiveButtons(buttons);
+        activeBtn.classList.add('active-btn');
       })
     })
+
+    function deactiveButtons(buttons) {
+      buttons.forEach(button => button.classList.remove('active-btn'))
+    }
 
     buttons.forEach(button => {
       // listen for when a button gets clicked
       button.addEventListener('click', function(event){
         // remove the active state from all buttons except current
-        buttons.forEach(button => button.classList.remove('active'))
-        button.classList.add('active');
+        deactiveButtons(buttons);
+        event.target.classList.add('active-btn');
 
         forms.forEach(function(form) { form.hidden = true;})
         let formId = button.getAttribute('data-form-target')
@@ -125,6 +138,7 @@
     })
 
   </script>
+
 
 
 
