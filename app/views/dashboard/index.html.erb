@@ -40,19 +40,19 @@
       <% @my_matched_jobs.each do |job| %>
       <%= link_to job_path(job) do %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card text-center">
+        <div class="card">
           <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-          <div class="card-block">
+          <div class="card-block text-center">
             <h4 class="card-title"><%= job.title %></h4>
-            <p class="card-text company"><%= job.company %></p>
-            <p class="card-text"><p><%= job.location_list %></p>
+            <p class="card-company"><%= job.company %></p>
+            <p class="card-location"><p><%= job.location_list %></p>
             <div data-job-id='<%= job.id %>'>
               <% if favorite = job.user_favorite(current_user) %>
 
               <ul class="list-inline">
                 <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
                 <li class="card-text saveme">Delete me! </li>
-                <li><i class="fas fa-heart unfav">  </i></li>
+                <li><i class="fas fa-heart unfav"></i></li>
                 <% end %>
               </ul>
 
@@ -61,8 +61,8 @@
                 <%= link_to job_favorites_path(job), remote: true, method: :post do %>
                 <li class="card-text saveme">Save me! </li>
                 <li><i class="fas fa-heart fav"> </i></li>
-                <% end %>
               </ul>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -70,6 +70,15 @@
       </div>
       <% end %>
       <% end %>
+       <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card card-home text-center">
+        <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+        <h4 class="card-title"> Growth Hacker </h4>
+        <p class="company"> Microsoft </p>
+        <h4 class="location"> Los Angeles </h4>
+        <a href="#" class="btn btn-page">Details...</a>
+      </div>
+    </div>
     </div>
   </div>
 

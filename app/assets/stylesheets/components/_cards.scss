@@ -6,6 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   transition: transform 0.7s;
+  justify-content: space-between;
 
 
   a {
@@ -35,6 +36,7 @@
 
 .card-title {
   margin: auto;
+  letter-spacing: 0px;
 }
 
 .cards-container {
