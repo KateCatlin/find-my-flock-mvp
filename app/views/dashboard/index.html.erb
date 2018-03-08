@@ -71,6 +71,7 @@
       <% end %>
       <% end %>
     </div>
+  </div>
 
     <% else %>
     <p class="centered waiting-message"> Great! Thanks for the info! We'll be back in touch if any jobs come up matching your profile. Feel free to go home and relax. </p>
@@ -90,7 +91,6 @@
             <h4 class="card-title"><%= job.title %></h4>
             <p class="card-text company"><%= job.company %></p>
             <p class="card-text"><p><%= job.location_list %></p>
-
             <div data-job-id='<%= job.id %>'>
               <% if favorite = job.user_favorite(current_user) %>
 
