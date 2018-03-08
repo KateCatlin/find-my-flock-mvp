@@ -6,7 +6,7 @@
         <h2 class="no-space">Hi <%= current_user.first_name  %> ,</h2>
         <h4 class="no-space">Please tell us a little more about you</h4>
         <% else %>
-        <h2 class="no-space">Welcome to Find My Flock Flock.</h2>
+        <h2 class="no-space">Welcome to Find My Flock.</h2>
         <h4 class="no-space">Please tell us a little more about you</h4>
         <% end %>
 
@@ -55,17 +55,18 @@
                <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
              </div>
              <div class="col-sm-6">
-                <% if current_user %>
-                <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+                <% if current_user.photo %>
+                  <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
                 <% else %>
-                <%= image_tag("user", class: "avatar", style:"width:100px ") %>
+                  <%= image_tag("user", class: "avatar", style:"width:100px ") %>
                 <% end %>
-              <%= f.input :photo, label: "Profile image" %>
+            </div>
+            <div class="col-sm-6">
+            <%= f.input :photo, label: "Profile image" %>
               <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
             </div>
           </div>
         </div>
-        <br>
         <br>
         <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
       </div>
@@ -75,10 +76,12 @@
       <div class="form-inputs">
         <h4 class="no-space"> In which areas do you want a job? </h4>
         <p>If you're open to any location, skip ahead.</p>
+        <br>
 
         <%= simple_fields_for :tags do |t| %>
         <%= t.input :locations, collection: @locations, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
       </div>
+      <br>
       <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#skills" role="tab" data-next-tab="skills-tab">Next</a>
     </div>
   </div>
@@ -87,9 +90,10 @@
       <div class="form-inputs">
         <h4 class="no-space"> What skills do you bring to the table? </h4>
         <p>Add your top five skills from below.</p>
-
+        <br>
         <%= t.input :skills, collection: @skills, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
       </div>
+      <br>
       <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
     </div>
   </div>
@@ -98,7 +102,9 @@
       <h4 class="no-space">Choose what's important in a role: </h4>
       <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
       <p>If none of these are important to you skip ahead.</p>
+      <br>
       <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+      <br>
       <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
     </div>
   </div>
