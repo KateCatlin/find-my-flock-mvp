@@ -33,7 +33,7 @@
   </div>
 
   <div id="job-list" class="job-listings">
-    <h2 class="centered">Jobs</h2>
+    <h2 class="centered small-padded-title">Jobs</h2>
 
     <% if !@my_matched_jobs.empty? %>
     <div class="card-deck">
@@ -73,12 +73,12 @@
     </div>
 
     <% else %>
-    <p> Great! Thanks for the info! We'll be back in touch if any jobs come up matching your profile. Feel free to go home and relax. </p>
+    <p class="centered waiting-message"> Great! Thanks for the info! We'll be back in touch if any jobs come up matching your profile. Feel free to go home and relax. </p>
     <% end %>
   </div>
 
   <div id="favorite-list" class="job-listings" hidden>
-    <h2>Favorites</h2>
+    <h2 class="centered small-padded-title">Favorites</h2>
 
     <div class="card-deck">
       <% @favorited.each do |job| %>
@@ -120,7 +120,7 @@
 
 
   <div id="applied-list" class="job-listings" hidden>
-    <h2>Applied</h2>
+    <h2 class="centered small-padded-title">Applied</h2>
 
     <div class="card-deck">
       <% @applied.each do |job| %>
@@ -161,8 +161,8 @@
   </div>
 
   <% if registration_signed_in? %>
-  Signed in as <%= current_user.first_name %> <%= current_user.last_name %>. Not you?
-  <%= link_to "Sign out", destroy_registration_session_path,:method => :delete %>
+  <p class="notice-message">Signed in as <%= current_user.first_name %> <%= current_user.last_name %>. Not you?
+  <%= link_to "Sign out", destroy_registration_session_path,:method => :delete %></p>
   <% else %>
   <%= link_to "Sign up", new_registration_registration_path %> or
   <%= link_to "Sign in", new_registration_session_path %>
