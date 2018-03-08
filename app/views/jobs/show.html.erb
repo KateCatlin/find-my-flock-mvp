@@ -1,26 +1,48 @@
-<% content_for :meta_title, "#{@job.title} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @job.description %>
+<head>
+  <% content_for :meta_title, "#{@job.title}: Opportunity on #{DEFAULT_META["meta_product_name"]}" %>
+  <% content_for :meta_description, @job.description %>
 
-<h1 class="centered small-padded-title"><%= @job.title  %></h1>
-<h4 class="centered"><%= @job.company %></h2>
+  <!-- Facebook Open Graph data -->
+  <meta property="og:title" content="<%= meta_title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= meta_image %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
 
-<div class="row justify-content-center">
-  <div class="col-8">
-    <h5 class="centered"><%= @job.location_list %></h3>
-    <p class="small-padded-title"><%= @job.description %></p>
-  </div>
-</div>
-<div class="row justify-content-center text-center">
-  <div class="col-8">
-    <% if @already_applied%>
-      <%= link_to 'Cancel?', job_application_path(@job, @application), method: :delete, class: "btn btn-stroke" %>
-    <% else %>
-      <%= link_to 'Apply', job_applications_path(@job), method: :create, class: "btn btn-stroke" %>
-    <% end %>
+  <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <%= link_to 'Back', dashboard_index_path, class: "btn btn-stroke" %>
-  </div>
-</div>
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:title" content="<%= meta_title %>">
+  <meta name="twitter:description" content="<%= meta_description %>">
+  <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:image:src" content="<%= meta_image %>">
+
+</head>
+<body>
+
+  <h1 class="centered small-padded-title"><%= @job.title  %></h1>
+  <h4 class="centered"><%= @job.company %></h2>
+
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h5 class="centered"><%= @job.location_list %></h3>
+          <p class="small-padded-title"><%= @job.description %></p>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-8">
+          <% if @already_applied%>
+          <%= link_to 'Cancel?', job_application_path(@job, @application), method: :delete, class: "btn btn-stroke" %>
+          <% else %>
+          <%= link_to 'Apply', job_applications_path(@job), method: :create, class: "btn btn-stroke" %>
+          <% end %>
+
+          <%= link_to 'Back', dashboard_index_path, class: "btn btn-stroke" %>
+        </div>
+      </div>
+    </body>
 
 
 
