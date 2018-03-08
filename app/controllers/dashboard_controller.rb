@@ -15,7 +15,6 @@ class DashboardController < ApplicationController
 
 
   def matched_jobs
-    binding.pry
     if current_user.value_list.empty?
       value_matched_jobs = Job.all
     else
@@ -27,7 +26,6 @@ class DashboardController < ApplicationController
     array_of_job_skills =[]
 
     location_matched_jobs.each do |job|
-      binding.pry
       array_of_job_skills = job.cached_skill_list.split(', ').map(&:downcase) unless job.cached_skill_list.nil?
       if (array_of_job_skills - array_of_user_skills).empty?
         skill_matched_jobs << job
