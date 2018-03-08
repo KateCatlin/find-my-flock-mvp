@@ -53,11 +53,14 @@
                <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
              </div>
              <div class="col-sm-6">
-                <% if current_user.photo %>
-                  <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
-                <% else %>
-                  <%= image_tag("user", class: "avatar", style:"width:100px ") %>
+                <% if current_user %>
+                  <% if current_user.photo %>
+                    <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+                  <% else %>
+                    <%= image_tag("user", class: "avatar", style:"width:100px ") %>
+                  <% end %>
                 <% end %>
+
             </div>
             <div class="col-sm-6">
             <%= f.input :photo, label: "Profile image" %>
