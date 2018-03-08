@@ -1,11 +1,20 @@
 <body id="dashboard-body">
-  <div class="dashboard-header">
-    <h1>Dashboard</h1>
 
+  <div class="dashboard-header">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
     <div id="dashboard-photo">
       <%= cl_image_tag current_user.photo %>
     </div>
   </div>
+
+  <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
+    <h2 class="centered dashboard-home">Welcome to your dashboard <em class="underlined-medium"><%= current_user.first_name %></em></h2>
+    <p class="centered">Here you can find all your matches, including the one you applied to and your saved jobs.</p>
+  </div>
+</div>
+
+</div>
 
   <div class="tabs">
     <ul class="list-inline nav justify-content-end nav-tabs">
@@ -22,7 +31,7 @@
   </div>
 
   <div id="job-list" class="job-listings">
-    <h2>Jobs</h2>
+    <h2 class="centered">Jobs</h2>
 
     <% if !@my_matched_jobs.empty? %>
     <div class="card-deck">

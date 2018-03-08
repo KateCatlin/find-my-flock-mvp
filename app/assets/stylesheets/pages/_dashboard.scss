@@ -1,0 +1,22 @@
+.dashboard-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    width: 71%;
+    margin: auto;
+}
+
+// .dashboard-home {
+//   align-items: center;
+// }
+
+#dashboard-photo {
+  border-radius: 10px;
+
+  img {
+  height: 250px;
+  width: 250px;
+  border-radius: 130px;
+  margin-right: 15vh;
+}
+}
