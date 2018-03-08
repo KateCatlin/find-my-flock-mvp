@@ -63,6 +63,10 @@ class User < ApplicationRecord
     return skills_hash
   end
 
+  def photo
+    photo = self[:photo]
+  end
+
 end
 
 

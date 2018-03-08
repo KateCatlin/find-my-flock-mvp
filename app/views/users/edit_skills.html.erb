@@ -60,9 +60,11 @@
         <div class="form-box" id="data-<%= @skills_numeric_hash.length %>" hidden>
           <br>
           <ul class="skills-list">
+
             <% @skills_numeric_hash.each_with_index do |skill, index|  %>
             <li>
               <p class="bold"><%= skill[0].to_s.capitalize %></p>
+
               <p><%= current_user.competency_description(skill.slice(-1).to_i - 1) %></p>
             </li>
             <% end %>
