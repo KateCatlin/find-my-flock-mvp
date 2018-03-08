@@ -6,10 +6,38 @@
   color: black;
 
 }
+
   .btn:hover {
   background-color: $gray;
   color: white;
   }
+
+.btn.apply {
+  border: 1px solid $light-orange;
+  padding: 5px 25px;
+  background-color: $light-orange;
+  color: white;
+}
+
+.btn.apply:hover {
+  background-color: #ff8246;
+  border: 1px solid #ff8246;
+  color: white;
+}
+
+.btn.cancel {
+  border: 1px solid $gray;
+  padding: 5px 25px;
+  color: white;
+  background-color: $gray;
+}
+
+.btn.cancel:hover {
+  background-color: #777777;
+  border: 1px solid #777777;
+  color: white;
+}
+
 
 // Home Page orange buttons to see matches, create an account, edit your profile.
 

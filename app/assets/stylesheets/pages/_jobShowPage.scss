@@ -1,0 +1,59 @@
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
+.grid-bordered {
+  border: 5px solid #e0e0e0;
+  padding: 21px 25px;
+  background-color: white;
+}
+
+.grid-first-column {
+  grid-row: 1 / span 2;
+
+}
+
+.grid-second-column-first {
+  grid-row: 1 / span 1;
+}
+
+.grid-second-column-second {
+  grid-row: 2 / span 1;
+}
+
+.bottom-buttons {
+  margin-top: 8vh;
+}
+
+.values-list {
+  line-height: 8px;
+  text-align: left;
+}
+
+.skills-list {
+  border: 1px black solid;
+  padding: 5px 5px;
+  font-family: "Montserrat", "sans-serif";
+  background-color: #3c3b3a;
+  color: white;
+  font-weight: bolder;
+
+}
+
+.values {
+  font-size: 24px;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 900;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.salary {
+  text-align: center;
+  font-size: 23px;
+  margin-top: -10px;
+
+
+}
