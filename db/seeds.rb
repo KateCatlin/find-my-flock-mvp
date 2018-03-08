@@ -1,5 +1,7 @@
 require 'faker'
 require 'pry'
+require 'json'
+require 'open-uri'
 
 Favorite.destroy_all
 puts "Destroyed favorites"
@@ -10,24 +12,22 @@ puts "Destroyed users"
 Job.destroy_all
 puts "Destroyed jobs"
 
-
 puts "Drop it like it's Seed, drop it likes it's Seed.."
 
 
-3000.times do |job|
+10.times do |job|
+
   puts "creating job"
   job = Job.new(
     title: Faker::Job.title,
     company: Faker::Company.name,
-    description: "Lorem ipsum dolor amet activated charcoal XOXO gentrify biodiesel street art succulents. Pug farm-to-table dreamcatcher, small batch helvetica affogato beard austin. Thundercats beard tacos ennui kombucha squid brunch hammock everyday carry swag echo park af occupy tumeric selfies. Plaid air plant bicycle rights celiac taxidermy succulents. Deep v kombucha gentrify schlitz. Godard mlkshk letterpress unicorn quinoa, adaptogen banjo meh lyft four loko woke mixtape tilde poke.
-    Oh. You need a little dummy text for your mockup? How quaint.
-    I bet you’re still using Bootstrap too…",
-    location: Faker::Address.city,
+    description: "Lorem ipsum dolor amet activated charcoal XOXO gentrify biodiesel street art succulents. Pug farm-to-table dreamcatcher, small batch helvetica affogato beard austin. Thundercats beard tacos ennui kombucha squid brunch hammock everyday carry swag echo park af occupy tumeric selfies. Plaid air plant bicycle rights celiac taxidermy succulents. Deep v kombucha gentrify schlitz. Godard mlkshk letterpress unicorn quinoa, adaptogen banjo meh lyft four loko woke mixtape tilde poke."
+
     )
   job.save
 
   3.times do |i|
-    job.salary_list.add(Job::SALARIES.sample)
+    job.salary_list.add(Job::SALARIES.sample, parse: false)
     job.save
   end
 
@@ -46,6 +46,8 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
     job.save
   end
 
+  job.location_list.add(["Greater Denver Area", "Remote"].sample)
+
   job.save!
 end
 
@@ -63,10 +65,8 @@ i= 1
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    location: Faker::Address.city,
     resume_file_path: Faker::File.mime_type,
     registration_id: Registration.find(i).id
-
     )
   user.save
   5.times do |i|
@@ -77,7 +77,7 @@ i= 1
     user.salary_list.add(User::SALARIES.sample)
     user.save
   end
-  user.save_skills(user.skill_list)
+  user.location_list.add(User::LOCATIONS.sample)
   i += 1
   user.save!
 end

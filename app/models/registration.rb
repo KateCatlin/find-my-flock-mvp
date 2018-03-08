@@ -12,12 +12,12 @@ class Registration < ApplicationRecord
     if registration.nil?
       registration = Registration.create(provider:auth.provider, uid:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20])
     end
-    image_url = auth.extra.raw_info.pictureUrl rescue nil
+    image_url = auth.info.image rescue nil
     if user = registration.try(:user)
       user.remote_photo_url = image_url
       user.save
     else
-      user = User.create(registration_id: registration.id, first_name: auth.info.first_name, last_name: auth.info.last_name, location: auth.info.location)
+      user = User.create(registration_id: registration.id, first_name: auth.info.first_name, last_name: auth.info.last_name)
       user.remote_photo_url = image_url
       user.save
     end

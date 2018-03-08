@@ -1,4 +1,8 @@
+require 'json'
+require 'open-uri'
+
 class ApplicationRecord < ActiveRecord::Base
+
   self.abstract_class = true
 
   SKILLS = %w(Java Python C Ruby Rails Javascript JQuery AngularJS Node.js React ReactNative PHP WordPress HTML CSS Objective-C Swift iOS Android Kotlin SQL .NET R Perl MATLAB Erlang Scala Bash Clojure Haskell Groovy DevOps Systems UI UX Apex SAS Crystal git GitHub Sales).sort
@@ -7,5 +11,7 @@ class ApplicationRecord < ActiveRecord::Base
 
   SALARIES = %w($60,000-$69,999 $70,000-$79,999 $80,000-$89,999 $90,000-$99,999 $100,000-$109,999 $110,000-$119,999 $120,000-$129,999 $130,000-$139,999 $140,000-$149,999 $150,000-$159,999 $160,000-$160,999 $170,000-$179,999 $180,000-$189,999 $190,000-$199,999, +$200,000)
 
+  locations_serialized = open('db/locations.json').read
+  LOCATIONS = JSON.parse(locations_serialized)
 end
 
