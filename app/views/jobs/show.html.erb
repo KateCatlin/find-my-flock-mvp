@@ -8,20 +8,35 @@
   <div class="col-8">
     <h5 class="centered"><%= @job.location_list %></h3>
     <p class="small-padded-title"><%= @job.description %></p>
+
+  <div class="grid">
+    <div class="grid-first-column">
+    <div class="values">Values:</div>
     <% @job.value_list.each do |value| %>
-    <%= value %>
+    <ul class="values-list">
+    <li><%= value %> </li>
+    </ul>
     <% end %>
+    </div>
 
+    <div class="grid-second-column-first">
+      <div class="values">Skills needed:</div>
     <% @job.skill_list.each do |skill| %>
-    <%= skill.chop %>
+      <ul class="skills-list">
+        <li><%= skill.chop %></li>
+    </ul>
     <% end %>
+  </div>
 
+  <div class="grid-second-column-second">
+    <div class="values">Salary range:</div>
      <%= @job.salary_list.last %>
+  </div>
 
   </div>
-</div>
+
 <div class="row justify-content-center text-center">
-  <div class="col-8">
+  <div class="bottom-buttons col-8">
     <% if @already_applied%>
       <%= link_to 'Cancel?', job_application_path(@job, @application), method: :delete, class: "btn btn-stroke" %>
     <% else %>
@@ -30,6 +45,7 @@
 
     <%= link_to 'Back', dashboard_index_path, class: "btn btn-stroke" %>
   </div>
+</div>
 </div>
 
 
