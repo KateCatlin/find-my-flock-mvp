@@ -16,15 +16,17 @@
 
 </div>
 
+
+
   <div class="tabs">
-    <ul class="list-inline nav justify-content-end nav-tabs">
-      <a href="#" class="select-tab" data-target="job-list">
-        <li class="nav-item nav-link">jobs</li>
+    <ul class="list-inline nav justify-content-center nav-tabs">
+      <a href="#" class="select-tab" data-toggle="tab" data-target="job-list">
+        <li class="nav-item nav-link active">jobs</li>
       </a>
-      <a href="#" class="select-tab" data-target="favorite-list">
+      <a href="#" class="select-tab" data-toggle="tab" data-target="favorite-list">
         <li class="nav-item nav-link">favorites</li>
       </a>
-      <a href="#" class="select-tab" data-target="applied-list">
+      <a href="#" class="select-tab" data-toggle="tab" data-target="applied-list">
         <li class="nav-item nav-link">applied</li>
       </a>
     </ul>
@@ -172,6 +174,8 @@
     var lists = document.querySelectorAll(".job-listings")
     tabs.forEach(function(tab) {
       tab.addEventListener("click", function(event) {
+        tabs.forEach(tab => tab.querySelector("li").classList.remove("active"))
+        event.target.classList.add("active");
         var target = tab.getAttribute("data-target");
         var toActivateTab = document.getElementById(target);
         lists.forEach(list => list.hidden = true);
