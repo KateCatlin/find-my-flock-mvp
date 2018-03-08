@@ -86,13 +86,22 @@
       <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#skills" role="tab" data-next-tab="skills-tab">Next</a>
     </div>
   </div>
+
     <div class="tab-pane" id="skills" role="tabpanel">
      <div class="form-box">
       <div class="form-inputs">
         <h4 class="no-space"> What skills do you bring to the table? </h4>
         <p>Add your top five skills from below.</p>
+
         <br>
-        <%= t.input :skills, collection: @skills, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
+
+  <%= content_for(:after_js) do %>
+    <script>
+      $('.select2').val(<%= raw @user_readable_skills %>)
+    </script>
+  <% end %>
+
+        <%= t.input :skills, collection: @skills, input_html: {value: @user.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
       </div>
       <br>
       <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>

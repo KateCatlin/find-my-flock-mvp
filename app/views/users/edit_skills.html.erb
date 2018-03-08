@@ -15,34 +15,34 @@
             <h4 class="no-space"> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
             <br>
             <div class="form-check">
-              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
+              <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
               <label class="form-check-label">
                 <p> Only a little knowledge</p>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
+              <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
 
               <label class="form-check-label">
                 <p>Gaining competency</p>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
+              <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
 
               <label class="form-check-label">
                 <p>Individual competency</p>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
+              <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
 
               <label class="form-check-label">
                 <p>Strong competency</p>
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
+              <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
 
               <label class="form-check-label">
                 <p>Expert</p>
@@ -52,25 +52,32 @@
 
 
 
-            <%= f.button :submit, :class => 'btn submit-btn '%>
           </div>
         </div>
-        <% end %>
 
         <div class="form-box" id="data-<%= @skills_numeric_hash.length %>" hidden>
-          <br>
-          <p> Go to your dashboard to see your wonderfull jobs</p>
-          <br>
-        </div>
-        <% end %>
+
+          <ul id="summarized-form">
+
+
+          </ul>
+
+            <%= f.button :submit, :class => 'btn submit-btn '%>
+
+
+
 
       </div>
+        <% end %>
+        <% end %>
+
       <div class="form-box-buttons">
      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
       <% @skills_numeric_hash.each_with_index do |hash, index|  %>
 
       <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
       <% end %>
+      <button type="button" class="btn skill-button" data-form-target="data-<%= @skills_numeric_hash.length %>">Double check!</button>
       <br>
     </div>
     </div>
@@ -108,12 +115,33 @@
         // Unhiding the next one
         nextBox.hidden = false;
 
+        fillSummary(input);
+
         let nextId = nextBox.getAttribute('id')
         let activeBtn = document.querySelector(`[data-form-target=${nextId}]`)
         deactiveButtons(buttons);
         activeBtn.classList.add('active-btn');
       })
     })
+
+    const summary = document.querySelector('#summarized-form');
+    const skills = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
+
+
+    function fillSummary(input) {
+      let idValue = input.getAttribute('data-form-id')
+      let exisitingElement = summary.querySelector(`[data-form-id='${idValue}']`);
+      let lang = input.getAttribute('data-lang');
+      let numValue = parseInt(input.value.slice(-1));
+      let skill = skills[numValue - 1]
+
+      if (exisitingElement) {
+        exisitingElement.querySelector("p").innerHTML = skill;
+      } else {
+        let newLi = `<li data-form-id=${idValue}> <h2> ${lang} <h2> <p> ${skill} </p> </li>`;
+        summary.insertAdjacentHTML("beforeend", newLi);
+      }
+    };
 
     function deactiveButtons(buttons) {
       buttons.forEach(button => button.classList.remove('active-btn'))
