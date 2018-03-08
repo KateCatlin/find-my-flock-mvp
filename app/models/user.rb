@@ -63,6 +63,7 @@ class User < ApplicationRecord
     return skills_hash
   end
 
+
 end
 
 
