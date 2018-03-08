@@ -1,27 +1,19 @@
 <body>
-
   <% if registration_signed_in? %>
-    <% if current_user %>
-      <ul class="container navbar-container">
-        <li id="nav-left"> <%= link_to "Find my Flock", root_path %></li>
-        <li class="underline" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
-        <li class="underline" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
-        <li class="underline-logout" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
-      </ul>
-
-      <% else %>
-      <ul class="container navbar-container">
-        <li id="nav-left"><%= link_to "Find my Flock", root_path %></li>
-        <li class="underline-logout" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
-      </ul>
-      <% end %>
+  <% if current_user %>
+  <ul class="container navbar-container">
+    <li id="nav-left"> <%= link_to "Find my Flock", root_path %></li>
+    <li class="underline" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
+    <li class="underline" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li class="underline-logout" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
     <% else %>
-      <ul class="container navbar-container">
-        <li id="nav-left"><%= link_to "Find my Flock", root_path %></li>
-        <li class="underline" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
-        <li class="sign-up" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
-      </ul>
-  <% end %>
+    <li id="nav-left"><%= link_to "Find my Flock", root_path %></li>
+    <li class="underline" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
+    <li class="underline" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
+    <% end %>
+    <% end %>
+  </ul>
+
 
   <div class="banner" style="background-image: url('<%= image_path 'officeimg.png', crop: :fill; %>') ;">
     <ul class="home-list">
@@ -30,27 +22,21 @@
         <h3 class="upperlined">Find the jobs that match your</h3>
         <div class="secondline"><span id="banner-typed-text"></span></div>
       </div>
-  <div class="home-buttons">
+    </ul>
     <% if registration_signed_in? %>
-      <% if current_user %>
-        <%= link_to "See Your Matches", dashboard_index_path, class: "btn-orange" %>
-      <% else %>
-        <%= link_to "Create Your Profile", new_user_path, class: "btn-orange" %>
-      <% end %>
+    <% if current_user %>
+    <% link_to "See Your Matches", dashboard_index_path, class: "btn btn-outline-secondary login-home" %>
     <% else %>
-      <%= link_to 'Create an account', new_registration_registration_path, class: "btn-orange" %>
+    <%= link_to "Create Your Profile", new_user_path, class: "btn btn-outline-secondary signin-home" %>
+    <% end %>
+    <% else %>
+    <%= link_to 'Create an account', new_registration_registration_path, class: "btn btn-outline-secondary signin-home" %>
     <% end %>
   </div>
-    </ul>
-
-
 </div>
-
 <div class="job-samples">
   <h2 class="centered padded-title">Jobs Sample</h2>
-
   <div class="cards-container card-sample ">
-
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
@@ -60,7 +46,6 @@
         <a href="#" class="btn btn-page">Details...</a>
       </div>
     </div>
-
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
@@ -70,7 +55,6 @@
         <a href="#" class="btn btn-page">Details...</a>
       </div>
     </div>
-
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
@@ -78,45 +62,36 @@
         <p class="company"> Apple </p>
         <h4 class="location"> Dublin </h4>
         <a href="#" class="btn btn-page">Details...</a>
-
       </div>
     </div>
-
   </div>
 </div>
-
 <h2 class="centered padded-title">Why joining us?</h2>
-
 <div class="arguments-container">
-  <div class="arguments col-xs-12 col-sm-6 col-md-6">
-    <div class="argument-box card-1" style="background-image: url('<%= image_path 'oneclick.png', crop: :fill; %>') ;">
-      <dl>
-        <dt><h4 class="centered why-title">Import your LinkedIn Profile</h4></dt>
-        <dd>Complete your profile in only a few seconds by importing all your data directly from LinkedIn. The time you had to spend fifteen minutes on a jobboard to complete your profile is over. One click, and it's all set up.</dd>
-      </dl>
+    <div class="arguments col-xs-12 col-sm-6 col-md-6">
+      <div class="argument-box card-1" style="background-image: url('<%= image_path 'oneclick.png', crop: :fill; %>') ;">
+        <dl>
+          <dt><h4 class="centered why-title">Import your LinkedIn Profile</h4></dt>
+          <dd>Complete your profile in only a few seconds by importing all your data directly from LinkedIn. The time you had to spend fifteen minutes on a jobboard to complete your profile is over. One click, and it's all set up.</dd>
+        </dl>
+      </div>
     </div>
-</div>
-
-  <div class="arguments col-xs-12 col-sm-6 col-md-6">
-    <div class="argument-box card-2" style="background-image: url('<%= image_path 'chalkboard.png', crop: :fill; %>') ;">
-      <dl>
-        <dt><h4 class="centered why-title">Unique algorithm to match your ideal job</h4></dt>
-        <dd>This is not a simple job board. It is <em>the</em> job board. Select your skills and values and match with the jobs meeting your criterias. Whenever a new job matching your values is added to our database, you'll be noticed the minute after. Cool, uh?</dd>
+      <div class="arguments col-xs-12 col-sm-6 col-md-6">
+        <div class="argument-box card-2" style="background-image: url('<%= image_path 'chalkboard.png', crop: :fill; %>') ;">
+          <dl>
+            <dt><h4 class="centered why-title">Unique algorithm to match your ideal job</h4></dt>
+            <dd>This is not a simple job board. It is <em>the</em> job board. Select your skills and values and match with the jobs meeting your criterias. Whenever a new job matching your values is added to our database, you'll be noticed the minute after. Cool, uh?</dd>
+          </dl>
+        </div>
+      </div>
+    <div class="arguments col-xs-12 col-sm-12 col-md-12">
+      <div class="argument-box card-3" style="background-image: url('<%= image_path 'importlinkedin.png', crop: :fill; %>') ;">
+       <dl>
+        <dt><h4 class="centered why-title">Apply in one click</h4></dt>
+        <dd>One click will sent all the information provided by your profile to the recruiter linked to the job. No need to enter tyour information again. Time is money, idk. One click is enough!</dd>
       </dl>
     </div>
   </div>
-
-  <div class="arguments col-xs-12 col-sm-12 col-md-12">
-    <div class="argument-box card-3" style="background-image: url('<%= image_path 'importlinkedin.png', crop: :fill; %>') ;">
-     <dl>
-      <dt><h4 class="centered why-title">Apply in one click</h4></dt>
-      <dd>One click will sent all the information provided by your profile to the recruiter linked to the job. No need to enter tyour information again. Time is money, idk. One click is enough!</dd>
-    </dl>
-  </div>
-</div>
-
-
-
 </div>
 </div>
 </body>

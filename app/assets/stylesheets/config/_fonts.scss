@@ -1,22 +1,13 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100|Roboto+Slab:100');
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100|Scope+One');
 // Define fonts for body and headers
-$body-font: "Roboto Slab", "serif";
+$body-font: "Lora", "sans-serif";
 $headers-font: "Montserrat", "sans-serif";
 
-h1, h2 {
-  font-weight: 100;
+h1, h2, h3, h4, h5 {
+  font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-family: "Roboto Slab", "serif";
-}
-
-h3, h4, h5 {
-  font-weight: 100;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-
 }
 
 a {
@@ -27,8 +18,15 @@ a {
 }
 
 p {
-  font-weight: 100;
+  font-weight: lighter;
+}
 
+.no-space {
+  letter-spacing: 2px;
+}
+
+.bold {
+  font-weight: bolder;
 }
 
 // To use a font file (.woff) uncomment following lines

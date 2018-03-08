@@ -8,17 +8,24 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update
-  validates :location, presence: true, on: :update
 
-
-  acts_as_taggable_on :skills, :values, :salaries
+  acts_as_taggable_on :skills, :values, :salaries, :locations
 
   def add_tags(tags)
     self.salary_list = tags["salaries"].compact
     self.save!
     self.value_list = tags["values"]
     self.save!
+    save_locations(tags["locations"])
+    self.save!
     save_skills(tags["skills"])
+  end
+
+  def save_locations(locations)
+    delete_locations
+    locations.each do |location|
+      self.location_list.add(location, parse: false)
+    end
   end
 
   def save_skills(skills)
@@ -33,6 +40,10 @@ class User < ApplicationRecord
     end
     self.skill_list = skills
     self.save!
+  end
+
+  def delete_locations
+    self.location_list.remove(self.location_list)
   end
 
   def competency_description(selection)

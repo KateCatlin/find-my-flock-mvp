@@ -26,6 +26,7 @@ gem 'omniauth'
 gem 'omniauth-linkedin'
 gem 'pry-byebug'
 gem 'pry-rails'
+gem 'pdf-reader'
 
 
 group :development do
