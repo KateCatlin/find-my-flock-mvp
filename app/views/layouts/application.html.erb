@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <title>Find My Flock</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <title>Find My Flock</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
-  </head>
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= yield %>
-        <%= render 'shared/footer' %>
+  <!-- Social Meta Tag Setup -->
+  <title><%= meta_title %></title>
+  <meta name="description" content="<%= meta_description %>">
 
-    <%= javascript_include_tag 'application' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <!-- Facebook Open Graph data -->
+  <meta property="og:title" content="<%= meta_title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= meta_image %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
+  <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <%= javascript_pack_tag 'application' %>
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:title" content="<%= meta_title %>">
+  <meta name="twitter:description" content="<%= meta_description %>">
+  <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:image:src" content="<%= meta_image %>">
 
-  </body>
+</head>
+<body>
+  <%= render 'shared/navbar' %>
+  <%= yield %>
+  <%= render 'shared/footer' %>
+
+  <%= javascript_include_tag 'application' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+  <%= javascript_pack_tag 'application' %>
+
+</body>
 </html>
