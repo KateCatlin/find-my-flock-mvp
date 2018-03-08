@@ -44,5 +44,36 @@
       </div>
     </body>
 
+<h1 class="centered small-padded-title"><%= @job.title  %></h1>
+<h4 class="centered"><%= @job.company %></h2>
+
+<div class="row justify-content-center">
+  <div class="col-8">
+    <h5 class="centered"><%= @job.location_list %></h3>
+    <p class="small-padded-title"><%= @job.description %></p>
+    <% @job.value_list.each do |value| %>
+    <%= value %>
+    <% end %>
+
+    <% @job.skill_list.each do |skill| %>
+    <%= skill.chop %>
+    <% end %>
+
+     <%= @job.salary_list.last %>
+
+  </div>
+</div>
+<div class="row justify-content-center text-center">
+  <div class="col-8">
+    <% if @already_applied%>
+      <%= link_to 'Cancel?', job_application_path(@job, @application), method: :delete, class: "btn btn-stroke" %>
+    <% else %>
+      <%= link_to 'Apply', job_applications_path(@job), method: :create, class: "btn btn-stroke" %>
+    <% end %>
+
+    <%= link_to 'Back', dashboard_index_path, class: "btn btn-stroke" %>
+  </div>
+</div>
+
 
 
