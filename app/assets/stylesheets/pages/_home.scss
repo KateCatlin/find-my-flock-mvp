@@ -1,2 +1,71 @@
 // Specific CSS for your home-page
 
+.job-samples {
+  background-color: white;
+  padding-bottom: 120px;
+
+}
+
+.centered {
+  text-align: center;
+}
+
+
+.padded-title {
+  padding-top: 75px;
+  padding-bottom: 30px;
+  font-weight: 600;
+  font-size: 40px;
+
+}
+
+h2 {
+    margin-top: 0px;
+    font-family: "Roboto Slab", "serif";
+    text-transform: capitalize;
+}
+
+
+// Specific CSS for the colored cards / argument boxes: Why Joining Us?
+
+
+.argument-box {
+  background-color: red;
+  padding-top: 4%;
+  padding-right: 8%;
+  padding-left: 8%;
+  height: 300px;
+  width: 80%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 4px;
+  color: white;
+  box-shadow: 0px 39px 134px -28px rgba(0,0,0,0.6);
+}
+
+.argument:hover {
+
+}
+
+.why-title {
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+.card-1 {
+  background-color: #ffe2e2;
+  margin-left: 20%;
+}
+
+.card-2 {
+  background-color: #e2e2e2;
+  margin-right: 10%;
+}
+
+.card-3 {
+  background-color: #ffe3cb;
+  height: 210px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 8%;
+}
+

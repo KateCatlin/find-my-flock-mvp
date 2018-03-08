@@ -1,3 +1,5 @@
+// Classic button white becoming black on hovering
+
 .btn {
   border: 1px solid black;
   padding: 5px 25px;
@@ -9,10 +11,29 @@
   color: white;
   }
 
-  .underline a:hover {
-    border-bottom: 1px solid black;
-    padding-bottom: 5px;
-  }
+// Home Page orange buttons to see matches, create an account, edit your profile.
+
+  .btn-orange {
+  padding: 10px 15px;
+  border: 1px solid $light-orange;
+  transition: 0.1s background-color ease-in-out;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 5px;
+  background-color: $light-orange;
+  transition: 0.5s padding ease-in-out;
+
+}
+
+.btn-orange:hover {
+  padding: 10px 50px;
+  background-color: $light-orange;
+  border: 1px solid $light-orange;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 5px;
+}
+
 
   .btn-wide {
     width: 100%;
