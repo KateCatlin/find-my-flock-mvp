@@ -21,6 +21,14 @@ p {
   font-weight: lighter;
 }
 
+.no-space {
+  letter-spacing: 2px;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
