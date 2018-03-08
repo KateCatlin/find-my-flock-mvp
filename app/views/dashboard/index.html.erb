@@ -1,28 +1,39 @@
 <body id="dashboard-body">
-  <div class="dashboard-header">
-    <h1>Dashboard</h1>
 
+  <div class="dashboard-header">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
     <div id="dashboard-photo">
       <%= cl_image_tag current_user.photo %>
     </div>
   </div>
 
+  <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
+    <h2 class="centered dashboard-home">Welcome to your dashboard <em class="underlined-medium"><%= current_user.first_name %></em></h2>
+    <p class="centered">Here you can find all your matches, including the one you applied to and your saved jobs.</p>
+  </div>
+</div>
+
+</div>
+
+
+
   <div class="tabs">
-    <ul class="list-inline nav justify-content-end nav-tabs">
-      <a href="#" class="select-tab" data-target="job-list">
-        <li class="nav-item nav-link">jobs</li>
+    <ul class="list-inline nav justify-content-center nav-tabs">
+      <a href="#" class="select-tab" data-toggle="tab" data-target="job-list">
+        <li class="nav-item nav-link active">jobs</li>
       </a>
-      <a href="#" class="select-tab" data-target="favorite-list">
+      <a href="#" class="select-tab" data-toggle="tab" data-target="favorite-list">
         <li class="nav-item nav-link">favorites</li>
       </a>
-      <a href="#" class="select-tab" data-target="applied-list">
+      <a href="#" class="select-tab" data-toggle="tab" data-target="applied-list">
         <li class="nav-item nav-link">applied</li>
       </a>
     </ul>
   </div>
 
   <div id="job-list" class="job-listings">
-    <h2>Jobs</h2>
+    <h2 class="centered small-padded-title">Jobs</h2>
 
     <% if !@my_matched_jobs.empty? %>
     <div class="card-deck">
@@ -62,12 +73,12 @@
     </div>
 
     <% else %>
-    <p> Great! Thanks for the info! We'll be back in touch if any jobs come up matching your profile. Feel free to go home and relax. </p>
+    <p class="centered waiting-message"> Great! Thanks for the info! We'll be back in touch if any jobs come up matching your profile. Feel free to go home and relax. </p>
     <% end %>
   </div>
 
   <div id="favorite-list" class="job-listings" hidden>
-    <h2>Favorites</h2>
+    <h2 class="centered small-padded-title">Favorites</h2>
 
     <div class="card-deck">
       <% @favorited.each do |job| %>
@@ -109,7 +120,7 @@
 
 
   <div id="applied-list" class="job-listings" hidden>
-    <h2>Applied</h2>
+    <h2 class="centered small-padded-title">Applied</h2>
 
     <div class="card-deck">
       <% @applied.each do |job| %>
@@ -150,8 +161,8 @@
   </div>
 
   <% if registration_signed_in? %>
-  Signed in as <%= current_user.first_name %> <%= current_user.last_name %>. Not you?
-  <%= link_to "Sign out", destroy_registration_session_path,:method => :delete %>
+  <p class="notice-message">Signed in as <%= current_user.first_name %> <%= current_user.last_name %>. Not you?
+  <%= link_to "Sign out", destroy_registration_session_path,:method => :delete %></p>
   <% else %>
   <%= link_to "Sign up", new_registration_registration_path %> or
   <%= link_to "Sign in", new_registration_session_path %>
@@ -163,6 +174,8 @@
     var lists = document.querySelectorAll(".job-listings")
     tabs.forEach(function(tab) {
       tab.addEventListener("click", function(event) {
+        tabs.forEach(tab => tab.querySelector("li").classList.remove("active"))
+        event.target.classList.add("active");
         var target = tab.getAttribute("data-target");
         var toActivateTab = document.getElementById(target);
         lists.forEach(list => list.hidden = true);

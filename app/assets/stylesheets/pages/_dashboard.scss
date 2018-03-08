@@ -1,0 +1,40 @@
+.dashboard-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    width: 71%;
+    margin: auto;
+}
+
+// .dashboard-home {
+//   align-items: center;
+// }
+
+#dashboard-photo {
+  border-radius: 10px;
+
+  img {
+  height: 250px;
+  width: 250px;
+  border-radius: 130px;
+  margin-right: 15vh;
+}
+}
+
+.waiting-message {
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-bottom: 9%;
+}
+
+.notice-message {
+    background-color: #4f4f4f66;
+    margin-bottom: -40.5px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    a {
+      color: white;
+      font-weight: 900;
+    }
+}

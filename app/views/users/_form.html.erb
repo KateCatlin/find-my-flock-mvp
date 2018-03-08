@@ -2,8 +2,12 @@
   <div class="row justify-content-center">
     <div class="col-xs-9">
       <div class = "heading-box">
-        <h2 class="no-space">Hi <%= current_user.first_name  %> ,</h2>
+        <h2 class="no-space"><% if current_user %> Hi <%= current_user.first_name %>!</h2>
+        <p>Do you want to edit your profile?</p>
+        <% else %>
+          <h2>Welcome!</h2>
         <h4 class="no-space">Please tell us a little more about you</h4>
+        <% end %>
       </div>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
