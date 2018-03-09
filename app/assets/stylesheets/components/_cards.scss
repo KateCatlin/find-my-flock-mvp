@@ -2,7 +2,7 @@
   width: 25rem;
   height: 40rem;
   margin-top: 10px;
-  margin-bottom:  20px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   transition: transform 0.7s;
@@ -21,7 +21,11 @@
 
 .card-deck {
   padding-bottom: 10vh;
-
+  margin-right: 25vh;
+  margin-left: 25vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .card-home {
@@ -82,7 +86,7 @@
   // Specific to the dashboard cards
 
 #dashboard-body {
-          background-color: white;
+  background-color: white;
 
 }
 
