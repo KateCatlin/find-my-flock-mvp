@@ -1,3 +1,13 @@
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+}
 .container {
   width: 100%;
   margin-right: none;
@@ -17,6 +27,7 @@
   padding: 3%;
   margin-top: 40px;
   margin-bottom: 0px;
+
 
 
   .underline a:hover {
@@ -59,14 +70,14 @@
 }
 
 
-ul {
+.footer-container ul {
   padding: 0;
   list-style: none;
   justify-content:center;
   text-align:center;
   }
 
-ul li {
+.social-icons li {
   display: inline-block;
 }
 

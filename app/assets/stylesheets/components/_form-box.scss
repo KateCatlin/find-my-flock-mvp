@@ -26,6 +26,14 @@ a.nav-link {
 }
 
 
+// .submit-btn {
+// position:absolute;
+// bottom: -50px;
+// left: 40px;
+// z-index: 10;
+// }
+
+
 .nav {
   margin-bottom: 55px;
 }
@@ -38,22 +46,25 @@ z-index: 10;
 
 }
 
+
 .nav-tabs {
   padding-top: 10px;
-
 }
 
-.nav-tabs {
-}
 
 .form-check-label {
   padding-left: 30px;
 }
 
 .submit-btn {
-  margin-left: 5%;
+  margin-left: 10px !important;
 }
 
+.btn.submit-btn.btn-wide {
+  margin-left: 0;
+  margin-bottom: 2.5%;
+  margin-top: 3%;
+}
 
 .btn .active {
     background-color: #4F4F4F;
@@ -65,10 +76,16 @@ z-index: 10;
 }
 
 .form-box-buttons {
-
   position:absolute;
-  bottom: 25px;
-  left: 90px;
-  z-index: 9;
+  bottom: 10%;
+  left: 10%;
+  z-index: 1;
+}
 
+.form-text {
+   font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 400;
 }
