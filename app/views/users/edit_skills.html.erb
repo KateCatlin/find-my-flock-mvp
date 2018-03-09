@@ -56,16 +56,16 @@
         </div>
 
         <div class="form-box" id="data-<%= @skills_numeric_hash.length %>" hidden>
+          <div class="row">
+            <div class="justify-content-center" id="summarized-form">
 
-          <ul id="summarized-form">
 
+            </div>
 
-          </ul>
-
-            <%= f.button :submit, :class => 'btn submit-btn  btn-wide {
+            <%= f.button :submit, input_html: {value: "Submit selection"}, :class => 'btn submit-btn  btn-wide {
     width: 100%;
   } '%>
-
+        </div>
 
 
 
@@ -74,15 +74,15 @@
         <% end %>
 
       <div class="form-box-buttons">
-     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
       <% @skills_numeric_hash.each_with_index do |hash, index|  %>
 
-      <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
+        <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
       <% end %>
-      <button type="button" class="btn skill-button submit-btn" data-form-target="data-<%= @skills_numeric_hash.length %>"><em>Submit</em></button>
-      <br>
-    </div>
-    </div>
+        <button type="button" class="btn skill-button submit-btn" data-form-target="data-<%= @skills_numeric_hash.length %>"><em>Selection</em></button>
+        <br>
+      </div>
+      </div>
     </div>
   </div>
 
@@ -140,7 +140,7 @@
       if (exisitingElement) {
         exisitingElement.querySelector("p").innerHTML = skill;
       } else {
-        let newLi = `<li data-form-id=${idValue}> <h5> ${lang} <h5> <p> ${skill} </p> </li>`;
+        let newLi = `<div class="col-xs-4" data-form-id=${idValue}> <h4 class="no-space"> ${lang} <h4> <p class="no-space body-text"> ${skill} </p> </li>`;
         summary.insertAdjacentHTML("beforeend", newLi);
       }
     };
