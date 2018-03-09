@@ -43,10 +43,20 @@
               <% if @already_applied%>
               <%= link_to 'Cancel?', job_application_path(@job, @application), method: :delete, class: "btn cancel" %>
               <% else %>
-              <%= link_to 'Apply Now', job_applications_path(@job), method: :create, class: "btn apply" %>
+              <%= link_to 'Apply Now', job_applications_path(@job), "data-toggle" => "modal" "data-target" => "#myModal", method: :create, class: "btn apply" %>
               <% end %>
 
               <%= link_to 'Back', dashboard_index_path, class: "btn" %>
+            </div>
+          </div>
+        </div>
+
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button> -->
+
+        <div id="myModal", class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <h5>You've applied!</h5>
             </div>
           </div>
         </div>
