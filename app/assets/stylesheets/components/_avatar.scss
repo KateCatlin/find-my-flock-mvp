@@ -1,8 +1,19 @@
 .avatar {
-  width: 100%;
-  border-radius: 100%;
+  width: 100px;
+  border-radius: 50%;
   }
 
-.profile-img {
- padding: 10%
+.profile-img-show{
+ padding: 10%;
+ width: 100%;
+ margin: 0 auto;
+ text-align: left;
+ padding-left: 35%;
+ margin-top: 50px;
+}
+
+.avatar-lg {
+  width: 150px;
+  border-radius: 50%;
+
 }

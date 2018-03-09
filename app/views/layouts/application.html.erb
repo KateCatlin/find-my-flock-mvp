@@ -22,6 +22,7 @@
   <meta property="og:url" content="<%= request.original_url %>" />
   <meta property="og:image" content="<%= meta_image %>" />
   <meta property="og:description" content="<%= meta_description %>" />
+
   <meta property="og:site_name" content="<%= meta_title %>" />
 
   <!-- Twitter Card data -->
@@ -44,6 +45,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
   <%= javascript_pack_tag 'application' %>
+  <%= yield(:after_js) %>
 
 </body>
 </html>

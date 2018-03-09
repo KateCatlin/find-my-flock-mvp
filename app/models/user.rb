@@ -21,6 +21,14 @@ class User < ApplicationRecord
     save_skills(tags["skills"])
   end
 
+  def clean_skill(skill)
+    skill.to_s.split(/\d/).first
+  end
+
+  def text_skills
+    self.skills.map { |skill| clean_skill(skill) }.uniq
+  end
+
   def save_locations(locations)
     delete_locations
     locations.each do |location|
@@ -51,20 +59,34 @@ class User < ApplicationRecord
     return competencies[selection]
   end
 
-  def return_skills_hash
-    skills_hash = {}
-    self.skill_list.each do |skill|
-      if skill =~ /\d/
-        skills_hash[skill.chop.parameterize.underscore.to_sym] = skill.slice(-1).to_i
-      else
-        skills_hash[skill.parameterize.underscore.to_sym] = 1
-      end
-    end
-    return skills_hash
+  def skills_competencies
+    competencies = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
+    num_hash = return_skills_hash
+    new_hash = {}
+    num_hash.each { |language, skill| new_hash[language] = competencies[skill -1] }
+    new_hash
   end
 
+  def return_skills_hash
+    upcased_array = self.skill_list.map(&:upcase)
+    new_hash = {}
+    array_of_hash = upcased_array.map do |element|
+      index_num = element.index(/\d/)
+      if !index_num.nil?
+        language = element[0...index_num]
+        skill_level = element[index_num..-1].to_i
+        if new_hash[language]
+          new_hash[language] = skill_level if new_hash[language] < skill_level
+        else
+          new_hash[language] = skill_level.to_i
+        end
+      else
+        new_hash[element] = 1
+      end
+    end
+    new_hash
+  end
 end
-
 
 
 
