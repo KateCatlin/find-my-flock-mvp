@@ -25,10 +25,11 @@
       <div class="profile-box">
         <h3>Your skills</h3>
         <br>
-          <% current_user.return_skills_hash.each do |skill| %>
-          <p><i class="fas fa-arrow-alt-circle-up"></i> <%= skill[0].capitalize %>
+          <% current_user.skills_competencies.each do |skill, competency| %>
+          <p><i class="fas fa-arrow-alt-circle-up"></i> <%= skill.capitalize %>
+            - <%= competency %>
               </p>
-              <% end %>
+        <% end %>
       </div>
     </div>
 
