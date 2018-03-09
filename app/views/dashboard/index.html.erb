@@ -33,7 +33,6 @@
   </div>
 
   <div id="job-list" class="job-listings">
-    <h2 class="centered small-padded-title bigger-title">Jobs</h2>
 
     <% if !@my_matched_jobs.empty? %>
 
@@ -80,7 +79,7 @@
 </div>
 
 <div id="favorite-list" class="job-listings" hidden>
-  <h2 class="centered small-padded-title bigger-title">Favorites</h2>
+
 
  <div class="card-deck">
       <% @favorited.each do |job| %>
@@ -120,7 +119,7 @@
 
 
 <div id="applied-list" class="job-listings" hidden>
-  <h2 class="centered small-padded-title bigger-title">Applied</h2>
+
 
    <div class="card-deck">
       <% @applied.each do |job| %>
