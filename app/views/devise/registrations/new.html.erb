@@ -1,7 +1,8 @@
-<h2>Sign up</h2>
+<div class="login-form">
+<h2 class="centered small-padded-title">Sign up</h2>
 
 <div class="form-border">
-<div class="login-form">
+  <div class="login-form">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -11,13 +12,17 @@
     <%= f.input :password_confirmation, required: true %>
   </div>
 </div>
-<div class="login-form-bot">
+<div class="login-form-bot centered registration-button">
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "btn-orange"%>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="centered">
+      <%= render "devise/shared/links" %>
+    </div>
+</div>
 </div>
 </div>
 
