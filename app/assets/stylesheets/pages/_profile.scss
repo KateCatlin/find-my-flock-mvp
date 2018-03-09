@@ -8,7 +8,6 @@ margin-top: 50px;
 }
 
 .profile-box {
-  margin-top: 50px;
   padding: 10%;
   background-color: #fff;
   text-align: left;
@@ -16,4 +15,25 @@ margin-top: 50px;
 
 .profile-box ul {
 text-align: left;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    width: 71%;
+    margin: auto;
+}
+
+.separator {
+  margin-top: 8vh;
+    margin-bottom: 0vh;
+    border: 0;
+    border-top: 1px solid #bfbfbf;
+    margin-right: 30vh;
+    margin-left: 30vh;
+}
+
+.profile-title {
+  letter-spacing: 0px;
 }
