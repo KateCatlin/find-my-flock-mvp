@@ -1,14 +1,7 @@
 <div class="container form">
   <div class="row justify-content-center">
     <div class="col-xs-9">
-      <div class = "heading-box">
-        <h2 class="no-space"><% if current_user %> Hi <%= current_user.first_name %>!</h2>
-        <p>Do you want to edit your profile?</p>
-        <% else %>
-          <h2>Welcome!</h2>
-        <h4 class="no-space">Please tell us a little more about you</h4>
-        <% end %>
-      </div>
+
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -34,12 +27,33 @@
       <div class="tab-content active ">
         <div class="tab-pane active" id="personal-info" role="tabpanel">
           <div class="form-box">
-            <%= simple_form_for(@user) do |f| %>
-            <%= f.error_notification %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <br>
-            <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
+            <div class="row">
+              <div class="col-xs-3">
+                <div class = "avatar-edit">
+                  <% if current_user %>
+                          <% if current_user %>
+                            <% if current_user.photo %>
+                              <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+                            <% else %>
+                              <%= image_tag("user", class: "avatar ", style:"width:100px ") %>
+                            <% end %>
+                          <% end %>
+                  <% else %>
+                    <h2>Welcome!</h2>
+                    <h4 class="no-space">Please tell us a little more about you</h4>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-xs-6">
+
+                <%= simple_form_for(@user) do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
+                <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
+                <br>
+                <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="tab-pane" id="cv" role="tabpanel">
@@ -49,7 +63,7 @@
             <br>
             <div class="row">
               <div class="col-sm-6">
-               <%= f.input :resume_file_path, label: "Resume" %>
+               <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text' } %>
                <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
              </div>
              <div class="col-sm-6">
@@ -63,7 +77,7 @@
 
             </div>
             <div class="col-sm-6">
-            <%= f.input :photo, label: "Profile image" %>
+            <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
               <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
             </div>
           </div>

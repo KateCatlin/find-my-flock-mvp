@@ -62,7 +62,9 @@
 
           </ul>
 
-            <%= f.button :submit, :class => 'btn submit-btn '%>
+            <%= f.button :submit, :class => 'btn submit-btn  btn-wide {
+    width: 100%;
+  } '%>
 
 
 
@@ -77,7 +79,7 @@
 
       <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
       <% end %>
-      <button type="button" class="btn skill-button" data-form-target="data-<%= @skills_numeric_hash.length %>">Double check!</button>
+      <button type="button" class="btn skill-button submit-btn" data-form-target="data-<%= @skills_numeric_hash.length %>"><em>Submit</em></button>
       <br>
     </div>
     </div>
@@ -138,7 +140,7 @@
       if (exisitingElement) {
         exisitingElement.querySelector("p").innerHTML = skill;
       } else {
-        let newLi = `<li data-form-id=${idValue}> <h2> ${lang} <h2> <p> ${skill} </p> </li>`;
+        let newLi = `<li data-form-id=${idValue}> <h5> ${lang} <h5> <p> ${skill} </p> </li>`;
         summary.insertAdjacentHTML("beforeend", newLi);
       }
     };

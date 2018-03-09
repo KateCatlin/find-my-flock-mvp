@@ -25,28 +25,28 @@ a.nav-link {
 
 }
 
-.submit-btn {
-position:absolute;
-bottom: -50px;
-left: 40px;
-z-index: 10;
-}
+// .submit-btn {
+// position:absolute;
+// bottom: -50px;
+// left: 40px;
+// z-index: 10;
+// }
 
 .nav-tabs {
   padding-top: 10px;
-
 }
 
-.nav-tabs {
-}
 
 .form-check-label {
   padding-left: 30px;
 }
 
 .submit-btn {
-  margin-left: 5%;
+  margin-left: 10px !important;
+
 }
+
+
 
 
 .btn .active {
@@ -59,10 +59,16 @@ z-index: 10;
 }
 
 .form-box-buttons {
-
   position:absolute;
-  bottom: 25px;
-  left: 90px;
+  bottom: 10%;
+  left: 10%;
   z-index: 9;
+}
 
+.form-text {
+   font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 400;
 }
