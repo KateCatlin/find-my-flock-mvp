@@ -1,10 +1,10 @@
 
 <div class="container">
 
- <div class="row justify-content-center">
-    <div class="col-xs-3">
-      <div class="profile-img">
-      <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+ <div class="row justify-content-center ">
+    <div class="col-xs-3 ">
+      <div class="profile-img-show">
+      <%= cl_image_tag current_user.photo, class: "avatar-lg", style: "width: 100px"%>
       </div>
     </div>
     <div class="col-xs-6">
@@ -28,7 +28,10 @@
           <% current_user.return_skills_hash.each do |skill| %>
           <p><i class="fas fa-arrow-alt-circle-up"></i> <%= skill[0].capitalize %>
               </p>
+              <p>Your skill level will go here</p>
               <% end %>
+
+
       </div>
     </div>
 
