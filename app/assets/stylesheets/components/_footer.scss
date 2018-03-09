@@ -1,3 +1,13 @@
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+}
 .container {
   width: 100%;
   margin-right: none;
@@ -13,13 +23,11 @@
   display: flex;
   text-align: center;
   align-items: center;
-  position: sticky;
-  top: 0;
   background-color: #3c3b3a;
   padding: 3%;
-  z-index: 1;
   margin-top: 40px;
   margin-bottom: 0px;
+
 
 
   .underline a:hover {
@@ -62,14 +70,14 @@
 }
 
 
-ul {
+.footer-container ul {
   padding: 0;
   list-style: none;
   justify-content:center;
   text-align:center;
   }
 
-ul li {
+.social-icons li {
   display: inline-block;
 }
 
