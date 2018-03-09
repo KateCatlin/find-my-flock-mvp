@@ -4,7 +4,20 @@
   border: 1px solid black;
   padding: 5px 25px;
   color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
+}
+
+.btn.linkedin {
+  background-color: #3F72A0;
+  border: #3F72A0;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn.linkedin:hover {
+  background-color: #3F72A0;
 }
 
   .btn:hover {
@@ -51,6 +64,7 @@
   background-color: $light-orange;
   transition: 0.5s padding ease-in-out;
   font-weight: 900;
+  font-family: "Montserrat", "sans-serif";
 
 }
 
@@ -72,3 +86,8 @@
      background-color: $gray;
     color: white;
   }
+
+.registration-button {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

@@ -2,7 +2,7 @@
   width: 25rem;
   height: 40rem;
   margin-top: 10px;
-  margin-bottom:  20px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   transition: transform 0.7s;
@@ -21,7 +21,11 @@
 
 .card-deck {
   padding-bottom: 10vh;
-
+  margin-right: 25vh;
+  margin-left: 25vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .card-home {
@@ -67,6 +71,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-left: 25vh;
+    margin-right: 25vh;
 }
 
 .btn.btn-page {
@@ -76,13 +82,15 @@
   font-weight: bolder;
   background-color: #ff9279;
   color: white;
+    margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 
   // Specific to the dashboard cards
 
 #dashboard-body {
-          background-color: white;
+  background-color: white;
 
 }
 
