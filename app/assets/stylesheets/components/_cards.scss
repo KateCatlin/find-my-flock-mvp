@@ -23,6 +23,7 @@
   padding-bottom: 10vh;
   margin-right: 25vh;
   margin-left: 25vh;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -40,6 +41,10 @@
     color: black;
   }
   }
+
+.card-home.card-dashboard {
+    margin-top: 21%;
+}
 
 
 .card-title {
