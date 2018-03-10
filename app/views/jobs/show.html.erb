@@ -23,7 +23,7 @@
     <div class="grid-second-column-first">
       <div class="values" style="text-align: center">Skills needed:</div>
     <% @job.skill_list.each do |skill| %>
-      <ul class="skills-list">
+      <ul class="skills-list centered">
         <li><%= skill.chop %></li>
     </ul>
     <% end %>
@@ -31,7 +31,7 @@
 
   <div class="grid-second-column-second">
     <div class="values small-padded-title" style="text-align: center">Salary range:</div>
-     <div class="salary"> <%= @job.salary_list.last %></div>
+     <div class="salary"> <%= @job.salary_list.first.split("-").first %> -  <%= @job.salary_list.last.split("-").last %> </div>
   </div>
 
   </div>
