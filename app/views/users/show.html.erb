@@ -32,9 +32,9 @@
     font-weight:  bolder;">Your skills</h3>
       <br>
       <% current_user.skills_competencies.each do |skill, competency| %>
-      <ul class="skills-list centered">
-      <li class="centered"><%= skill.capitalize %></li>
-      <li class="centered" style="text-transform: uppercase; background-color: #ffffff;color:black"><%= competency %></li>
+      <ul>
+      <li class="skills-list centered""><%= skill.capitalize %></li>
+      <li class="skills-list centered" style="background-color: #ffffff;color:black"><%= competency %></li>
         </ul>
         <% end %>
       </div>
