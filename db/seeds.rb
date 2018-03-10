@@ -257,7 +257,7 @@ job.save!
 job.skill_list.add("DevOps1", "Ruby5", "JavaScript2")
 job.save!
 
-job.value_list.add("401(k)", "80\%+ Covered Health Insurance", "30+ Days Parental Leave", "Dental Insurance", "Vision Insurance", "Life Insurance", "Professional Development Budget", "Equity", "Unlimited Vacation", "Lunch Provided")
+job.value_list.add("401(k)", "80\%+ Covered Health Insurance", "30+ Days Parental Leave", "Dental Insurance", "Vision Insurance", "Life Insurance")
 job.save!
 
 
@@ -282,7 +282,7 @@ job.save!
 job.skill_list.add("Ruby4", "Rails3")
 job.save!
 
-job.value_list.add("401(k)", "80\%+ Covered Health Insurance", "30+ Days Parental Leave", "Dental Insurance", "Vision Insurance", "Life Insurance", "Professional Development Budget", "Equity", "Unlimited Vacation", "Lunch Provided")
+job.value_list.add("401(k)", "80\%+ Covered Health Insurance", "30+ Days Parental Leave", "Dental Insurance", "Vision Insurance", "Life Insurance")
 job.save!
 
 
