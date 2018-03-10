@@ -11,13 +11,17 @@
 
 .btn.linkedin {
   background-color: #3F72A0;
-  border: #3F72A0;
+  border: 1px solid #3F72A0;
   color: white;
   font-weight: bolder;
 }
 
 .btn.linkedin:hover {
   background-color: #3F72A0;
+}
+
+.btn.logbutton {
+  width: 70%;
 }
 
   .btn:hover {
