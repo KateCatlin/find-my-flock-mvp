@@ -5,62 +5,65 @@
 <h1 class="centered small-padded-title"><%= @job.title  %></h1>
 <h4 class="centered"><%= @job.company %></h2>
 
-<div class="row justify-content-center">
-  <div class="col-8">
-    <h5 class="centered"><%= @job.location_list %></h3>
-    <p class="small-padded-title"><%= @job.description %></p>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h5 class="centered"><%= @job.location_list %></h3>
+        <p class="small-padded-title"><%= @job.description %></p>
 
-  <div class="grid grid-bordered">
-    <div class="grid-first-column">
-    <div class="values">Values:</div>
-    <% @job.value_list.each do |value| %>
-    <ul class="values-list">
-    <li><%= value %> </li>
-    </ul>
-    <% end %>
-    </div>
+        <div class="grid grid-bordered">
+          <div class="grid-first-column">
+            <div class="values">Values:</div>
+            <% @job.value_list.each do |value| %>
+            <ul class="values-list">
+              <li><%= value %> </li>
+            </ul>
+            <% end %>
+          </div>
 
-    <div class="grid-second-column-first">
-      <div class="values" style="text-align: center">Skills needed:</div>
-    <% @job.skill_list.each do |skill| %>
-      <ul class="skills-list centered">
-        <li><%= skill.chop %></li>
-    </ul>
-    <% end %>
-  </div>
+          <div class="grid-second-column-first">
+            <div class="values" style="text-align: center">Skills needed:</div>
+            <% @job.skill_list.each do |skill| %>
+            <ul class="skills-list centered">
+              <li><%= skill.chop %></li>
+            </ul>
+            <% end %>
+          </div>
 
-  <div class="grid-second-column-second">
-    <div class="values small-padded-title" style="text-align: center">Salary range:</div>
-     <div class="salary"> <%= @job.salary_list.first.split("-").first %> -  <%= @job.salary_list.last.split("-").last %> </div>
-  </div>
+          <div class="grid-second-column-second">
+            <div class="values small-padded-title" style="text-align: center">Salary range:</div>
+            <div class="salary"> <%= @job.salary_list.first.split("-").first %> -  <%= @job.salary_list.last.split("-").last %> </div>
+          </div>
 
-  </div>
+        </div>
 
-<div class="row justify-content-center text-center">
-  <div class="bottom-buttons col-8 dashboard-div">
-    <% if @already_applied%>
-      <%= link_to 'Cancel Application', job_application_path(@job, @application), method: :delete, class: "btn cancel" %>
-    <% else %>
-      <%= link_to 'Apply Now', job_applications_path(@job),  method: :create, class: "btn apply", data: {toggle: "modal", target: "#applyModal" } %>
-    <% end %>
-
-    <%= link_to 'Back', dashboard_index_path, class: "btn" %>
-  </div>
-</div>
+        <div class="row justify-content-center text-center">
+          <div class="bottom-buttons col-8 dashboard-div">
+            <div id="app-link">
+              <% if @already_applied%>
+              <%= link_to 'Cancel Application', job_application_path(@job, @application), remote: :true, method: :delete, class: "btn cancel" %>
+              <% else %>
+              <%= link_to 'Apply Now', job_applications_path(@job), remote: :true,  method: :post, class: "btn apply", data: {toggle: "modal", target: "#applyModal" } %>
+              <% end %>
+            </div>
 
 
-<div id="applyModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        Application sent!
+            <%= link_to 'Back', dashboard_index_path, class: "btn" %>
+          </div>
+        </div>
+
+
+        <div id="applyModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                Application sent!
+              </div>
+              <div class="modal-body">
+                <p>You have applied to the job</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="modal-body">
-        <p>You have applied to the job</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
 

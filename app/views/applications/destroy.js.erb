@@ -1,0 +1,6 @@
+function refreshApplication() {
+  var application = document.getElementById("app-link")
+  application.innerHTML = "<%= j render 'show', job: @job, application: false %>"
+}
+
+refreshApplication();

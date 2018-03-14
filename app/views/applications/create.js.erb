@@ -1,0 +1,10 @@
+function refreshApplication() {
+  var application = document.getElementById("app-link")
+  var modal = document.getElementById("applyModal")
+  application.innerHTML = "<%= j render 'show', job: @job, application: @application %>"
+  modal.toggle
+}
+
+
+
+refreshApplication();
