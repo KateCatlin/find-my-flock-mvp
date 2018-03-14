@@ -1,8 +1,12 @@
 function refreshApplication() {
   var application = document.getElementById("app-link")
   var modal = document.getElementById("applyModal")
+  var dialog = document.getElementById("myDialog")
   application.innerHTML = "<%= j render 'show', job: @job, application: @application %>"
-  modal.toggle
+  console.log(modal)
+  dialog.showModal();
+  modal.display = "block"
+  thing.display = "inline"
 }
 
 
