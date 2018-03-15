@@ -1,12 +1,13 @@
 function refreshApplication() {
   var application = document.getElementById("app-link")
-  var modal = document.getElementById("applyModal")
   var dialog = document.getElementById("myDialog")
   application.innerHTML = "<%= j render 'show', job: @job, application: @application %>"
-  console.log(modal)
   dialog.showModal();
-  modal.display = "block"
-  thing.display = "inline"
+  var closeButton = document.getElementById("close")
+  var dialog = document.getElementById("myDialog")
+  closeButton.addEventListener("click", (e) => {
+    dialog.close();
+  })
 }
 
 

@@ -42,7 +42,7 @@
               <% if @already_applied%>
               <%= link_to 'Cancel Application', job_application_path(@job, @application), remote: :true, method: :delete, class: "btn cancel" %>
               <% else %>
-              <%= link_to 'Apply Now', job_applications_path(@job), remote: :true,  method: :post, class: "btn apply", data: {toggle: "modal", target: "#applyModal" } %>
+              <%= link_to 'Apply Now', job_applications_path(@job), remote: :true,  method: :post, class: "btn apply"  %>
               <% end %>
             </div>
 
@@ -51,28 +51,22 @@
           </div>
         </div>
 
-
-        <div id="applyModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                Application sent!
-              </div>
-              <div class="modal-body">
-                <p>You have applied to the job</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <dialog id="myDialog">
-        <h3>You have applied!</h3>
+        <div class="modal-header">
+          <h2>Application sent!</h2>
+        </div>
+        <div class="modal-body">
+          You have successfully applied for the  <%= @job.title %> position at <%= @job.company %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="close" >Close</button>
+        </div>
 
-           <menu>
-             <button id="cancel" type="reset">Cancel</button>
-             <button type="submit">Confirm</button>
-           </menu>
-       </dialog>
+      </dialog>
+
+
+
+
 
