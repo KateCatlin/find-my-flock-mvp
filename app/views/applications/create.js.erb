@@ -1,0 +1,15 @@
+function refreshApplication() {
+  var application = document.getElementById("app-link")
+  var dialog = document.getElementById("myDialog")
+  application.innerHTML = "<%= j render 'show', job: @job, application: @application %>"
+  dialog.showModal();
+  var closeButton = document.getElementById("close")
+  var dialog = document.getElementById("myDialog")
+  closeButton.addEventListener("click", (e) => {
+    dialog.close();
+  })
+}
+
+
+
+refreshApplication();

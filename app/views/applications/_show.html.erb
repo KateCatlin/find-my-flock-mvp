@@ -1,0 +1,8 @@
+
+<% if application %>
+
+  <%= link_to 'Cancel Application', job_application_path(@job, @application), remote: :true, method: :delete, class: "btn cancel", data: {toggle: "modal", target: "#applyModal" }  %>
+<% else %>
+  <%= link_to 'Apply Now', job_applications_path(@job),  remote: :true, method: :post, class: "btn apply" %>
+<% end %>
+
