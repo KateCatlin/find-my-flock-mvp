@@ -54,6 +54,14 @@ class User < ApplicationRecord
     self.location_list.remove(self.location_list)
   end
 
+  def return_activation_status
+    if self.is_active
+      return "Active"
+    else
+      return "Not Active"
+    end
+  end
+
   def competency_description(selection)
     competencies = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
     return competencies[selection]

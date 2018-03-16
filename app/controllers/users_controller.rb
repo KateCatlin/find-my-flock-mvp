@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   before_action :set_collections, only: [:new, :edit]
-  before_action :set_user, only: [:show, :edit, :destroy, :update, :edit_skills, :edit_skills_return]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -36,8 +35,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def activate
+    @user.update(is_active: true)
+    redirect_to user_path(@user)
+  end
+
+  def deactivate
+    @user.update(is_active: false)
+    redirect_to user_path(@user)
+  end
+
   def destroy
-    # waiting to add the status column on user.
+    current_user.destroy
+    current_user.registration.destroy
+    redirect_to root_path
   end
 
   def user_params
