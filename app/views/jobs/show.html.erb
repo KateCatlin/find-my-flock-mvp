@@ -31,7 +31,7 @@
 
           <div class="grid-second-column-second">
             <div class="values small-padded-title" style="text-align: center">Salary range:</div>
-            <div class="salary"> <%= @job.salary_list.first.split("-").first %> -  <%= @job.salary_list.last.split("-").last %> </div>
+            <div class="salary"> <%= @job.salary_list.sort.first.split("-").first %> -  <%= @job.salary_list.sort.last.split("-").last %> </div>
           </div>
 
         </div>
