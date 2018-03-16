@@ -37,7 +37,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # waiting to add the status column on user.
+    current_user.destroy
+    current_user.registration.destroy
+    redirect_to root_path
   end
 
   def user_params
