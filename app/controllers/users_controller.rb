@@ -1,23 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_collections, only: [:new, :edit]
+  before_action :set_collections, only: [:edit]
   before_action :set_user, only: [:show, :edit, :destroy, :update, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
   def index
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    user = User.new(user_params)
-    user.registration = current_registration
-    if user.save
-      user.add_tags(params[:tags])
-      redirect_to edit_skills_user_path(user)
-    else
-      render plain: "hello guys, I didnt save"
-    end
   end
 
   def show
