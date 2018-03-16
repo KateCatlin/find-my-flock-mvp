@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   before_action :set_collections, only: [:new, :edit]
-  before_action :set_user, only: [:show, :edit, :destroy, :update, :edit_skills, :edit_skills_return]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -34,6 +33,16 @@ class UsersController < ApplicationController
       redirect_to edit_skills_user_path(@user)
     else
     end
+  end
+
+  def activate
+    @user.update(is_active: true)
+    redirect_to user_path(@user)
+  end
+
+  def deactivate
+    @user.update(is_active: false)
+    redirect_to user_path(@user)
   end
 
   def destroy
