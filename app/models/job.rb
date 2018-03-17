@@ -32,6 +32,17 @@ class Job < ApplicationRecord
     self.save!
   end
 
+  def salary_range
+    array_of_salaries = []
+    self.salary_list.each do |salary|
+      array_of_salaries << Integer(salary[1..-1].split(",").first)
+    end
+    array_of_salaries.sort!
+    lowest_salary = "$#{array_of_salaries[0]},000"
+    highest_salary = "$#{array_of_salaries[-1]+10},000"
+    return [lowest_salary, highest_salary]
+  end
+
   # def self.isfavorited(user)
   #   where(favorited: true)
   # end
