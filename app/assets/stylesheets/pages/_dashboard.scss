@@ -1,3 +1,8 @@
+body.dashboard {
+  min-height: 90vh;
+  background-color: white;
+
+}
 
 #dashboard {
 
@@ -21,8 +26,8 @@
   border-radius: 10px;
 
   img {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   border-radius: 130px;
 }
 }

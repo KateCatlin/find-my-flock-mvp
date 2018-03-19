@@ -1,4 +1,5 @@
-<div class="container form" id= "user-edit-page">
+<body class="form">
+
   <div class="row justify-content-center">
     <div class="col-xs-9">
        <% if !current_user %>
@@ -30,23 +31,22 @@
       <div class="tab-content active ">
         <div class="tab-pane active" id="personal-info" role="tabpanel">
           <div class="form-box">
+
             <div class="row">
               <div class="col-xs-3">
                 <div class = "avatar-edit">
 
                           <% if current_user %>
                             <% if current_user.photo %>
-                              <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+                              <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
                             <% else %>
                               <%= image_tag("user", class: "avatar ", style:"width:100px ") %>
                             <% end %>
                             <% else %>
                           <% end %>
-
-
-
                 </div>
               </div>
+
               <div class="col-xs-6">
 
                 <%= simple_form_for(@user) do |f| %>
@@ -59,6 +59,7 @@
             </div>
           </div>
         </div>
+
         <div class="tab-pane" id="cv" role="tabpanel">
          <div class="form-box">
           <div class="form-inputs">
@@ -68,7 +69,7 @@
               <div class="col-sm-3">
                 <% if current_user %>
                   <% if current_user.photo %>
-                    <%= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+                    <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
                   <% else %>
                     <%= image_tag("user", class: "avatar", style:"width:100px ") %>
                   <% end %>
@@ -83,15 +84,12 @@
                <br>
         <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
              </div>
-
-
-
-
           </div>
         </div>
 
       </div>
     </div>
+
     <div class="tab-pane" id="locations" role="tabpanel">
      <div class="form-box">
       <div class="form-inputs">
@@ -151,6 +149,7 @@
   </div>
 </div>
 </div>
+</body>
 <script>
       // GRAB all the next buttons
       const items = document.querySelectorAll('.nav-link');
