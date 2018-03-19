@@ -45,7 +45,7 @@
           <p class="company"><%= job.company %></p>
           <h4 class="location"><%= job.location_list %></h4>
 
-          <div data-job-id='<%= job.id %>'>
+          <div class="fav" data-job-id='<%= job.id %>'>
            <% if favorite = job.user_favorite(current_user) %>
 
            <ul class="list-inline">
@@ -90,7 +90,7 @@
           <p class="company"><%= job.company %></p>
           <h4 class="location"><%= job.location_list %></h4>
 
-          <div data-job-id='<%= job.id %>'>
+          <div class="fav" data-job-id='<%= job.id %>'>
            <% if favorite = job.user_favorite(current_user) %>
 
            <ul class="list-inline">
@@ -130,7 +130,7 @@
           <p class="company"><%= job.company %></p>
           <h4 class="location"><%= job.location_list %></h4>
 
-          <div data-job-id='<%= job.id %>'>
+          <div class="fav" data-job-id='<%= job.id %>'>
            <% if favorite = job.user_favorite(current_user) %>
 
            <ul class="list-inline">
