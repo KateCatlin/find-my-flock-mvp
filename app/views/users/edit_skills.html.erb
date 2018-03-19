@@ -1,10 +1,8 @@
 <body class="form">
 
-
-
   <!-- Tab panes -->
   <div class="tab-content active ">
-    <div class="form-box">
+    <div class="skills-form-box">
       <div class="form-container">
         <div class="row justify-content-center">
 
@@ -129,7 +127,7 @@
       if (exisitingElement) {
         exisitingElement.querySelector("p").innerHTML = skill;
       } else {
-        let newLi = `<div class="col-xs-4 col-sm-6 col-md-6" data-form-id=${idValue}> <h4 class="no-space"> ${lang} <h4> <p class="no-space body-text"> ${skill} </p> </li>`;
+        let newLi = `<div class="col-xs-4 col-sm-4 col-md-4" data-form-id=${idValue}> <h4 class="no-space"> ${lang} <h4> <p class="no-space body-text"> ${skill} </p> </li>`;
         summary.insertAdjacentHTML("beforeend", newLi);
       }
     };

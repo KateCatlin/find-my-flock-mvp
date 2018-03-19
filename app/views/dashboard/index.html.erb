@@ -1,19 +1,20 @@
 <body class="dashboard">
 
   <div class="dashboard-header">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center centered align-self-center">
-        <div id="dashboard-photo">
-          <%#= cl_image_tag current_user.photo %>
+    <div class="margin-top">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center centered align-self-center">
+          <div id="dashboard-photo">
+            <%= cl_image_tag current_user.photo %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
+          <h2 class="centered dashboard-home small-padded-text">Your Dashboard</h2>
+          <p class="centered">Here you can find all your matches, including the one you applied to and your saved jobs.</p>
         </div>
       </div>
-
-      <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
-        <h2 class="centered dashboard-home small-padded-text">Welcome to your dashboard <em class="underlined-medium"><%= current_user.first_name %></em></h2>
-        <p class="centered">Here you can find all your matches, including the one you applied to and your saved jobs.</p>
-      </div>
     </div>
-
   </div>
 
 
@@ -64,7 +65,7 @@
           <% end %>
           <% end %>
         </div>
-          <%= link_to 'Details...', job_path(job), class: "btn btn-page" %>
+        <%= link_to 'Details...', job_path(job), class: "btn btn-page" %>
       </div>
     </div>
 
@@ -82,93 +83,93 @@
 
 
  <div class="card-deck">
-      <% @favorited.each do |job| %>
-      <div class="col-xs-12 col-sm-12 col-md-4">
-        <div class="card card-home card-dashboard text-center">
-          <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-          <h4 class="card-title"> <%= job.title %></h4>
-          <p class="company"><%= job.company %></p>
-          <h4 class="location"><%= job.location_list %></h4>
+  <% @favorited.each do |job| %>
+  <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="card card-home card-dashboard text-center">
+      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+      <h4 class="card-title"> <%= job.title %></h4>
+      <p class="company"><%= job.company %></p>
+      <h4 class="location"><%= job.location_list %></h4>
 
-          <div data-job-id='<%= job.id %>'>
-           <% if favorite = job.user_favorite(current_user) %>
+      <div data-job-id='<%= job.id %>'>
+       <% if favorite = job.user_favorite(current_user) %>
 
-           <ul class="list-inline">
-            <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
-            <li class="card-text saveme">Delete me! </li>
-            <li><i class="fas fa-heart unfav"></i></li>
-            <% end %>
-          </ul>
+       <ul class="list-inline">
+        <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
+        <li class="card-text saveme">Delete me! </li>
+        <li><i class="fas fa-heart unfav"></i></li>
+        <% end %>
+      </ul>
 
-          <% else %>
-          <ul class="list-inline">
-            <%= link_to job_favorites_path(job), remote: true, method: :post do %>
-            <li class="card-text saveme">Save me! </li>
-            <li><i class="fas fa-heart fav"> </i></li>
-          </ul>
-          <% end %>
-          <% end %>
-        </div>
-          <%= link_to 'Details...', job_path(job), class: "btn btn-page" %>
-      </div>
+      <% else %>
+      <ul class="list-inline">
+        <%= link_to job_favorites_path(job), remote: true, method: :post do %>
+        <li class="card-text saveme">Save me! </li>
+        <li><i class="fas fa-heart fav"> </i></li>
+      </ul>
+      <% end %>
+      <% end %>
     </div>
-
-    <% end %>
+    <%= link_to 'Details...', job_path(job), class: "btn btn-page" %>
   </div>
+</div>
+
+<% end %>
+</div>
 </div>
 
 
 <div id="applied-list" class="job-listings" hidden>
 
 
-   <div class="card-deck">
-      <% @applied.each do |job| %>
-      <div class="col-xs-12 col-sm-12 col-md-4">
-        <div class="card card-home card-dashboard text-center">
-          <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-          <h4 class="card-title"> <%= job.title %></h4>
-          <p class="company"><%= job.company %></p>
-          <h4 class="location"><%= job.location_list %></h4>
+ <div class="card-deck">
+  <% @applied.each do |job| %>
+  <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="card card-home card-dashboard text-center">
+      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+      <h4 class="card-title"> <%= job.title %></h4>
+      <p class="company"><%= job.company %></p>
+      <h4 class="location"><%= job.location_list %></h4>
 
-          <div data-job-id='<%= job.id %>'>
-           <% if favorite = job.user_favorite(current_user) %>
+      <div data-job-id='<%= job.id %>'>
+       <% if favorite = job.user_favorite(current_user) %>
 
-           <ul class="list-inline">
-            <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
-            <li class="card-text saveme">Delete me! </li>
-            <li><i class="fas fa-heart unfav"></i></li>
-            <% end %>
-          </ul>
+       <ul class="list-inline">
+        <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
+        <li class="card-text saveme">Delete me! </li>
+        <li><i class="fas fa-heart unfav"></i></li>
+        <% end %>
+      </ul>
 
-          <% else %>
-          <ul class="list-inline">
-            <%= link_to job_favorites_path(job), remote: true, method: :post do %>
-            <li class="card-text saveme">Save me! </li>
-            <li><i class="fas fa-heart fav"> </i></li>
-          </ul>
-          <% end %>
-          <% end %>
-        </div>
-          <%= link_to 'Details...', job_path(job), class: "btn btn-page" %>
-      </div>
+      <% else %>
+      <ul class="list-inline">
+        <%= link_to job_favorites_path(job), remote: true, method: :post do %>
+        <li class="card-text saveme">Save me! </li>
+        <li><i class="fas fa-heart fav"> </i></li>
+      </ul>
+      <% end %>
+      <% end %>
     </div>
-
-    <% end %>
+    <%= link_to 'Details...', job_path(job), class: "btn btn-page" %>
   </div>
 </div>
 
-  <script>
-    var tabs = document.querySelectorAll(".select-tab")
-    var lists = document.querySelectorAll(".job-listings")
-    tabs.forEach(function(tab) {
-      tab.addEventListener("click", function(event) {
-        tabs.forEach(tab => tab.querySelector("li").classList.remove("active"))
-        event.target.classList.add("active");
-        var target = tab.getAttribute("data-target");
-        var toActivateTab = document.getElementById(target);
-        lists.forEach(list => list.hidden = true);
-        toActivateTab.hidden = false
-      })
+<% end %>
+</div>
+</div>
+
+<script>
+  var tabs = document.querySelectorAll(".select-tab")
+  var lists = document.querySelectorAll(".job-listings")
+  tabs.forEach(function(tab) {
+    tab.addEventListener("click", function(event) {
+      tabs.forEach(tab => tab.querySelector("li").classList.remove("active"))
+      event.target.classList.add("active");
+      var target = tab.getAttribute("data-target");
+      var toActivateTab = document.getElementById(target);
+      lists.forEach(list => list.hidden = true);
+      toActivateTab.hidden = false
     })
-  </script>
+  })
+</script>
 </body>

@@ -3,11 +3,32 @@
   padding: 4% 7%;
   padding-bottom: 2%;
   overflow: visible;
-  margin-top: 3%;
   margin-bottom: 2%;
-  margin-right: 15%;
-  margin-left: 15%;
   margin-bottom: 5%;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.skill-form-box {
+  background-color: #fff;
+  padding: 4% 7%;
+  padding-bottom: 2%;
+  overflow: visible;
+  margin-bottom: 2%;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+
+
+}
+
+.form-container {
+  margin-top: 8vh;
+    padding-bottom: 2%;
+      margin-right: 20%;
+  margin-left: 20%;
+  margin-top: 8vh;
 }
 
 .cv-box {
@@ -39,7 +60,7 @@ a.nav-link {
 
 
 .nav-tabs {
-  padding-top: 10px;
+  padding-top: 5%;
 }
 
 

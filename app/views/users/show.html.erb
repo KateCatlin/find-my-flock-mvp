@@ -1,11 +1,10 @@
-<body id="dashboard-body">
+<body class="dashboard">
 
   <div class="profile-header">
    <div class="row justify-content-center ">
     <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
       <div id="dashboard-photo">
-        <%#= cl_image_tag current_user.photo %>
-        <img src="https://static.pexels.com/photos/733872/pexels-photo-733872.jpeg" alt="profilepic">
+        <%= cl_image_tag current_user.photo %>
       </div>
     </div>
 
