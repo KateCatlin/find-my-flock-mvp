@@ -16,13 +16,14 @@ function buildFavorite() {
   var list = document.querySelector("#favorite-list")
   var card = list.querySelector(".card-deck")
   card.insertAdjacentHTML("beforeend", "<%= j render 'dashboard/favshow', job: @job, favorite: @favorite %>")
+
 }
 
 
 
 refreshFavorite();
 buildFavorite();
-//refreshFavorite();
+refreshFavorite();
 
 
 
