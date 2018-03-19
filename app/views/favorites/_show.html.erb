@@ -1,10 +1,13 @@
 <% if favorite = job.user_favorite(current_user) %>
-<ul class="list-inline">
+<div data-favorite-id= '<%= favorite.id %>'>
+<ul class="list-inline" >
   <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
   <li class="card-text saveme">Delete me! </li>
   <li><i class="fas fa-heart unfav">  </i></li>
   <% end %>
 </ul>
+</div>
+
 
 <% else %>
 <ul class="list-inline">
