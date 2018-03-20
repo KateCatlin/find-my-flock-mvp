@@ -1,8 +1,21 @@
 function refreshFavorite() {
   var favorite = document.querySelector("[data-job-id='<%= @job.id %>']")
   favorite.innerHTML = "<%= j render 'show', job: @job, favorite: @favorite %>"
+
+}
+
+function buildFavorite() {
+  var list = document.querySelector("#favorite-list")
+  var card = list.querySelector(".card-deck")
+  card.insertAdjacentHTML("afterbegin", "<%= j render 'dashboard/favshow', job: @job, favorite: @favorite %>")
+
 }
 
 
 
 refreshFavorite();
+buildFavorite();
+refreshFavorite();
+
+
+

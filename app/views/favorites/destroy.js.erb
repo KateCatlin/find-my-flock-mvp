@@ -3,4 +3,15 @@ function refreshFavorite() {
   favorite.innerHTML = "<%= j render 'show', job: @job, favorite: false %>"
 }
 
+function destroyFavorite() {
+  var list = document.querySelector("#favorite-list")
+  var card = list.querySelector(".card-deck")
+  var fav = card.querySelector("[data-job-id='<%= @job.id %>']")
+
+  fav.parentNode.remove(0)
+
+
+}
+refreshFavorite();
+destroyFavorite();
 refreshFavorite();
