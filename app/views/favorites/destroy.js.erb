@@ -1,6 +1,18 @@
 function refreshFavorite() {
   var favorite = document.querySelector("[data-job-id='<%= @job.id %>']")
   favorite.innerHTML = "<%= j render 'show', job: @job, favorite: false %>"
+  var jobsList = document.querySelector("#job-list")
+  var appliedList = document.querySelector("#applied-list")
+  var jobsFavorite = jobsList.querySelector("[data-job-id='<%= @job.id %>']")
+  var appliedFavorite = appliedList.querySelector("[data-job-id='<%= @job.id %>']")
+
+  if (jobsFavorite) {
+    jobsFavorite.innerHTML = "<%= j render 'show', job: @job, favorite: @favorite %>"
+  }
+
+  if (appliedFavorite) {
+    appliedFavorite.innerHTML = "<%= j render 'show', job: @job, favorite: @favorite %>"
+  }
 }
 
 function destroyFavorite() {
@@ -9,7 +21,6 @@ function destroyFavorite() {
   var fav = card.querySelector("[data-job-id='<%= @job.id %>']")
 
   fav.parentNode.remove(0)
-
 
 }
 refreshFavorite();
