@@ -1,4 +1,4 @@
-<body id="dashboard-body">
+<body class="dashboard">
 
   <div class="profile-header">
    <div class="row justify-content-center ">
@@ -17,15 +17,25 @@
         <br>
         <p class="centered">You are looking for jobs in:</p>
         <h5 class="centered"> <em><%= current_user.location_list %></em></h5>
-        <br>
-        <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn btn-stroke" %></p>
       </div>
     </div>
   </div>
 </div>
+
+<div class="centered">
+  <div class="profile-buttons-container">
+    <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
+    <% if current_user.is_active %>
+    <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, class: "btn profile-small" %></p>
+    <% else %>
+    <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, class: "btn profile-small" %></p>
+    <% end %>
+    <p class="centered"><%= link_to "Delete My Account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
+  </div>
 </div>
 
-<hr class="separator">
+<br>
+<!-- <hr class="separator"> -->
 
 <div class="row justify-content-center">
   <div class="col-xs-4">
@@ -60,12 +70,7 @@
 </div>
 </div>
 
-<% if current_user.is_active %>
-  <p class="centered"><%= link_to "Switch job search status to inactive", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, class: "btn btn-stroke" %></p>
-<% else %>
-  <p class="centered"><%= link_to "Switch job search status to active", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, class: "btn btn-stroke" %></p>
-<% end %>
-<p class="centered"><%= link_to "Delete My Account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-stroke" %></p>
+
 </div>
 
 

@@ -24,12 +24,16 @@
 }
 
 .bottom-buttons {
-  margin-top: 8vh;
+  margin-top: 6vh;
+  margin-bottom: 6vh;
 }
 
 .values-list {
-  line-height: 12px;
   text-align: left;
+
+  li {
+    line-height: 20px;
+  }
 }
 
 .skills-list {
