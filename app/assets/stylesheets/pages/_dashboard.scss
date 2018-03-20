@@ -1,3 +1,8 @@
+body.dashboard {
+  min-height: 90vh;
+  background-color: white;
+
+}
 
 #dashboard {
 
@@ -8,11 +13,13 @@
 .dashboard-header {
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
     width: 71%;
     margin: auto;
 }
 
+.margin-top {
+  margin-top: 10vh;
+}
 // .dashboard-home {@@
 //   align-items: center;
 // }
@@ -21,8 +28,8 @@
   border-radius: 10px;
 
   img {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   border-radius: 130px;
 }
 }
@@ -53,6 +60,10 @@
 
 .nav-item {
   font-size: 23px;
+}
+
+.tab-item {
+  font-size: 15px;
 }
 
 .active {
