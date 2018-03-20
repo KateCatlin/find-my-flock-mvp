@@ -7,13 +7,10 @@ function refreshFavorite() {
 function destroyFavorite() {
   var list = document.querySelector("#favorite-list")
   var card = list.querySelector(".card-deck")
-  var parents = card.querySelectorAll(".col-xs-12 col-sm-12 col-md-4 [data-job-id='<%= @job.id %>']")
   var fav = card.querySelector("[data-job-id='<%= @job.id %>']")
-  console.log(fav)
-  console.log(fav.parentNode)
-  console.log(card)
-  console.log(parents)
+
   fav.parentNode.remove(0)
+
 
 }
 refreshFavorite();
