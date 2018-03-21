@@ -154,6 +154,16 @@
       // GRAB all the next buttons
       const items = document.querySelectorAll('.nav-link');
       const nextButtons = document.querySelectorAll('.next-btn');
+
+      items.forEach((tab) => {
+
+        tab.addEventListener('click', function(e) {
+          items.forEach((thing) => {
+            thing.classList.remove("active")
+          })
+        })
+      })
+
       // On each next button add an eventListener
       nextButtons.forEach(button => {
         button.addEventListener('click', function(event) {
@@ -168,13 +178,11 @@
         })
       })
 
-      items.forEach((tab) => {
-        tab.addEventListener('click', function(e) {
-          items.forEach((thing) => {
-            thing.classList.remove("active")
-          })
-          tab.classList.add("active")
 
-        })
-      })
+
+
+
+
+
+
     </script>
