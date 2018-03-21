@@ -26,9 +26,9 @@
   <div class="profile-buttons-container">
     <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
     <% if current_user.is_active %>
-    <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, class: "btn profile-small" %></p>
+    <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, method: :get,  class: "btn profile-small" %></p>
     <% else %>
-    <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, class: "btn profile-small" %></p>
+    <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, method: :get, class: "btn profile-small" %></p>
     <% end %>
     <p class="centered"><%= link_to "Delete My Account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
   </div>
