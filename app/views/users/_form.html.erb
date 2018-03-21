@@ -167,4 +167,14 @@
           // Find the active item in the array
         })
       })
+
+      items.forEach((tab) => {
+        tab.addEventListener('click', function(e) {
+          items.forEach((thing) => {
+            thing.classList.remove("active")
+          })
+          tab.classList.add("active")
+
+        })
+      })
     </script>
