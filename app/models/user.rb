@@ -63,7 +63,7 @@ class User < ApplicationRecord
   end
 
   def competency_description(selection)
-    competencies = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
+    competencies = ["Familiarity", "Gaining Competency", "Individual Competency", "Strong Competency", "Leadership"]
     return competencies[selection]
   end
 
