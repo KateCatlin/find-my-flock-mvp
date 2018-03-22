@@ -94,10 +94,12 @@
       input.addEventListener('click', function(event) {
         // grab the index through the data-form-id custom html tag
         let currentIndex = input.getAttribute('data-form-id')
+        console.log(typeof currentIndex);
         // grab the box that is now NOT HIDDEN - or active
         let activeBox = document.getElementById(`data-${currentIndex}`)
         // changing the current index to an integer and going to the next one
         let nextIndex = parseInt(currentIndex) + 1;
+        console.log(activeBox)
         // Hidding the current box
         activeBox.hidden = true;
         let nextBox = document.getElementById(`data-${nextIndex}`)
@@ -112,6 +114,45 @@
         activeBtn.classList.add('active-btn');
       })
     })
+
+    buttons.forEach(button => {
+      // listen for when a button gets clicked
+      button.addEventListener('click', function(event){
+        // remove the active state from all buttons except current
+        let thing = button.getAttribute('data-form-target');
+        numthing = parseInt(thing.slice(-1));
+        let activeTab = document.getElementById(`data-${numthing}`)
+        console.log(activeTab)
+        console.log(numthing);
+        inputs.forEach((tab) => {
+          let currentIndex = tab.getAttribute('data-form-id')
+          //console.log(typeof currentIndex);
+          // grab the box that is now NOT HIDDEN - or active
+          let activeBox = document.getElementById(`data-${currentIndex}`)
+          // changing the current index to an integer and going to the next one
+          //let nextIndex = parseInt(currentIndex) + 1;
+          //console.log(activeBox)
+          // Hidding the current box
+          activeBox.hidden = true;
+          //tab.hidden = true;
+          //console.log(tab)
+          fillSummary(tab);
+
+          // let nextId = nextBox.getAttribute('id')
+          // let activeBtn = document.querySelector(`[data-form-target=${nextId}]`)
+          // deactiveButtons(buttons);
+          // activeBtn.classList.add('active-btn');
+        })
+        deactiveButtons(buttons);
+        event.target.classList.add('active-btn');
+
+        forms.forEach(function(form) { form.hidden = true;})
+        let formId = button.getAttribute('data-form-target')
+        document.getElementById(formId).hidden = false;
+      })
+    })
+
+
 
     const summary = document.querySelector('#summarized-form');
     const skills = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
@@ -136,18 +177,7 @@
       buttons.forEach(button => button.classList.remove('active-btn'))
     }
 
-    buttons.forEach(button => {
-      // listen for when a button gets clicked
-      button.addEventListener('click', function(event){
-        // remove the active state from all buttons except current
-        deactiveButtons(buttons);
-        event.target.classList.add('active-btn');
 
-        forms.forEach(function(form) { form.hidden = true;})
-        let formId = button.getAttribute('data-form-target')
-        document.getElementById(formId).hidden = false;
-      })
-    })
 
   </script>
 
