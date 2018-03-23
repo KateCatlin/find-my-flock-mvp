@@ -15,9 +15,19 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       @user.add_tags(params[:tags])
+      update_mailchimp
       redirect_to edit_skills_user_path(@user)
     else
     end
+  end
+
+  def update_mailchimp
+    gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
+    gibbon.timeout = 15
+    gibbon.open_timeout = 15
+    gibbon.symbolize_keys = true
+    gibbon.debug = false
+    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members(Digest::MD5.hexdigest(@user.registration.email)).upsert(body: {email_address: @user.registration.email, status: "subscribed", merge_fields: {FNAME: @user.first_name, LNAME: @user.last_name}})
   end
 
   def activate
