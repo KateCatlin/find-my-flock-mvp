@@ -3,7 +3,7 @@
   <div class="profile-header">
    <div class="row justify-content-center ">
     <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
-        <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill, :radius => :max, :gravity => :face %>
+      <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill, :radius => :max, :gravity => :face %>
     </div>
 
     <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
@@ -12,9 +12,11 @@
         <br>
         <p class="centered">Your job search is:</p>
         <h5 class="centered"> <em><%= current_user.return_activation_status %></em></h5>
+        <% if !current_user.location_list.empty? %>
         <br>
         <p class="centered">You are looking for jobs in:</p>
         <h5 class="centered"> <em><%= current_user.location_list %></em></h5>
+        <% end %>
       </div>
     </div>
   </div>

@@ -63,12 +63,12 @@ class User < ApplicationRecord
   end
 
   def competency_description(selection)
-    competencies = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
+    competencies = ["Familiarity", "Gaining Competency", "Individual Competency", "Strong Competency", "Leadership"]
     return competencies[selection]
   end
 
   def skills_competencies
-    competencies = ["Only a little knowledge", "Gaining competency", "Individual competency", "Strong competency", "Expert"]
+    competencies = ["Familiarity", "Gaining Competency", "Individual Competency", "Strong Competency", "Leadership"]
     num_hash = return_skills_hash
     new_hash = {}
     num_hash.each { |language, skill| new_hash[language] = competencies[skill -1] }
