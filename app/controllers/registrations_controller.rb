@@ -1,9 +1,22 @@
+require 'gibbon'
+
 class RegistrationsController < Devise::RegistrationsController
 
   def create
     super do
       User.create(registration_id: resource.id)
+      subscribe_to_mailchimp
     end
+  end
+
+  def subscribe_to_mailchimp
+    binding.pry
+    gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
+    gibbon.timeout = 15
+    gibbon.open_timeout = 15
+    gibbon.symbolize_keys = true
+    gibbon.debug = false
+    gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members.create(body: {email_address: resource.email, status: "subscribed"})
   end
 
   protected
