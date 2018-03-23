@@ -1,5 +1,3 @@
-require 'gibbon'
-
 class RegistrationsController < Devise::RegistrationsController
 
   def create
