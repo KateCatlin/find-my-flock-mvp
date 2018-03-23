@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def update_mailchimp
-    binding.pry
     gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
     gibbon.timeout = 15
     gibbon.open_timeout = 15
