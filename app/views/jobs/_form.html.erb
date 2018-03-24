@@ -2,9 +2,9 @@
 
   <div class="row justify-content-center">
     <div class="col-xs-9">
-       <% if !current_user %>
-       <h4>Welcome to Find My Flock</h4>
-        <p class="no-space">Please tell us a little more about you</p>
+       <% if !@job.title %>
+       <h4>Submit a job</h4>
+        <p class="no-space">Please tell us a little more about this role</p>
         <% end %>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs justify-content-center" role="tablist">
@@ -49,10 +49,11 @@
 
               <div class="col-xs-6">
 
-                <%= simple_form_for(@user) do |f| %>
+                <%= simple_form_for(@job) do |f| %>
                 <%= f.error_notification %>
-                <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
-                <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
+                <%= f.input :title, :label_html => { :class => 'form-text' } %>
+                <%= f.input :company, :label_html => { :class => 'form-text' } %>
+                <%= f.input :description, :label_html => { :class => 'form-text' } %>
                 <br>
                 <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
               </div>
@@ -77,8 +78,6 @@
 
             </div>
               <div class="col-sm-6">
-               <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text' } %>
-               <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
                 <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
               <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
                <br>
@@ -120,7 +119,7 @@
     </script>
   <% end %>
 
-        <%= t.input :skills, collection: @skills, input_html: {value: @user.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
+        <%= t.input :skills, collection: @skills, input_html: {value: @job.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
       </div>
       <br>
       <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>

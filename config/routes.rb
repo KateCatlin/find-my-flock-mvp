@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   get 'users/:id/activate' => 'users#activate', as: :activate
   get 'users/:id/deactivate' => 'users#deactivate', as: :deactivate
 
-  resources :jobs, only: [:show] do
+  resources :jobs do
+    get 'edit_skills', on: :member
+    post 'edit_skills_return', on: :member
     resources :favorites, only: [:create, :destroy]
     resources :applications, only: [:create, :destroy]
   end
