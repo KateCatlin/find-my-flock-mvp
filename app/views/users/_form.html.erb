@@ -116,6 +116,7 @@
   <%= content_for(:after_js) do %>
     <script>
       $('.select2').val(<%= raw @user_readable_skills %>)
+
     </script>
   <% end %>
 
@@ -155,6 +156,7 @@
       const items = document.querySelectorAll('.nav-link');
       const nextButtons = document.querySelectorAll('.next-btn');
 
+
       items.forEach((tab) => {
 
         tab.addEventListener('click', function(e) {
@@ -173,10 +175,58 @@
             item.classList.remove("active")
           })
           nextTab.classList.add("active")
+          console.log( ' <%= current_user.skills %> ' )
+          const submitButton = document.querySelector('input[type="submit"]')
+          console.log(submitButton)
+          const skillsValues = document.querySelector(".tags_skills")
+          console.log(skillsValues)
+          const bluh = document.querySelectorAll(".select2")
+          console.log(bluh)
+          const form = document.querySelector(".form")
+          console.log(form)
+          const inputs = document.querySelectorAll("input")
+          console.log(inputs)
+          const input = skillsValues.querySelector("input")
+          console.log(input)
+          const skill = input.nextElementSibling
+          console.log(skill)
+          const fuck = skill.querySelectorAll('option')
+          console.log(fuck)
+          console.log(fuck[3].selected)
+          console.log(fuck[4].selected)
+          console.log(skill.selected)
+          //console.log($(skill).find(":selected").data("id"))
           // When they click do the following
           // Find the active item in the array
         })
       })
+
+
+        const submitButton = document.querySelector('input[type="submit"]')
+        console.log(submitButton)
+        const skillsValues = document.querySelector(".tags_skills")
+        console.log(skillsValues)
+        const bluh = document.querySelectorAll(".select2")
+        console.log(bluh)
+        const form = document.querySelector(".form")
+        console.log(form)
+        const inputs = document.querySelectorAll("input")
+        console.log(inputs)
+        const input = skillsValues.querySelector("input")
+        console.log(input)
+        const skill = input.nextElementSibling
+        console.log(skill)
+        const fuck = skill.querySelectorAll('option')
+        console.log(fuck)
+        console.log(fuck[3].attributes[1])
+        console.log(fuck[4].attributes[1])
+        console.log(skill.selected)
+        //console.log($(skill).find(":selected").data("id"))
+
+
+
+
+
 
 
 
