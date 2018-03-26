@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def edit
     @user_readable_skills = @user.text_skills
+    @errors = @user.errors
   end
 
   def update
