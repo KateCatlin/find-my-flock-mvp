@@ -1,4 +1,5 @@
 class Job < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   has_many :applications, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
@@ -18,18 +19,44 @@ class Job < ApplicationRecord
     self.favorites.where(user_id: user.id).first
   end
 
-  def save_skills(skills)
-    skills.each do |skill|
-      i = skill.slice(-1).to_i
-      temp_skill = skill
-      while i < 5 do
-        temp_skill = "#{skill.chop}#{(i+1).to_s}"
-        skills << temp_skill
-        i += 1
+  def add_tags(tags)
+    self.value_list = tags["values"]
+    self.save!
+    save_locations(tags["locations"])
+    self.save!
+    self.skill_list = tags["skills"]
+    self.save!
+  end
+
+  def delete_locations
+    self.location_list.remove(self.location_list)
+  end
+
+  def return_skills_hash
+    upcased_array = self.skill_list.map(&:upcase)
+    new_hash = {}
+    array_of_hash = upcased_array.map do |element|
+      index_num = element.index(/\d/)
+      if !index_num.nil?
+        language = element[0...index_num]
+        skill_level = element[index_num..-1].to_i
+        if new_hash[language]
+          new_hash[language] = skill_level if new_hash[language] < skill_level
+        else
+          new_hash[language] = skill_level.to_i
+        end
+      else
+        new_hash[element] = 1
       end
     end
-    self.skill_list = skills
-    self.save!
+    new_hash
+  end
+
+  def save_locations(locations)
+    delete_locations
+    locations.each do |location|
+      self.location_list.add(location, parse: false)
+    end
   end
 
   def salary_range
@@ -38,9 +65,18 @@ class Job < ApplicationRecord
       array_of_salaries << Integer(salary[1..-1].split(",").first)
     end
     array_of_salaries.sort!
-    lowest_salary = "$#{array_of_salaries[0]},000"
-    highest_salary = "$#{array_of_salaries[-1]+10},000"
+    if !array_of_salaries.nil?
+      lowest_salary = "0"
+      highest_salary = "$200,000+"
+    else
+      lowest_salary = "$#{array_of_salaries[0]},000"
+      highest_salary = "$#{array_of_salaries[-1]+10},000"
+    end
     return [lowest_salary, highest_salary]
+  end
+
+  def text_skills
+    self.skills.map { |skill| clean_skill(skill) }.uniq
   end
 
   # def self.isfavorited(user)
