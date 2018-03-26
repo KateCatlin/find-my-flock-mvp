@@ -198,7 +198,11 @@
           if (selectedCount == 0) {
             alert("Please select at least one skill")
             return false;
-          }else{
+          }else if (selectedCount > 10) {
+            alert("Woah! Do you really have that many skills? Please select 10 or less skills.")
+            return false;
+          }
+          else{
             return true;
           }
 
