@@ -189,17 +189,18 @@
           const input = skillsDiv.querySelector("input")
           const selection = input.nextElementSibling
           const options = selection.querySelectorAll('option')
-          // const submitButton = document.querySelector("input[type=submit]")
-          // console.log(submitButton)
-          // submitButton.addEventListener("click", function(e) {
-          //   console.log(submitButton)
-          //   //submitButton.disabled = false;
-          //   console.log(submitButton.data-disabled)
-          // } )
-          console.log('<%= @user.errors %>')
-          <% @user.errors.each do |error| %>
-          console.log('<%= error %>')
-          <% end %>
+
+          const firstName = document.querySelector("#user_first_name").value
+          const lastName = document.querySelector("#user_last_name").value
+          if (firstName.replace(/\s/g, '') == "") {
+            alert("Please enter a first name");
+            return false;
+            //submitButton.disabled = false;
+          }
+          if (lastName.replace(/\s/g, '') == "" ) {
+            alert("Please enter a last name");
+            return false;
+          }
 
           let selectedCount = 0
           options.forEach((option) => {
@@ -224,16 +225,6 @@
           }
 
         }
-
-
-
-        // const submitButton = document.querySelector("input[type=submit]")
-
-        // submitButton.addEventListener("click", function(e) {
-        //   console.log(submitButton)
-        //   submitButton.disabled = false;
-        //   console.log(submitButton.disabled)
-        // } )
 
 
     </script>

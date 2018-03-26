@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def edit
     @user_readable_skills = @user.text_skills
-    @errors = @user.errors
   end
 
   def update
@@ -19,6 +18,7 @@ class UsersController < ApplicationController
       update_mailchimp
       redirect_to edit_skills_user_path(@user)
     else
+
     end
   end
 
