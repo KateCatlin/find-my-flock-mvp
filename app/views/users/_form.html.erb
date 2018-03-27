@@ -144,7 +144,7 @@
       <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
       <% end %>
       <br>
-      <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified'%>
+      <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', data: { disable_with: false } %>
     </div>
     <% end %>
   </div>
@@ -189,6 +189,19 @@
           const input = skillsDiv.querySelector("input")
           const selection = input.nextElementSibling
           const options = selection.querySelectorAll('option')
+
+          const firstName = document.querySelector("#user_first_name").value
+          const lastName = document.querySelector("#user_last_name").value
+          if (firstName.replace(/\s/g, '') == "") {
+            alert("Please enter a first name");
+            return false;
+            //submitButton.disabled = false;
+          }
+          if (lastName.replace(/\s/g, '') == "" ) {
+            alert("Please enter a last name");
+            return false;
+          }
+
           let selectedCount = 0
           options.forEach((option) => {
             if (option.selected) {
@@ -196,15 +209,22 @@
             }
           } )
           if (selectedCount == 0) {
+
             alert("Please select at least one skill")
+
             return false;
+            submitButton.disabled = false;
+
           }else if (selectedCount > 10) {
             alert("Woah! Do you really have that many skills? Please select 10 or less skills.")
             return false;
+            submitButton.disabled = false;
           }
           else{
             return true;
           }
 
         }
+
+
     </script>

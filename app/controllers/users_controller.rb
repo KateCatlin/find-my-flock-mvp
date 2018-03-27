@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       update_mailchimp
       redirect_to edit_skills_user_path(@user)
     else
+
     end
   end
 
