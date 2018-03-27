@@ -5,12 +5,8 @@
     <div class="skills-form-box">
       <div class="form-container">
         <div class="row justify-content-center">
-          <!-- <div id="MyCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-            -->
             <%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
             <% @skills_numeric_hash.each_with_index do |hash, index|  %>
-            <!-- <div class="item active"> -->
 
               <div class="tabs" id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
                 <div class="tab-pane active" id="personal-info" role="tabpanel">
@@ -55,7 +51,7 @@
               </div>
               <!-- </div> -->
 
-              <div id="data-<%= @skills_numeric_hash.length %>" hidden>
+              <div class="tabs" id="data-<%= @skills_numeric_hash.length %>" hidden>
                 <div class="justify-content-center centered" id="summarized-form">
                 </div>
 
@@ -64,9 +60,6 @@
               </div>
               <% end %>
               <% end %>
-            <!-- </div>
-          </div>
-        </div> -->
 
 
         <div class="skills-container centered">
@@ -98,10 +91,6 @@
     // On each input add an eventListener
     inputs.forEach(input => {
       input.addEventListener('click', function(event) {
-        // let activeTab = input.parentElement.parentElement
-        // console.log(activeTab)
-        // activeTab.classList.add('animated')
-        // activeTab.classList.add('slideOutLeft')
 
         // grab the index through the data-form-id custom html tag
         let currentIndex = input.getAttribute('data-form-id')
@@ -114,16 +103,13 @@
         activeBox.classList.add('slideOutLeft')
 
         setTimeout(function(){
-          //console.log(input)
-
-
-
           // Hidding the current box
           activeBox.hidden = true;
           let nextBox = document.getElementById(`data-${nextIndex}`)
           // Unhiding the next one
           nextBox.hidden = false;
           nextBox.classList.add('animated')
+          nextBox.classList.remove('slideOutLeft')
           nextBox.classList.add('slideInRight')
           //activeTab.classl
 
@@ -140,45 +126,27 @@
     });
 
 
-
-
     buttons.forEach(button => {
       // listen for when a button gets clicked
 
       button.addEventListener('click', function(event){
-        // inputs.forEach((tab) => {
-        //   let currentIndex = tab.getAttribute('data-form-id')
-        //   let activeBox = document.getElementById(`data-${currentIndex}`)
-        //   //activeBox.hidden = true;
-        //   //let tabBox = tab.parentElement.parentElement
-        //   activeBox.classList.add('slideOutLeft')
 
-        //   //tabBox.classList.remove('animated')
-        // })
         moveActiveTab()
 
         setTimeout(function(){
           let initialTab = document.querySelector('.slideInRight')
-          //console.log(initialTab)
           // remove the active state from all buttons except current
           let thing = button.getAttribute('data-form-target');
           numthing = parseInt(thing.slice(-1));
           let activeTab = document.getElementById(`data-${numthing}`)
-          //console.log(activeTab)
           activeTab.classList.remove('slideOutLeft')
           activeTab.classList.add('animated')
           activeTab.classList.add('slideInRight')
-
-          //let formContainer = document.querySelector(".form-container")
 
           inputs.forEach((tab) => {
             let currentIndex = tab.getAttribute('data-form-id')
             let activeBox = document.getElementById(`data-${currentIndex}`)
             activeBox.hidden = true;
-            //let tabBox = tab.parentElement.parentElement
-            //activeBox.classList.add('slideOutLeft')
-
-            //tabBox.classList.remove('animated')
           })
           deactiveButtons(buttons);
           event.target.classList.add('active-btn');
@@ -190,12 +158,7 @@
             review.hidden = true;
           }
 
-        }, 300)
-
-
-
-
-
+        }, 400)
 
       })
     })
@@ -227,15 +190,12 @@
 
     function moveActiveTab() {
       let allTabs = document.querySelectorAll('.tabs')
-      console.log(allTabs)
       allTabs.forEach((tab) => {
         if (tab.hidden == false) {
           tab.classList.add('animate')
           tab.classList.add('slideOutLeft')
         }
       })
-      //return activeTab
-
     }
 
 
