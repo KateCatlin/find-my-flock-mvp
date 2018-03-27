@@ -12,7 +12,7 @@
             <% @skills_numeric_hash.each_with_index do |hash, index|  %>
             <!-- <div class="item active"> -->
 
-              <div id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
+              <div class="tabs" id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
                 <div class="tab-pane active" id="personal-info" role="tabpanel">
                   <h4 class="no-space"> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
                   <br>
@@ -98,30 +98,34 @@
     // On each input add an eventListener
     inputs.forEach(input => {
       input.addEventListener('click', function(event) {
-        let activeTab = input.parentElement.parentElement
-        console.log(activeTab)
-        activeTab.classList.add('animated')
-        activeTab.classList.add('slideOutLeft')
+        // let activeTab = input.parentElement.parentElement
+        // console.log(activeTab)
+        // activeTab.classList.add('animated')
+        // activeTab.classList.add('slideOutLeft')
+
+        // grab the index through the data-form-id custom html tag
+        let currentIndex = input.getAttribute('data-form-id')
+        // grab the box that is now NOT HIDDEN - or active
+        let activeBox = document.getElementById(`data-${currentIndex}`)
+        // changing the current index to an integer and going to the next one
+        let nextIndex = parseInt(currentIndex) + 1;
+
+        activeBox.classList.add('animated')
+        activeBox.classList.add('slideOutLeft')
 
         setTimeout(function(){
-          let thisInput = event.currentTarget
-          console.log(input)
+          //console.log(input)
 
-          // grab the index through the data-form-id custom html tag
-          let currentIndex = input.getAttribute('data-form-id')
-          // grab the box that is now NOT HIDDEN - or active
-          let activeBox = document.getElementById(`data-${currentIndex}`)
-          // changing the current index to an integer and going to the next one
-          let nextIndex = parseInt(currentIndex) + 1;
+
 
           // Hidding the current box
           activeBox.hidden = true;
           let nextBox = document.getElementById(`data-${nextIndex}`)
-          console.log(nextBox)
           // Unhiding the next one
           nextBox.hidden = false;
           nextBox.classList.add('animated')
           nextBox.classList.add('slideInRight')
+          //activeTab.classl
 
           fillSummary(input);
 
@@ -135,27 +139,64 @@
       });
     });
 
+
+
+
     buttons.forEach(button => {
       // listen for when a button gets clicked
+
       button.addEventListener('click', function(event){
-        // remove the active state from all buttons except current
-        let thing = button.getAttribute('data-form-target');
-        numthing = parseInt(thing.slice(-1));
-        let activeTab = document.getElementById(`data-${numthing}`)
-        inputs.forEach((tab) => {
-          let currentIndex = tab.getAttribute('data-form-id')
-          let activeBox = document.getElementById(`data-${currentIndex}`)
-          activeBox.hidden = true;
-        })
-        deactiveButtons(buttons);
-        event.target.classList.add('active-btn');
-        forms.forEach(function(form) { form.hidden = true;})
-        let formId = button.getAttribute('data-form-target')
-        document.getElementById(formId).hidden = false;
-        let review = document.getElementById(`data-${buttons.length - 1}`)
-        if (numthing != buttons.length - 1) {
-          review.hidden = true;
-        }
+        // inputs.forEach((tab) => {
+        //   let currentIndex = tab.getAttribute('data-form-id')
+        //   let activeBox = document.getElementById(`data-${currentIndex}`)
+        //   //activeBox.hidden = true;
+        //   //let tabBox = tab.parentElement.parentElement
+        //   activeBox.classList.add('slideOutLeft')
+
+        //   //tabBox.classList.remove('animated')
+        // })
+        moveActiveTab()
+
+        setTimeout(function(){
+          let initialTab = document.querySelector('.slideInRight')
+          //console.log(initialTab)
+          // remove the active state from all buttons except current
+          let thing = button.getAttribute('data-form-target');
+          numthing = parseInt(thing.slice(-1));
+          let activeTab = document.getElementById(`data-${numthing}`)
+          //console.log(activeTab)
+          activeTab.classList.remove('slideOutLeft')
+          activeTab.classList.add('animated')
+          activeTab.classList.add('slideInRight')
+
+          //let formContainer = document.querySelector(".form-container")
+
+          inputs.forEach((tab) => {
+            let currentIndex = tab.getAttribute('data-form-id')
+            let activeBox = document.getElementById(`data-${currentIndex}`)
+            activeBox.hidden = true;
+            //let tabBox = tab.parentElement.parentElement
+            //activeBox.classList.add('slideOutLeft')
+
+            //tabBox.classList.remove('animated')
+          })
+          deactiveButtons(buttons);
+          event.target.classList.add('active-btn');
+          forms.forEach(function(form) { form.hidden = true;})
+          let formId = button.getAttribute('data-form-target')
+          document.getElementById(formId).hidden = false;
+          let review = document.getElementById(`data-${buttons.length - 1}`)
+          if (numthing != buttons.length - 1) {
+            review.hidden = true;
+          }
+
+        }, 300)
+
+
+
+
+
+
       })
     })
 
@@ -182,6 +223,19 @@
 
     function deactiveButtons(buttons) {
       buttons.forEach(button => button.classList.remove('active-btn'))
+    }
+
+    function moveActiveTab() {
+      let allTabs = document.querySelectorAll('.tabs')
+      console.log(allTabs)
+      allTabs.forEach((tab) => {
+        if (tab.hidden == false) {
+          tab.classList.add('animate')
+          tab.classList.add('slideOutLeft')
+        }
+      })
+      //return activeTab
+
     }
 
 
