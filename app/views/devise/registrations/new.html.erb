@@ -10,6 +10,7 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :gets_mail, :label => 'Receive occasional emails about user-bonuses and updates to our service', :input_html => { :checked => true } %>
   </div>
 </div>
 <div class="login-form-bot centered registration-button">

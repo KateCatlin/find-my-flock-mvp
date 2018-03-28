@@ -1,9 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
+
   def create
     super do
       User.create(registration_id: resource.id)
-      subscribe_to_mailchimp
+      subscribe_to_mailchimp if params[:registration][:gets_mail] == "1"
     end
   end
 
