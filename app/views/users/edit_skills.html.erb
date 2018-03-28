@@ -5,84 +5,83 @@
     <div class="skills-form-box">
       <div class="form-container">
         <div class="row justify-content-center">
+            <%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
+            <% @skills_numeric_hash.each_with_index do |hash, index|  %>
 
-          <%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
-          <% @skills_numeric_hash.each_with_index do |hash, index|  %>
+              <div class="tabs" id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
+                <div class="tab-pane active" id="personal-info" role="tabpanel">
+                  <h4 class="no-space"> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
+                  <br>
+                  <div class="form-check">
+                    <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
+                    <label class="form-check-label">
+                      <p> Familiarity <i>(0-1 year of professional experience, needs mentorship)</i></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
 
-          <div id="data-<%= index %>"<%= 'hidden' unless index == 0 %>>
-            <div class="tab-pane active" id="personal-info" role="tabpanel">
-              <h4 class="no-space"> How skilled are you with <em class="underlined-thin"><%= hash[0]%></em>? </h4>
-              <br>
-              <div class="form-check">
-                <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>1" checked>
-                <label class="form-check-label">
-                  <p> Familiarity <i>(0-1 year of professional experience, needs mentorship)</i></p>
-                </label>
+                    <label class="form-check-label">
+                      <p> Gaining Competency <i>(1-3 years of professional experience, occasionally needs mentorship)</i></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
+
+                    <label class="form-check-label">
+                      <p>Individual Competency <i>(3-5 years of professional experience, no longer needs daily mentorship)</i></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
+
+                    <label class="form-check-label">
+                      <p>Strong Competency <i>(5+ years of professional experience, could mentor others)</i></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
+
+                    <label class="form-check-label">
+                      <p>Leadership <i>(Expert competency + has lead or managed a team in this subject)</i></p>
+                    </label>
+                  </div>
+                  <br>
+                </div>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>2">
+              <!-- </div> -->
 
-                <label class="form-check-label">
-                  <p> Gaining Competency <i>(1-3 years of professional experience, occasionally needs mentorship)</i></p>
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>3" >
+              <div class="tabs" id="data-<%= @skills_numeric_hash.length %>" hidden>
+                <div class="justify-content-center centered" id="summarized-form">
+                </div>
 
-                <label class="form-check-label">
-                  <p>Individual Competency <i>(3-5 years of professional experience, no longer needs daily mentorship)</i></p>
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>4" >
+                <%= f.button :Submit, input_html: { value: 'Submit selection' }, :class => 'btn submit-btn  btn-wide { width: 100%; } '%>
 
-                <label class="form-check-label">
-                  <p>Strong Competency <i>(5+ years of professional experience, could mentor others)</i></p>
-                </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" data-lang="<%= hash[0] %>" data-form-id='<%= index %>' type="radio" name="skills-<%= index %>" value="<%=hash[0]%>5" >
+              <% end %>
+              <% end %>
 
-                <label class="form-check-label">
-                  <p>Leadership <i>(Expert competency + has lead or managed a team in this subject)</i></p>
-                </label>
-              </div>
-              <br>
-            </div>
+
+        <div class="skills-container centered">
+          <div class="btn-group centered" role="group" aria-label="Button group with nested dropdown">
+            <% @skills_numeric_hash.each_with_index do |hash, index|  %>
+
+            <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
+            <% end %>
+
+            <em><button type="button" class="btn skill-button submit-btn" data-form-target="data-<%= @skills_numeric_hash.length %>">Review</button></em>
+            <br>
           </div>
-
-          <div id="data-<%= @skills_numeric_hash.length %>" hidden>
-              <div class="justify-content-center centered" id="summarized-form">
-              </div>
-
-              <%= f.button :Submit, input_html: { value: 'Submit selection' }, :class => 'btn submit-btn  btn-wide { width: 100%; } '%>
-
-          </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="skills-container centered">
-        <div class="btn-group centered" role="group" aria-label="Button group with nested dropdown">
-          <% @skills_numeric_hash.each_with_index do |hash, index|  %>
-
-          <button type="button" class="btn skill-button <%= 'active-btn' if index == 0 %> " data-form-target="data-<%= index %>"><%= hash[0] %></button>
-          <% end %>
-
-          <em><button type="button" class="btn skill-button submit-btn" data-form-target="data-<%= @skills_numeric_hash.length %>">Review</button></em>
-          <br>
         </div>
       </div>
     </div>
-  </div>
 
-</body>
-
+  </body>
 
 
 
-<script>
+
+  <script>
        // Get all the form boxes
        const forms = document.querySelectorAll('.form-box')
       // Get all the skill buttons
@@ -92,49 +91,75 @@
     // On each input add an eventListener
     inputs.forEach(input => {
       input.addEventListener('click', function(event) {
+
         // grab the index through the data-form-id custom html tag
         let currentIndex = input.getAttribute('data-form-id')
         // grab the box that is now NOT HIDDEN - or active
         let activeBox = document.getElementById(`data-${currentIndex}`)
         // changing the current index to an integer and going to the next one
         let nextIndex = parseInt(currentIndex) + 1;
-        console.log(activeBox)
-        // Hidding the current box
-        activeBox.hidden = true;
-        let nextBox = document.getElementById(`data-${nextIndex}`)
-        // Unhiding the next one
-        nextBox.hidden = false;
 
-        fillSummary(input);
+        activeBox.classList.add('animated')
+        activeBox.classList.add('slideOutLeft')
 
-        let nextId = nextBox.getAttribute('id')
-        let activeBtn = document.querySelector(`[data-form-target=${nextId}]`)
-        deactiveButtons(buttons);
-        activeBtn.classList.add('active-btn');
-      })
-    })
+        setTimeout(function(){
+          // Hidding the current box
+          activeBox.hidden = true;
+          let nextBox = document.getElementById(`data-${nextIndex}`)
+          // Unhiding the next one
+          nextBox.hidden = false;
+          nextBox.classList.add('animated')
+          nextBox.classList.remove('slideOutLeft')
+          nextBox.classList.add('slideInRight')
+          //activeTab.classl
+
+          fillSummary(input);
+
+          let nextId = nextBox.getAttribute('id')
+          let activeBtn = document.querySelector(`[data-form-target=${nextId}]`)
+          deactiveButtons(buttons);
+          activeBtn.classList.add('active-btn');
+
+        }, 400);
+
+      });
+    });
+
 
     buttons.forEach(button => {
       // listen for when a button gets clicked
+
       button.addEventListener('click', function(event){
-        // remove the active state from all buttons except current
-        let thing = button.getAttribute('data-form-target');
-        numthing = parseInt(thing.slice(-1));
-        let activeTab = document.getElementById(`data-${numthing}`)
-        inputs.forEach((tab) => {
-          let currentIndex = tab.getAttribute('data-form-id')
-          let activeBox = document.getElementById(`data-${currentIndex}`)
-          activeBox.hidden = true;
-        })
-        deactiveButtons(buttons);
-        event.target.classList.add('active-btn');
-        forms.forEach(function(form) { form.hidden = true;})
-        let formId = button.getAttribute('data-form-target')
-        document.getElementById(formId).hidden = false;
-        let review = document.getElementById(`data-${buttons.length - 1}`)
-        if (numthing != buttons.length - 1) {
-          review.hidden = true;
-        }
+
+        moveActiveTab()
+
+        setTimeout(function(){
+          let initialTab = document.querySelector('.slideInRight')
+          // remove the active state from all buttons except current
+          let thing = button.getAttribute('data-form-target');
+          numthing = parseInt(thing.slice(-1));
+          let activeTab = document.getElementById(`data-${numthing}`)
+          activeTab.classList.remove('slideOutLeft')
+          activeTab.classList.add('animated')
+          activeTab.classList.add('slideInRight')
+
+          inputs.forEach((tab) => {
+            let currentIndex = tab.getAttribute('data-form-id')
+            let activeBox = document.getElementById(`data-${currentIndex}`)
+            activeBox.hidden = true;
+          })
+          deactiveButtons(buttons);
+          event.target.classList.add('active-btn');
+          forms.forEach(function(form) { form.hidden = true;})
+          let formId = button.getAttribute('data-form-target')
+          document.getElementById(formId).hidden = false;
+          let review = document.getElementById(`data-${buttons.length - 1}`)
+          if (numthing != buttons.length - 1) {
+            review.hidden = true;
+          }
+
+        }, 400)
+
       })
     })
 
@@ -161,6 +186,16 @@
 
     function deactiveButtons(buttons) {
       buttons.forEach(button => button.classList.remove('active-btn'))
+    }
+
+    function moveActiveTab() {
+      let allTabs = document.querySelectorAll('.tabs')
+      allTabs.forEach((tab) => {
+        if (tab.hidden == false) {
+          tab.classList.add('animate')
+          tab.classList.add('slideOutLeft')
+        }
+      })
     }
 
 
