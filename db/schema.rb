@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20180328154238) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.datetime "deleted_at"
     t.boolean "gets_mail"
     t.index ["email"], name: "index_registrations_on_email", unique: true
     t.index ["reset_password_token"], name: "index_registrations_on_reset_password_token", unique: true
@@ -126,6 +127,7 @@ ActiveRecord::Schema.define(version: 20180328154238) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.string "status"
     t.boolean "is_active", default: true
     t.index ["registration_id"], name: "index_users_on_registration_id"
   end

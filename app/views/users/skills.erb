@@ -1,5 +1,9 @@
 skills form
 
+<% if @skills.empty?  %>
+  <% redirect_to dashboard_index_path, notice: 'Job has been added to your favorite!' %>
+<% else %>
+
 <%= form_for @user, url: edit_skills_return_user_path(@user), method: :post do |f| %>
           <% @skills_numeric_hash.each_with_index do |hash, index| %>
           <h1> How skilled are you with <%= hash[0] %>? </h1>
@@ -42,4 +46,5 @@ skills form
           <% end %>
           <%= f.button :submit %>
         <% end %>
+<% end %>
 

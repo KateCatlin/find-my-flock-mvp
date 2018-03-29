@@ -4,7 +4,10 @@
     <div class="col-xs-9">
        <% if !@job.title %>
        <h4>Submit a job</h4>
-        <p class="no-space">Please tell us a little more about this role</p>
+       <p class="no-space">Please tell us a little more about this role</p>
+       <% else %>
+       <h4> Edit <%= @job.title %> </h4>
+        <p class="no-space">What would you like to change about this role?</p>
         <% end %>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs justify-content-center" role="tablist">
@@ -70,12 +73,10 @@
               <div class="col-sm-3">
                 <% if current_user %>
                   <% if current_user.photo %>
-                    <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
                   <% else %>
                     <%= image_tag("user", class: "avatar", style:"width:100px ") %>
                   <% end %>
                 <% end %>
-
             </div>
               <div class="col-sm-6">
                 <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
@@ -92,10 +93,9 @@
     <div class="tab-pane" id="locations" role="tabpanel">
      <div class="form-box">
       <div class="form-inputs">
-        <h4 class="no-space"> In which areas do you want a job? </h4>
+        <h4 class="no-space"> Where would you hire someone for this job? </h4>
         <p>If you're open to any location, skip ahead.</p>
         <br>
-
         <%= simple_fields_for :tags do |t| %>
         <%= t.input :locations, collection: @locations, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
       </div>
@@ -107,8 +107,8 @@
     <div class="tab-pane" id="skills" role="tabpanel">
      <div class="form-box">
       <div class="form-inputs">
-        <h4 class="no-space"> What skills do you bring to the table? </h4>
-        <p>Add your top five skills from below.</p>
+        <h4 class="no-space"> What skills do you NEED in this role? </h4>
+        <p>Only add what is truly necessary. 5 at most. You will filter out ALL candidates without EVERY SINGLE qualification.</p>
 
         <br>
 
@@ -127,8 +127,8 @@
   </div>
   <div class="tab-pane" id="values" role="tabpanel">
     <div class="form-box">
-      <h4 class="no-space">Choose what's important in a role: </h4>
-      <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
+      <h4 class="no-space">What benefits do you offer? </h4>
+      <p>Note: Select them all. Candidates will <em>ONLY</em> see jobs with the values they select.</p>
       <br>
       <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
       <br>

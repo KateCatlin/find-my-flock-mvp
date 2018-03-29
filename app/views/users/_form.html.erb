@@ -35,15 +35,14 @@
             <div class="row">
               <div class="col-xs-3">
                 <div class = "avatar-edit">
-
-                          <% if current_user %>
-                            <% if current_user.photo %>
-                              <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
-                            <% else %>
-                              <%= image_tag("user", class: "avatar ", style:"width:100px ") %>
-                            <% end %>
-                            <% else %>
-                          <% end %>
+                  <% if current_user %>
+                    <% if current_user.photo %>
+                      <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+                    <% else %>
+                      <%= image_tag("user", class: "avatar ", style:"width:100px ") %>
+                    <% end %>
+                    <% else %>
+                  <% end %>
                 </div>
               </div>
 
@@ -137,6 +136,7 @@
       <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
     </div>
   </div>
+
   <div class="tab-pane" id="values" role="tabpanel">
     <div class="form-box">
       <h4 class="no-space">Choose what's important in a role: </h4>
@@ -157,7 +157,7 @@
       <br>
       <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', data: { disable_with: false } %>
     </div>
-    <% end %>
+  <% end %>
   </div>
 </div>
 </div>
