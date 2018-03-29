@@ -77,16 +77,16 @@
             </div>
               <div class="col-sm-6">
                 <% if current_user.resume_file_path.file %>
-                <h2>Hello</h2>
+                 <%= current_user.resume_name %>
 
                <% else %>
                <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text' } %>
                <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
 
-               <% end %>
+               <%  end %>
 
                <% if current_user.photo.file %>
-               <h2>Hello</h2>
+               <%= current_user.photo_name %>
                <% else %>
                 <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
               <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
