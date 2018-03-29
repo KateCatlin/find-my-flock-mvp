@@ -83,8 +83,27 @@
                  <label for="user_resume_file_path" class= "btn btn-primary" id= "fake_resume_button" >Select file</label><span id="resume_file_name"><%= current_user.resume_name %></span>
                  <script>
                   const resume = document.getElementById('user_resume_file_path')
+                  const resumeName = document.getElementById('resume_file_name')
 
                   resume.style.display = "none"
+
+                  resume.addEventListener('change', function(e) {
+                    resumeName.innerText = resume.value.split("\\")[2]
+
+                  })
+
+                  // resume.addEventListener('change', function(e) => {
+                  //   console.log('hi')
+                  // })
+
+                  // const fakeResume = document.getElementById('fake_resume_button')
+                  // const resumeName = document.getElementById('resume_file_name')
+                  // fakeResume.addEventListener('click', function(e) => {
+                  //   resumeName.innerText = 'fuck'
+                  //   console.log(resumeName)
+                  //   console.log('fuck')
+
+                  // })
 
                 </script>
 
@@ -179,6 +198,11 @@
 </div>
 </body>
 <script>
+  //const resume = document.getElementById('user_resume_file_path')
+
+  //resume.style.display = "none"
+
+
       // GRAB all the next buttons
       const items = document.querySelectorAll('.nav-link');
       const nextButtons = document.querySelectorAll('.next-btn');
@@ -252,13 +276,7 @@
           }
 
         }
-        const fakeResume = document.getElementById('fake_resume_button')
-        const resumeName = document.getElementById('resume_file_name')
-        fakeResume.addEventListener('click', function(e) => {
-          resumeName.innerText = 'fuck'
-          console.log(resumeName)
 
-        })
 
 
 
