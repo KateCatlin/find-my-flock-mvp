@@ -77,7 +77,17 @@
             </div>
               <div class="col-sm-6">
                 <% if current_user.resume_file_path.file %>
-                 <%= current_user.resume_name %>
+
+                 <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text ' } %>
+                 <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
+                 <label for="user_resume_file_path" class= "btn btn-primary" id= "fake_resume_button" >Select file</label><span id="resume_file_name"><%= current_user.resume_name %></span>
+                 <script>
+                  const resume = document.getElementById('user_resume_file_path')
+
+                  resume.style.display = "none"
+
+                </script>
+
 
                <% else %>
                <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text' } %>
@@ -86,7 +96,13 @@
                <%  end %>
 
                <% if current_user.photo.file %>
-               <%= current_user.photo_name %>
+                <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
+                <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
+                <label for="user_photo" class= "btn btn-primary">Select File </label><%= current_user.photo_name %>
+                 <script>
+                  const photo = document.getElementById('user_photo')
+                  photo.style.display = "none"
+                </script>
                <% else %>
                 <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
               <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
@@ -236,8 +252,14 @@
           }
 
         }
-        const resume = document.getElementById('user_resume_file_path')
-        console.log(resume)
+        const fakeResume = document.getElementById('fake_resume_button')
+        const resumeName = document.getElementById('resume_file_name')
+        fakeResume.addEventListener('click', function(e) => {
+          resumeName.innerText = 'fuck'
+          console.log(resumeName)
+
+        })
+
 
 
     </script>
