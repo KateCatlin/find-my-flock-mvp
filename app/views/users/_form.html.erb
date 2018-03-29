@@ -80,10 +80,11 @@
 
                  <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text ' } %>
                  <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
-                 <label for="user_resume_file_path" class= "btn btn-primary" id= "fake_resume_button" >Select file</label><span id="resume_file_name"><%= current_user.resume_name %></span>
+                 <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white" id= "fake_resume_button" >Select file</label><span id="resume_file_name"><%= current_user.resume_name %></span>
                  <script>
                   const resume = document.getElementById('user_resume_file_path')
                   const resumeName = document.getElementById('resume_file_name')
+
 
                   resume.style.display = "none"
 
@@ -91,19 +92,6 @@
                     resumeName.innerText = resume.value.split("\\")[2]
 
                   })
-
-                  // resume.addEventListener('change', function(e) => {
-                  //   console.log('hi')
-                  // })
-
-                  // const fakeResume = document.getElementById('fake_resume_button')
-                  // const resumeName = document.getElementById('resume_file_name')
-                  // fakeResume.addEventListener('click', function(e) => {
-                  //   resumeName.innerText = 'fuck'
-                  //   console.log(resumeName)
-                  //   console.log('fuck')
-
-                  // })
 
                 </script>
 
@@ -117,10 +105,17 @@
                <% if current_user.photo.file %>
                 <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
                 <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
-                <label for="user_photo" class= "btn btn-primary">Select File </label><%= current_user.photo_name %>
+                <label for="user_photo" class= "btn btn-primary" style="background-color: white">Select File </label><span id="photo_file_name"><%= current_user.photo_name %></span>
                  <script>
                   const photo = document.getElementById('user_photo')
+                  const photoName = document.getElementById('photo_file_name')
+
                   photo.style.display = "none"
+
+                  photo.addEventListener('change', function(e) {
+                    photoName.innerText = photo.value.split("\\")[2]
+
+                  })
                 </script>
                <% else %>
                 <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
