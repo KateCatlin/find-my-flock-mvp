@@ -28,6 +28,10 @@ class Job < ApplicationRecord
     self.save!
   end
 
+  def clean_skill(skill)
+    skill.to_s.split(/\d/).first
+  end
+
   def delete_locations
     self.location_list.remove(self.location_list)
   end
