@@ -133,6 +133,8 @@
 
         moveActiveTab()
 
+        fillEmpty()
+
         setTimeout(function(){
           let initialTab = document.querySelector('.slideInRight')
           // remove the active state from all buttons except current
@@ -167,6 +169,10 @@
 
     const summary = document.querySelector('#summarized-form');
     const skills = ["Familiarity", "Gaining Competency", "Individual Competency", "Strong Competency", "Leadership"]
+    let skillsIdentifiers = []
+    for (var i = 0; i < buttons.length - 1; i++ ) {
+      skillsIdentifiers.push(i)
+    }
 
 
     function fillSummary(input) {
@@ -182,6 +188,9 @@
         let newLi = `<div class="col-xs-4 col-sm-4 col-md-4" data-form-id=${idValue}> <h4 class="no-space"> ${lang} <h4> <p class="no-space body-text"> ${skill} </p> </li>`;
         summary.insertAdjacentHTML("beforeend", newLi);
       }
+      fillEmpty();
+
+
     };
 
     function deactiveButtons(buttons) {
@@ -197,6 +206,27 @@
         }
       })
     }
+
+    function fillEmpty() {
+      let competenciesSelected = summary.querySelectorAll('div')
+      competencyArray =[]
+      competenciesSelected.forEach((skillLevel) => {
+        competencyArray.push(parseInt(skillLevel.getAttribute('data-form-id')))
+      })
+      skillsIdentifiers.forEach((id) => {
+        if (!competencyArray.includes(id)){
+          let skill = skills[0]
+          let input = document.getElementById(`data-${id}`)
+          console.log(input)
+          let lang = input.querySelector('em').innerText;
+          console.log(lang)
+          let newLi = `<div class="col-xs-4 col-sm-4 col-md-4" data-form-id=${id}> <h4 class="no-space"> ${lang} <h4> <p class="no-space body-text"> ${skill} </p> </li>`;
+          summary.insertAdjacentHTML("beforeend", newLi);
+
+        }
+      })
+    }
+
 
 
 
