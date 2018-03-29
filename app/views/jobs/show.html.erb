@@ -44,7 +44,11 @@
 
       <div class="grid-second-column-second">
         <div class="values small-padded-title" style="text-align: center">Salary range:</div>
+        <% if @job.salary_range %>
         <div class="salary"><%= @job.salary_range[0] %> - <%= @job.salary_range[1] %>  </div>
+        <% else %>
+        <div class="salary"> Unlisted </div>
+        <% end %>
       </div>
 
     </div>
