@@ -13,10 +13,13 @@
 
 <!-- Dropdown Menu -->
         <div class="dropdown hidden-md-up">
-  <button class="btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+
+
   </button>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <%= link_to "My Profile", user_path(current_user), class: "margin-left" %>
+    <%= link_to "My Profile", user_path(current_user), class: "dropdown-padding" %>
     <%= link_to "Dashboard", dashboard_index_path %>
     <%= link_to "Log out", destroy_registration_session_path,:method => :delete %>
   </div>
@@ -66,9 +69,63 @@
 <div class="job-samples">
   <h1 class="centered padded-title home-title">Opportunities Now:</h2>
 
+<!-- Beginning of the carousel with cards on xs and sm-->
+
+<div class="hidden-md-up">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+<div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="card card-home text-center">
+        <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+        <h4 class="card-title"> Full Stack Dev</h4>
+        <p class="company"> Non-profit making voting a seamless experience </p>
+        <h4 class="location"> Brooklyn, NY </h4>
+        <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank" class="btn btn-page">Details...</a>
+      </div>
+    </div>    </div>
+    <div class="carousel-item">
+<div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="card card-home text-center">
+        <%= image_tag "educationteampic.jpg", class: "card-img-top img-fluid" %>
+        <h4 class="card-title">Senior Android Engineer</h4>
+        <p class="company"> Education platform for all</p>
+        <h4 class="location"> Mountain View, CA </h4>
+        <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank" class="btn btn-page">Details...</a>
+      </div>
+    </div>
+    </div>
+    <div class="carousel-item">
+<div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="card card-home text-center">
+        <%= image_tag "blogteampic.jpg", class: "card-img-top img-fluid" %>
+        <h4 class="card-title"> JavaScript Dev </h4>
+        <p class="company"> Blog hosting platform</p>
+        <h4 class="location"> Remote </h4>
+        <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank" class="btn btn-page">Details...</a>
+
+      </div>
+    </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<!-- End of carousel with cards xs and sm -->
+
+<!-- Cards to be displayed on full normal screen -->
+<div class="hidden-sm-down">
+
   <div class="cards-container card-sample ">
 
-    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
         <h4 class="card-title"> Full Stack Dev</h4>
@@ -78,7 +135,7 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "educationteampic.jpg", class: "card-img-top img-fluid" %>
         <h4 class="card-title">Senior Android Engineer</h4>
@@ -88,7 +145,7 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-4">
       <div class="card card-home text-center">
         <%= image_tag "blogteampic.jpg", class: "card-img-top img-fluid" %>
         <h4 class="card-title"> JavaScript Dev </h4>
@@ -100,6 +157,9 @@
     </div>
 
   </div>
+  </div>
+
+  <!-- End of cards to be displayed on full normal screen -->
 </div>
 
 <h1 class="centered padded-title home-title" id="arguments-joining">Why you should spend your next 60 seconds joining</h1>

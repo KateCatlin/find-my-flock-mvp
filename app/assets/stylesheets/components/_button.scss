@@ -81,12 +81,15 @@
   letter-spacing: 5px;
 }
 
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+
+
 .btn-dropdown {
-  padding: 0;
-  color: black;
-  background: white;
-  font-size: 30px;
-  margin-right: 30px;
+  margin-right: 2vh;
   border: 0px solid white;
 }
 
