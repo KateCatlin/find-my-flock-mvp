@@ -76,50 +76,30 @@
 
             </div>
               <div class="col-sm-6">
+                <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text ' } %>
+                <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
+
                 <% if current_user.resume_file_path.file %>
 
-                 <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text ' } %>
-                 <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
-                 <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white" id= "fake_resume_button" >Select file</label><span id="resume_file_name"><%= current_user.resume_name %></span>
-                 <script>
-                  const resume = document.getElementById('user_resume_file_path')
-                  const resumeName = document.getElementById('resume_file_name')
+                 <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_resume_button" >Change Resume</label><span style="padding-left: 10px;" id="resume_file_name"><%= current_user.resume_name %></span>
 
+                <% else %>
 
-                  resume.style.display = "none"
+                 <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_resume_button" >Upload Resume</label><span style="padding-left: 10px;" id="resume_file_name">No Resume Selected</span>
 
-                  resume.addEventListener('change', function(e) {
-                    resumeName.innerText = resume.value.split("\\")[2]
+                <%  end %>
 
-                  })
-
-                </script>
-
-
-               <% else %>
-               <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text' } %>
-               <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
-
-               <%  end %>
-
-               <% if current_user.photo.file %>
                 <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
                 <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
-                <label for="user_photo" class= "btn btn-primary" style="background-color: white">Select File </label><span id="photo_file_name"><%= current_user.photo_name %></span>
-                 <script>
-                  const photo = document.getElementById('user_photo')
-                  const photoName = document.getElementById('photo_file_name')
 
-                  photo.style.display = "none"
+                <% if current_user.photo.file %>
 
-                  photo.addEventListener('change', function(e) {
-                    photoName.innerText = photo.value.split("\\")[2]
+                <label for="user_photo" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_photo_button">Change Photo </label><span style="padding-left: 10px;" id="photo_file_name"><%= current_user.photo_name %></span>
 
-                  })
-                </script>
-               <% else %>
-                <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
-              <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
+                <% else %>
+
+                <label for="user_photo" class= "btn btn-primary" style="background-color: white; width:200px;" id="fake_photo_button">Upload Photo</label><span style="padding-left: 10px;" id="photo_file_name">No Photo Selected</span>
+
               <% end %>
                <br>
         <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
@@ -273,6 +253,35 @@
         }
 
 
+          const resume = document.getElementById('user_resume_file_path')
+          const resumeName = document.getElementById('resume_file_name')
+          const fakeResumeBtn = document.getElementById('fake_resume_button')
+
+
+          resume.style.display = "none"
+
+          resume.addEventListener('change', function(e) {
+            resumeName.innerText = resume.value.split("\\")[2]
+            fakeResumeBtn.innerText = "Change Resume"
+
+          })
+
+          const photo = document.getElementById('user_photo')
+          const photoName = document.getElementById('photo_file_name')
+          const fakePhotoBtn = document.getElementById('fake_photo_button')
+
+          photo.style.display = "none"
+
+          photo.addEventListener('change', function(e) {
+            photoName.innerText = photo.value.split("\\")[2]
+            fakePhotoBtn.innerText = "Change Photo"
+
+          })
+
+
+
 
 
     </script>
+
+
