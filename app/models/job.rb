@@ -69,21 +69,16 @@ class Job < ApplicationRecord
       array_of_salaries << Integer(salary[1..-1].split(",").first)
     end
     array_of_salaries.sort!
-    if !array_of_salaries.nil?
-      lowest_salary = "0"
-      highest_salary = "$200,000+"
-    else
+    begin
       lowest_salary = "$#{array_of_salaries[0]},000"
-      highest_salary = "$#{array_of_salaries[-1]+10},000"
+      highest_salary = "$#{array_of_salaries[-1]+10},000" || "$#{array_of_salaries[0]+9},999"
+      return [lowest_salary, highest_salary]
+    rescue
+      return nil
     end
-    return [lowest_salary, highest_salary]
   end
 
   def text_skills
     self.skills.map { |skill| clean_skill(skill) }.uniq
   end
-
-  # def self.isfavorited(user)
-  #   where(favorited: true)
-  # end
 end
