@@ -21,11 +21,19 @@ class DashboardController < ApplicationController
       value_matched_jobs = Job.tagged_with(current_user.value_list, :on => :values)
     end
 
-    if current_user.location_list.empty?
-      location_matched_jobs = value_matched_jobs
+    if current_user.salary_list.empty?
+      salary_matched_jobs = value_matched_jobs
     else
-      location_matched_jobs = value_matched_jobs.tagged_with(current_user.location_list, :any => true)
+      salary_matched_jobs = value_matched_jobs.tagged_with(current_user.salary_list, :on => :salaries)
     end
+
+    if current_user.location_list.empty?
+      location_matched_jobs = salary_matched_jobs
+    else
+      location_matched_jobs = salary_matched_jobs.tagged_with(current_user.location_list, :any => true)
+    end
+
+    binding.pry
 
     skill_matched_jobs = []
     array_of_user_skills = current_user.skill_list.map(&:downcase)

@@ -1,0 +1,30 @@
+
+[1mFrom:[0m /home/benskiff/code/KateCatlin/FindMyFlockApp/app/controllers/dashboard_controller.rb @ line 19 DashboardController#matched_jobs:
+
+    [1;34m17[0m: [32mdef[0m [1;34mmatched_jobs[0m
+    [1;34m18[0m:   binding.pry
+ => [1;34m19[0m:   [32mif[0m current_user.value_list.empty?
+    [1;34m20[0m:     value_matched_jobs = [1;34;4mJob[0m.all
+    [1;34m21[0m:   [32melse[0m
+    [1;34m22[0m:     value_matched_jobs = [1;34;4mJob[0m.tagged_with(current_user.value_list, [33m:on[0m => [33m:values[0m)
+    [1;34m23[0m:   [32mend[0m
+    [1;34m24[0m: 
+    [1;34m25[0m:   [32mif[0m current_user.location_list.empty?
+    [1;34m26[0m:     location_matched_jobs = value_matched_jobs
+    [1;34m27[0m:   [32melse[0m
+    [1;34m28[0m:     location_matched_jobs = value_matched_jobs.tagged_with(current_user.location_list, [33m:any[0m => [1;36mtrue[0m)
+    [1;34m29[0m:   [32mend[0m
+    [1;34m30[0m: 
+    [1;34m31[0m:   skill_matched_jobs = []
+    [1;34m32[0m:   array_of_user_skills = current_user.skill_list.map(&[33m:downcase[0m)
+    [1;34m33[0m:   array_of_job_skills =[]
+    [1;34m34[0m: 
+    [1;34m35[0m:   location_matched_jobs.each [32mdo[0m |job|
+    [1;34m36[0m:     array_of_job_skills = job.cached_skill_list.split([31m[1;31m'[0m[31m, [1;31m'[0m[31m[0m).map(&[33m:downcase[0m) [32munless[0m job.cached_skill_list.nil?
+    [1;34m37[0m:     [32mif[0m (array_of_job_skills - array_of_user_skills).empty?
+    [1;34m38[0m:       skill_matched_jobs << job
+    [1;34m39[0m:     [32mend[0m
+    [1;34m40[0m:   [32mend[0m
+    [1;34m41[0m:   [32mreturn[0m skill_matched_jobs
+    [1;34m42[0m: [32mend[0m
+

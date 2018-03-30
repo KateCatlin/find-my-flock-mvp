@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       @user.add_tags(params[:tags])
+      # binding.pry
       update_mailchimp
       redirect_to edit_skills_user_path(@user)
     else
