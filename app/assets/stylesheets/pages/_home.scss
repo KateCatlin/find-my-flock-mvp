@@ -3,7 +3,6 @@
 .job-samples {
   background-color: white;
   padding-bottom: 120px;
-
 }
 
 // Specific CSS for the colored cards / argument boxes: Why Joining Us?
@@ -68,3 +67,115 @@
   justify-content: space-around;
 
 }
+
+#arguments-joining {
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+// Carousel arrows  overriding
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* turn off bootstrap default svg chevrons */
+  background-image: none;
+
+  /* override bootstraps fixed size */
+
+
+  /* set the size and color of the FontAwesome chevrons */
+  font-size: 1.5rem;
+  color: #909090;
+
+  /* extend FontAwesome */
+  @extend .fa;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon,
+.carousel-caption {
+  /* add a text shadow to the chevrons and caption (inner text) to make them visible on white backgrounds */
+  text-shadow: 0 0 1.8rem #0000007a;
+}
+.carousel-control-prev-icon {
+  /* extend FontAwesome left chevron*/
+  @extend .fa-chevron-left;
+}
+.carousel-control-next-icon {
+  /* extend FontAwesome right chevron*/
+  @extend .fa-chevron-right;
+}
+.carousel-indicators li {
+  /* add a box shadow to the indicators to make them visible on white backgrounds */
+  box-shadow: 0 1px 0.4rem rgba(0, 0, 0, 0.5);
+}
+
+
+// Responsiveness
+
+.dropdown-menu {
+  padding: 12px;
+}
+
+@media (max-width: 800px) {
+    .home-list {
+      padding-top: 5vh;
+    }
+    h3.upperlined {
+      font-size: 20px;
+      margin-right: 5vh;
+      margin-left: 5vh;
+    }
+    .home-title {
+      font-size: 25px;
+    }
+    #arguments-joining {
+      margin-right: 2%;
+      margin-left: 2%;
+    }
+
+    .argument-box {
+      background-color: red;
+      width: 100%;
+      border-radius: 4px;
+      color: white;
+      box-shadow: 0px 39px 134px -28px rgba(0,0,0,0.6);
+      font-family: "Montserrat", "sans-serif";
+    }
+
+    .card-1 {
+      background-color: #ffe2e2;
+      margin: auto;
+      margin-bottom: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .card-2 {
+      background-color: #e2e2e2;
+      margin: auto;
+      margin-bottom: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .card-3 {
+      background-color: #ffe3cb;
+      margin: auto;
+      margin-bottom: 15%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      text-align: center;
+    }
+.card:hover {
+  transform: scale(1);
+}
+.carousel-inner {
+  padding-bottom: 8%;
+  margin-bottom: -120px;
+}
+
+  }
