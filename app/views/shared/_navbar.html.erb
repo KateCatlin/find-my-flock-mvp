@@ -1,25 +1,72 @@
  <% if registration_signed_in? %>
-    <% if current_user %>
-      <ul class="container navbar-container">
-        <a href="/">
-          <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
-        </a>
-        <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
-        <li class="underline" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
-        <li class="underline" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
-        <li class="underline-logout" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
-      </ul>
+  <% if current_user %>
 
-      <% else %>
-      <ul class="container navbar-container">
-        <li id="nav-left"><%= link_to "Find my Flock", root_path %></li>
-        <li class="underline-logout" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
-      </ul>
-      <% end %>
-    <% else %>
-      <ul class="container navbar-container">
-        <li id="nav-left"><%= link_to "Find my Flock", root_path %></li>
-        <li class="underline" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
-        <li class="sign-up" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
-      </ul>
+  <ul class="container navbar-container">
+    <a href="/">
+      <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
+    </a>
+    <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
+
+    <li class="underline hidden-sm-down" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
+    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li class="underline-logout hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown hidden-md-up">
+      <button class="btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to "My Profile", user_path(current_user), class: "dropdown-padding" %>
+        <%= link_to "Dashboard", dashboard_index_path %>
+        <%= link_to "Log out", destroy_registration_session_path,:method => :delete %>
+      </div>
+    </div>
+    <!-- End of dropdown menu -->
+  </ul>
+
+  <% else %>
+
+  <ul class="container navbar-container">
+    <a href="/">
+      <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
+    </a>
+    <li id="nav-left hidden-sm-down"> <%= link_to "ind my Flock", root_path %></li>
+    <li class="underline-logout hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown hidden-md-up">
+      <button class="btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Log out", destroy_registration_session_path,:method => :delete %>
+      </div>
+    </div>
+    <!-- End of dropdown menu -->
+  </ul>
+  <% end %>
+
+  <% else %>
+  <ul class="container navbar-container">
+    <a href="/">
+      <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
+    </a>
+    <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
+    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
+    <li class="sign-up hidden-sm-down" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
+
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown hidden-md-up">
+      <button class="btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Log In", new_registration_session_path %>
+        <%= link_to "Sign Up", new_registration_registration_path %>
+      </div>
+    </div>
+    <!-- End of dropdown menu -->
+  </ul>
   <% end %>
