@@ -1,125 +1,231 @@
 <body class="home">
   <% if registration_signed_in? %>
-    <% if current_user %>
-      <ul class="container navbar-container">
-        <a href="/">
-          <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
-        </a>
-        <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
-        <li class="underline" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
-        <li class="underline" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
-        <li class="underline-logout" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
-      </ul>
+  <% if current_user %>
 
-      <% else %>
-      <ul class="container navbar-container">
-        <li id="nav-left"><%= link_to "Find my Flock", root_path %></li>
-        <li class="underline-logout" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
-      </ul>
-      <% end %>
-    <% else %>
-      <ul class="container navbar-container">
-        <li id="nav-left"><%= link_to "Find my Flock", root_path %></li>
-        <li class="underline" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
-        <li class="sign-up" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
-      </ul>
+  <ul class="container navbar-container">
+    <a href="/">
+      <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
+    </a>
+    <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
+
+    <li class="underline hidden-sm-down" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
+    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li class="underline-logout hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown hidden-md-up">
+      <button class="btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to "My Profile", user_path(current_user), class: "dropdown-padding" %>
+        <%= link_to "Dashboard", dashboard_index_path %>
+        <%= link_to "Log out", destroy_registration_session_path,:method => :delete %>
+      </div>
+    </div>
+    <!-- End of dropdown menu -->
+  </ul>
+
+  <% else %>
+
+  <ul class="container navbar-container">
+    <a href="/">
+      <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
+    </a>
+    <li id="nav-left hidden-sm-down"> <%= link_to "ind my Flock", root_path %></li>
+    <li class="underline-logout hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown hidden-md-up">
+      <button class="btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Log out", destroy_registration_session_path,:method => :delete %>
+      </div>
+    </div>
+    <!-- End of dropdown menu -->
+  </ul>
+  <% end %>
+
+  <% else %>
+  <ul class="container navbar-container">
+    <a href="/">
+      <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
+    </a>
+    <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
+    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
+    <li class="sign-up hidden-sm-down" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
+
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown hidden-md-up">
+      <button class="btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Log In", new_registration_session_path %>
+        <%= link_to "Sign Up", new_registration_registration_path %>
+      </div>
+    </div>
+    <!-- End of dropdown menu -->
+  </ul>
   <% end %>
 
   <div class="banner" style="background-image: url('<%= image_path 'officeimg.png', crop: :fill; %>') ;">
     <ul class="home-list">
       <div class="headline">Jobs you <em class="underlined">want</em>.</div>
+      <h3 class="upperlined black-text">We'll find your personal dream job, matching your</h3>
       <div class="typedjs">
-        <h3 class="upperlined black-text">We'll find your personal dream job, matching your</h3>
         <div class="secondline black-text"><span id="banner-typed-text"></span></div>
       </div>
-  <div class="home-buttons">
-    <% if registration_signed_in? %>
-      <% if current_user %>
+
+
+      <div class="home-buttons">
+        <% if registration_signed_in? %>
+        <% if current_user %>
         <%= link_to "See Your Matches", dashboard_index_path, class: "btn-orange" %>
-      <% else %>
+        <% else %>
         <%= link_to "Create Your Profile", new_user_path, class: "btn-orange" %>
-      <% end %>
-    <% else %>
-      <%= link_to 'Create an account', new_registration_registration_path, class: "btn-orange" %>
-    <% end %>
-  </div>
+        <% end %>
+        <% else %>
+        <%= link_to 'Create an account', new_registration_registration_path, class: "btn-orange" %>
+        <% end %>
+      </div>
     </ul>
 
 
-</div>
-
-<div class="job-samples">
-  <h1 class="centered padded-title home-title">Opportunities Now:</h2>
-
-  <div class="cards-container card-sample ">
-
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card card-home text-center">
-        <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-        <h4 class="card-title"> Full Stack Dev</h4>
-        <p class="company"> Non-profit making voting a seamless experience </p>
-        <h4 class="location"> Brooklyn, NY </h4>
-        <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank" class="btn btn-page">Details...</a>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card card-home text-center">
-        <%= image_tag "educationteampic.jpg", class: "card-img-top img-fluid" %>
-        <h4 class="card-title">Senior Android Engineer</h4>
-        <p class="company"> Education platform for all</p>
-        <h4 class="location"> Mountain View, CA </h4>
-        <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank" class="btn btn-page">Details...</a>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card card-home text-center">
-        <%= image_tag "blogteampic.jpg", class: "card-img-top img-fluid" %>
-        <h4 class="card-title"> JavaScript Dev </h4>
-        <p class="company"> Blog hosting platform</p>
-        <h4 class="location"> Remote </h4>
-        <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank" class="btn btn-page">Details...</a>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<h1 class="centered padded-title home-title" style="margin-right: 20%; margin-left: 20%;">Why you should spend your next 60 seconds joining</h2>
-
-<div class="arguments-container">
-  <div class="arguments col-xs-12 col-sm-6 col-md-6">
-    <div class="argument-box card-1" style="background-image: url('<%= image_path 'oneclick.png', crop: :fill; %>') ;">
-      <dl class="card-description">
-        <dt><h4 class="centered why-title">Reclaim Your Time</h4></dt>
-        <dd>Import info from LinkedIn or a resume.<br><br>Complete your profile in less than 60 seconds.<br><br>Apply to jobs in 1 click.</dd>
-      </dl>
-    </div>
-</div>
-
-  <div class="arguments col-xs-12 col-sm-6 col-md-6">
-    <div class="argument-box card-2" style="background-image: url('<%= image_path 'chalkboard.png', crop: :fill; %>') ;">
-      <dl class="card-description">
-        <dt><h4 class="centered why-title">Search by your values </h4></dt>
-        <dd>Filter by paternal leave, beach access, salary, a Scala backend, or all of the above. <br><br>No one will see your information unless YOU agree it's a fit. </dd>
-      </dl>
-    </div>
   </div>
 
-  <div class="arguments col-xs-12 col-sm-12 col-md-12">
-    <div class="argument-box card-3" style="background-image: url('<%= image_path 'importlinkedin.png', crop: :fill; %>') ;">
-     <dl class="card-description">
-      <dt><h4 class="centered why-title">Prioritize relationships</h4></dt>
-      <dd>Our algorithm gets all the boring parts out of the way. When you apply to a role, one of our career coaches will jump on the phone, answer any questions you have, and help you prep for interviews. You only have to focus on how you feel talking to your new potential team.</dd>
-    </dl>
+  <div class="job-samples">
+    <h1 class="centered padded-title home-title">Opportunities Now:</h2>
+
+      <!-- Beginning of the carousel with cards on xs and sm-->
+
+      <div class="hidden-md-up">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="card card-home text-center">
+                  <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+                  <h4 class="card-title"> Full Stack Dev</h4>
+                  <p class="company"> Non-profit making voting a seamless experience </p>
+                  <h4 class="location"> Brooklyn, NY </h4>
+                  <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank" class="btn btn-page">Details...</a>
+                </div>
+              </div>    </div>
+              <div class="carousel-item">
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                  <div class="card card-home text-center">
+                    <%= image_tag "educationteampic.jpg", class: "card-img-top img-fluid" %>
+                    <h4 class="card-title">Senior Android Engineer</h4>
+                    <p class="company"> Education platform for all</p>
+                    <h4 class="location"> Mountain View, CA </h4>
+                    <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank" class="btn btn-page">Details...</a>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                  <div class="card card-home text-center">
+                    <%= image_tag "blogteampic.jpg", class: "card-img-top img-fluid" %>
+                    <h4 class="card-title"> JavaScript Dev </h4>
+                    <p class="company"> Blog hosting platform</p>
+                    <h4 class="location"> Remote </h4>
+                    <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank" class="btn btn-page">Details...</a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <!-- End of carousel with cards xs and sm -->
+
+        <!-- Cards to be displayed on full normal screen -->
+        <div class="hidden-sm-down">
+
+          <div class="cards-container card-sample ">
+
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <div class="card card-home text-center">
+                <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+                <h4 class="card-title"> Full Stack Dev</h4>
+                <p class="company"> Non-profit making voting a seamless experience </p>
+                <h4 class="location"> Brooklyn, NY </h4>
+                <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank" class="btn btn-page">Details...</a>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <div class="card card-home text-center">
+                <%= image_tag "educationteampic.jpg", class: "card-img-top img-fluid" %>
+                <h4 class="card-title">Senior Android Engineer</h4>
+                <p class="company"> Education platform for all</p>
+                <h4 class="location"> Mountain View, CA </h4>
+                <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank" class="btn btn-page">Details...</a>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <div class="card card-home text-center">
+                <%= image_tag "blogteampic.jpg", class: "card-img-top img-fluid" %>
+                <h4 class="card-title"> JavaScript Dev </h4>
+                <p class="company"> Blog hosting platform</p>
+                <h4 class="location"> Remote </h4>
+                <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank" class="btn btn-page">Details...</a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- End of cards to be displayed on full normal screen -->
+      </div>
+
+      <h1 class="centered padded-title home-title" id="arguments-joining">Why you should spend your next 60 seconds joining</h1>
+
+      <div class="arguments-container">
+        <div class="arguments col-xs-12 col-sm-12 col-md-6">
+          <div class="argument-box card-1" style="background-image: url('<%= image_path 'oneclick.png', crop: :fill; %>') ;">
+            <dl class="card-description">
+              <dt><h4 class="centered why-title">Reclaim Your Time</h4></dt>
+              <dd>Import info from LinkedIn or a resume.<br><br>Complete your profile in less than 60 seconds.<br><br>Apply to jobs in 1 click.</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="arguments col-xs-12 col-sm-12 col-md-6">
+          <div class="argument-box card-2" style="background-image: url('<%= image_path 'chalkboard.png', crop: :fill; %>') ;">
+            <dl class="card-description">
+              <dt><h4 class="centered why-title">Search by your values </h4></dt>
+              <dd>Filter by paternal leave, beach access, salary, a Scala backend, or all of the above. <br><br>No one will see your information unless YOU agree it's a fit. </dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="arguments col-xs-12 col-sm-12 col-md-12">
+          <div class="argument-box card-3" style="background-image: url('<%= image_path 'importlinkedin.png', crop: :fill; %>') ;">
+           <dl class="card-description">
+            <dt><h4 class="centered why-title">Prioritize relationships</h4></dt>
+            <dd>Our algorithm gets all the boring parts out of the way. When you apply to a role, one of our career coaches will jump on the phone, answer any questions you have, and help you prep for interviews. You only have to focus on how you feel talking to your new potential team.</dd>
+          </dl>
+        </div>
+      </div>
+
+
+
+    </div>
   </div>
-</div>
-
-
-
-</div>
-</div>
 
 </body>

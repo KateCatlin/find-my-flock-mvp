@@ -6,8 +6,6 @@
   color: black;
   margin-top: 5px;
   margin-bottom: 5px;
-
-
 }
 
 
@@ -83,6 +81,21 @@
   letter-spacing: 5px;
 }
 
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+
+
+.btn-dropdown {
+  margin-right: 2vh;
+  border: 0px solid white;
+}
+
+.margin-left {
+  margin-left: auto;
+}
 
 .btn.profile-small {
   color: white;

@@ -76,8 +76,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 25vh;
-    margin-right: 25vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
 }
 
 .btn.btn-page {
@@ -111,3 +111,32 @@
   font-weight: bolder;
 }
 
+@media (min-width: 1000px)  {
+  .card-sample {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 25vh;
+    margin-right: 25vh;
+  }
+}
+
+@media (min-width: 900px)  {
+  .card-sample {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 10vh;
+    margin-right: 10vh;
+  }
+}
+
+@media (min-width: 1200px)  {
+  .card-sample {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 30vh;
+    margin-right: 30vh;
+  }
+}
