@@ -15,25 +15,30 @@ class DashboardController < ApplicationController
 
 
   def matched_jobs
+
+
+
+
+
     if current_user.value_list.empty?
       value_matched_jobs = Job.all
     else
-      value_matched_jobs = Job.tagged_with(current_user.value_list, :on => :values)
+      value_matched_jobs = Job.all.tagged_with(current_user.value_list, :on => :values)
     end
+    #binding.pry
 
-    if current_user.salary_list.empty?
-      salary_matched_jobs = value_matched_jobs
-    else
-      salary_matched_jobs = value_matched_jobs.tagged_with(current_user.salary_list, :on => :salaries)
-    end
+    # if current_user.salary_list.empty?
+    #   salary_matched_jobs = value_matched_jobs
+    # else
+    #   salary_matched_jobs = value_matched_jobs.tagged_with(current_user.salary_list, :any => true)
+    # end
 
     if current_user.location_list.empty?
-      location_matched_jobs = salary_matched_jobs
+      location_matched_jobs = value_matched_jobs
     else
-      location_matched_jobs = salary_matched_jobs.tagged_with(current_user.location_list, :any => true)
+      location_matched_jobs = value_matched_jobs.tagged_with(current_user.location_list, :any => true)
     end
-
-    binding.pry
+    # binding.pry
 
     skill_matched_jobs = []
     array_of_user_skills = current_user.skill_list.map(&:downcase)
@@ -45,6 +50,22 @@ class DashboardController < ApplicationController
         skill_matched_jobs << job
       end
     end
-    return skill_matched_jobs
+    # return skill_matched_jobs
+
+    if current_user.salary_list.empty?
+      return skill_matched_jobs
+    else
+      jobs = skill_matched_jobs
+      user_salaries = current_user.salary_list
+      matched_jobs = []
+      jobs.each do |job|
+        user_salaries.each do |salary|
+          if job.salary_list.include?(salary)
+            matched_jobs << job unless matched_jobs.include?(job)
+          end
+        end
+      end
+    end
+    return matched_jobs
   end
 end
