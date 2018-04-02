@@ -9,6 +9,14 @@
   <div class="col-8">
     <h5 class="centered"><%= @job.location_list %></h5>
     <p class="small-padded-title"><%= @job.description %></p>
+    <div style="display: flex; width: 300px; height: 200px; margin: 0 auto;">
+      <% if @job.photo.file %>
+      <%= cl_image_tag @job.photo, class: "card-img-top img-fluid" %>
+      <% else %>
+      <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
+      <% end %>
+    </div>
+
 
     <div class="grid grid-bordered">
       <div class="grid-first-column">
@@ -26,17 +34,17 @@
         <% @job.skill_list.each do |skill| %>
         <ul class="skills-list centered">
           <li><%= skill.chop %></li>
-            <% if skill.slice(skill.length - 1).to_i == 1 %>
-              <li style="background-color: #ffffff;color:black">Familiarity</li>
-            <% elsif skill.slice(skill.length - 1).to_i == 2 %>
-              <li style="background-color: #ffffff;color:black">Gaining Competency</li>
-            <% elsif skill.slice(skill.length - 1).to_i == 3 %>
-              <li style="background-color: #ffffff;color:black">Individual Competency</li>
-            <% elsif skill.slice(skill.length - 1).to_i == 4 %>
-              <li style="background-color: #ffffff;color:black">Strong</li>
-            <% elsif skill.slice(skill.length - 1).to_i == 5 %>
-              <li style="background-color: #ffffff;color:black">Leadership</li>
-            <% end %>
+          <% if skill.slice(skill.length - 1).to_i == 1 %>
+          <li style="background-color: #ffffff;color:black">Familiarity</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 2 %>
+          <li style="background-color: #ffffff;color:black">Gaining Competency</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 3 %>
+          <li style="background-color: #ffffff;color:black">Individual Competency</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 4 %>
+          <li style="background-color: #ffffff;color:black">Strong</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 5 %>
+          <li style="background-color: #ffffff;color:black">Leadership</li>
+          <% end %>
 
         </ul>
         <% end %>
