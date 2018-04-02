@@ -12,13 +12,13 @@ class User < ApplicationRecord
   acts_as_taggable_on :skills, :values, :salaries, :locations
 
   def add_tags(tags)
-    self.salary_list = tags["salaries"].compact
-    self.save!
-    self.value_list = tags["values"]
-    self.save!
-    save_locations(tags["locations"])
-    self.save!
-    save_skills(tags["skills"])
+   add_salaries(tags["salaries"].compact)
+   self.save!
+   self.value_list = tags["values"]
+   self.save!
+   save_locations(tags["locations"])
+   self.save!
+   save_skills(tags["skills"])
   end
 
   def clean_skill(skill)
@@ -93,6 +93,12 @@ class User < ApplicationRecord
       end
     end
     new_hash
+  end
+
+  def add_salaries(salaries)
+    salaries.each do |salary|
+     self.salary_list.add(salary) unless salary_list.include?(salary)
+    end
   end
 end
 

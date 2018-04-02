@@ -15,10 +15,11 @@ class DashboardController < ApplicationController
 
 
   def matched_jobs
+
     if current_user.value_list.empty?
       value_matched_jobs = Job.all
     else
-      value_matched_jobs = Job.tagged_with(current_user.value_list, :on => :values)
+      value_matched_jobs = Job.all.tagged_with(current_user.value_list, :on => :values)
     end
 
     if current_user.location_list.empty?
@@ -37,6 +38,21 @@ class DashboardController < ApplicationController
         skill_matched_jobs << job
       end
     end
-    return skill_matched_jobs
+
+    if current_user.salary_list.empty?
+      return skill_matched_jobs
+    else
+      jobs = skill_matched_jobs
+      user_salaries = current_user.salary_list
+      matched_jobs = []
+      jobs.each do |job|
+        user_salaries.each do |salary|
+          if job.salary_list.include?(salary)
+            matched_jobs << job unless matched_jobs.include?(job)
+          end
+        end
+      end
+    end
+    return matched_jobs
   end
 end
