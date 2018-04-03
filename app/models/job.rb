@@ -20,6 +20,8 @@ class Job < ApplicationRecord
   end
 
   def add_tags(tags)
+    add_salaries(tags["salaries"].compact)
+    self.save!
     self.value_list = tags["values"]
     self.save!
     save_locations(tags["locations"])
@@ -80,5 +82,11 @@ class Job < ApplicationRecord
 
   def text_skills
     self.skills.map { |skill| clean_skill(skill) }.uniq
+  end
+
+  def add_salaries(salaries)
+    salaries.each do |salary|
+     self.salary_list.add(salary) unless salary_list.include?(salary)
+    end
   end
 end

@@ -15,8 +15,12 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       @user.add_tags(params[:tags])
+      resume_name = params[:user][:resume_file_path].original_filename if params[:user][:resume_file_path]
+      photo_name = params[:user][:photo].original_filename if params[:user][:photo]
+      @user.update({resume_name: resume_name, photo_name: photo_name})
       update_mailchimp
       redirect_to edit_skills_user_path(@user)
+
     else
 
     end
