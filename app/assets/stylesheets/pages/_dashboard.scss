@@ -17,6 +17,12 @@ body.dashboard {
     margin: auto;
 }
 
+@media (max-width: 800px)  {
+  .dashboard-header {
+    width: 90%
+  }
+}
+
 .margin-top {
   margin-top: 10vh;
 }
@@ -63,7 +69,4 @@ body.dashboard {
   margin-bottom: 20%;
 }
 
-.all-jobs {
-  padding-bottom: 2vh;
-}
 
