@@ -1,36 +1,50 @@
 <body class="dashboard">
 
   <div class="profile-header">
-   <div class="row justify-content-center ">
+   <div class="row justify-content-center centered">
     <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
-      <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill, :radius => :max, :gravity => :face %>
+      <%= cl_image_tag current_user.photo, height: 180, width: 180, crop: :fill, :radius => :max, :gravity => :face %>
     </div>
 
     <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
       <div class="heading-box">
-        <h2 class="centered dashboard-home">Welcome to your profile <em class="underlined-medium"> <%= current_user.first_name %></em></h2>
+        <h2 class="centered dashboard-home">Your profile <em class="underlined-medium"> <%= current_user.first_name %></em></h2>
         <br>
         <p class="centered">Your job search is:</p>
-        <h5 class="centered"> <em><%= current_user.return_activation_status %></em></h5>
+        <h5 class="centered"> <%= current_user.return_activation_status %></h5>
         <% if !current_user.location_list.empty? %>
         <br>
         <p class="centered">You are looking for jobs in:</p>
-        <h5 class="centered"> <em><%= current_user.location_list %></em></h5>
+        <h6 class="centered"><%= current_user.location_list %></h5>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<div class="centered">
-  <div class="profile-buttons-container">
+<!-- Buttons Edit / Deactivate / Suspend if sm, md and large screen sizes -->
+<div class="hidden-xs-down centered">
+  <div class="profile-buttons-container centered">
     <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
     <% if current_user.is_active %>
     <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, method: :get,  class: "btn profile-small" %></p>
     <% else %>
     <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, method: :get, class: "btn profile-small" %></p>
     <% end %>
-    <p class="centered"><%= link_to "Delete My Account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
+    <p class="centered"><%= link_to "Suspend my account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
+  </div>
+</div>
+
+<!-- Buttons Edit / Deactivate / Suspend if xs screen size -->
+<div class="hidden-sm-up centered">
+  <div class="profile-buttons-container-small">
+    <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
+    <% if current_user.is_active %>
+    <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, method: :get,  class: "btn profile-small" %></p>
+    <% else %>
+    <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, method: :get, class: "btn profile-small" %></p>
+    <% end %>
+    <p class="centered"><%= link_to "Suspend my account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
   </div>
 </div>
 
