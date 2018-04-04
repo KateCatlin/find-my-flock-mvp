@@ -9,9 +9,10 @@ margin-top: 50px;
 
 .profile-box {
   padding: 10%;
-  background-color: #f7f7f7;
+  background-color: white;
   text-align: left;
   border: 1px solid #e2e2e2;
+  margin-bottom: 5vh;
 }
 
 .profile-box ul {
@@ -40,9 +41,41 @@ text-align: left;
 }
 
 .profile-buttons-container {
-  width: 50%;
+  width: 60%;
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .profile-buttons-container {
+    width: 70%;
+}
+}
+
+@media (max-width: 750px) {
+  .profile-buttons-container {
+    width: 80%;
+}
+}
+
+@media (max-width: 650px) {
+  .profile-buttons-container {
+    width: 95%;
+}
+}
+
+// Buttons container for profile page when XS screen size
+
+.profile-buttons-container-small {
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .values-skills {
+    padding-right: 5vh;
+    padding-left: 5vh;
+  }
 }
