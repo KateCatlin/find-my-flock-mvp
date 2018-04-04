@@ -17,11 +17,12 @@
 }
 
 .btn.linkedin:hover {
-  background-color: #3F72A0;
+  background-color: #245480;
 }
 
 .btn.logbutton {
   width: 70%;
+  font-size: 12px;
 }
 
   .btn:hover {
@@ -69,6 +70,7 @@
   transition: 0.5s padding ease-in-out;
   font-weight: 900;
   font-family: "Montserrat", "sans-serif";
+  font-size: 15px;
 
 }
 
@@ -123,5 +125,5 @@
 
 .registration-button {
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
