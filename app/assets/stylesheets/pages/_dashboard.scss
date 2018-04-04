@@ -15,11 +15,13 @@ body.dashboard {
     justify-content: center;
     width: 71%;
     margin: auto;
+    margin-top: 10vh;
 }
 
 @media (max-width: 800px)  {
   .dashboard-header {
-    width: 90%
+    width: 90%;
+    margin-top: 5vh;
   }
 }
 
