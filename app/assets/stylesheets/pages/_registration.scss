@@ -1,6 +1,19 @@
 .login-form {
   padding-left: 15%;
   padding-right: 15%;
+  padding-bottom: 7vh;
+}
+
+.inside-login-form {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+@media (max-width: 800px) {
+  .inside-login-form {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
 }
 
 .log-in-button {
