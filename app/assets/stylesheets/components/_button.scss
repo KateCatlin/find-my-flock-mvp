@@ -127,3 +127,9 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+@media (max-width: 500px) {
+  .next-btn {
+    font-size: 15px;
+  }
+}

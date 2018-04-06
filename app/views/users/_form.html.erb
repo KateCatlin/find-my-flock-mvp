@@ -1,109 +1,122 @@
 <body class="form" onsubmit="return validateForm()">
 
-  <div class="row justify-content-center">
-    <div class="col-xs-9">
-       <% if !current_user %>
-       <h4>Welcome to Find My Flock</h4>
-        <p class="no-space">Please tell us a little more about you</p>
-        <% end %>
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs justify-content-center" role="tablist">
-        <li class="nav-tab">
+
+   <% if !current_user %>
+   <h4>Welcome to Find My Flock</h4>
+   <p class="no-space">Please tell us a little more about you</p>
+   <% end %>
+
+<div class="whole-form">
+
+     <ul class="nav nav-pills justify-content-center" role="tablist">
+   <div class="row">
+
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <li class="nav-tab form-tab">
           <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal-info" role="tab">Personal info</a>
         </li>
-        <li class="nav-tab">
+      </div>
+
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <li class="nav-tab form-tab">
           <a class="nav-link" id="cv-tab" data-toggle="tab" href="#cv" role="tab">CV & Photo</a>
         </li>
-        <li class="nav-tab">
+      </div>
+
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <li class="nav-tab form-tab">
           <a class="nav-link" id="locations-tab" data-toggle="tab" href="#locations" role="tab">Locations</a>
         </li>
-        <li class="nav-tab">
+      </div>
+
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <li class="nav-tab form-tab">
           <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab">Skills</a>
         </li>
-        <li class="nav-tab">
+      </div>
+
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <li class="nav-tab form-tab">
           <a class="nav-link" data-toggle="tab" id="values-tab" href="#values" role="tab">Values</a>
         </li>
-        <li class="nav-tab">
+      </div>
+
+      <div class="col-xs-6 col-sm-4 col-md-2">
+        <li class="nav-tab form-tab">
           <a class="nav-link" data-toggle="tab" id="salary-tab" href="#salary" role="tab">Salary</a>
         </li>
-      </ul>
-      <!-- Tab panes -->
-      <div class="tab-content active ">
-        <div class="tab-pane active" id="personal-info" role="tabpanel">
-          <div class="form-box">
+      </div>
 
-            <div class="row">
-              <div class="col-xs-3">
-                <div class = "avatar-edit">
-                  <% if current_user %>
-                    <% if current_user.photo %>
-                      <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
-                    <% else %>
-                      <%= image_tag("user", class: "avatar ", style:"width:100px ") %>
-                    <% end %>
-                    <% else %>
-                  <% end %>
-                </div>
-              </div>
 
-              <div class="col-xs-6">
+</div>
+    </ul>
 
-                <%= simple_form_for(@user) do |f| %>
-                <%= f.error_notification %>
-                <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
-                <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
-                <br>
-                <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
-              </div>
+<div class="row">
+  <div class="col-12">
+
+    <div class="tab-content active justify-content-center">
+      <div class="tab-pane active" id="personal-info" role="tabpanel">
+        <div class="form-box">
+
+          <div class="row">
+
+            <div class="col-xs-12">
+
+              <%= simple_form_for(@user) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
+              <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
+              <br>
+              <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="tab-pane" id="cv" role="tabpanel">
-         <div class="form-box">
-          <div class="form-inputs">
-            <h4 class="no-space"> Upload your CV & Profile picture </h4>
-            <br>
-            <div class="row">
-              <div class="col-sm-3">
-                <% if current_user %>
-                  <% if current_user.photo %>
-                    <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
-                  <% else %>
-                    <%= image_tag("user", class: "avatar", style:"width:100px ") %>
-                  <% end %>
-                <% end %>
+      <div class="tab-pane" id="cv" role="tabpanel">
+       <div class="form-box">
+        <div class="form-inputs">
+          <h4 class="no-space"> Upload your CV & Profile picture </h4>
+          <div class="row">
+            <div class="col-sm-3">
+              <% if current_user %>
+              <% if current_user.photo %>
+              <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+              <% else %>
+              <%= image_tag("user", class: "avatar", style:"width:100px ") %>
+              <% end %>
+              <% end %>
 
             </div>
-              <div class="col-sm-6">
-                <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text ' } %>
-                <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
+            <div class="col-sm-6 justify-content-center">
+              <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text cvupload' } %>
+              <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
 
-                <% if current_user.resume_file_path.file %>
+              <% if current_user.resume_file_path.file %>
 
-                 <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_resume_button" >Change Resume</label><span style="padding-left: 10px;" id="resume_file_name"><%= current_user.resume_name %></span>
+              <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_resume_button" >Change Resume</label><span style="padding-left: 10px;" id="resume_file_name"><%= current_user.resume_name %></span>
 
-                <% else %>
+              <% else %>
 
-                 <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_resume_button" >Upload Resume</label><span style="padding-left: 10px;" id="resume_file_name">No Resume Selected</span>
+              <label for="user_resume_file_path" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_resume_button" >Upload Resume</label><span style="padding-left: 10px;" id="resume_file_name">No Resume Selected</span>
 
-                <%  end %>
+              <%  end %>
 
-                <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
-                <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
+              <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text cvupload' } %>
+              <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
 
-                <% if current_user.photo.file %>
+              <% if current_user.photo.file %>
 
-                <label for="user_photo" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_photo_button">Change Photo </label><span style="padding-left: 10px;" id="photo_file_name"><%= current_user.photo_name %></span>
+              <label for="user_photo" class= "btn btn-primary" style="background-color: white; width:200px;" id= "fake_photo_button">Change Photo </label><span style="padding-left: 10px;" id="photo_file_name"><%= current_user.photo_name %></span>
 
-                <% else %>
+              <% else %>
 
-                <label for="user_photo" class= "btn btn-primary" style="background-color: white; width:200px;" id="fake_photo_button">Upload Photo</label><span style="padding-left: 10px;" id="photo_file_name">No Photo Selected</span>
+              <label for="user_photo" class= "btn btn-primary" style="background-color: white; width:200px;" id="fake_photo_button">Upload Photo</label><span style="padding-left: 10px;" id="photo_file_name">No Photo Selected</span>
 
               <% end %>
-               <br>
-        <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
-             </div>
+              <br>
+              <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
+            </div>
           </div>
         </div>
 
@@ -125,53 +138,61 @@
     </div>
   </div>
 
-    <div class="tab-pane" id="skills" role="tabpanel">
-     <div class="form-box">
-      <div class="form-inputs">
-        <h4 class="no-space"> What skills do you bring to the table? </h4>
-        <p>Add your top five skills from below.</p>
+  <div class="tab-pane" id="skills" role="tabpanel">
+   <div class="form-box">
+    <div class="form-inputs">
+      <h4 class="no-space"> What skills do you bring to the table? </h4>
+      <p>Add your top five skills from below.</p>
 
-        <br>
-
-  <%= content_for(:after_js) do %>
-    <script>
-      $('.select2').val(<%= raw @user_readable_skills %>)
-
-    </script>
-  <% end %>
-
-        <%= t.input :skills, collection: @skills, input_html: {value: @user.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
-      </div>
       <br>
-      <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
-    </div>
-  </div>
 
-  <div class="tab-pane" id="values" role="tabpanel">
-    <div class="form-box">
-      <h4 class="no-space">Choose what's important in a role: </h4>
-      <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
-      <br>
-      <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
-      <br>
-      <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
-    </div>
-  </div>
-  <div class="tab-pane" id="salary" role="tabpanel">
-    <div class="form-box">
-      <h4 class="no-space">Choose salary ranges you would consider: </h4>
-      <p>If it's not important just leave it blank.</p>
+      <%= content_for(:after_js) do %>
+      <script>
+        $('.select2').val(<%= raw @user_readable_skills %>)
 
-      <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+      </script>
       <% end %>
-      <br>
-      <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', data: { disable_with: false } %>
+
+      <%= t.input :skills, collection: @skills, input_html: {value: @user.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
     </div>
-  <% end %>
+    <br>
+    <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
   </div>
 </div>
+
+<div class="tab-pane" id="values" role="tabpanel">
+  <div class="form-box">
+    <h4 class="no-space">Choose what's important in a role: </h4>
+    <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
+    <br>
+    <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+    <br>
+    <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
+  </div>
 </div>
+<div class="tab-pane" id="salary" role="tabpanel">
+  <div class="form-box">
+    <h4 class="no-space">Choose salary ranges you would consider: </h4>
+    <p>If it's not important just leave it blank.</p>
+
+    <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+    <% end %>
+    <br>
+    <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', data: { disable_with: false } %>
+  </div>
+  <% end %>
+</div>
+</div>
+</div>
+</div>
+  </div>
+<!-- End of tab panes-->
+
+</div>
+</div>
+
 </body>
+
 <script>
   //const resume = document.getElementById('user_resume_file_path')
 
@@ -253,35 +274,35 @@
         }
 
 
-          const resume = document.getElementById('user_resume_file_path')
-          const resumeName = document.getElementById('resume_file_name')
-          const fakeResumeBtn = document.getElementById('fake_resume_button')
+        const resume = document.getElementById('user_resume_file_path')
+        const resumeName = document.getElementById('resume_file_name')
+        const fakeResumeBtn = document.getElementById('fake_resume_button')
 
 
-          resume.style.display = "none"
+        resume.style.display = "none"
 
-          resume.addEventListener('change', function(e) {
-            resumeName.innerText = resume.value.split("\\")[2]
-            fakeResumeBtn.innerText = "Change Resume"
+        resume.addEventListener('change', function(e) {
+          resumeName.innerText = resume.value.split("\\")[2]
+          fakeResumeBtn.innerText = "Change Resume"
 
-          })
+        })
 
-          const photo = document.getElementById('user_photo')
-          const photoName = document.getElementById('photo_file_name')
-          const fakePhotoBtn = document.getElementById('fake_photo_button')
+        const photo = document.getElementById('user_photo')
+        const photoName = document.getElementById('photo_file_name')
+        const fakePhotoBtn = document.getElementById('fake_photo_button')
 
-          photo.style.display = "none"
+        photo.style.display = "none"
 
-          photo.addEventListener('change', function(e) {
-            photoName.innerText = photo.value.split("\\")[2]
-            fakePhotoBtn.innerText = "Change Photo"
+        photo.addEventListener('change', function(e) {
+          photoName.innerText = photo.value.split("\\")[2]
+          fakePhotoBtn.innerText = "Change Photo"
 
-          })
-
-
+        })
 
 
 
-    </script>
+
+
+      </script>
 
 
