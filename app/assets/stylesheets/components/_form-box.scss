@@ -82,8 +82,8 @@ a.nav-link {
 
 .btn.submit-btn.btn-wide {
   margin-left: 0;
-  margin-bottom: 2.5%;
-  margin-top: 3%;
+  margin-bottom: 6vh;
+  margin-top: 4vh;
 }
 
 .btn .active {
@@ -137,6 +137,19 @@ a.nav-link {
     font-weight: bolder;
         padding-bottom: 0px;
   }
+
+  .form-check-label i {
+    font-size: 15px;
+  }
 }
 
+@media (max-width: 800px) {
+  .form-container {
+    margin-top: 2vh;
+  }
 
+}
+
+  .small-text-recap {
+    font-size: 17px;
+  }
