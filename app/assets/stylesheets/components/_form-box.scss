@@ -1,7 +1,9 @@
 .form-box {
   background-color: #fff;
-  padding: 4% 7%;
-  padding-bottom: 5%;
+  padding-top: 3vh;
+  padding-bottom: 5vh;
+  padding-left: 4vh;
+  padding-right: 4vh;
   overflow: visible;
   margin-bottom: 2%;
   margin-bottom: 5%;
@@ -53,7 +55,7 @@ a.nav-link {
 }
 @media (max-width: 600px) {
   .form-tab {
-    font-size: 10px;
+    font-size: 15px;
   }
 }
 
@@ -122,7 +124,7 @@ a.nav-link {
   }
 
   .form-box p {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .form-control {

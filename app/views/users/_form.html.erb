@@ -128,7 +128,6 @@
       <div class="form-inputs">
         <h4 class="no-space"> In which areas do you want a job? </h4>
         <p>If you're open to any location, skip ahead.</p>
-        <br>
 
         <%= simple_fields_for :tags do |t| %>
         <%= t.input :locations, collection: @locations, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
@@ -143,8 +142,6 @@
     <div class="form-inputs">
       <h4 class="no-space"> What skills do you bring to the table? </h4>
       <p>Add your top five skills from below.</p>
-
-      <br>
 
       <%= content_for(:after_js) do %>
       <script>
@@ -164,7 +161,6 @@
   <div class="form-box">
     <h4 class="no-space">Choose what's important in a role: </h4>
     <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
-    <br>
     <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
     <br>
     <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
