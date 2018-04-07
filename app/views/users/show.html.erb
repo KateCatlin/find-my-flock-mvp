@@ -17,6 +17,12 @@
         <p class="centered">You are looking for jobs in:</p>
         <h6 class="centered"><%= current_user.location_list %></h5>
         <% end %>
+
+        <% if (current_user.US_work_permit == false) %>
+          <p>You need a sponsorship to work in the US</p>
+        <% else %>
+          <p>You are authorized to work in the US</p>
+        <% end %>
       </div>
     </div>
   </div>
