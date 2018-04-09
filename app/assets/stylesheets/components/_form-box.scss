@@ -1,13 +1,11 @@
 .form-box {
   background-color: #fff;
   padding: 4% 7%;
-  padding-bottom: 2%;
+  padding-bottom: 5%;
   overflow: visible;
   margin-bottom: 2%;
   margin-bottom: 5%;
-  border-right: 1px solid #ddd;
-  border-left: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
 }
 
 .skill-form-box {
@@ -19,8 +17,6 @@
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-
-
 }
 
 .form-container {
@@ -50,9 +46,21 @@ a.nav-link {
 
 }
 
+@media (max-width: 919px) {
+  .form-tab {
+    font-size: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .form-tab {
+    font-size: 10px;
+  }
+}
 
 .nav {
-  margin-bottom: 55px;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    text-align: center;
 }
 .nav.nav-tabs {
   margin-bottom: 0px;
@@ -101,3 +109,34 @@ a.nav-link {
   font-family: "Montserrat", "sans-serif";
   font-weight: 400;
 }
+
+@media (max-width: 500px) {
+  .form-text {
+    font-size: 16px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
+
+  .form-box h4 {
+    font-size: 16px;
+  }
+
+  .form-box p {
+    font-size: 13px;
+  }
+
+  .form-control {
+    font-size: 15px;
+  }
+
+  .cvupload {
+        font-family: lora;
+    letter-spacing: 0px;
+    color: #828282;
+    text-transform: capitalize;
+    font-weight: bolder;
+        padding-bottom: 0px;
+  }
+}
+
+
