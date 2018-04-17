@@ -100,18 +100,19 @@
 }
 
 .btn.profile-small {
-  color: #ffa67b;
+  color: #8e8e8e;
   font-weight: 900;
   margin-top: 2px;
   margin-bottom: 2px;
   font-size: 14px;
   padding: 5px 10px;
   background: #ffffff;
-  border: 1px solid #ffd1bb;
+  border: 1px solid #ffeee5;
 }
 
 .btn.profile-small:hover {
-  background: #fff1ea;
+  border: 1px solid #ffc9aa;
+  color: #636363
 }
 
   .btn-wide {

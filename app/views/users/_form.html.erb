@@ -138,7 +138,7 @@
         <%= simple_fields_for :tags do |t| %>
         <%= t.input :locations, collection: @locations, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
         <%= f.check_box :US_work_permit, as: :boolean %>
-        <%= f.label :US_work_permit, "I have a US work permit", style: "font-weight: lighter" %>
+        <%= f.label :US_work_permit, "I am legally authorized to work in the US without sponsorship", style: "font-weight: lighter" %>
       </div>
 
       <br>
