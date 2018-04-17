@@ -68,11 +68,11 @@ class User < ApplicationRecord
   end
 
   def skills_competencies
-    competencies = ["Familiarity", "Gaining Competency", "Individual Competency", "Strong Competency", "Leadership"]
+    competencies = ["1Familiarity", "2Gaining Competency", "3Individual Competency", "4Strong Competency", "5Leadership"]
     num_hash = return_skills_hash
     new_hash = {}
     num_hash.each { |language, skill| new_hash[language] = competencies[skill -1] }
-    new_hash
+    new_hash.sort_by { |language, skill| skill }.reverse
   end
 
   def return_skills_hash
