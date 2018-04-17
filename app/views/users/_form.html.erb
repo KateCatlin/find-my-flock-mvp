@@ -128,10 +128,11 @@
       <div class="form-inputs">
         <h4 class="no-space"> In which areas do you want a job? </h4>
         <p>If you're open to any location, skip ahead.</p>
-
+        <%= f.input :US_work_permit, as: :boolean, inline_label: 'I already have a permit to work in the US' %>
         <%= simple_fields_for :tags do |t| %>
         <%= t.input :locations, collection: @locations, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
       </div>
+
       <br>
       <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#skills" role="tab" data-next-tab="skills-tab">Next</a>
     </div>
@@ -294,11 +295,6 @@
           fakePhotoBtn.innerText = "Change Photo"
 
         })
-
-
-
-
-
       </script>
 
 
