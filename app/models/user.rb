@@ -100,6 +100,7 @@ class User < ApplicationRecord
      self.salary_list.add(salary) unless salary_list.include?(salary)
     end
   end
+
 end
 
 
