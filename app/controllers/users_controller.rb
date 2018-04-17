@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       resume_name = params[:user][:resume_file_path].original_filename if params[:user][:resume_file_path]
       photo_name = params[:user][:photo].original_filename if params[:user][:photo]
       @user.update({resume_name: resume_name, photo_name: photo_name})
-      update_mailchimp
+      @user.registration.gets_mail? ? update_mailchimp : ""
       redirect_to edit_skills_user_path(@user)
 
     else
@@ -51,9 +51,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo)
-  end
 
   def set_user
     @user = User.find(params[:id])
@@ -75,6 +72,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit)
+  end
 
   def set_collections
     @skills = User::SKILLS

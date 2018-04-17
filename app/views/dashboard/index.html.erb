@@ -1,25 +1,22 @@
 <body class="dashboard">
 
   <div class="dashboard-header">
-    <div class="margin-top">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center centered align-self-center">
-            <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill, :radius => :max, :gravity => :face %>
-        </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center centered align-self-center">
+        <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill, :radius => :max, :gravity => :face %>
+      </div>
 
-        <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
-          <h2 class="centered dashboard-home small-padded-text">Your Dashboard</h2>
-          <p class="centered">Here you can find all your matched opportunities, roles you've favorited, and live applications you've submitted.</p>
-        </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
+        <h2 class="centered dashboard-home small-padded-text">Your Dashboard</h2>
+        <p class="centered">Here you can find all your matched opportunities, roles you've favorited, and live applications you've submitted.</p>
       </div>
     </div>
   </div>
 
 
-
-<div class="all-jobs">
-  <div class="tabs" id="dashboard">
+  <div class="tabs">
     <ul class="list-inline nav justify-content-center nav-tabs">
+
       <a href="#" class="select-tab" data-toggle="tab" data-target="job-list">
         <li class="nav-item nav-link active">jobs</li>
       </a>
@@ -38,8 +35,9 @@
 
     <div class="card-deck">
       <% @my_matched_jobs.each do |job| %>
-      <div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="card card-home card-dashboard text-center">
+
           <% if job.photo.file %>
           <%= cl_image_tag job.photo, class: "card-img-top img-fluid" %>
           <% else %>
@@ -74,20 +72,22 @@
 
     <% end %>
   </div>
-</div>
 
 
 <% else %>
-<p class="centered waiting-message"> Great! Thanks for the info! We'll be back in touch if any jobs come up matching your profile. Feel free to go home and relax. </p>
+<div class="no-job">We're sorry... :(</div>
+<p class="centered waiting-message">No job matches your skills and values at the moment. We'll update this board when new jobs matching YOUR exact needs come into our network!</p>
 <% end %>
 </div>
 
+
 <div id="favorite-list" class="job-listings" hidden>
 
+<% if !@favorited.empty? %>
 
  <div class="card-deck">
   <% @favorited.each do |job| %>
-  <div class="col-xs-12 col-sm-12 col-md-4">
+  <div class="col-sm-12 col-md-6 col-lg-4">
     <div class="card card-home card-dashboard text-center">
       <% if job.photo.file %>
       <%= cl_image_tag job.photo, class: "card-img-top img-fluid" %>
@@ -123,17 +123,21 @@
 
 <% end %>
 </div>
+
+<% else %>
+<p class="centered waiting-message">You didn't add any job to your favorites yet.</p>
+<% end %>
 </div>
 
 
 
 <div id="applied-list" class="job-listings" hidden>
 
-
+  <% if !@applied.empty? %>
 
  <div class="card-deck">
   <% @applied.each do |job| %>
-  <div class="col-xs-12 col-sm-12 col-md-4">
+  <div class="col-sm-12 col-md-6 col-lg-4">
     <div class="card card-home card-dashboard text-center">
       <% if job.photo.file %>
       <%= cl_image_tag job.photo, class: "card-img-top img-fluid" %>
@@ -167,6 +171,10 @@
   </div>
 </div>
 
+<% end %>
+</div>
+<% else %>
+<p class="centered waiting-message">You didn't apply to any job yet.</p>
 <% end %>
 </div>
 </div>

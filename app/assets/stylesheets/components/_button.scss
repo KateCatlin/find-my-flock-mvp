@@ -17,11 +17,12 @@
 }
 
 .btn.linkedin:hover {
-  background-color: #3F72A0;
+  background-color: #245480;
 }
 
 .btn.logbutton {
   width: 70%;
+  font-size: 12px;
 }
 
   .btn:hover {
@@ -69,6 +70,7 @@
   transition: 0.5s padding ease-in-out;
   font-weight: 900;
   font-family: "Montserrat", "sans-serif";
+  font-size: 15px;
 
 }
 
@@ -98,14 +100,18 @@
 }
 
 .btn.profile-small {
-  color: white;
+  color: #ffa67b;
+  font-weight: 900;
   margin-top: 2px;
   margin-bottom: 2px;
   font-size: 14px;
   padding: 5px 10px;
-  background: #ffa67b;
-  border: 1px solid #ffa67b;
+  background: #ffffff;
+  border: 1px solid #ffd1bb;
+}
 
+.btn.profile-small:hover {
+  background: #fff1ea;
 }
 
   .btn-wide {
@@ -119,5 +125,11 @@
 
 .registration-button {
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+  .next-btn {
+    font-size: 15px;
+  }
 }

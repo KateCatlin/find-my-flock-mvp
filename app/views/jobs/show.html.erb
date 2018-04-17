@@ -6,10 +6,10 @@
 <h4 class="centered"><%= @job.company %></h4>
 
 <div class="row justify-content-center">
-  <div class="col-8">
+  <div class="col-xs-11 col-sm-11 col-md-8">
     <h5 class="centered"><%= @job.location_list %></h5>
-    <p class="small-padded-title"><%= @job.description %></p>
-    <div style="display: flex; width: 300px; height: 200px; margin: 0 auto;">
+    <p class="small-padded-title justified-text"><%= @job.description %></p>
+    <div class="job-photo">
       <% if @job.photo.file %>
       <%= cl_image_tag @job.photo, class: "card-img-top img-fluid" %>
       <% else %>
@@ -17,7 +17,8 @@
       <% end %>
     </div>
 
-
+<!-- Values, skills and salary displayed on md and large screen sizes -->
+<div class="hidden-xs-down">
     <div class="grid grid-bordered">
       <div class="grid-first-column">
         <div class="values">Values:</div>
@@ -60,6 +61,48 @@
       </div>
 
     </div>
+  </div>
+
+  <!-- Values, skills and salary displayed on xs and small screen sizes -->
+<div class="hidden-sm-up">
+    <div class="grid-bordered">
+        <div class="values">Values:</div>
+        <% @job.value_list.each do |value| %>
+        <ul class="values-list">
+          <li><%= value %> </li>
+        </ul>
+        <% end %>
+
+        <div class="values small-padded-title" style="text-align: center">Skills needed:</div>
+
+        <% @job.skill_list.each do |skill| %>
+        <ul class="skills-list centered">
+          <li><%= skill.chop %></li>
+          <% if skill.slice(skill.length - 1).to_i == 1 %>
+          <li style="background-color: #ffffff;color:black">Familiarity</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 2 %>
+          <li style="background-color: #ffffff;color:black">Gaining Competency</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 3 %>
+          <li style="background-color: #ffffff;color:black">Individual Competency</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 4 %>
+          <li style="background-color: #ffffff;color:black">Strong</li>
+          <% elsif skill.slice(skill.length - 1).to_i == 5 %>
+          <li style="background-color: #ffffff;color:black">Leadership</li>
+          <% end %>
+
+        </ul>
+        <% end %>
+
+        <div class="values small-padded-title" style="text-align: center">Salary range:</div>
+        <% if @job.salary_range %>
+        <div class="salary"><%= @job.salary_range[0] %> - <%= @job.salary_range[1] %>  </div>
+        <% else %>
+        <div class="salary"> Unlisted </div>
+        <% end %>
+
+    </div>
+  </div>
+
 
     <div class="row justify-content-center text-center">
       <div class="bottom-buttons col-8">

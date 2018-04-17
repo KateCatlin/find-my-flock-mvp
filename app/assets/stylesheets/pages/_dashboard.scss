@@ -15,6 +15,14 @@ body.dashboard {
     justify-content: center;
     width: 71%;
     margin: auto;
+    margin-top: 10vh;
+}
+
+@media (max-width: 800px)  {
+  .dashboard-header {
+    width: 90%;
+    margin-top: 5vh;
+  }
 }
 
 .margin-top {
@@ -29,10 +37,10 @@ body.dashboard {
 }
 
 .waiting-message {
-  margin-right: 20%;
-  margin-left: 20%;
-  margin-bottom: 9%;
-  margin-top: 7%;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 4vh;
+    padding-bottom: 9vh;
 }
 
 .notice-message {
@@ -63,7 +71,20 @@ body.dashboard {
   margin-bottom: 20%;
 }
 
-.all-jobs {
-  padding-bottom: 2vh;
+.no-job {
+    border: 1px solid #fac2a6;
+    background: #f36e226b;
+    color: #ffffff;
+    text-align: center;
+    /* width: 46vh; */
+    margin: auto;
+    margin-top: 1vh;
+    /* padding: 0vh; */
+    font-weight: bolder;
+    font-family: "Montserrat", "sans-serif";
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: 1vh;
 }
+
 

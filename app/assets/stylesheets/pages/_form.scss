@@ -1,3 +1,28 @@
 body.form {
   min-height: 90vh;
 }
+
+.whole-form {
+    width: 80%;
+    margin: auto;
+    margin-top: 4vh;
+}
+
+@media (max-width: 820px) {
+  .whole-form {
+
+    width: 80%;
+
+}
+}
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
+    background-color: #f36e22 !important;
+}
+
+.nav-tabs-responsive { overflow: auto; }
+
+.change-photo {
+  display: flex;
+
+}
+
