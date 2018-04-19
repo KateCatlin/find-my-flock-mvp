@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20180419085847) do
     t.datetime "updated_at", null: false
     t.string "cached_skill_list"
     t.string "photo"
-    t.boolean "US_work_permit", default: false
+    t.boolean "US_work_permit_job", default: false
   end
 
   create_table "registrations", force: :cascade do |t|
