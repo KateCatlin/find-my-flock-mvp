@@ -36,7 +36,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :company, :description, :photo)
+    params.require(:job).permit(:title, :company, :description, :photo, :US_work_permit_job)
   end
 
   def set_collections
