@@ -101,6 +101,10 @@ class User < ApplicationRecord
     end
   end
 
+  def have_sponsorship?
+    self.US_work_permit
+  end
+
 end
 
 

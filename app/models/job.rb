@@ -7,9 +7,7 @@ class Job < ApplicationRecord
   validates :company, presence: true
   validates :description, presence: true
 
-
   acts_as_taggable_on :skills, :values, :salaries, :locations
-
 
   def user_favorite(user)
     self.favorites.where(user_id: user.id).first
@@ -56,6 +54,10 @@ class Job < ApplicationRecord
       end
     end
     new_hash
+  end
+
+  def provide_sponsorship?
+    self.US_work_permit_job
   end
 
   def save_locations(locations)

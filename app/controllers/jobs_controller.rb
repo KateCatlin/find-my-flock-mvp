@@ -9,6 +9,7 @@ class JobsController < ApplicationController
   def create
     if @job = Job.new(job_params)
       @job.add_tags(params[:tags])
+
       redirect_to edit_skills_job_path(@job)
     else
       render :new
