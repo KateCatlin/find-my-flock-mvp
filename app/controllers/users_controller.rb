@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_collections, only: [:edit]
-  before_action :set_user, only: [:show, :edit, :destroy, :update, :activate, :deactivate, :edit_skills, :edit_skills_return]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :update_resume, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -24,6 +24,12 @@ class UsersController < ApplicationController
 
     end
   end
+
+  def update_resume
+    @user.update(user_params)
+    redirect_to root_path
+  end
+
 
   def update_mailchimp
     gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])

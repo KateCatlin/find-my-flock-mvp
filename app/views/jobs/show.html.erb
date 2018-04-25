@@ -169,12 +169,13 @@
       </div>
       <div class="modal-body text-center">
         <p>In order to apply to the <%= @job.title %> position at <%= @job.company %>, you must upload a resume to your profile.</p>
+        <br>
+      <%= render 'resume_form', job: @job %>
+      <br>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" style="margin-top: 10px;" data-dismiss="modal">Close
-        </button>
-        <%= link_to "Edit my profile", edit_user_path(@user), class: "btn apply" %>
-      </div>
+
+
+
 
     </div>
   </div>

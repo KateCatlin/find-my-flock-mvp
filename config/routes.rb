@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new] do
     get 'edit_skills', on: :member
     post 'edit_skills_return', on: :member
+    patch 'update_resume', on: :member
   end
 
   get 'users/:id/activate' => 'users#activate', as: :activate

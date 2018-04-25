@@ -113,6 +113,9 @@
                 <div class="col-xs-12 col-sm-9">
               <label for="user_resume_file_path" class= "btn" style="width:100%;" id= "fake_resume_button" >Change Resume</label><span style="padding-left: 10px;" id="resume_file_name"><%= current_user.resume_name %></span>
               </div>
+               <div class="col-xs-12 col-sm-3">
+                  <%= cl_image_tag current_user.resume_file_path, height: 100, width: 100, crop: :fill, :radius => :max %>
+                  </div>
             </div>
 
               <% else %>
