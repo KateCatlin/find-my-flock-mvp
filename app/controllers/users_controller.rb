@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update_resume
     @user.update(user_params)
-    redirect_to root_path
+    redirect_back(fallback_location: dashboard_index_path)
   end
 
 
