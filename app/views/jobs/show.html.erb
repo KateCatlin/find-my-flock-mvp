@@ -134,17 +134,11 @@
 
           <% end %>
         </div>
-
-
         <%= link_to 'Back', dashboard_index_path, class: "btn" %>
       </div>
     </div>
-
   </div>
-
-
 </div>
-
 </div>
 
 
@@ -158,7 +152,6 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-default" id="close" >Close</button>
   </div>
-
 </dialog>
 
 <div class="modal fade" id="noResumeModal" tabindex="1" role="dialog" aria-labelledby="noResumeLabel">
@@ -168,15 +161,11 @@
         <h2>We need your resume!</h2>
       </div>
       <div class="modal-body text-center">
-        <p>In order to apply to the <%= @job.title %> position at <%= @job.company %>, you must upload a resume to your profile.</p>
+        <p>In order to apply to the <%= @job.title %> position at <%= @job.company %>, you must upload a resume to your profile first.</p>
         <br>
       <%= render 'resume_form', job: @job %>
       <br>
       </div>
-
-
-
-
     </div>
   </div>
 </div>
