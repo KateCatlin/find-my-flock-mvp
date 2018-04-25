@@ -100,6 +100,11 @@ class User < ApplicationRecord
      self.salary_list.add(salary) unless salary_list.include?(salary)
     end
   end
+
+  def have_sponsorship?
+    self.US_work_permit
+  end
+
 end
 
 

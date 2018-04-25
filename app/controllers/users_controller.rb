@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_collections, only: [:edit]
-  before_action :set_user, only: [:show, :edit, :destroy, :update, :activate, :deactivate, :edit_skills, :edit_skills_return]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :update_resume, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -20,11 +20,16 @@ class UsersController < ApplicationController
       @user.update({resume_name: resume_name, photo_name: photo_name})
       @user.registration.gets_mail? ? update_mailchimp : ""
       redirect_to edit_skills_user_path(@user)
-
     else
 
     end
   end
+
+  def update_resume
+    @user.update(user_params)
+    redirect_back(fallback_location: dashboard_index_path)
+  end
+
 
   def update_mailchimp
     gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
@@ -70,6 +75,7 @@ class UsersController < ApplicationController
     @user.save_skills(skills_to_add)
     redirect_to dashboard_index_path(@user)
   end
+
 
   private
 

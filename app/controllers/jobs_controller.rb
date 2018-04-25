@@ -9,6 +9,7 @@ class JobsController < ApplicationController
   def create
     if @job = Job.new(job_params)
       @job.add_tags(params[:tags])
+
       redirect_to edit_skills_job_path(@job)
     else
       render :new
@@ -36,7 +37,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :company, :description, :photo)
+    params.require(:job).permit(:title, :company, :description, :photo, :US_work_permit_job)
   end
 
   def set_collections

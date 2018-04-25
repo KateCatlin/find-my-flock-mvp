@@ -58,7 +58,14 @@
         <% else %>
         <div class="salary"> Unlisted </div>
         <% end %>
+        <div class="values small-padded-title" style="text-align: center">US work sponsorship:</div>
+        <% if (@job.US_work_permit_job == false) %>
+          <div class="centered" style="font-size: 18px">The company cannot provide US work sponsorship.</div>
+        <% else %>
+          <div class="centered" style="font-size: 18px">The company can provide US work sponsorship.</div>
+        <% end %>
       </div>
+
 
     </div>
   </div>
@@ -100,6 +107,15 @@
         <div class="salary"> Unlisted </div>
         <% end %>
 
+        <div class="values small-padded-title" style="text-align: center">US work sponsorship:</div>
+          <% if (@job.US_work_permit_job == false) %>
+            <div class="centered" style="font-size: 18px">The company cannot provide US work sponsorship.</div>
+          <% else %>
+            <div class="centered" style="font-size: 18px">The company can provide US work sponsorship.</div>
+          <% end %>
+        </div>
+        </div>
+
     </div>
   </div>
 
@@ -118,17 +134,11 @@
 
           <% end %>
         </div>
-
-
         <%= link_to 'Back', dashboard_index_path, class: "btn" %>
       </div>
     </div>
-
   </div>
-
-
 </div>
-
 </div>
 
 
@@ -142,7 +152,6 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-default" id="close" >Close</button>
   </div>
-
 </dialog>
 
 <div class="modal fade" id="noResumeModal" tabindex="1" role="dialog" aria-labelledby="noResumeLabel">
@@ -152,14 +161,11 @@
         <h2>We need your resume!</h2>
       </div>
       <div class="modal-body text-center">
-        <p>In order to apply to the <%= @job.title %> position at <%= @job.company %>, you must upload a resume to your profile.</p>
+        <p>In order to apply to the <%= @job.title %> position at <%= @job.company %>, you must upload a resume to your profile first.</p>
+        <br>
+      <%= render 'resume_form', job: @job %>
+      <br>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" style="margin-top: 10px;" data-dismiss="modal">Close
-        </button>
-        <%= link_to "Edit my profile", edit_user_path(@user), class: "btn apply" %>
-      </div>
-
     </div>
   </div>
 </div>
