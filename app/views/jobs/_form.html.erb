@@ -57,6 +57,8 @@
                 <%= f.input :title, :label_html => { :class => 'form-text' } %>
                 <%= f.input :company, :label_html => { :class => 'form-text' } %>
                 <%= f.input :description, :label_html => { :class => 'form-text' } %>
+                <%= f.check_box :US_work_permit_job, as: :boolean %>
+                <%= f.label :US_work_permit_job, "The company can sponsor US employement (e.g. H1B).", style: "font-weight: lighter", :class => "checkbox inline"%>
                 <br>
                 <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
               </div>

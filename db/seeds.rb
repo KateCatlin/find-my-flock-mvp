@@ -18,7 +18,8 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
 job = Job.new(
   title: "Cybersecurity Team Lead",
   company: "Mapping Startup",
-  description: "Crush on cartography? Help build an open-source mapping tool that powers over 50,000 apps, processes data at a petabyte scale, and reaches a quarter billion people per month. This leadership role is specific to the security team, though you need not have security experience. You’ll bring your software background and strong communication skills to work daily, and inspire the team on security-related engineering projects spanning both software development and DevOps. "
+  description: "Crush on cartography? Help build an open-source mapping tool that powers over 50,000 apps, processes data at a petabyte scale, and reaches a quarter billion people per month. This leadership role is specific to the security team, though you need not have security experience. You’ll bring your software background and strong communication skills to work daily, and inspire the team on security-related engineering projects spanning both software development and DevOps. ",
+  US_work_permit_job: true
   )
 job.save!
 
@@ -42,7 +43,8 @@ job.save!
 job = Job.new(
   title: "Creative Prototype Engineer",
   company: "Mapping Startup",
-  description: "Are you someone who's always thinking beyond what's perceived as possible? Help a B2B mapping startup play around with their API and SDKs and figure out new ways to use their product. Build demos and prototypes to inspire new customers and even the internal team."
+  description: "Are you someone who's always thinking beyond what's perceived as possible? Help a B2B mapping startup play around with their API and SDKs and figure out new ways to use their product. Build demos and prototypes to inspire new customers and even the internal team.",
+  US_work_permit_job: true
   )
 job.save!
 
@@ -66,7 +68,8 @@ job.save!
 job = Job.new(
   title: "Android Developer",
   company: "Mapping Startup",
-  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. This team is looking for a number of native Android developers. Are you excited by bringing your Android chops to navigation-related apps, building out an SDK, or just shaping the future of mapping in mobile? This is the team for you!"
+  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. This team is looking for a number of native Android developers. Are you excited by bringing your Android chops to navigation-related apps, building out an SDK, or just shaping the future of mapping in mobile? This is the team for you!",
+  US_work_permit_job: true
   )
 job.save!
 
@@ -91,7 +94,8 @@ job.save!
 job = Job.new(
   title: "iOS AR/VR Developer",
   company: "Mapping Startup",
-  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike. This role is particularly in building AR features into iOS apps! "
+  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike. This role is particularly in building AR features into iOS apps! ",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -116,7 +120,8 @@ job.save!
 job = Job.new(
   title: "iOS Navigation Developer",
   company: "Mapping Startup",
-  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike. This role is particularly in building AR features into iOS apps! "
+  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike. This role is particularly in building AR features into iOS apps! ",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -141,7 +146,8 @@ job.save!
 job = Job.new(
   title: "iOS  Developer",
   company: "Mapping Startup",
-  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike."
+  description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike.",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -166,7 +172,8 @@ job.save!
 job = Job.new(
   title: "Sales Engineer",
   company: "Mapping Startup",
-  description: "Help a mapping API company move people through the world-- And their clients understand what this technology can empower. They're looking for an engineer who is great with code, but also likes people and creative demos. When potential new big enterprise clients come in, you'll help them 'get' how they can use this tech -- Whether they're mapping the spread of a disease or figuring out which parts of the farm need more water. You'll brainstorm how the customer could use this tech, build demos, provide training, and handle questions."
+  description: "Help a mapping API company move people through the world-- And their clients understand what this technology can empower. They're looking for an engineer who is great with code, but also likes people and creative demos. When potential new big enterprise clients come in, you'll help them 'get' how they can use this tech -- Whether they're mapping the spread of a disease or figuring out which parts of the farm need more water. You'll brainstorm how the customer could use this tech, build demos, provide training, and handle questions.",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -193,7 +200,8 @@ job.save!
 job = Job.new(
   title: "Engingineering Manager",
   company: "Mapping Startup",
-  description: "Crush on cartography? Help build an open-source mapping tool that powers over 50,000 apps, processes data at a petabyte scale, and reaches a quarter billion people per month. As they grow and scale, they need more talented engineering managers to keep teams inspired and on-track. Teams looking include iOS, Cybersecurity, and the core software team. In some cases, management experience is not required so long as you have a strong technical background and bring some serious communications chops to the background."
+  description: "Crush on cartography? Help build an open-source mapping tool that powers over 50,000 apps, processes data at a petabyte scale, and reaches a quarter billion people per month. As they grow and scale, they need more talented engineering managers to keep teams inspired and on-track. Teams looking include iOS, Cybersecurity, and the core software team. In some cases, management experience is not required so long as you have a strong technical background and bring some serious communications chops to the background.",
+  US_work_permit_job: true
   )
 job.save!
 
@@ -216,7 +224,8 @@ job.save!
 job = Job.new(
   title: "Full-stack Developer",
   company: "Non-Profit Making Voting Seamless",
-  description: "We believe voting should fit the way we live. To that end, we build technology for both voters and election administrators that simplifies the process and ensures that no voter should ever have to miss an election. We pair program, collaborate with product managers, and make sure our efforts deliver value to voters. We rotate roles and projects on our team so that everyone gets a variety of experience and working relationships and can bring their unique strengths to as wide a swath of our work as possible."
+  description: "We believe voting should fit the way we live. To that end, we build technology for both voters and election administrators that simplifies the process and ensures that no voter should ever have to miss an election. We pair program, collaborate with product managers, and make sure our efforts deliver value to voters. We rotate roles and projects on our team so that everyone gets a variety of experience and working relationships and can bring their unique strengths to as wide a swath of our work as possible.",
+  US_work_permit_job: true
   )
 job.save!
 
@@ -242,7 +251,8 @@ job.save!
 job = Job.new(
   title: "Backend Engineer",
   company: "Blogging Platform",
-  description: "This role is hard to describe because it can encompass a lot of different work! It involves taking products from concept to implementation, high-volume and high-concurrency programming, and tracking down complex bugs until they've been thoroughly squashed."
+  description: "This role is hard to describe because it can encompass a lot of different work! It involves taking products from concept to implementation, high-volume and high-concurrency programming, and tracking down complex bugs until they've been thoroughly squashed.",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -266,7 +276,8 @@ job.save!
 job = Job.new(
   title: "Senior JavaScript Engineer",
   company: "Blogging Platform",
-  description: "This full-remote team works from all over the world. Chat rooms, Slack, and an annual 7 day trip to somewhere exotic keep everyone together. The company can cherry-pick employees with all their perks, so they prioritize the most collaborative and communicative people in the world (bonus if you're good with .gifs)."
+  description: "This full-remote team works from all over the world. Chat rooms, Slack, and an annual 7 day trip to somewhere exotic keep everyone together. The company can cherry-pick employees with all their perks, so they prioritize the most collaborative and communicative people in the world (bonus if you're good with .gifs).",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -288,7 +299,8 @@ job.save!
 job = Job.new(
   title: "Senior PHP Engineer",
   company: "Blogging Platform",
-  description: "You'll be on the team helping VIP clients implement the product. You'll help them push the limits of this platform to achieve their goals. This could be during launch, making large architectural decisions, debugging complex problems, or building tools and plugins custom to their needs."
+  description: "You'll be on the team helping VIP clients implement the product. You'll help them push the limits of this platform to achieve their goals. This could be during launch, making large architectural decisions, debugging complex problems, or building tools and plugins custom to their needs.",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -311,7 +323,8 @@ job.save!
 job = Job.new(
   title: "Wordpress Developer",
   company: "Blogging Platform",
-  description: "Join a major global company creating technology used by billions-- and work from wherever you want. You'll be on the team helping VIP clients implement the product. You'll help them push the limits of this platform to achieve their goals. This could be during launch, making large architectural decisions, debugging complex problems, or building tools and plugins custom to their needs. You'll need advanced programming skills in PHP (or Python and willing to learn PHP), great communication skills, and the ability to work independently."
+  description: "Join a major global company creating technology used by billions-- and work from wherever you want. You'll be on the team helping VIP clients implement the product. You'll help them push the limits of this platform to achieve their goals. This could be during launch, making large architectural decisions, debugging complex problems, or building tools and plugins custom to their needs. You'll need advanced programming skills in PHP (or Python and willing to learn PHP), great communication skills, and the ability to work independently.",
+  US_work_permit_job: true
   )
 job.save!
 
@@ -334,7 +347,8 @@ job.save!
 job = Job.new(
   title: "Senior Front End Engineer",
   company: "E-Commerce Company",
-  description: "Lead the front end team at a hugely successful E-commerce startup. You’ll be coding-- this is definitely a developer position-- but also advocate for technical direction, mentor junior developers, and coordinate across other teams."
+  description: "Lead the front end team at a hugely successful E-commerce startup. You’ll be coding-- this is definitely a developer position-- but also advocate for technical direction, mentor junior developers, and coordinate across other teams.",
+  US_work_permit_job: true
   )
 job.save!
 
@@ -355,7 +369,8 @@ job.save!
 job = Job.new(
   title: "Senior Full Stack Developer",
   company: "FinTech Startup",
-  description: "Build the next generation of FinTech software at a fast-paced, fun, and growth-oriented startup led by a female CEO."
+  description: "Build the next generation of FinTech software at a fast-paced, fun, and growth-oriented startup led by a female CEO.",
+  US_work_permit_job: false
   )
 job.save!
 
@@ -378,7 +393,8 @@ job.save!
 job = Job.new(
   title: "Backend Python Developer",
   company: "Machine Learning Startup",
-  description: "Join a team redesigning how machines can learn, making it easier to apply machine learning to medium data through cloud-based machine learning software. You'll build backend systems and data pipelines for their product, collaborate others to define the product strategy and learn more about the machine learning sphere."
+  description: "Join a team redesigning how machines can learn, making it easier to apply machine learning to medium data through cloud-based machine learning software. You'll build backend systems and data pipelines for their product, collaborate others to define the product strategy and learn more about the machine learning sphere.",
+  US_work_permit_job: false
   )
 job.save!
 

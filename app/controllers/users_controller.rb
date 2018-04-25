@@ -20,7 +20,6 @@ class UsersController < ApplicationController
       @user.update({resume_name: resume_name, photo_name: photo_name})
       @user.registration.gets_mail? ? update_mailchimp : ""
       redirect_to edit_skills_user_path(@user)
-
     else
 
     end
@@ -70,6 +69,7 @@ class UsersController < ApplicationController
     @user.save_skills(skills_to_add)
     redirect_to dashboard_index_path(@user)
   end
+
 
   private
 
