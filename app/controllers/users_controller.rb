@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_collections, only: [:edit]
-  before_action :set_user, only: [:show, :edit, :destroy, :update, :activate, :deactivate, :edit_skills, :edit_skills_return]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :update_resume, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
   def index
   end
@@ -24,6 +24,15 @@ class UsersController < ApplicationController
 
     end
   end
+
+  def update_resume
+    if @user.update(second_user_params)
+      redirect_back(fallback_location: dashboard_index_path)
+    else
+      redirect_back(fallback_location: dashboard_index_path)
+    end
+  end
+
 
   def update_mailchimp
     gibbon = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
@@ -75,6 +84,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit)
+  end
+
+   def second_user_params
+    params.permit(:resume_file_path)
   end
 
   def set_collections

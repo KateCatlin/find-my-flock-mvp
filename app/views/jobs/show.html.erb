@@ -134,17 +134,11 @@
 
           <% end %>
         </div>
-
-
         <%= link_to 'Back', dashboard_index_path, class: "btn" %>
       </div>
     </div>
-
   </div>
-
-
 </div>
-
 </div>
 
 
@@ -158,24 +152,20 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-default" id="close" >Close</button>
   </div>
-
 </dialog>
 
 <div class="modal fade" id="noResumeModal" tabindex="1" role="dialog" aria-labelledby="noResumeLabel">
   <div class="modal-dialog modal-lg" id="modal-content" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>We need your resume!</h2>
+        <h2 class="centered">We need your resume!</h2>
       </div>
       <div class="modal-body text-center">
-        <p>In order to apply to the <%= @job.title %> position at <%= @job.company %>, you must upload a resume to your profile.</p>
+        <p>In order to apply to the <%= @job.title %> position at <%= @job.company %>, you must upload a resume to your profile first.</p>
+        <br>
+      <%= render 'resume_form', job: @job %>
+      <br>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" style="margin-top: 10px;" data-dismiss="modal">Close
-        </button>
-        <%= link_to "Edit my profile", edit_user_path(@user), class: "btn apply" %>
-      </div>
-
     </div>
   </div>
 </div>

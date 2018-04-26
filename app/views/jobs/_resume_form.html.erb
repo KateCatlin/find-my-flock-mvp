@@ -1,0 +1,8 @@
+<%= simple_form_for @user, :url => update_resume_user_path(@user), method: :patch do |a| %>
+
+<%= a.input :resume_file_path, required: true, label: "Resume", :label_html => { :class => 'form-text cvupload' } %>
+
+<%= a.button :submit,  'Submit Resume', :class => 'btn btn-wide btn-group-justified', style:"font-family: Montserrat"  %>
+
+<% end %>
+
