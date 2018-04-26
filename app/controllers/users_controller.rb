@@ -26,8 +26,11 @@ class UsersController < ApplicationController
   end
 
   def update_resume
-    @user.update(user_params)
-    redirect_back(fallback_location: dashboard_index_path)
+    if @user.update(second_user_params)
+      redirect_back(fallback_location: dashboard_index_path)
+    else
+      redirect_back(fallback_location: dashboard_index_path)
+    end
   end
 
 
@@ -81,6 +84,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit)
+  end
+
+   def second_user_params
+    params.permit(:resume_file_path)
   end
 
   def set_collections
