@@ -14,8 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
     gibbon.open_timeout = 15
     gibbon.symbolize_keys = true
     gibbon.debug = false
-    webAppGroupId = ENV['MAILCHIMP_WEBAPP_GROUP_ID']
-    devGroupID = ENV['MAILCHIMP_DEVELOPER_GROUP_ID']
     gibbon.lists(ENV['MAILCHIMP_LIST_ID']).members(Digest::MD5.hexdigest(resource.email)).upsert(body: {email_address: resource.email, status: "subscribed", interests: {"8b90dea17b": true, "ba4727f76c": true}})
   end
 
