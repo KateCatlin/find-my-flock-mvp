@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user
-      @user.update(user_params)
+      if @user.update(user_params)
         @user.add_tags(params[:tags])
         resume_name = params[:user][:resume_file_path].original_filename if params[:user][:resume_file_path]
         photo_name = params[:user][:photo].original_filename if params[:user][:photo]
@@ -22,8 +22,13 @@ class UsersController < ApplicationController
         @user.registration.gets_mail? ? update_mailchimp : ""
         redirect_to edit_skills_user_path(@user)
       else
-
+        if @user.errors.any?
+          redirect_to edit_user_path{'#cv'}, alert: 'Invalid format: You can only upload a pdf, docx, png or jpg document.'
+        else
+        end
       end
+    else
+    end
   end
 
   def update_resume
