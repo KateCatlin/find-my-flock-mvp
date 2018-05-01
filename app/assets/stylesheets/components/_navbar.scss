@@ -90,11 +90,10 @@ ul {
 #nav-right.sign-up {
   padding: 10px 15px;
   border: 1px solid $light-orange;
-  transition: 0.1s background-color ease-in-out;
+  transition: 0.3s background-color ease-in-out;
   text-decoration: none;
   letter-spacing: 5px;
   background-color: $light-orange;
-
   a {
     color: white;
     font-size: 14px;
