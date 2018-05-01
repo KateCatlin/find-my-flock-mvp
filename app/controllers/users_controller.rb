@@ -13,24 +13,27 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      @user.add_tags(params[:tags])
-      resume_name = params[:user][:resume_file_path].original_filename if params[:user][:resume_file_path]
-      photo_name = params[:user][:photo].original_filename if params[:user][:photo]
-      @user.update({resume_name: resume_name, photo_name: photo_name})
-      @user.registration.gets_mail? ? update_mailchimp : ""
-      redirect_to edit_skills_user_path(@user)
+    if current_user
+      if @user.update(user_params)
+        @user.add_tags(params[:tags])
+        resume_name = params[:user][:resume_file_path].original_filename if params[:user][:resume_file_path]
+        photo_name = params[:user][:photo].original_filename if params[:user][:photo]
+        @user.update({resume_name: resume_name, photo_name: photo_name})
+        @user.registration.gets_mail? ? update_mailchimp : ""
+        redirect_to edit_skills_user_path(@user)
+      else
+        if @user.errors.any?
+          redirect_to edit_user_path{'#cv'}, alert: 'Invalid format: You can only upload a pdf, docx, png or jpg document.'
+        else
+        end
+      end
     else
-
     end
   end
 
   def update_resume
-    if @user.update(second_user_params)
-      redirect_back(fallback_location: dashboard_index_path)
-    else
-      redirect_back(fallback_location: dashboard_index_path)
-    end
+    @user.update(user_params)
+    redirect_back(fallback_location: dashboard_index_path)
   end
 
 
@@ -87,7 +90,7 @@ class UsersController < ApplicationController
   end
 
    def second_user_params
-    params.permit(:resume_file_path)
+    params.permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit)
   end
 
   def set_collections
