@@ -1,6 +1,6 @@
 .banner {
   display: flex;
-  height: calc(103vh - 15vh);
+  // height: calc(85vh - 15vh);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   align-items: center;
@@ -29,6 +29,8 @@
 
 .black-text {
   color: black;
+      margin-right: 5vh;
+    margin-left: 5vh;
 }
 
 .upperlined {
@@ -44,8 +46,13 @@
   box-shadow: inset 0px -25px 0px 0px #ffe8dd;
 }
 
+.boxed {
+  box-shadow: inset 0px -25px 0px 0px #ffd8c5;
+}
+
  .home-list {
   text-align: center;
   margin: auto;
+  margin-top: 28vh;
 }
 

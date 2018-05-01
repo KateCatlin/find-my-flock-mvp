@@ -38,7 +38,6 @@
   text-transform: uppercase;
   display: block;
   font-weight: 400;
-
     a {
   color: black
   }
@@ -88,19 +87,24 @@ ul {
 }
 
 
-.sign-up {
+#nav-right.sign-up {
   padding: 10px 15px;
-  border: 1px solid $gray;
-  transition: 0.1s background-color ease-in-out;
+  border: 1px solid $light-orange;
+  transition: 0.3s background-color ease-in-out;
   text-decoration: none;
-  color: black;
   letter-spacing: 5px;
+  background-color: $light-orange;
+  a {
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+  }
 }
 
-.sign-up:hover {
+#nav-right.sign-up:hover {
 
-  background-color: $light-orange;
-  border: 1px solid $light-orange;
+  background-color: #ff7e40;
+  border: 1px solid #ff7e40;
   text-decoration: none;
     color: white;
     letter-spacing: 5px;

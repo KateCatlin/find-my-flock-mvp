@@ -120,6 +120,7 @@
   color: black;
   text-transform: uppercase;
   line-height: 2;
+  font-size: 15px;
  }
   a:hover {
     color: gray;
@@ -127,9 +128,6 @@
 }
 
 @media (max-width: 800px) {
-    .home-list {
-      padding-top: 5vh;
-    }
     h3.upperlined {
       font-size: 20px;
       margin-right: 5vh;
@@ -139,6 +137,11 @@
     .home-title {
       font-size: 25px;
     }
+
+    .home-title.opportunities {
+      margin-top: 25vh;
+    }
+
     #arguments-joining {
       margin-right: 2%;
       margin-left: 2%;
@@ -185,8 +188,16 @@
   transform: scale(1);
 }
 .carousel-inner {
-  padding-bottom: 8%;
+  padding-bottom: 22%;
   margin-bottom: -120px;
 }
 
+  }
+
+@media (max-width: 800px) {
+   .home-list {
+      margin-right: 5vh;
+      margin-left: 5vh;
+      margin-bottom: 3vh;
+    }
   }
