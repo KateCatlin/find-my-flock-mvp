@@ -80,21 +80,6 @@
         <div class="secondline black-text"><span id="banner-typed-text"></span></div>
       </div>
 
-
-      <div class="home-buttons">
-        <% if registration_signed_in? %>
-        <% if current_user %>
-        <%= link_to "See Your Matches", dashboard_index_path, class: "btn-orange" %>
-        <% else %>
-        <%= link_to "Create Your Profile", new_user_path, class: "btn-orange" %>
-        <% end %>
-        <% else %>
-        <%= link_to 'Create an account', new_registration_registration_path, class: "btn-orange" %>
-        <% end %>
-      </div>
-    </ul>
-
-
   </div>
 
   <div class="job-samples">
