@@ -9,11 +9,10 @@
   background-color: white;
   padding: 3%;
   z-index: 1;
-      margin-bottom: 0;
+  margin-bottom: 0;
 
   a {
     text-decoration: none;
-    color: black;
     letter-spacing: 5px;
   }
 }
@@ -26,12 +25,23 @@
   text-transform: uppercase;
   padding: 0;
   display: block;
+  font-weight: 400;
+
+
+  a {
+  color: black
+  }
 }
 
 #nav-right {
   font-size: 11px;
   text-transform: uppercase;
   display: block;
+  font-weight: 400;
+
+    a {
+  color: black
+  }
 }
 
 // LOGO
@@ -41,7 +51,15 @@
   font-size: 20px;
   text-transform: uppercase;
   padding: 0;
-  font-weight: bolder;
+
+    a {
+  color: #68b9c6;
+  font-weight: 300;
+  }
+}
+
+#logo {
+  color: #68b9c6
 }
 
 ul {

@@ -1,5 +1,6 @@
 .heading-box {
 margin-top: 50px;
+margin-left: 8vh;
 
 }
 
@@ -79,3 +80,11 @@ text-align: left;
     padding-left: 5vh;
   }
 }
+
+@media (max-width: 575px) {
+.heading-box {
+margin-top: 50px;
+margin-left: 0vh;
+  }
+}
+
