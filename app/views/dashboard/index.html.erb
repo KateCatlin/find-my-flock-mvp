@@ -52,7 +52,7 @@
 
            <ul class="list-inline">
             <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
-            <li class="card-text saveme">Delete me! </li>
+            <li class="card-text saveme">Remove from favorites</li>
             <li><i class="fas fa-heart unfav"></i></li>
             <% end %>
           </ul>
@@ -60,7 +60,7 @@
           <% else %>
           <ul class="list-inline">
             <%= link_to job_favorites_path(job), remote: true, method: :post do %>
-            <li class="card-text saveme">Save me! </li>
+            <li class="card-text saveme">Add to favorites</li>
             <li><i class="fas fa-heart fav"> </i></li>
           </ul>
           <% end %>
@@ -76,7 +76,7 @@
 
 <% else %>
 <div class="no-job">We're sorry... :(</div>
-<p class="centered waiting-message">No job matches your skills and values at the moment. We'll update this board when new jobs matching YOUR exact needs come into our network!</p>
+<p class="centered waiting-message">No job matches your skills and desired benefits at the moment. We'll update this board when new jobs matching YOU come into our network!</p>
 <% end %>
 </div>
 
@@ -103,7 +103,7 @@
 
        <ul class="list-inline">
         <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
-        <li class="card-text saveme">Delete me! </li>
+        <li class="card-text saveme">Remove from favorites</li>
         <li><i class="fas fa-heart unfav"></i></li>
         <% end %>
       </ul>
@@ -111,7 +111,7 @@
       <% else %>
       <ul class="list-inline">
         <%= link_to job_favorites_path(job), remote: true, method: :post do %>
-        <li class="card-text saveme">Save me! </li>
+        <li class="card-text saveme">Add to favorites</li>
         <li><i class="fas fa-heart fav"> </i></li>
       </ul>
       <% end %>
@@ -153,7 +153,7 @@
 
        <ul class="list-inline">
         <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
-        <li class="card-text saveme">Delete me! </li>
+        <li class="card-text saveme">Remove from favorites</li>
         <li><i class="fas fa-heart unfav"></i></li>
         <% end %>
       </ul>
@@ -161,7 +161,7 @@
       <% else %>
       <ul class="list-inline">
         <%= link_to job_favorites_path(job), remote: true, method: :post do %>
-        <li class="card-text saveme">Save me! </li>
+        <li class="card-text saveme">Add to favorites</li>
         <li><i class="fas fa-heart fav"> </i></li>
       </ul>
       <% end %>
