@@ -76,6 +76,10 @@ a.nav-link {
 
 .form-check-label {
   padding-left: 30px;
+
+  i {
+  font-weight: 100;
+  }
 }
 
 .submit-btn {
@@ -105,11 +109,11 @@ a.nav-link {
 }
 
 .form-text {
-   font-weight: lighter;
+   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-family: "Montserrat", "sans-serif";
-  font-weight: 400;
+
 }
 
 @media (max-width: 500px) {
