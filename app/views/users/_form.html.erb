@@ -135,7 +135,7 @@
     <div class="tab-pane" id="locations" role="tabpanel">
      <div class="form-box">
       <div class="form-inputs">
-        <h4 class="no-space"> In which areas do you want a job? </h4>
+        <h4 class="no-space"> In which locations do you want to work in? </h4>
         <p>If you're open to any location, skip ahead.</p>
 
         <%= simple_fields_for :tags do |t| %>
@@ -172,7 +172,7 @@
 <div class="tab-pane" id="values" role="tabpanel">
   <div class="form-box">
     <h4 class="no-space">Choose what's important in a role: </h4>
-    <p>Note: You will <em>ONLY</em> see jobs with these values.</p>
+    <p>Note: You will <em>ONLY</em> see jobs with these benefits.</p>
     <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
     <br>
     <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
