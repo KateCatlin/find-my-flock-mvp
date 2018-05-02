@@ -183,8 +183,7 @@
     <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes. </p>
     <p>If you're open to any salary, just leave it blank.</p>
 
-    <%= f.input :min_salary, label: "$" %>
-
+    <%= f.input :min_salary, :label_html => { :class => 'form-text' } %>
 
     <% end %>
     <br>
@@ -247,8 +246,12 @@
           const selection = input.nextElementSibling
           const options = selection.querySelectorAll('option')
 
+          binding.pry
+
           const firstName = document.querySelector("#user_first_name").value
           const lastName = document.querySelector("#user_last_name").value
+          const minSalary = document.querySelector("#user_min_salary").value
+
           if (firstName.replace(/\s/g, '') == "") {
             alert("Please enter a first name");
             return false;
@@ -310,6 +313,7 @@
           fakePhotoBtn.innerText = "Change Photo"
 
         })
+
       </script>
 
 
