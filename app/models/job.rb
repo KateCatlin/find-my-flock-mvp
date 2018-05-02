@@ -7,7 +7,7 @@ class Job < ApplicationRecord
   validates :company, presence: true
   validates :description, presence: true
 
-  acts_as_taggable_on :skills, :values, :salaries, :locations
+  acts_as_taggable_on :skills, :values, :locations
 
   def user_favorite(user)
     self.favorites.where(user_id: user.id).first
@@ -65,17 +65,7 @@ class Job < ApplicationRecord
     end
   end
 
-  def salary_range
-    return nil
-  end
-
   def text_skills
     self.skills.map { |skill| clean_skill(skill) }.uniq
-  end
-
-  def add_salaries(salaries)
-    salaries.each do |salary|
-     self.salary_list.add(salary) unless salary_list.include?(salary)
-    end
   end
 end

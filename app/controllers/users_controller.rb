@@ -96,7 +96,6 @@ class UsersController < ApplicationController
   def set_collections
     @skills = User::SKILLS
     @values = User::VALUES
-    @salaries = User::SALARIES
     @locations = User::LOCATIONS
   end
 

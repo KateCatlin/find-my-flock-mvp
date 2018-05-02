@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, on: :update
   validates :resume, presence: true, on: :update_resume
 
-  acts_as_taggable_on :skills, :values, :salaries, :locations
+  acts_as_taggable_on :skills, :values, :locations
 
   def add_tags(tags)
    self.value_list = tags["values"]
@@ -92,12 +92,6 @@ class User < ApplicationRecord
       end
     end
     new_hash
-  end
-
-  def add_salaries(salaries)
-    salaries.each do |salary|
-     self.salary_list.add(salary) unless salary_list.include?(salary)
-    end
   end
 
   def have_sponsorship?

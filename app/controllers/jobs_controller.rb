@@ -43,7 +43,6 @@ class JobsController < ApplicationController
   def set_collections
     @skills = Job::SKILLS
     @values = Job::VALUES
-    @salaries = Job::SALARIES
     @locations = Job::LOCATIONS
   end
 
