@@ -1,20 +1,21 @@
-<div class="login-form forgot-password">
-  <h1 class="centered padded-title home-title">Forgot your password?</h2>
+<div class="row justify-content-center">
+  <div class="col-xs-11 col-sm-11 col-md-8">
 
-<div class="inside-login-form">
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="login-form">
+
+      <h4 class="centered login-title">Forgot your password?</h4>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
+    <%= f.input :email, required: true, autofocus: true, label: 'Enter your email address:', placeholder: 'Email' %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <div class="centered">
+    <%= f.button :submit, "Reset my Password", class: "btn-orange log-in-button centered" %>
   </div>
+    <% end %>
 
-  <div class="login-form-bot centered">
-  <div class="form-actions log-in-button">
-    <%= f.button :submit, "Reset my Password", class: "btn-orange" %>
   </div>
-<% end %>
 </div>
-</div>
-</div>
+
+
+
 
