@@ -2,90 +2,90 @@
 
   <div class="row justify-content-center">
     <div class="col-xs-9">
-       <% if !@job.title %>
-       <h4>Submit a job</h4>
-       <p class="no-space">Please tell us a little more about this role</p>
-       <% else %>
-       <h4> Edit <%= @job.title %> </h4>
-        <p class="no-space">What would you like to change about this role?</p>
-        <% end %>
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs justify-content-center" role="tablist">
-        <li class="nav-tab">
-          <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal-info" role="tab">Personal info</a>
-        </li>
-        <li class="nav-tab">
-          <a class="nav-link" id="cv-tab" data-toggle="tab" href="#cv" role="tab">CV & Photo</a>
-        </li>
-        <li class="nav-tab">
-          <a class="nav-link" id="locations-tab" data-toggle="tab" href="#locations" role="tab">Locations</a>
-        </li>
-        <li class="nav-tab">
-          <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab">Skills</a>
-        </li>
-        <li class="nav-tab">
-          <a class="nav-link" data-toggle="tab" id="values-tab" href="#values" role="tab">Values</a>
-        </li>
-        <li class="nav-tab">
-          <a class="nav-link" data-toggle="tab" id="salary-tab" href="#salary" role="tab">Salary</a>
-        </li>
-      </ul>
-      <!-- Tab panes -->
-      <div class="tab-content active ">
-        <div class="tab-pane active" id="personal-info" role="tabpanel">
-          <div class="form-box">
+     <% if !@job.title %>
+     <h4>Submit a job</h4>
+     <p class="no-space">Please tell us a little more about this role</p>
+     <% else %>
+     <h4> Edit <%= @job.title %> </h4>
+     <p class="no-space">What would you like to change about this role?</p>
+     <% end %>
+     <!-- Nav tabs -->
+     <ul class="nav nav-tabs justify-content-center" role="tablist">
+      <li class="nav-tab">
+        <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal-info" role="tab">Personal info</a>
+      </li>
+      <li class="nav-tab">
+        <a class="nav-link" id="cv-tab" data-toggle="tab" href="#cv" role="tab">CV & Photo</a>
+      </li>
+      <li class="nav-tab">
+        <a class="nav-link" id="locations-tab" data-toggle="tab" href="#locations" role="tab">Locations</a>
+      </li>
+      <li class="nav-tab">
+        <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab">Skills</a>
+      </li>
+      <li class="nav-tab">
+        <a class="nav-link" data-toggle="tab" id="values-tab" href="#values" role="tab">Values</a>
+      </li>
+      <li class="nav-tab">
+        <a class="nav-link" data-toggle="tab" id="salary-tab" href="#salary" role="tab">Salary</a>
+      </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content active ">
+      <div class="tab-pane active" id="personal-info" role="tabpanel">
+        <div class="form-box">
 
-            <div class="row">
-              <div class="col-xs-3">
-                <div class = "avatar-edit">
+          <div class="row">
+            <div class="col-xs-3">
+              <div class = "avatar-edit">
 
-                          <% if current_user %>
-                            <% if current_user.photo %>
-                              <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
-                            <% else %>
-                              <%= image_tag("user", class: "avatar ", style:"width:100px ") %>
-                            <% end %>
-                            <% else %>
-                          <% end %>
-                </div>
+                <% if current_user %>
+                <% if current_user.photo %>
+                <%#= cl_image_tag current_user.photo, class: "avatar", style: "width: 100px"%>
+                <% else %>
+                <%= image_tag("user", class: "avatar ", style:"width:100px ") %>
+                <% end %>
+                <% else %>
+                <% end %>
               </div>
+            </div>
 
-              <div class="col-xs-6">
+            <div class="col-xs-6">
 
-                <%= simple_form_for(@job) do |f| %>
-                <%= f.error_notification %>
-                <%= f.input :title, :label_html => { :class => 'form-text' } %>
-                <%= f.input :company, :label_html => { :class => 'form-text' } %>
-                <%= f.input :description, :label_html => { :class => 'form-text' } %>
-                <%= f.check_box :US_work_permit_job, as: :boolean %>
-                <%= f.label :US_work_permit_job, "The company can sponsor US employement (e.g. H1B).", style: "font-weight: lighter", :class => "checkbox inline"%>
-                <br>
-                <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
-              </div>
+              <%= simple_form_for(@job) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :title, :label_html => { :class => 'form-text' } %>
+              <%= f.input :company, :label_html => { :class => 'form-text' } %>
+              <%= f.input :description, :label_html => { :class => 'form-text' } %>
+              <%= f.check_box :US_work_permit_job, as: :boolean %>
+              <%= f.label :US_work_permit_job, "The company can sponsor US employement (e.g. H1B).", style: "font-weight: lighter", :class => "checkbox inline"%>
+              <br>
+              <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="tab-pane" id="cv" role="tabpanel">
-         <div class="form-box">
-          <div class="form-inputs">
-            <h4 class="no-space"> Upload your CV & Profile picture </h4>
-            <br>
-            <div class="row">
-              <div class="col-sm-3">
-                <% if current_user %>
-                  <% if current_user.photo %>
-                  <% else %>
-                    <%= image_tag("user", class: "avatar", style:"width:100px ") %>
-                  <% end %>
-                <% end %>
+      <div class="tab-pane" id="cv" role="tabpanel">
+       <div class="form-box">
+        <div class="form-inputs">
+          <h4 class="no-space"> Upload your CV & Profile picture </h4>
+          <br>
+          <div class="row">
+            <div class="col-sm-3">
+              <% if current_user %>
+              <% if current_user.photo %>
+              <% else %>
+              <%= image_tag("user", class: "avatar", style:"width:100px ") %>
+              <% end %>
+              <% end %>
             </div>
-              <div class="col-sm-6">
-                <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
+            <div class="col-sm-6">
+              <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text' } %>
               <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
-               <br>
-        <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
-             </div>
+              <br>
+              <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
+            </div>
           </div>
         </div>
 
@@ -106,49 +106,50 @@
     </div>
   </div>
 
-    <div class="tab-pane" id="skills" role="tabpanel">
-     <div class="form-box">
-      <div class="form-inputs">
-        <h4 class="no-space"> What skills do you NEED in this role? </h4>
-        <p>Only add what is truly necessary. 5 at most. You will filter out ALL candidates without EVERY SINGLE qualification.</p>
+  <div class="tab-pane" id="skills" role="tabpanel">
+   <div class="form-box">
+    <div class="form-inputs">
+      <h4 class="no-space"> What skills do you NEED in this role? </h4>
+      <p>Only add what is truly necessary. 5 at most. You will filter out ALL candidates without EVERY SINGLE qualification.</p>
 
-        <br>
-
-  <%= content_for(:after_js) do %>
-    <script>
-      $('.select2').val(<%= raw @user_readable_skills %>)
-
-    </script>
-  <% end %>
-
-        <%= t.input :skills, collection: @skills, input_html: {value: @job.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
-      </div>
       <br>
-      <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
-    </div>
-  </div>
-  <div class="tab-pane" id="values" role="tabpanel">
-    <div class="form-box">
-      <h4 class="no-space">What benefits do you offer? </h4>
-      <p>Note: Select them all. Candidates will <em>ONLY</em> see jobs with the benefits they select.</p>
-      <br>
-      <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
-      <br>
-      <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
-    </div>
-  </div>
-  <div class="tab-pane" id="salary" role="tabpanel">
-    <div class="form-box">
-      <h4 class="no-space">Choose salary ranges you would consider: </h4>
-      <p>If it's not important just leave it blank.</p>
 
-      <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+      <%= content_for(:after_js) do %>
+      <script>
+        $('.select2').val(<%= raw @user_readable_skills %>)
+
+      </script>
       <% end %>
-      <br>
-      <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified'%>
+
+      <%= t.input :skills, collection: @skills, input_html: {value: @job.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
     </div>
-    <% end %>
+    <br>
+    <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
   </div>
+</div>
+<div class="tab-pane" id="values" role="tabpanel">
+  <div class="form-box">
+    <h4 class="no-space">What benefits do you offer? </h4>
+    <p>Note: Select them all. Candidates will <em>ONLY</em> see jobs with the benefits they select.</p>
+    <br>
+    <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+    <br>
+    <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
+  </div>
+</div>
+<div class="tab-pane" id="salary" role="tabpanel">
+  <div class="form-box">
+    <h4 class="no-space">What is the maximuj annual salary you would consider? </h4>
+    <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes. </p>
+    <p>If you're open to any salary, just leave it blank.</p>
+
+    <%= f.input :max_salary, :label_html => { :class => 'form-text' } %>
+    <% end %>
+    <br>
+    <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified'%>
+  </div>
+  <% end %>
+</div>
 </div>
 </div>
 </body>
@@ -204,4 +205,4 @@
           }
 
         }
-    </script>
+      </script>

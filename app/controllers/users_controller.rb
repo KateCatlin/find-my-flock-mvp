@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   def update
     if current_user
-      binding.pry
       if @user.update(user_params)
         @user.add_tags(params[:tags])
         resume_name = params[:user][:resume_file_path].original_filename if params[:user][:resume_file_path]
