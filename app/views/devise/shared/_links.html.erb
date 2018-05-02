@@ -3,10 +3,9 @@
     Do you already have an account? <%= link_to "Log in now »", new_session_path(resource_name)  %><br>
     <% end -%>
 
-    <%- if controller_name = 'sessions' %>
+    <%- if controller_name != 'registrations' %>
     New to Find My Flock? <%= link_to "Sign up now »", new_registration_registration_path  %><br>
     <% end -%>
-
 
 
 <%- if devise_mapping.omniauthable? %>

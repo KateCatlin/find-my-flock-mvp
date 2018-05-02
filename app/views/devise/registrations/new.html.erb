@@ -1,29 +1,33 @@
-<div class="login-form">
-<h1 class="centered padded-title home-title">Sign up</h2>
+<div class="row justify-content-center">
+  <div class="col-xs-11 col-sm-11 col-md-8">
 
-<div class="form-border">
-  <div class="inside-login-form">
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <div class="login-form">
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :gets_mail, :label => 'Receive occasional emails about user-bonuses and updates to our service', :input_html => { :checked => true }, :label_html => { :class => 'small-text' } %>
+      <h4 class="centered login-title">Create your account</h4>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+          <%= f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email' %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false, placeholder: 'Password' %>
+          <%= f.input :password_confirmation, required: true, label: false, placeholder: 'Password confirmation' %>
+
+          <%= f.button :submit, "Sign up", class: "btn-orange log-in-button" %>
+
+          <div class="inline">
+            <%= f.input :gets_mail, :label => 'Receive occasional emails about user-bonuses and updates to our service', :input_html => { :checked => true }, :label_html => { :class => 'small-text' } %>
+          </div>
+
+        <% end %>
+
+      </div>
+
+      <div class="login-form-bottom">
+        <div>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+
   </div>
 </div>
-<div class="login-form-bot centered registration-button">
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "btn-orange"%>
-  </div>
-<% end %>
-</div>
 
-<div class="centered">
-      <%= render "devise/shared/links" %>
-    </div>
-</div>
-</div>
-</div>
 

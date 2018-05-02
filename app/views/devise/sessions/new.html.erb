@@ -13,6 +13,7 @@
           <div class="inline">
             <%= f.input :remember_me,  :label_html => { :class => 'small-text' }, as: :boolean if devise_mapping.rememberable? %>
           </div>
+
           ·
           <div class="inline">
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
@@ -25,7 +26,6 @@
       </div>
 
       <div class="login-form-bottom">
-
         <div>
           <%= render "devise/shared/links" %>
         </div>
