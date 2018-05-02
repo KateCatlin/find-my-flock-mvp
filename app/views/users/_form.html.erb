@@ -179,10 +179,13 @@
 </div>
 <div class="tab-pane" id="salary" role="tabpanel">
   <div class="form-box">
-    <h4 class="no-space">Choose salary ranges you would consider: </h4>
-    <p>If it's not important just leave it blank.</p>
+    <h4 class="no-space">What is the minimum annual salary you would consider? </h4>
+    <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes. </p>
+    <p>If you're open to any salary, just leave it blank.</p>
 
-    <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+    <%= f.input :min_salary, label: "$" %>
+
+
     <% end %>
     <br>
     <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', style:"font-family: Montserrat", data: { disable_with: false } %>

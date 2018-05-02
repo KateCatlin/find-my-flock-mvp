@@ -52,12 +52,11 @@
       </div>
 
       <div class="grid-second-column-second">
-        <div class="values small-padded-title" style="text-align: center">Salary range:</div>
+        <div class="values small-padded-title" style="text-align: center">Salary:</div>
         <% if @job.salary_range %>
         <div class="salary"><%= @job.salary_range[0] %> - <%= @job.salary_range[1] %>  </div>
         <% else %>
-        <div class="salary"> Unlisted </div>
-        <% end %>
+        <div class="salary"> Above your minimum. </div>
         <div class="values small-padded-title" style="text-align: center">US work sponsorship:</div>
         <% if (@job.US_work_permit_job == false) %>
           <div class="centered" style="font-size: 18px">The company cannot provide US work sponsorship.</div>

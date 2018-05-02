@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419085847) do
+ActiveRecord::Schema.define(version: 20180501212729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180419085847) do
     t.string "cached_skill_list"
     t.string "photo"
     t.boolean "US_work_permit_job", default: false
+    t.integer "max_salary", default: 200000
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -89,6 +90,7 @@ ActiveRecord::Schema.define(version: 20180419085847) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.datetime "deleted_at"
     t.boolean "gets_mail"
     t.index ["email"], name: "index_registrations_on_email", unique: true
     t.index ["reset_password_token"], name: "index_registrations_on_reset_password_token", unique: true
@@ -127,10 +129,12 @@ ActiveRecord::Schema.define(version: 20180419085847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.string "status"
     t.boolean "is_active", default: true
     t.string "resume_name"
     t.string "photo_name"
     t.boolean "US_work_permit", default: false
+    t.integer "min_salary"
     t.index ["registration_id"], name: "index_users_on_registration_id"
   end
 

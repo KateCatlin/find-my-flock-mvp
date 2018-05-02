@@ -13,8 +13,6 @@ class User < ApplicationRecord
   acts_as_taggable_on :skills, :values, :salaries, :locations
 
   def add_tags(tags)
-   add_salaries(tags["salaries"].compact)
-   self.save!
    self.value_list = tags["values"]
    self.save!
    save_locations(tags["locations"])
