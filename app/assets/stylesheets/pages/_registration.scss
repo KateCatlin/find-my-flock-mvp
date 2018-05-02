@@ -1,12 +1,37 @@
 .login-form {
   padding-left: 15%;
   padding-right: 15%;
-  padding-bottom: 7vh;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  border: 1px solid #f0f0f0;
+  background-color: white;
+  margin-top: 3vh;
+}
+
+.login-form-bottom {
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  border: 1px solid #f0f0f0;
+  background-color: #3c3b3a;
+  color: #b7b7b7;
+  font-size: 15px;
+  line-height: 2;
+
+  a {
+    font-family: Lora;
+    color: #42a8b7
+  }
 }
 
 .inside-login-form {
   padding-left: 15%;
   padding-right: 15%;
+}
+
+.small-text {
+  font-size: 14px
 }
 
 @media (max-width: 800px) {
@@ -19,8 +44,32 @@
 .log-in-button {
   margin-bottom: 5vh;
   margin-top: 5vh;
+  margin-right: 4vh;
+}
+
+//////
+
+.registration-grid {
+  border: 1px solid #f0f0f0;
+  padding: 21px 25px;
+  background-color: white;
+  margin-top: 2vh;
+
+}
+
+.inline {
+  display: inline-block;
 }
 
 .forgot-password {
-    height: 70vh
-  }
+  font-family: 'Lora', serif;
+  color: #42a8b7;
+
+}
+
+.login-title {
+   margin-top: 4vh;
+  margin-bottom: 4vh;
+
+}
+
