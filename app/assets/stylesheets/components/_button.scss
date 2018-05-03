@@ -61,13 +61,13 @@
 
   .btn-orange {
   padding: 10px 15px;
+  margin: 1vh;
   border: 1px solid $light-orange;
   transition: 0.1s background-color ease-in-out;
   text-decoration: none;
   color: white;
   letter-spacing: 5px;
   background-color: $light-orange;
-  transition: 0.5s padding ease-in-out;
   font-weight: 900;
   font-family: "Montserrat", "sans-serif";
   font-size: 15px;
@@ -75,7 +75,6 @@
 }
 
 .btn-orange:hover {
-  padding: 10px 50px;
   background-color: $light-orange;
   border: 1px solid $light-orange;
   text-decoration: none;
