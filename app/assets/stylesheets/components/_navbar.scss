@@ -19,6 +19,13 @@
 
 // LINKS ON THE RIGHT SIDE
 
+// Variables needed for the animation when hovering the navbar elements.
+
+$red: #ff9279;
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
 #nav-right-padding {
   margin-right: 30px;
   font-size: 11px;
@@ -27,11 +34,51 @@
   display: block;
   font-weight: 400;
 
+    a {
+  color: black;
+  transition: 0.5s ease all .3s;
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 8px;
 
-  a {
-  color: black
+   &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: -1px; right: 3px;
+      height: 2px;
+      background-color: $light-orange;
+    }
+    &:before {
+      opacity: 0;
+      transform: translateY(- $distance);
+      transition: transform 0s $easeOutBack, opacity 0s;
+    }
+    &:after {
+      opacity: 0;
+      transform: translateY($distance/2);
+      transition: transform $duration $easeOutBack, opacity $duration;
+    }
+
+    &:hover,
+    &:focus {
+      &:before,
+      &:after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      &:before {
+        transition: transform $duration $easeOutBack, opacity $duration;
+      }
+      &:after {
+        transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+      }
+    }
   }
 }
+
+
 
 #nav-right {
   font-size: 11px;
@@ -39,9 +86,52 @@
   display: block;
   font-weight: 400;
     a {
-  color: black
+  color: black;
+  transition: 0.5s ease all .3s;
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 8px;
+
+   &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: -1px; right: 3px;
+    height: 2px;
+    background-color: $light-orange;
+  }
+  &:before {
+    opacity: 0;
+    transform: translateY(- $distance);
+    transition: transform 0s $easeOutBack, opacity 0s;
+  }
+  &:after {
+    opacity: 0;
+    transform: translateY($distance/2);
+    transition: transform $duration $easeOutBack, opacity $duration;
+  }
+
+  &:hover,
+  &:focus {
+    &:before,
+    &:after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    &:before {
+      transition: transform $duration $easeOutBack, opacity $duration;
+    }
+    &:after {
+      transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+    }
   }
 }
+}
+
+
+
+
 
 // LOGO
 
@@ -71,19 +161,6 @@ ul {
   height: 40px;
   margin-left: 3%;
   margin-right: 3px;
-}
-
-.underline a:hover {
-  // border-bottom: 1px solid black;
-  padding-bottom: 5px;
-  box-shadow: inset 0px -12px 0px 0px $light-orange;
-
-}
-
-.underline-logout a:hover {
-  // border-bottom: 1px solid black;
-  padding-bottom: 5px;
-  box-shadow: inset 0px -12px 0px 0px #bfbfbf;
 }
 
 

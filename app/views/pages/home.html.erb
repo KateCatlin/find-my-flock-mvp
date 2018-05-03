@@ -8,9 +8,9 @@
     </a>
     <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
 
-    <li class="underline hidden-sm-down" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
-    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
-    <li class="underline-logout hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
+    <li class="hidden-sm-down" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
+    <li class="hidden-sm-down" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li class="hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
 
     <!-- Dropdown Menu -->
     <div class="dropdown hidden-md-up">
@@ -74,7 +74,7 @@
 
   <div class="banner" style="background-image: url('<%= image_path 'officeimgtransparency2.png', crop: :fill; %>') ;">
     <ul class="home-list">
-      <div class="headline">Jobs you <em class="underlined">want</em>.</div>
+      <div class="headline">Jobs you <em class="underlined-home-page">want</em>.</div>
       <h4 class="black-text">We'll find your personal dream job, matching your</h4>
         <h4 class="black-text"> <b class="boxed">skills, experiences</b> and <b class="boxed">desired benefits</b>.</h4>
 

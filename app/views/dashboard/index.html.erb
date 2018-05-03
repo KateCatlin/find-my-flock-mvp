@@ -1,18 +1,21 @@
 <body class="dashboard">
 
   <div class="dashboard-header">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center centered align-self-center">
-        <%= cl_image_tag current_user.photo, height: 200, width: 200, crop: :fill, :radius => :max, :gravity => :face %>
+    <div class="row justify-content-center centered">
+      <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
+        <%= cl_image_tag current_user.photo, height: 180, width: 180, crop: :fill, :radius => :max, :gravity => :face %>
       </div>
 
       <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
-        <h3 class="centered dashboard-home small-padded-text"><div class="underlined-medium">Your Dashboard</div></h2>
+        <div class="heading-box">
+        <h3 class="centered dashboard-home">
+          <div class="underlined-medium">Your Dashboard</div></h3>
+          <br>
         <p class="centered">Here you can find all your matched opportunities, <br> roles you've favorited, and live applications you've submitted.</p>
       </div>
     </div>
   </div>
-
+</div>
 
   <div class="tabs">
     <ul class="list-inline nav justify-content-center nav-tabs">

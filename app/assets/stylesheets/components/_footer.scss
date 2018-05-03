@@ -18,21 +18,52 @@
   padding: 3%;
   margin-top: 40px;
   margin-bottom: 0px;
-      position: absolute;
-    bottom: -75px;
-
-
-
-  .underline a:hover {
-  // border-bottom: 1px solid black;
-  padding-bottom: 5px;
-  box-shadow: inset 0px -12px 0px 0px #6d6d6d;
-  }
+  position: absolute;
+  bottom: -75px;
 
   a {
     text-decoration: none;
     color: white;
     letter-spacing: 5px;
+    transition: 0.5s ease all .3s;
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 8px;
+
+   &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: -1px; right: 3px;
+      height: 2px;
+      background-color: #6d6d6d;
+    }
+    &:before {
+      opacity: 0;
+      transform: translateY(- $distance);
+      transition: transform 0s $easeOutBack, opacity 0s;
+    }
+    &:after {
+      opacity: 0;
+      transform: translateY($distance/2);
+      transition: transform $duration $easeOutBack, opacity $duration;
+    }
+
+    &:hover,
+    &:focus {
+      &:before,
+      &:after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      &:before {
+        transition: transform $duration $easeOutBack, opacity $duration;
+      }
+      &:after {
+        transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+      }
+    }
   }
 }
 
