@@ -46,7 +46,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
       content: '';
       position: absolute;
       bottom: 0px;
-      left: -1px; right: 0;
+      left: -1px; right: 3px;
       height: 2px;
       background-color: $light-orange;
     }
@@ -97,7 +97,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     content: '';
     position: absolute;
     bottom: 0px;
-    left: -1px; right: 0;
+    left: -1px; right: 3px;
     height: 2px;
     background-color: $light-orange;
   }
