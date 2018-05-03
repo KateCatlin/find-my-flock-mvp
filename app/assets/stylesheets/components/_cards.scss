@@ -116,7 +116,21 @@
 .saveme {
   font-size: 10px;
   text-transform: uppercase;
-  font-weight: bolder;
+
+    a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.inline {
+  display: inline-flex;
+  align-items: center;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 @media (min-width: 1000px)  {
