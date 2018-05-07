@@ -179,11 +179,14 @@
 </div>
 <div class="tab-pane" id="salary" role="tabpanel">
   <div class="form-box">
-    <h4 class="no-space">What is the minimum annual salary you would consider? </h4>
+    <h4 class="no-space">What is the minimum <em>ANNUAL</em> salary you would consider? </h4>
     <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes. </p>
     <p>If you're open to any salary, just leave it blank.</p>
 
-    <%= f.input :min_salary, :label_html => { :class => 'form-text' } %>
+    <div class="form-inline">
+    <%= f.label '$'%> <p>&ensp;</p>
+    <%= f.input :min_salary, tabindex: 25, label: false, :value=> "$ #{number_to_currency(f.object.min_salary)}" %> <p>&ensp; / per year</p>
+  </div>
 
     <% end %>
     <br>
