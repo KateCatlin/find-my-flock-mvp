@@ -179,10 +179,15 @@
 </div>
 <div class="tab-pane" id="salary" role="tabpanel">
   <div class="form-box">
-    <h4 class="no-space">Choose salary ranges you would consider: </h4>
-    <p>If it's not important just leave it blank.</p>
+    <h4 class="no-space">What is the minimum <em>ANNUAL</em> salary you would consider? </h4>
+    <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes. </p>
+    <p>If you're open to any salary, just leave it blank.</p>
 
-    <%= t.input :salaries, collection: @salaries, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+    <div class="form-inline">
+    <%= f.label '$'%> <p>&ensp;</p>
+    <%= f.input :min_salary, tabindex: 25, label: false, :label_html => { :class => 'form-text' }  %> <p>&ensp; / per year</p>
+  </div>
+
     <% end %>
     <br>
     <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', style:"font-family: Montserrat", data: { disable_with: false } %>
@@ -198,13 +203,15 @@
 </div>
 </div>
 
+
 </body>
+
+
 
 <script>
   //const resume = document.getElementById('user_resume_file_path')
 
   //resume.style.display = "none"
-
 
       // GRAB all the next buttons
       const items = document.querySelectorAll('.nav-link');
@@ -246,6 +253,8 @@
 
           const firstName = document.querySelector("#user_first_name").value
           const lastName = document.querySelector("#user_last_name").value
+          const minSalary = document.querySelector("#user_min_salary").value
+
           if (firstName.replace(/\s/g, '') == "") {
             alert("Please enter a first name");
             return false;
@@ -307,6 +316,7 @@
           fakePhotoBtn.innerText = "Change Photo"
 
         })
+
       </script>
 
 
