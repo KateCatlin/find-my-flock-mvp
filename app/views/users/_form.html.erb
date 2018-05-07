@@ -185,7 +185,7 @@
 
     <div class="form-inline">
     <%= f.label '$'%> <p>&ensp;</p>
-    <%= f.input :min_salary, tabindex: 25, label: false, :value=> "$ #{number_to_currency(f.object.min_salary)}" %> <p>&ensp; / per year</p>
+    <%= f.input :min_salary, tabindex: 25, label: false, :label_html => { :class => 'form-text' }  %> <p>&ensp; / per year</p>
   </div>
 
     <% end %>
@@ -203,13 +203,15 @@
 </div>
 </div>
 
+
 </body>
+
+
 
 <script>
   //const resume = document.getElementById('user_resume_file_path')
 
   //resume.style.display = "none"
-
 
       // GRAB all the next buttons
       const items = document.querySelectorAll('.nav-link');
