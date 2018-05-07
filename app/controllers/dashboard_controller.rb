@@ -28,15 +28,9 @@ class DashboardController < ApplicationController
       location_matched_jobs = value_matched_jobs.tagged_with(current_user.location_list, :any => true)
     end
 
-    # @jobs.each do |job|
-    #   if job.provide_sponsorship? == true
-    #     sponsored_jobs << job
-    #   end
-    # end
-
     not_sponsored_jobs = []
 
-      @jobs.each do |job|
+    @jobs.each do |job|
       if job.provide_sponsorship? == false
         not_sponsored_jobs << job
       end
@@ -47,7 +41,6 @@ class DashboardController < ApplicationController
     else
       sponsorship_matched_jobs = (location_matched_jobs - not_sponsored_jobs)
     end
-
 
     skill_matched_jobs = []
     array_of_user_skills = current_user.skill_list.map(&:downcase)
@@ -60,20 +53,17 @@ class DashboardController < ApplicationController
       end
     end
 
-    if current_user.salary_list.empty?
+    if current_user.min_salary.nil?
       return skill_matched_jobs
     else
       jobs = skill_matched_jobs
-      user_salaries = current_user.salary_list
       matched_jobs = []
       jobs.each do |job|
-        user_salaries.each do |salary|
-          if job.salary_list.include?(salary)
-            matched_jobs << job unless matched_jobs.include?(job)
-          end
+        if job.max_salary > current_user.min_salary
+          matched_jobs <<  job
         end
       end
     end
-    return matched_jobs
-  end
+  return matched_jobs
+end
 end

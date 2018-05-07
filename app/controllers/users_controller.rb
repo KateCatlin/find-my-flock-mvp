@@ -86,7 +86,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit)
+    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit, :min_salary)
   end
 
    def second_user_params
@@ -96,7 +96,6 @@ class UsersController < ApplicationController
   def set_collections
     @skills = User::SKILLS
     @values = User::VALUES
-    @salaries = User::SALARIES
     @locations = User::LOCATIONS
   end
 

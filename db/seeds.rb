@@ -18,15 +18,10 @@ puts "Drop it like it's Seed, drop it likes it's Seed.."
 job = Job.new(
   title: "Cybersecurity Team Lead",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Crush on cartography? Help build an open-source mapping tool that powers over 50,000 apps, processes data at a petabyte scale, and reaches a quarter billion people per month. This leadership role is specific to the security team, though you need not have security experience. You’ll bring your software background and strong communication skills to work daily, and inspire the team on security-related engineering projects spanning both software development and DevOps. ",
   US_work_permit_job: true
   )
-job.save!
-
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("Cybersecurity5", "Mentorship4", "Node.js2")
@@ -43,15 +38,10 @@ job.save!
 job = Job.new(
   title: "Creative Prototype Engineer",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Are you someone who's always thinking beyond what's perceived as possible? Help a B2B mapping startup play around with their API and SDKs and figure out new ways to use their product. Build demos and prototypes to inspire new customers and even the internal team.",
   US_work_permit_job: true
   )
-job.save!
-
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("JavaScript4", "UI1")
@@ -68,16 +58,10 @@ job.save!
 job = Job.new(
   title: "Android Developer",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. This team is looking for a number of native Android developers. Are you excited by bringing your Android chops to navigation-related apps, building out an SDK, or just shaping the future of mapping in mobile? This is the team for you!",
   US_work_permit_job: true
   )
-job.save!
-
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("Java3", "Android3")
@@ -94,16 +78,10 @@ job.save!
 job = Job.new(
   title: "iOS AR/VR Developer",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike. This role is particularly in building AR features into iOS apps! ",
   US_work_permit_job: false
   )
-job.save!
-
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("iOS4", "AR1", "VR1")
@@ -120,16 +98,10 @@ job.save!
 job = Job.new(
   title: "iOS Navigation Developer",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike. This role is particularly in building AR features into iOS apps! ",
   US_work_permit_job: false
   )
-job.save!
-
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("iOS4", "Swift1", "Objective-C1", "Mentorship1")
@@ -146,16 +118,10 @@ job.save!
 job = Job.new(
   title: "iOS  Developer",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Change the way people move around the world in a role with a mapping company whose tech is used in millions of devices. The iOS team gets to play many roles. You'll implement features, triage bug fixes, share info with the sales team, build tools for GPS tracking, squash bugs, implement mapping APIs and even work with the sales team to provide feedback to potential clients. Basically, you'll create a better experience for people to receive turn by turn directions while they drive, walk or bike.",
   US_work_permit_job: false
   )
-job.save!
-
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("iOS4", "Swift1", "Objective-C1", "Mentorship1")
@@ -172,18 +138,10 @@ job.save!
 job = Job.new(
   title: "Sales Engineer",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Help a mapping API company move people through the world-- And their clients understand what this technology can empower. They're looking for an engineer who is great with code, but also likes people and creative demos. When potential new big enterprise clients come in, you'll help them 'get' how they can use this tech -- Whether they're mapping the spread of a disease or figuring out which parts of the farm need more water. You'll brainstorm how the customer could use this tech, build demos, provide training, and handle questions.",
   US_work_permit_job: false
   )
-job.save!
-
-job.salary_list.add("$110,000-$119,999")
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("Sales1", "JavaScript4", "Node.js1", "AWS1")
@@ -200,15 +158,10 @@ job.save!
 job = Job.new(
   title: "Engingineering Manager",
   company: "Mapping Startup",
+  max_salary: 200000,
   description: "Crush on cartography? Help build an open-source mapping tool that powers over 50,000 apps, processes data at a petabyte scale, and reaches a quarter billion people per month. As they grow and scale, they need more talented engineering managers to keep teams inspired and on-track. Teams looking include iOS, Cybersecurity, and the core software team. In some cases, management experience is not required so long as you have a strong technical background and bring some serious communications chops to the background.",
   US_work_permit_job: true
   )
-job.save!
-
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("node.js1", "management4")
@@ -227,14 +180,6 @@ job = Job.new(
   description: "We believe voting should fit the way we live. To that end, we build technology for both voters and election administrators that simplifies the process and ensures that no voter should ever have to miss an election. We pair program, collaborate with product managers, and make sure our efforts deliver value to voters. We rotate roles and projects on our team so that everyone gets a variety of experience and working relationships and can bring their unique strengths to as wide a swath of our work as possible.",
   US_work_permit_job: true
   )
-job.save!
-
-job.salary_list.add("$80,000-$89,999")
-job.salary_list.add("$90,000-$99,999")
-job.salary_list.add("$100,000-$109,999")
-job.salary_list.add("$110,000-$119,999")
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
 job.save!
 
 job.skill_list.add("Clojure2")
@@ -256,12 +201,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.save!
-
 job.skill_list.add("PHP4", "Python2")
 job.save!
 
@@ -281,12 +220,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.save!
-
 job.skill_list.add("JavaScript4", "Python2")
 job.save!
 
@@ -302,12 +235,6 @@ job = Job.new(
   description: "You'll be on the team helping VIP clients implement the product. You'll help them push the limits of this platform to achieve their goals. This could be during launch, making large architectural decisions, debugging complex problems, or building tools and plugins custom to their needs.",
   US_work_permit_job: false
   )
-job.save!
-
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
 job.save!
 
 job.skill_list.add("PHP4", "Wordpress1")
@@ -328,12 +255,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.save!
-
 job.skill_list.add("PHP4", "Wordpress1")
 job.save!
 
@@ -352,10 +273,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.save!
-
 job.skill_list.add("JavaScript4", "Python2")
 job.save!
 
@@ -372,11 +289,6 @@ job = Job.new(
   description: "Build the next generation of FinTech software at a fast-paced, fun, and growth-oriented startup led by a female CEO.",
   US_work_permit_job: false
   )
-job.save!
-
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
 job.save!
 
 job.skill_list.add("DevOps1", "Ruby5", "JavaScript2")
@@ -398,12 +310,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$110,000-$119,999")
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.save!
-
 job.skill_list.add("Python5")
 job.save!
 
@@ -420,10 +326,6 @@ job = Job.new(
   company: "FoodTech Startup",
   description: "Love how food brings people together? This company runs employee meal programs for hundreds of offices to help teams bond over lunch. Join a close-knit engineering team of 7 as a full-stack developer. You’ll work on small improvements and bug fixes with the occasional huge new feature. There’s also some DevOps work on tooling and deploy processes."
   )
-job.save!
-
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
 job.save!
 
 job.skill_list.add("DevOps1", "Ruby5", "JavaScript2")
@@ -443,13 +345,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$110,000-$119,999")
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.save!
-
 job.skill_list.add("Ruby4", "Rails3")
 job.save!
 
@@ -466,13 +361,6 @@ job = Job.new(
   company: "Clean Energy Startup",
   description: "Ready to be writing code for something that actually makes a difference in this world? Motivated by the changes to our climate and the challenges to our energy infrastructure? Want to be around others who are equally passionate? This TechStars alumni startup is transforming the energy industry by accelerating the proliferation of solar. They work specifically to make commercial solar an attractive investment to individual investors, large banks, and everything in between. The key to this is the automation that is made possible by software that streamlines the process of financing commercial solar projects. Join a small but growing startup as a backend Ruby engineer. You’ll be involved in a variety of functions, but working primarily on the technology reducing transaction costs and automating risk analysis. As they scale up the amount of solar infrastructure built through the platform, you’ll make sure the software can scale with it. "
   )
-job.save!
-
-job.salary_list.add("$110,000-$119,999")
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
 job.save!
 
 job.skill_list.add("Ruby4", "Rails3")
@@ -494,12 +382,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$100,000-$109,999")
-job.salary_list.add("$110,000-$119,999")
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.save!
-
 job.skill_list.add("Java3", "Mentorship2")
 job.save!
 
@@ -518,14 +400,6 @@ job = Job.new(
   )
 job.save!
 
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
-job.save!
-
 job.skill_list.add("Python4")
 job.save!
 
@@ -542,14 +416,6 @@ job = Job.new(
   company: "Global Education Nonprofit",
   description: "You'll help learners build mastery regardless of where they are, and regardless of whether they are accessing KA on the browser, on Android, or on iOS. You’ll create new, impactful ways for teachers and students to use online learning in the classroom. You’ll work on the content creation and translation tools that we rely on to expand our library of world-class educational content and bring it to an international audience. You'll help build cutting-edge infrastructure to enable students of all backgrounds to succeed on high-stakes assessments like the SAT and LSAT. Ultimately, you'll be part of helping millions of learners around the world unlock their full potential."
   )
-job.save!
-
-job.salary_list.add("$120,000-$129,999")
-job.salary_list.add("$130,000-$139,999")
-job.salary_list.add("$140,000-$149,999")
-job.salary_list.add("$150,000-$159,999")
-job.salary_list.add("$160,000-$160,999")
-job.salary_list.add("$170,000-$179,999")
 job.save!
 
 job.skill_list.add("Android4")
