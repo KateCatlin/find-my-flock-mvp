@@ -1,15 +1,15 @@
 <body class="form" onsubmit="return validateForm()">
 
 
-   <% if !current_user %>
-   <h4>Welcome to Find My Flock</h4>
-   <p class="no-space">Please tell us a little more about you</p>
-   <% end %>
+ <% if !current_user %>
+ <h4>Welcome to Find My Flock</h4>
+ <p class="no-space">Please tell us a little more about you</p>
+ <% end %>
 
-<div class="whole-form">
+ <div class="whole-form">
 
-     <ul class="nav nav-pills justify-content-center" role="tablist">
-   <div class="row">
+   <ul class="nav nav-pills justify-content-center" role="tablist">
+     <div class="row">
 
       <div class="col-xs-6 col-sm-4 col-md-2">
         <li class="nav-tab form-tab">
@@ -48,161 +48,181 @@
       </div>
 
 
-</div>
-    </ul>
+    </div>
+  </ul>
 
-<div class="row">
-  <div class="col-12">
+  <div class="row">
+    <div class="col-12">
 
-    <div class="tab-content active justify-content-center">
-      <div class="tab-pane active" id="personal-info" role="tabpanel">
-        <div class="form-box">
+      <div class="tab-content active justify-content-center">
+        <div class="tab-pane active" id="personal-info" role="tabpanel">
+          <div class="form-box">
 
-          <div class="row">
+            <div class="row">
 
-            <div class="col-xs-12">
+              <div class="col-xs-12">
 
 
-              <%= simple_form_for(@user) do |f| %>
-              <%= f.error_notification %>
-              <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
-              <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
-              <br>
-              <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
+                <%= simple_form_for(@user) do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
+                <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
+                <br>
+                <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="tab-pane" id="cv" role="tabpanel">
-       <div class="form-box">
-        <div class="form-inputs">
-          <h4 class="no-space"> Upload your CV & Profile picture </h4>
+        <div class="tab-pane" id="cv" role="tabpanel">
+         <div class="form-box">
+          <div class="form-inputs">
+            <h4 class="no-space"> Upload your CV & Profile picture </h4>
 
-          <div class="row">
-            <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-12">
 
 
-              <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text cvupload' } %>
-              <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
+                <%= f.input :photo, label: "Profile image", :label_html => { :class => 'form-text cvupload' } %>
+                <%= f.input :photo_cache, as: :hidden, class: "btn-wide" %>
 
-              <% if current_user.photo.file %>
+                <% if current_user.photo.file %>
 
                 <div class="row justify-content-center centered align-items-center">
                   <div class="col-xs-12 col-sm-9">
-                  <label for="user_photo" class= "btn" style="width:100%;" id= "fake_photo_button">Change Photo </label>
-                  <span style="padding-left: 10px;" id="photo_file_name"><%= current_user.photo_name %>
+                    <label for="user_photo" class= "btn" style="width:100%;" id= "fake_photo_button">Change Photo </label>
+                    <span style="padding-left: 10px;" id="photo_file_name"><%= current_user.photo_name %>
                     </span>
                   </div>
                   <div class="col-xs-12 col-sm-3">
-                  <%= cl_image_tag current_user.photo, height: 100, width: 100, crop: :fill, :radius => :max %>
+                    <%= cl_image_tag current_user.photo, height: 100, width: 100, crop: :fill, :radius => :max %>
                   </div>
                 </div>
 
-              <% else %>
+                <% else %>
 
-              <label for="user_photo" class= "btn" style="width:100%;" id="fake_photo_button">Upload Photo</label><span style="padding-left: 10px;" id="photo_file_name">No Photo Selected</span>
+                <label for="user_photo" class= "btn" style="width:100%;" id="fake_photo_button">Upload Photo</label><span style="padding-left: 10px;" id="photo_file_name">No Photo Selected</span>
 
-              <% end %>
+                <% end %>
 
-              <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text cvupload' } %>
-              <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
-              <h6>Format accepted: PDF, doc, docx, png</h5>
+                <%= f.input :resume_file_path, label: "Resume", :label_html => { :class => 'form-text cvupload' } %>
+                <%= f.input :resume_file_path_cache, as: :hidden , class: " btn-wide" %>
+                <h6>Format accepted: PDF, doc, docx, png</h5>
 
-              <% if current_user.resume_file_path.file %>
+                  <% if current_user.resume_file_path.file %>
 
-                <div class="row">
-                <div class="col-xs-12 col-sm-9">
-              <label for="user_resume_file_path" class= "btn" style="width:100%;" id= "fake_resume_button" >Change Resume</label><span style="padding-left: 10px;" id="resume_file_name"><%= current_user.resume_name %></span>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-9">
+                      <label for="user_resume_file_path" class= "btn" style="width:100%;" id= "fake_resume_button" >Change Resume</label><span style="padding-left: 10px;" id="resume_file_name"><%= current_user.resume_name %></span>
+                    </div>
+                  </div>
+
+                  <% else %>
+
+                  <label for="user_resume_file_path" class= "btn" style="width:100%;" id= "fake_resume_button" >Upload Resume</label><span style="padding-left: 10px;" id="resume_file_name">No Resume Selected</span>
+
+                  <% end %>
+                  <br>
+                  <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
+                </div>
               </div>
             </div>
 
-              <% else %>
-
-              <label for="user_resume_file_path" class= "btn" style="width:100%;" id= "fake_resume_button" >Upload Resume</label><span style="padding-left: 10px;" id="resume_file_name">No Resume Selected</span>
-
-              <% end %>
-              <br>
-              <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#locations" data-next-tab="locations-tab" role="tab">Next</a>
-            </div>
           </div>
         </div>
 
+        <div class="tab-pane" id="locations" role="tabpanel">
+         <div class="form-box">
+          <div class="form-inputs">
+            <h4 class="no-space"> Which locations do you want to work in? </h4>
+            <p>If you're open to any location, skip ahead.</p>
+
+            <%= simple_fields_for :tags do |t| %>
+            <%= t.input :locations, collection: @locations, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
+            <%= f.check_box :US_work_permit, as: :boolean %>
+            <%= f.label :US_work_permit, "I am legally authorized to work in the US without sponsorship", style: "font-weight: lighter" %>
+          </div>
+
+          <br>
+          <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#skills" role="tab" data-next-tab="skills-tab">Next</a>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="skills" role="tabpanel">
+       <div class="form-box">
+        <div class="form-inputs">
+          <h4 class="no-space"> What skills do you bring to the table? </h4>
+          <p>Add your top five skills from below.</p>
+
+          <%= content_for(:after_js) do %>
+          <script>
+            $('.select2').val(<%= raw @user_readable_skills %>)
+
+          </script>
+          <% end %>
+
+          <%= t.input :skills, collection: @skills, input_html: {value: @user.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
+        </div>
+        <br>
+        <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
       </div>
     </div>
 
-    <div class="tab-pane" id="locations" role="tabpanel">
-     <div class="form-box">
-      <div class="form-inputs">
-        <h4 class="no-space"> Which locations do you want to work in? </h4>
-        <p>If you're open to any location, skip ahead.</p>
-
-        <%= simple_fields_for :tags do |t| %>
-        <%= t.input :locations, collection: @locations, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
-        <%= f.check_box :US_work_permit, as: :boolean %>
-        <%= f.label :US_work_permit, "I am legally authorized to work in the US without sponsorship", style: "font-weight: lighter" %>
+    <div class="tab-pane" id="values" role="tabpanel">
+      <div class="form-box">
+        <h4 class="no-space">Choose what's important in a role: </h4>
+        <p>Note: You will <em>ONLY</em> see jobs with these benefits.</p>
+        <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
+        <br>
+        <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
       </div>
-
-      <br>
-      <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#skills" role="tab" data-next-tab="skills-tab">Next</a>
     </div>
-  </div>
+    <div class="tab-pane" id="salary" role="tabpanel">
+      <div class="form-box">
+        <h4 class="no-space">What is the minimum <em>ANNUAL</em> salary you would consider? </h4>
+        <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes. </p>
+        <p>If you're open to any salary, just leave it blank.</p>
 
-  <div class="tab-pane" id="skills" role="tabpanel">
-   <div class="form-box">
-    <div class="form-inputs">
-      <h4 class="no-space"> What skills do you bring to the table? </h4>
-      <p>Add your top five skills from below.</p>
+        <div class="form-inline">
+          <%= f.label '$'%> <p>&ensp;</p>
+          <%= f.input :min_salary, tabindex: 25, label: false, :label_html => { :class => 'form-text' }  %> <p>&ensp; / per year</p>
+        </div>
 
-      <%= content_for(:after_js) do %>
-      <script>
-        $('.select2').val(<%= raw @user_readable_skills %>)
-
-      </script>
+        <% end %>
+        <br>
+        <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', style:"font-family: Montserrat", data: { disable_with: false } %>
+      </div>
       <% end %>
-
-      <%= t.input :skills, collection: @skills, input_html: {value: @user.skills.join(", ")} ,label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%"} %>
     </div>
-    <br>
-    <a class="nav-link btn next-btn btn-wide" data-toggle="tab" href="#values" role="tab" data-next-tab="values-tab">Next</a>
   </div>
 </div>
-
-<div class="tab-pane" id="values" role="tabpanel">
-  <div class="form-box">
-    <h4 class="no-space">Choose what's important in a role: </h4>
-    <p>Note: You will <em>ONLY</em> see jobs with these benefits.</p>
-    <%= t.input :values, collection: @values, label: false, input_html: { class: 'select2', multiple: true, :style => "width: 100%" } %>
-    <br>
-    <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#salary" role="tab" data-next-tab="salary-tab">Next</a>
-  </div>
-</div>
-<div class="tab-pane" id="salary" role="tabpanel">
-  <div class="form-box">
-    <h4 class="no-space">What is the minimum <em>ANNUAL</em> salary you would consider? </h4>
-    <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes. </p>
-    <p>If you're open to any salary, just leave it blank.</p>
-
-    <div class="form-inline">
-    <%= f.label '$'%> <p>&ensp;</p>
-    <%= f.input :min_salary, tabindex: 25, label: false, :label_html => { :class => 'form-text' }  %> <p>&ensp; / per year</p>
-  </div>
-
-    <% end %>
-    <br>
-    <%= f.button :submit,  'Submit', :class => 'btn btn-wide btn-group-justified', style:"font-family: Montserrat", data: { disable_with: false } %>
-  </div>
-  <% end %>
 </div>
 </div>
-</div>
-</div>
-  </div>
 <!-- End of tab panes-->
 
 </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="informationModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <center><h4 class="modal-title">Where is this info going?</h4></center>
+        </div>
+        <div class="modal-body">
+          <center><p><strong>Welcome to Find My Flock!</strong><br>Next you'll create your profile. Honesty and accuracy will help you be successful in finding a job. <br><br> <strong>What happens when I apply?</strong><br>Your privacy is extremely important to us. The information shared here will be reviewed by a Job Finding Advocate from our team assigned specifically to you before being sent to an employer. <br>They'll become your biggest cheerleader! We'll make sure you aren't already working at the company you're applying to, that this will truly be a dream job for you, or we'll suggest others. <br><br> <strong>What gets shared?</strong><br>When your personal Job Finding Advocate submits your information to our client, they will only share your skills and resume from this form. Your desired salary and benefits will NOT be shared. You will have an opportunity to customize a resume or cover letter at that time. <br><br> We will never share your information with anyone else, or spam you with unwanted jobs/emails.</p></center>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-wide btn-group-justified" style:"font-family: Montserrat" width="100%" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+
+  </div>
+</div>
 
 </body>
 
@@ -212,6 +232,9 @@
   //const resume = document.getElementById('user_resume_file_path')
 
   //resume.style.display = "none"
+
+  // document.addEventListener("DOMContentLoaded", ('#myModal').modal('show'));
+  $('#informationModal').modal('show');
 
       // GRAB all the next buttons
       const items = document.querySelectorAll('.nav-link');
@@ -256,12 +279,12 @@
           const minSalary = document.querySelector("#user_min_salary").value
 
           if (firstName.replace(/\s/g, '') == "") {
-            alert("Please enter a first name");
+            alert("Please enter a first name.");
             return false;
             //submitButton.disabled = false;
           }
           if (lastName.replace(/\s/g, '') == "" ) {
-            alert("Please enter a last name");
+            alert("Please enter a last name.");
             return false;
           }
 
