@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update
   validates :resume, presence: true, on: :update_resume
+  validates :github_profile,
 
   acts_as_taggable_on :skills, :values, :locations
 
