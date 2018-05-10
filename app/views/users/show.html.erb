@@ -13,15 +13,10 @@
 
         <% if (current_user.linkedin_profile.present?) %>
             <%= link_to current_user.linkedin_profile do %>
-            <i class="fab fa-linkedin fa-2x"></i>
-        <br>
-        <br>
+              <i class="fab fa-linkedin fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
             <% end %>
           <% else %>
           <% end %>
-
-
-
 
         <p class="centered">Job search:</p>
         <h5 class="centered"> <%= current_user.return_activation_status %></h5>
