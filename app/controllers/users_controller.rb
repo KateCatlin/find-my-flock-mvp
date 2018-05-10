@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_collections, only: [:edit]
   before_action :set_user, only: [:show, :edit, :destroy, :update, :update_resume, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
+
   def index
   end
 
