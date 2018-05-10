@@ -86,11 +86,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit, :min_salary)
-  end
-
-   def second_user_params
-    params.permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit)
+    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit, :min_salary, :linkedin_profile)
   end
 
   def set_collections

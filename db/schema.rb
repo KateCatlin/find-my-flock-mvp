@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501212729) do
+ActiveRecord::Schema.define(version: 20180510132412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20180501212729) do
     t.string "photo_name"
     t.boolean "US_work_permit", default: false
     t.integer "min_salary"
+    t.string "linkedin_profile"
     t.index ["registration_id"], name: "index_users_on_registration_id"
   end
 
