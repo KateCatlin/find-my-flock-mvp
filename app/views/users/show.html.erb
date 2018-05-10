@@ -13,11 +13,11 @@
 
           <% if (current_user.github_profile.present?) %>
             <%= link_to current_user.github_profile do %>
-            <i class="fab fa-github fa-2x"></i>
-        <br>
-        <br>
+            <i class="fab fa-github fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
             <% end %>
           <% else %>
+        <br>
+        <br>
           <% end %>
 
         <p class="centered">Job search:</p>
