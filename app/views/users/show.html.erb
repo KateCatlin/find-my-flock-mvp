@@ -10,7 +10,16 @@
       <div class="heading-box">
         <h3 class="centered dashboard-home">
           <div class="underlined-medium">Your account</div></h3>
+
+          <% if (current_user.github_profile.present?) %>
+            <%= link_to current_user.github_profile do %>
+            <i class="fab fa-github fa-2x"></i>
         <br>
+        <br>
+            <% end %>
+          <% else %>
+          <% end %>
+
         <p class="centered">Job search:</p>
         <h5 class="centered"> <%= current_user.return_activation_status %></h5>
         <% if !current_user.location_list.empty? %>
