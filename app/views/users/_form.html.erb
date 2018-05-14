@@ -278,6 +278,8 @@
           const firstName = document.querySelector("#user_first_name").value
           const lastName = document.querySelector("#user_last_name").value
           const minSalary = document.querySelector("#user_min_salary").value
+          const linkedinProfile = document.querySelector("#user_linkedin_profile").value
+
 
           if (firstName.replace(/\s/g, '') == "") {
             alert("Please enter a first name.");
@@ -286,6 +288,11 @@
           }
           if (lastName.replace(/\s/g, '') == "" ) {
             alert("Please enter a last name.");
+            return false;
+          }
+
+           if (linkedinProfile.indexOf('http://') === -1 || linkedinProfile.indexOf('https://') === -1) {
+            alert("Please enter your LinkedIn profile URL in the correct format (PS: Don't forget to put the http:// at the beginning!)");
             return false;
           }
 
