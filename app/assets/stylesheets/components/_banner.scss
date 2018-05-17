@@ -8,30 +8,26 @@
 }
 
 .headline {
-  font-size: 50px;
-  font-weight: bolder;
   color: black;
-
+  font-size: 30px;
+  margin-right: 12%;
+  margin-left: 12%;
 }
 
-.secondline {
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 12vh;
-
+@media (max-width: 590px) {
+  .headline {
+    color: black;
+    font-size: 20px;
+    margin-right: 0%;
+    margin-left: 0%;
+  }
 }
-
 
 .underlined {
    padding-bottom: 5px;
   box-shadow: inset 0px -31px 0px 0px $light-orange;
 }
 
-.black-text {
-  color: black;
-      margin-right: 5vh;
-    margin-left: 5vh;
-}
 
 .upperlined {
  border-top: 1px solid #afafaf;
@@ -52,7 +48,7 @@
 }
 
 .boxed {
-  box-shadow: inset 0px -25px 0px 0px #ffd8c5;
+  box-shadow: inset 0px -36px 0px 0px #ffd8c5;
 }
 
  .home-list {
