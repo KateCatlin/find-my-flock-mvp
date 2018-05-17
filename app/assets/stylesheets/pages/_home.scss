@@ -10,6 +10,10 @@
 .icon-resized img {
   width: 80px;
 }
+
+.pictures-resized img {
+  width: 130px;
+}
 .table-borderless {
   border: 0;
   width: 25vh;
@@ -128,7 +132,17 @@
   flex-wrap: wrap;
 }
 
-.padding-table {
+.section-3 {
+  margin-left: 25vh;
+  margin-right: 25vh;
+}
+
+.flex-steps {
+  display: flex;
+  align-items: center;
+}
+
+.padding-home {
   padding-bottom: 5vh;
   padding-top: 5vh;
 }

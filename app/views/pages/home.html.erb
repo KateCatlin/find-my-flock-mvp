@@ -92,7 +92,7 @@
   <table class="table-borderless">
   <thead>
     <tr>
-      <th scope="col" class='centered icon-resized padding-table'><%=image_tag("affinitysearchicon.png")%></th>
+      <th scope="col" class='centered icon-resized padding-home'><%=image_tag("affinitysearchicon.png")%></th>
     </tr>
   </thead>
   <tbody>
@@ -105,7 +105,7 @@
 <table class="table-borderless">
   <thead>
     <tr>
-      <th scope="col" class='centered icon-resized padding-table'><%=image_tag("transparencyicon.png")%></th>
+      <th scope="col" class='centered icon-resized padding-home'><%=image_tag("transparencyicon.png")%></th>
     </tr>
   </thead>
   <tbody>
@@ -118,7 +118,7 @@
   <table class="table-borderless">
   <thead>
     <tr>
-      <th scope="col" class='centered icon-resized padding-table'><%=image_tag("timeicon.png")%></th>
+      <th scope="col" class='centered icon-resized padding-home'><%=image_tag("timeicon.png")%></th>
     </tr>
   </thead>
   <tbody>
@@ -131,7 +131,7 @@
 <table class="table-borderless">
   <thead>
     <tr>
-      <th scope="col" class='centered icon-resized padding-table'><%=image_tag("interviewicon.png")%></th>
+      <th scope="col" class='centered icon-resized padding-home'><%=image_tag("interviewicon.png")%></th>
     </tr>
   </thead>
   <tbody>
@@ -143,35 +143,44 @@
 
 </div>
 
-      <h1 class="centered padded-title home-title" id="arguments-joining">Why you should spend your next 60 seconds joining</h1>
+      <h3 class="centered home-title negative-padding black-text">How it works?</h3>
+<div class="section-3 centered">
 
-      <div class="arguments-container">
-        <div class="arguments col-xs-12 col-sm-12 col-md-6">
-          <div class="argument-box card-1" style="background-image: url('<%= image_path 'oneclick.png', crop: :fill; %>') ;">
-            <dl class="card-description">
-              <dt><h4 class="centered why-title">Reclaim Your Time</h4></dt>
-              <dd>Import info from LinkedIn or a resume.<br><br>Complete your profile in less than 60 seconds.<br><br>Apply to jobs in 1 click.</dd>
-            </dl>
-          </div>
-        </div>
-
-        <div class="arguments col-xs-12 col-sm-12 col-md-6">
-          <div class="argument-box card-2" style="background-image: url('<%= image_path 'chalkboard.png', crop: :fill; %>') ;">
-            <dl class="card-description">
-              <dt><h4 class="centered why-title">Search by benefits you need.</h4></dt>
-              <dd>Filter by paternal leave, beach access, salary, a Scala backend, or all of the above. <br><br>No one will see your information unless YOU agree it's a fit. </dd>
-            </dl>
-          </div>
-        </div>
-
-        <div class="arguments col-xs-12 col-sm-12 col-md-12">
-          <div class="argument-box card-3" style="background-image: url('<%= image_path 'importlinkedin.png', crop: :fill; %>') ;">
-           <dl class="card-description">
-            <dt><h4 class="centered why-title">Prioritize relationships</h4></dt>
-            <dd>Our algorithm gets all the boring parts out of the way. When you apply to a role, one of our career coaches will jump on the phone, answer any questions you have, and help you prep for interviews. You only have to focus on how you feel talking to your new potential team.</dd>
-          </dl>
-        </div>
+      <div class="row padding-home flex-steps">
+        <div class="col pictures-resized"><%=image_tag("createprofileicon.png")%></div>
+        <div class="col">1. <b>Create a profile</b> <br>
+Tell us about yourself — your skills, your
+preferred benefits, and your deal breakers.
+Our application respects your time.</div>
       </div>
+
+      <div class="row padding-home flex-steps">
+        <div class="col">2. <b>Search jobs</b> <br>
+Review job listings that match your unique
+self. Filter lists further or adjust preferences
+to see more or less jobs. </div>
+        <div class="col pictures-resized"><%=image_tag("filtericon.png")%></div>
+      </div>
+
+      <div class="row padding-home flex-steps">
+        <div class="col pictures-resized"><%=image_tag("applicationicon.png")%></div>
+        <div class="col">3. <b>Apply </b> <br>
+Apply for jobs and add a custom message to
+go with it. Your application will be reviewed
+by our team and if you are a good match
+we’ll arrange an introduction. </div>
+      </div>
+
+      <div class="row padding-home flex-steps">
+        <div class="col">4. <b>Interview with confidence</b> <br>
+If you are chosen for an interview we’ll get
+on the phone to provide free interview prep
+so that you’ll go in feeling your best self. </div>
+        <div class="col pictures-resized"><%=image_tag("coachingicon.png")%></div>
+      </div>
+
+
+</div>
 
 
 
