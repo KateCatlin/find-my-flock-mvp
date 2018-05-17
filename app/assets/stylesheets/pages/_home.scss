@@ -111,6 +111,22 @@
 }
 
 
+.section-2 {
+  margin-left: 10vh;
+  margin-right: 10vh;
+  display: inline-flex;
+}
+
+@media (max-width: 767px) {
+  .section-2 {
+    margin-left: 0vh;
+    margin-right: 0vh;
+    display: block;
+  }
+}
+
+
+
 // Responsiveness
 
 .dropdown-menu {
