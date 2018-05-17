@@ -7,6 +7,14 @@
 
 // Specific CSS for the colored cards / argument boxes: Why Joining Us?
 
+.icon-resized img {
+  width: 80px;
+}
+.table-borderless {
+  border: 0;
+  width: 25vh;
+  align-content: center;
+}
 
 .argument-box {
   background-color: red;
@@ -114,16 +122,17 @@
 .section-2 {
   margin-left: 10vh;
   margin-right: 10vh;
-  display: inline-flex;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 767px) {
-  .section-2 {
-    margin-left: 0vh;
-    margin-right: 0vh;
-    display: block;
-  }
+.padding-table {
+  padding-bottom: 5vh;
+  padding-top: 5vh;
 }
+
 
 
 
