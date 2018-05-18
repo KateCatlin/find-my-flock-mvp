@@ -75,6 +75,7 @@
   <div class="banner" style="background-image: url('<%= image_path 'officeimgtransparency2.png', crop: :fill; %>') ;">
     <ul class="home-list">
       <h4 class="headline">Find the company that values the <b>unique you</b>.</h4>
+      <br>
           <%= link_to 'Join', new_registration_registration_path, class: "btn btn-orange joinbutton" %>
           <%= link_to 'Log in', new_registration_session_path, class: "btn btn-orange" %>
 
@@ -95,7 +96,7 @@
       </div>
       <!-- First line wit icons -->
       <div class="section-2 centered">
-        <table class="table-borderless">
+        <table class="table-borderless" style="width: 60vh">
           <thead>
             <tr>
               <th scope="col" class='centered icon-resized padding-home'><%=image_tag("affinitysearchicon.png")%></th>
@@ -108,7 +109,7 @@
             </tbody>
           </table>
 
-          <table class="table-borderless">
+          <table class="table-borderless" style="width: 60vh">
             <thead>
               <tr>
                 <th scope="col" class='centered icon-resized padding-home'><%=image_tag("transparencyicon.png")%></th>
@@ -120,8 +121,9 @@
               </tr>
             </tbody>
           </table>
+          <br>
 
-          <table class="table-borderless">
+          <table class="table-borderless" style="width: 60vh">
             <thead>
               <tr>
                 <th scope="col" class='centered icon-resized padding-home'><%=image_tag("timeicon.png")%></th>
@@ -134,7 +136,7 @@
             </tbody>
           </table>
 
-          <table class="table-borderless">
+          <table class="table-borderless" style="width: 60vh">
             <thead>
               <tr>
                 <th scope="col" class='centered icon-resized padding-home'><%=image_tag("interviewicon.png")%></th>

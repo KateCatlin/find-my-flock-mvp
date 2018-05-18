@@ -17,7 +17,6 @@
 ·a
 .table-borderless {
   border: 0;
-  width: 25vh;
   align-content: center;
 }
 
@@ -136,6 +135,8 @@
 .section-3 {
   margin-left: 25vh;
   margin-right: 25vh;
+  max-width: 590px;
+  margin: auto;
 }
 
 @media (max-width: 800px) {
