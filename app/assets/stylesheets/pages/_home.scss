@@ -14,15 +14,7 @@
 .pictures-resized img {
   width: 130px;
 }
-
-.remove-margin-right {
-  margin-right: -127px;
-}
-
-.remove-margin-left {
-  margin-left: -127px;
-}
-
+·a
 .table-borderless {
   border: 0;
   width: 25vh;
@@ -144,6 +136,20 @@
 .section-3 {
   margin-left: 25vh;
   margin-right: 25vh;
+}
+
+@media (max-width: 800px) {
+  .section-3 {
+    margin-left: 15vh;
+    margin-right: 15vh;
+}
+}
+
+@media (max-width: 680px) {
+  .section-3 {
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
 }
 
 .flex-steps {
