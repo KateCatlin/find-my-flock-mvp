@@ -9,6 +9,7 @@
 
 .icon-resized img {
   width: 80px;
+  height: 80px;
 }
 
 .pictures-resized img {
@@ -128,8 +129,12 @@
   margin-right: 10vh;
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .section-3 {
