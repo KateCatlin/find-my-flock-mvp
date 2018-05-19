@@ -174,8 +174,7 @@
 }
 
 .testimonial-element {
-   width: 270px;
-  font-size: 15px;
+  width: 270px;
   margin-right: 2vh;
   margin-left: 2vh;
 }
@@ -192,6 +191,11 @@
   max-width: 120px;
   overflow: hidden;
   object-fit: cover;
+}
+
+.quote-mark {
+  font-family: "IM Fell Double Pica", "serif";
+  color: #f36d22;
 }
 
 @media (max-width: 800px) {
