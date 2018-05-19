@@ -144,6 +144,41 @@
   margin: auto;
 }
 
+.section-4 {
+  margin-left: 10vh;
+  margin-right: 10vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.testimonial-picture {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.testimonial-picture img {
+  height: 80%;
+}
+
+.testimonial-element {
+   width: 270px;
+  font-size: 15px;
+  margin-right: 2vh;
+  margin-left: 2vh;
+}
+
+.rounded-img img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
 @media (max-width: 800px) {
   .section-3 {
     margin-left: 15vh;
