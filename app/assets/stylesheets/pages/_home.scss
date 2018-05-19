@@ -153,6 +153,15 @@
   flex-wrap: wrap;
 }
 
+.section-5 {
+  margin-right: 15vh;
+  margin-left: 15vh;
+}
+
+.logo-home {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
 
 .testimonial-picture {
   width: 200px;
@@ -179,6 +188,12 @@
   object-fit: cover;
 }
 
+.resized-logo img {
+  max-width: 120px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
 @media (max-width: 800px) {
   .section-3 {
     margin-left: 15vh;
@@ -190,6 +205,21 @@
   .section-3 {
     margin-left: 5vh;
     margin-right: 5vh;
+}
+
+.section-4 {
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
+
+.section-5 {
+  margin-right: 5vh;
+  margin-left: 5vh;
+}
+.resized-logo img {
+  max-width: 90px;
+  overflow: hidden;
+  object-fit: cover;
 }
 }
 
