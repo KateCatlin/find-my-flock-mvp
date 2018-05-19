@@ -164,11 +164,24 @@
 }
 
 .padding-home {
-  padding-bottom: 5vh;
-  padding-top: 5vh;
+  padding-top: 8vh;
 }
 
+@media (max-width: 740px) {
+  .padding-home {
+    padding-top: 3vh;
+  }
+}
 
+.large-padding-home {
+  padding-top: 8vh;
+}
+
+@media (max-width: 575px) {
+  .large-padding-home {
+    padding-top: 6vh;
+  }
+}
 
 
 // Responsiveness
@@ -195,7 +208,7 @@
       font-weight: lighter;
     }
     .home-title {
-      font-size: 25px;
+      font-size: 23px;
     }
 
     .home-title.opportunities {
@@ -259,6 +272,7 @@
       margin-right: 5vh;
       margin-left: 5vh;
       margin-bottom: 3vh;
+      margin-top: 20vh;
     }
   }
 

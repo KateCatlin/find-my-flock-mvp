@@ -71,79 +71,92 @@
     <!-- End of dropdown menu -->
   </ul>
   <% end %>
+  <div class="section-1">
+    <div class="banner" style="background-image: url('<%= image_path 'officeimgtransparency2.png', crop: :fill; %>') ;">
+      <ul class="home-list">
+        <h3 class="headline">Find the company that values the <b>unique you</b>.</h3>
+        <br>
+        <%= link_to 'Join', new_registration_registration_path, class: "btn btn-orange joinbutton" %>
+        <%= link_to 'Log in', new_registration_session_path, class: "btn btn-orange" %>
 
-  <div class="banner" style="background-image: url('<%= image_path 'officeimgtransparency2.png', crop: :fill; %>') ;">
-    <ul class="home-list">
-      <h4 class="headline">Find the company that values the <b>unique you</b>.</h4>
-      <br>
-      <%= link_to 'Join', new_registration_registration_path, class: "btn btn-orange joinbutton" %>
-      <%= link_to 'Log in', new_registration_session_path, class: "btn btn-orange" %>
-
-      <!-- down blue arrow -->
-      <br>
-      <br>  <br>  <br>
-      <br>
-      <br>
-      <div id="section07" class="demo">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <!-- Beginning of Section 2 DRAFT-->
-      <h3 class="centered home-title black-text">The easiest way to find your dream job</h4>
-
-      </div>
-      <!-- First line wit icons -->
-      <div class="section-2 centered">
-
-        <div class="col">
-          <div class="row justify-center padding-home icon-resized">
-            <%=image_tag("affinitysearchicon.png")%>
-          </div>
-          <div class="row">
-            We  provide  the  ability  to  search  for  benefits  with  greater  nuance.
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="row justify-center padding-home icon-resized">
-            <%=image_tag("transparencyicon.png")%>
-          </div>
-          <div class="row">
-            More transparency around benefits, salary and company culture.
-          </div>
-        </div>
-
-        <div class="col centered">
-          <div class="row justify-center padding-home icon-resized">
-            <%=image_tag("timeicon.png")%>
-          </div>
-          <div class="row">
-           A fast application process that respects your time
-         </div>
-       </div>
-
-       <div class="col">
-        <div class="row justify-center padding-home icon-resized">
-          <%=image_tag("interviewicon.png")%>
-        </div>
-        <div class="row">
-          Get an interview coaching with a real human
+        <!-- down blue arrow -->
+        <br>
+        <br>
+        <br>
+        <br class="hidden-xs-down">
+        <br class="hidden-xs-down">
+        <br class="hidden-xs-down">
+        <div id="section07" class="demo">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </div>
+    <!-- Beginning of Section 2 -->
+    <br>
+    <br class="hidden-sm-up">
+    <h4 class="centered home-title black-text">The easiest way to find your dream job</h4>
+
   </div>
+  <div class="section-2 centered">
 
-  <!-- End of Section 2 DRAFT-->
+    <!-- First line wit icons -->
+    <div class="works-element" style="width: 200px">
+      <div class="col">
+        <div class="row justify-center padding-home icon-resized">
+          <%=image_tag("affinitysearchicon.png")%>
+        </div>
+        <div class="row small-padded-text">
+          We  provide  the  ability  to  search  for  benefits  with  greater  nuance.
+        </div>
+      </div>
+    </div>
+
+    <div class="works-element" style="width: 200px">
+      <div class="col">
+        <div class="row justify-center padding-home icon-resized">
+          <%=image_tag("transparencyicon.png")%>
+        </div>
+        <div class="row small-padded-text">
+          More transparency around benefits, salary and company culture.
+        </div>
+      </div>
+    </div>
+
+    <div class="works-element" style="width: 200px">
+      <div class="col">
+        <div class="row justify-center padding-home icon-resized">
+          <%=image_tag("timeicon.png")%>
+        </div>
+        <div class="row small-padded-text">
+         A fast application process that respects your time
+       </div>
+     </div>
+   </div>
+
+   <div class="works-element" style="width: 200px">
+     <div class="col">
+      <div class="row justify-center padding-home icon-resized">
+        <%=image_tag("interviewicon.png")%>
+      </div>
+      <div class="row small-padded-text">
+        Get an interview coaching with a real human
+      </div>
+    </div>
+  </div>
+</div>
 
 
-    <h3 class="centered home-title negative-padding black-text">How it works</h3>
-    <div class="section-3 centered">
+<!-- End of Section 2 -->
 
-      <div class="row padding-home ">
+<div class="section-3">
+  <h4 class="centered home-title negative-padding black-text">How it works</h3>
+    <div class="centered">
+
+      <div class="row large-padding-home ">
         <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("createprofileicon.png")%></div>
-        <div class="col-md-9 col-sm-9"><h5>1. Create a profile</h5>
+        <div class="col-md-9 col-sm-9"><h5 class="top-padding-text-limited">1. Create a profile</h5>
           Tell us about yourself — your skills, your
           preferred benefits, and your deal breakers.
         Our application respects your time.</div>
@@ -151,7 +164,7 @@
 
       <!-- Since the items ordering on bootstrap doesn't work, hide the wrong content on xs to display the ordered one -->
       <div class="hidden-xs-down">
-        <div class="row padding-home">
+        <div class="row large-padding-home">
           <div class="col-sm-9 col-md-9"><h5>2. Search jobs</h5>
             Review job listings that match your unique
             self. Filter lists further or adjust preferences
@@ -161,18 +174,18 @@
       </div>
 
       <div class="hidden-sm-up">
-        <div class="row padding-home">
+        <div class="row large-padding-home">
           <div class="col-sm-3 col-md-3 pictures-resized"><%=image_tag("filtericon.png")%></div>
-          <div class="col-sm-9 col-md-9"><h5>2. Search jobs</h5>
+          <div class="col-sm-9 col-md-9"><h5 class="top-padding-text">2. Search jobs</h5>
             Review job listings that match your unique
             self. Filter lists further or adjust preferences
           to see more or less jobs. </div>
         </div>
       </div>
 
-      <div class="row padding-home flex-steps">
+      <div class="row large-padding-home flex-steps">
         <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("applicationicon.png")%></div>
-        <div class="col-md-9 col-sm-9"><h5>3. Apply </h5>
+        <div class="col-md-9 col-sm-9"><h5 class="top-padding-text-limited">3. Apply </h5>
           Apply for jobs and add a custom message to
           go with it. Your application will be reviewed
           by our team and if you are a good match
@@ -194,7 +207,7 @@
       <div class="hidden-sm-up">
         <div class="row padding-home flex-steps">
           <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("coachingicon.png")%></div>
-          <div class="col-md-9 col-sm-9"><h5>4. Interview with confidence</h5>
+          <div class="col-md-9 col-sm-9"><h5 class="top-padding-text">4. Interview with confidence</h5>
             If you are chosen for an interview we’ll get
             on the phone to provide free interview prep
           so that you’ll go in feeling your best self. </div>
@@ -203,10 +216,11 @@
 
 
     </div>
-
-
-
   </div>
+
+
+
+</div>
 </div>
 
 </body>
