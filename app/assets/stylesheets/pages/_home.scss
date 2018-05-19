@@ -127,6 +127,7 @@
 .section-2 {
   margin-left: 10vh;
   margin-right: 10vh;
+  padding-bottom: 10vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -144,6 +145,12 @@
   margin: auto;
 }
 
+.section-3-background {
+  background-color: white;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+}
+
 .section-4 {
   margin-left: 10vh;
   margin-right: 10vh;
@@ -153,9 +160,20 @@
   flex-wrap: wrap;
 }
 
+.section-4-background {
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+}
+
 .section-5 {
   margin-right: 15vh;
   margin-left: 15vh;
+}
+
+.section-5-background {
+  background-color: white;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
 }
 
 .logo-home {
