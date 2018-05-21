@@ -12,6 +12,11 @@
   height: 80px;
 }
 
+.small-icon-resized img {
+  width: 40px;
+  height: 40px;
+}
+
 .pictures-resized img {
   width: 130px;
 }
@@ -188,6 +193,11 @@
   padding-bottom: 7vh;
 }
 
+.benefit-title {
+  display: flex;
+  align-items: center;
+  margin-top: 5vh;
+}
 .small-text {
   font-size: 12px;
 }
