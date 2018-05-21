@@ -95,6 +95,24 @@
   transition: all 0.6s ease 0s;
 }
 
+  .btn-orange.joinbutton.cta-end-hp {
+    padding: 10px 15px;
+    height: 45px;
+    width: 415px;
+    margin: 4vh;
+    margin-top: 11vh;
+    border: 1px solid #ffa67b;
+    transition: 0.1s background-color ease-in-out;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 5px;
+    background-color: #ffa67b;
+    font-weight: 900;
+    font-family: "Montserrat", "sans-serif";
+    font-size: 15px;
+    transition: all 0.6s ease 0s;
+}
+
 
 .btn-orange:hover {
   background-color: #ff935f;
