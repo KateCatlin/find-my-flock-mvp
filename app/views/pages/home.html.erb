@@ -76,8 +76,17 @@
       <ul class="home-list">
         <h3 class="headline">Find the company that values the <b>unique you</b>.</h3>
         <br>
+
+        <% if current_user %>
+        <%= link_to 'My Profile', user_path(current_user), class: "btn btn-orange joinbutton profile-button" %>
+        <%= link_to 'Job Dashboard', dashboard_index_path, class: "btn btn-orange dashboard-button" %>
+
+        <% else %>
+
         <%= link_to 'Join', new_registration_registration_path, class: "btn btn-orange joinbutton" %>
         <%= link_to 'Log in', new_registration_session_path, class: "btn btn-orange" %>
+
+        <% end %>
 
         <!-- down blue arrow -->
         <br>

@@ -113,6 +113,41 @@
     transition: all 0.6s ease 0s;
 }
 
+.btn-orange.profile-button {
+padding: 10px 15px;
+  height: 45px;
+
+  margin: 1vh;
+  border: 1px solid $light-orange;
+  transition: 0.1s background-color ease-in-out;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 5px;
+  background-color: $light-orange;
+  font-weight: 900;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 15px;
+  transition: all 0.6s ease 0s;width: 201px;
+
+}
+.btn-orange.dashboard-button {
+width: 201px;
+padding: 10px 15px;
+  height: 45px;
+  margin: 1vh;
+  border: 1px solid #67bacb;
+  transition: 0.1s background-color ease-in-out;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 5px;
+  background-color: #67bacb;
+  font-weight: 900;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 15px;
+  transition: all 0.6s ease 0s;
+
+}
+
 
 .btn-orange:hover {
   background-color: #ff935f;
