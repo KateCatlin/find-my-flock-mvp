@@ -71,156 +71,326 @@
     <!-- End of dropdown menu -->
   </ul>
   <% end %>
+  <div class="section-1">
+    <div class="banner" style="background-image: url('<%= image_path 'officeimgtransparency2.png', crop: :fill; %>') ;">
+      <ul class="home-list">
+        <h3 class="headline">Find the company that values the <b>unique you</b>.</h3>
+        <br>
 
-  <div class="banner" style="background-image: url('<%= image_path 'officeimgtransparency2.png', crop: :fill; %>') ;">
-    <ul class="home-list">
-      <div class="headline">Jobs you <em class="underlined-home-page">want</em>.</div>
-      <h4 class="black-text">We'll find your personal dream job, matching your</h4>
-        <h4 class="black-text"> <b class="boxed">skills, experiences</b> and <b class="boxed">desired benefits</b>.</h4>
+        <% if current_user %>
+        <%= link_to 'My Profile', user_path(current_user), class: "btn btn-orange joinbutton profile-button" %>
+        <%= link_to 'Job Dashboard', dashboard_index_path, class: "btn btn-orange dashboard-button" %>
+
+        <% else %>
+
+        <%= link_to 'Join', new_registration_registration_path, class: "btn btn-orange joinbutton" %>
+        <%= link_to 'Log in', new_registration_session_path, class: "btn btn-orange" %>
+
+        <% end %>
+
         <!-- down blue arrow -->
+        <br>
+        <br>
+        <br>
+        <br class="hidden-xs-down">
+        <br class="hidden-xs-down">
+        <br class="hidden-xs-down">
         <div id="section07" class="demo">
-              <span></span>
-              <span></span>
-              <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    <h1 class="centered padded-title home-title opportunities">Opportunities Now:</h2>
+      </div>
+    </div>
+    <!-- Beginning of Section 2 -->
+    <br>
+    <br class="hidden-sm-up">
+    <h4 class="centered home-title blue-text">The easiest way to find your dream job</h4>
 
-      <!-- Beginning of the carousel with cards on xs and sm-->
+  </div>
+  <div class="section-2 centered">
 
-      <div class="hidden-md-up">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="card card-home text-center">
-                  <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank">
-                    <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-                  </a>
-                  <h4 class="card-title">Full Stack Dev</h4>
-                  <p class="company"> Non-profit making voting a seamless experience </p>
-                  <h4 class="location"> Brooklyn, NY </h4>
-                  <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank" class="btn btn-page">Details...</a>
-                </div>
-              </div>
-            </div>
-              <div class="carousel-item">
-                <div class="col-xs-12 col-sm-12 col-md-4">
-                  <div class="card card-home text-center">
-                    <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank">
-                      <%= image_tag "educationteampic.jpg", class: "card-img-top img-fluid" %>
-                    </a>
-                    <h4 class="card-title">Senior Android Engineer</h4>
-                    <p class="company"> Education platform for all</p>
-                    <h4 class="location"> Mountain View, CA </h4>
-                    <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank" class="btn btn-page">Details...</a>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="col-xs-12 col-sm-12 col-md-4">
-                  <div class="card card-home text-center">
-                    <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank">
-                      <%= image_tag "blogteampic.jpg", class: "card-img-top img-fluid" %>
-                    </a>
-                    <h4 class="card-title"> JavaScript Dev </h4>
-                    <p class="company"> Blog hosting platform</p>
-                    <h4 class="location"> Remote </h4>
-                    <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank" class="btn btn-page">Details...</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
+    <!-- First line wit icons -->
+    <div class="works-element" style="width: 200px">
+      <div class="col">
+        <div class="row justify-center padding-home icon-resized">
+          <%=image_tag("affinitysearchicon.png")%>
         </div>
-        <!-- End of carousel with cards xs and sm -->
-
-        <!-- Cards to be displayed on full normal screen -->
-        <div class="hidden-sm-down">
-
-          <div class="cards-container card-sample">
-            <div class="col-xs-12 col-sm-12 col-md-4">
-              <div class="card card-home text-center">
-                <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank">
-                  <%= image_tag "peopleoffice.jpg", class: "card-img-top img-fluid" %>
-                </a>
-                <h4 class="card-title"> Full Stack Dev</h4>
-                <p class="company"> Non-profit making voting a seamless experience </p>
-                <h4 class="location"> Brooklyn, NY </h4>
-                <a href="https://www.findmyflockapp.com/jobs/3042" target="_blank" class="btn btn-page">Details...</a>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-4">
-              <div class="card card-home text-center">
-                <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank">
-                  <%= image_tag "educationteampic.jpg", class: "card-img-top img-fluid" %>
-                </a>
-                <h4 class="card-title">Senior Android Engineer</h4>
-                <p class="company"> Education platform for all</p>
-                <h4 class="location"> Mountain View, CA </h4>
-                <a href="https://www.findmyflockapp.com/jobs/3055" target="_blank" class="btn btn-page">Details...</a>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-4">
-              <div class="card card-home text-center">
-                <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank">
-                  <%= image_tag "blogteampic.jpg", class: "card-img-top img-fluid" %>
-                </a>
-                <h4 class="card-title"> JavaScript Dev </h4>
-                <p class="company"> Blog hosting platform</p>
-                <h4 class="location"> Remote </h4>
-                <a href="https://www.findmyflockapp.com/jobs/3044" target="_blank" class="btn btn-page">Details...</a>
-              </div>
-            </div>
-
-          </div>
+        <div class="row small-padded-text">
+          We  provide  the  ability  to  search  for  benefits  with  greater  nuance.
         </div>
+      </div>
+    </div>
 
-        <!-- End of cards to be displayed on full normal screen -->
+    <div class="works-element" style="width: 200px">
+      <div class="col">
+        <div class="row justify-center padding-home icon-resized">
+          <%=image_tag("transparencyicon.png")%>
+        </div>
+        <div class="row small-padded-text">
+          More transparency around benefits, salary and company culture.
+        </div>
+      </div>
+    </div>
+
+    <div class="works-element" style="width: 200px">
+      <div class="col">
+        <div class="row justify-center padding-home icon-resized">
+          <%=image_tag("timeicon.png")%>
+        </div>
+        <div class="row small-padded-text">
+         A fast application process that respects your time.
+       </div>
+     </div>
+   </div>
+
+   <div class="works-element" style="width: 200px">
+     <div class="col">
+      <div class="row justify-center padding-home icon-resized">
+        <%=image_tag("interviewicon.png")%>
+      </div>
+      <div class="row small-padded-text">
+        Get an interview coaching with a real human.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End of Section 2 -->
+<!--  Section 3 - How do we serve our audience -->
+
+<div class="section-3-background">
+  <div class="section-3">
+    <h4 class="centered blue-text">How it works</h4>
+    <div class="centered">
+
+      <div class="row large-padding-home ">
+        <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("createprofileicon.png")%></div>
+        <div class="col-md-9 col-sm-9"><h5 class="top-padding-text-limited">1. Create a profile</h5>
+          Tell us about yourself — your skills, your
+          preferred benefits, and your deal breakers.
+        Our application respects your time.</div>
       </div>
 
-      <h1 class="centered padded-title home-title" id="arguments-joining">Why you should spend your next 60 seconds joining</h1>
-
-      <div class="arguments-container">
-        <div class="arguments col-xs-12 col-sm-12 col-md-6">
-          <div class="argument-box card-1" style="background-image: url('<%= image_path 'oneclick.png', crop: :fill; %>') ;">
-            <dl class="card-description">
-              <dt><h4 class="centered why-title">Reclaim Your Time</h4></dt>
-              <dd>Import info from LinkedIn or a resume.<br><br>Complete your profile in less than 60 seconds.<br><br>Apply to jobs in 1 click.</dd>
-            </dl>
-          </div>
+      <!-- Since the items ordering on bootstrap doesn't work, hide the wrong content on xs to display the ordered one -->
+      <div class="hidden-xs-down">
+        <div class="row large-padding-home">
+          <div class="col-sm-9 col-md-9"><h5>2. Search jobs</h5>
+            Review job listings that match your unique
+            self. Filter lists further or adjust preferences
+          to see more or less jobs. </div>
+          <div class="col-sm-3 col-md-3 pictures-resized"><%=image_tag("filtericon.png")%></div>
         </div>
+      </div>
 
-        <div class="arguments col-xs-12 col-sm-12 col-md-6">
-          <div class="argument-box card-2" style="background-image: url('<%= image_path 'chalkboard.png', crop: :fill; %>') ;">
-            <dl class="card-description">
-              <dt><h4 class="centered why-title">Search by benefits you need.</h4></dt>
-              <dd>Filter by paternal leave, beach access, salary, a Scala backend, or all of the above. <br><br>No one will see your information unless YOU agree it's a fit. </dd>
-            </dl>
-          </div>
+      <div class="hidden-sm-up">
+        <div class="row large-padding-home">
+          <div class="col-sm-3 col-md-3 pictures-resized"><%=image_tag("filtericon.png")%></div>
+          <div class="col-sm-9 col-md-9"><h5 class="top-padding-text">2. Search jobs</h5>
+            Review job listings that match your unique
+            self. Filter lists further or adjust preferences
+          to see more or less jobs. </div>
         </div>
+      </div>
 
-        <div class="arguments col-xs-12 col-sm-12 col-md-12">
-          <div class="argument-box card-3" style="background-image: url('<%= image_path 'importlinkedin.png', crop: :fill; %>') ;">
-           <dl class="card-description">
-            <dt><h4 class="centered why-title">Prioritize relationships</h4></dt>
-            <dd>Our algorithm gets all the boring parts out of the way. When you apply to a role, one of our career coaches will jump on the phone, answer any questions you have, and help you prep for interviews. You only have to focus on how you feel talking to your new potential team.</dd>
-          </dl>
+      <div class="row large-padding-home flex-steps">
+        <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("applicationicon.png")%></div>
+        <div class="col-md-9 col-sm-9"><h5 class="top-padding-text-limited">3. Apply </h5>
+          Apply for jobs and add a custom message to
+          go with it. Your application will be reviewed
+          by our team and if you are a good match
+        we’ll arrange an introduction. </div>
+      </div>
+
+
+      <div class="hidden-xs-down">
+        <div class="row padding-home flex-steps">
+          <div class="col-md-9 col-sm-9"><h5>4. Interview with confidence</h5>
+            If you are chosen for an interview we’ll get
+            on the phone to provide free interview prep
+          so that you’ll go in feeling your best self. </div>
+          <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("coachingicon.png")%></div>
         </div>
       </div>
 
 
+      <div class="hidden-sm-up">
+        <div class="row large-padding-home flex-steps">
+          <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("coachingicon.png")%></div>
+          <div class="col-md-9 col-sm-9"><h5 class="top-padding-text">4. Interview with confidence</h5>
+            If you are chosen for an interview we’ll get
+            on the phone to provide free interview prep
+          so that you’ll go in feeling your best self. </div>
+        </div>
+      </div>
 
     </div>
   </div>
+</div>
+
+
+<!-- Beginning Section 4 - Testimonials -->
+<div class="section-4-background">
+  <h4 class="centered blue-text">Testimonials</h4>
+  <div class="section-4 centered">
+
+    <!-- First line wit icons -->
+    <div class="testimonial-element">
+      <div class="col">
+        <div class="row justify-center padding-home rounded-img">
+          <%=image_tag("heather-fmf.png")%>
+        </div>
+        <h6 class="top-padding-text" style="font-size: 18px">Heather, Engineering Manager</h6>
+        <div class="row">
+          <p class="small-text"><span class="quote-mark">“ </span>Flock immediately found unique opportunities for me that aligned with my values and professional goals. They provided thoughtful personal support throughout the process and celebrated with me when I signed on to my dream job at Mapbox.<span class="quote-mark">"</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-element">
+      <div class="col">
+        <div class="row justify-center padding-home rounded-img">
+          <%=image_tag("rachel-fmf.png")%>
+        </div>
+        <h6 class="top-padding-text" style="font-size: 18px">Rachel, Tech Ops Engineer</h6>
+        <div class="row">
+          <p class="small-text"><span class="quote-mark">“ </span>Even after helping me find such an amazing fit with so many intelligent engineers, Flock's continued mentorship program has helped me to define and develop my career with guidance, peer mentorship and support in an organized setting.<span class="quote-mark">"</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-element">
+      <div class="col">
+        <div class="row justify-center padding-home rounded-img">
+          <%=image_tag("dirk-fmf.png")%>
+        </div>
+        <h6 class="top-padding-text" style="font-size: 18px">Dirk, Linux Systems Admin</h6>
+        <div class="row">
+          <p class="small-text">There were not many of jobs in Dirk's midwest town that were going in the technical direction he wanted for his career. We helped him find a job in the Denver area with a global startup where they process and store over 50 billion events per day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Beginning of Section 5 - Companies -->
+<!-- C/c the code from file "to_add_later.html.erb" -->
+<!-- End of Section 5 - Companies -->
+
+
+<!-- DESIGN 1: Beginning of Section 6 - Benefits and values of the company -->
+
+<div class="section-6-background">
+  <div class="section-6">
+    <h4 class="centered blue-text">Benefits and company culture</h4>
+    <h5 class="centered">Our search paramaters include:</h5>
+    <br>
+
+<div class="benefits-section">
+    <div class="row mx-auto">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <div class="small-icon-resized benefit-title">
+          <div class="mr-3"><%=image_tag("health.png") %></div>
+          <div><h6>Health</h6></div>
+        </div>
+        <div class="small-text benefits-list">
+          <li>100% Covered Health Insurance</li>
+          <li>Vision Insurance</li>
+          <li>Dental Insurance</li>
+          <li>Trans-inclusive Healthcare</li>
+        </div>
+
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <div class="small-icon-resized benefit-title">
+          <div class="mr-3"><%=image_tag("retirement.png")%></div>
+          <div><h6>Retirement</h6></div>
+        </div>
+        <div class="small-text benefits-list">
+          <li>401(k) Matching</li>
+          <li>401(k)</li>
+        </div>
+
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <div class="small-icon-resized benefit-title">
+          <div class="mr-3"><%=image_tag("vacation.png")%></div>
+          <div><h6>Vacation</h6></div>
+
+        </div>
+        <div class="small-text benefits-list">
+          <li>Unlimited Vacation</li>
+          <li>Remote</li>
+          <li>Flexible Hours</li>
+          <li>Beach Within 60 Minutes</li>
+          <li>Mountain Within 60 Minutes</li>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <div class="small-icon-resized benefit-title">
+          <div class="mr-3"><%=image_tag("family.png")%></div>
+
+          <div><h6>Family</h6></div>
+        </div>
+        <div class="small-text benefits-list">
+          <li>Life Insurance</li>
+          <li>90+ Days Parental Leave</li>
+          <li>60+ Days Parental Leave</li>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <div class="small-icon-resized benefit-title">
+          <div class="mr-3"><%=image_tag("office.png")%></div>
+          <div><h6>Office</h6></div>
+        </div>
+        <div class="small-text benefits-list">
+          <li>Office Dogs</li>
+          <li>Lunch provided</li>
+        </div>
+
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <div class="small-icon-resized benefit-title">
+          <div class="mr-3"><%=image_tag("eye.png")%></div>
+
+          <div><h6>Other</h6></div>
+        </div>
+        <div class="small-text benefits-list">
+          <li>Professional Development Budget</li>
+          <li>Equity</li>
+          <li>Environmental Mission</li>
+          <li>Social Mission</li>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<% if current_user %>
+<div class="bottom-padding-home"></div>
+<% else %>
+<div class="centered">
+  <%= link_to 'Join us now to discover more!', new_registration_registration_path, class: "btn btn-orange joinbutton cta-end-hp" %>
+</div>
+<% end %>
+</div>
+
+
+</div>
 
 </body>
