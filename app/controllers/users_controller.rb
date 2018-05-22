@@ -22,10 +22,6 @@ class UsersController < ApplicationController
         @user.registration.gets_mail? ? update_mailchimp : ""
         redirect_to edit_skills_user_path(@user)
       else
-        if @user.errors.any?
-          redirect_to edit_user_path{'#cv'}, alert: 'Invalid format: You can only upload a pdf, docx, png or jpg document.'
-        else
-        end
       end
     else
     end

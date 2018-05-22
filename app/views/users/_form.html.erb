@@ -68,7 +68,7 @@
                 <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
                 <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
                 <%= f.input :github_profile, :label_html => { :class => 'form-text' } %>
-
+                 <h2 id="github-alert" style="display: none" >Alertttttttttttt</h2>
                 <br>
                 <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
               </div>
@@ -279,6 +279,7 @@
           const firstName = document.querySelector("#user_first_name").value
           const lastName = document.querySelector("#user_last_name").value
           const minSalary = document.querySelector("#user_min_salary").value
+          const gitHub = document.querySelector("#user_github_profile").value
 
           if (firstName.replace(/\s/g, '') == "") {
             alert("Please enter a first name.");
@@ -287,6 +288,11 @@
           }
           if (lastName.replace(/\s/g, '') == "" ) {
             alert("Please enter a last name.");
+            return false;
+          }
+
+          if (gitHub.slice(0,7) !== "http://" || gitHub.slice(0,8) !== "https://"  ) {
+            alert("Please correct the link.");
             return false;
           }
 
@@ -341,6 +347,29 @@
           fakePhotoBtn.innerText = "Change Photo"
 
         })
+
+
+        ////////////////////////
+        // Make an alert message display directly under the GitHub field if not the correct format
+
+        // const gitHub = document.querySelector("#user_github_profile")
+
+        //  if (gitHub !== null){
+
+        //     gitHub.addEventListener("change", function() {
+        //       if (gitHub.value !== "" && gitHub.value.length >= 7) {
+        //         if (gitHub.value.slice(0,7) == "http://" || gitHub.value.slice(0,8) == "https://"  )
+        //         {
+        //          document.querySelector("#github-alert").style.display= "none";
+        //         }
+        //         else
+        //         {
+        //           document.querySelector("#github-alert").style.display="block";
+        //         }
+        //       }
+        //     })
+        //  }
+
 
       </script>
 
