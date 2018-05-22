@@ -13,8 +13,8 @@
 }
 
 .small-icon-resized img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .pictures-resized img {
@@ -91,6 +91,7 @@
   margin-right: 15%;
   margin-left: 15%;
 }
+
 
 // Carousel arrows  overriding
 
@@ -196,84 +197,106 @@
 .benefit-title {
   display: flex;
   align-items: center;
-  margin-top: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 8px;
 }
+
+.benefits {
+  display: flex;
+  justify-content: space-around;
+}
+
+.benefits-list {
+  margin-left: 18px;
+}
+
+.benefits-section {
+  padding: 3vh;
+  background-color: #f3f3f3;
+  border: 1px solid #c5c5c5;
+}
+
 .small-text {
   font-size: 12px;
 }
 
-  .logo-home {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-  }
+.logo-home {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
 
-  .testimonial-picture {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-  }
+.testimonial-picture {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
 
-  .testimonial-picture img {
-    height: 80%;
-  }
+.testimonial-picture img {
+  height: 80%;
+}
 
-  .testimonial-element {
-    width: 270px;
-    margin-right: 2vh;
-    margin-left: 2vh;
-  }
+.testimonial-element {
+  width: 270px;
+  margin-right: 2vh;
+  margin-left: 2vh;
+}
 
-  .rounded-img img {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    object-fit: cover;
-  }
-
-  .resized-logo img {
-    max-width: 120px;
-    overflow: hidden;
-    object-fit: cover;
-  }
-
-  .quote-mark {
-    font-family: "IM Fell Double Pica", "serif";
-    color: #f36d22;
-  }
-
-  @media (max-width: 800px) {
-    .section-3 {
-      margin-left: 15vh;
-      margin-right: 15vh;
-    }
-  }
-
-  @media (max-width: 680px) {
-    .section-3 {
-      margin-left: 5vh;
-      margin-right: 5vh;
-    }
-
-    .section-4 {
-      margin-left: 5vh;
-      margin-right: 5vh;
-    }
-
-    .section-5 {
-      margin-right: 5vh;
-      margin-left: 5vh;
-    }
-
-    .section-6 {
-      margin-right: 5vh;
-      margin-left: 5vh;
-    }
-.resized-logo img {
-  max-width: 90px;
+.rounded-img img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
   overflow: hidden;
   object-fit: cover;
 }
+
+.resized-logo img {
+  max-width: 120px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.quote-mark {
+  font-family: "IM Fell Double Pica", "serif";
+  color: #f36d22;
+}
+
+@media (max-width: 800px) {
+  .section-3 {
+    margin-left: 15vh;
+    margin-right: 15vh;
+  }
+}
+
+@media (max-width: 575) {
+  .section-6 {
+    margin: auto;
+  }
+}
+@media (max-width: 680px) {
+  .section-3 {
+    margin-left: 5vh;
+    margin-right: 5vh;
+  }
+
+  .section-4 {
+    margin-left: 5vh;
+    margin-right: 5vh;
+  }
+
+  .section-5 {
+    margin-right: 5vh;
+    margin-left: 5vh;
+  }
+
+  .section-6 {
+    margin-right: 5vh;
+    margin-left: 5vh;
+  }
+  .resized-logo img {
+    max-width: 90px;
+    overflow: hidden;
+    object-fit: cover;
+  }
 }
 
 .flex-steps {
