@@ -291,6 +291,11 @@
             return false;
           }
 
+          if (linkedinProfile.slice(0,7) !== "http://" || linkedinProfile.slice(0,8) !== "https://"  ) {
+            alert("Your LinkedIn url is not valid (must include http:// or https://");
+            return false;
+          }
+
            if (linkedinProfile.indexOf('http://') === -1 || linkedinProfile.indexOf('https://') === -1) {
             alert("Please enter your LinkedIn profile URL in the correct format (PS: Don't forget to put the http:// at the beginning!)");
             return false;
