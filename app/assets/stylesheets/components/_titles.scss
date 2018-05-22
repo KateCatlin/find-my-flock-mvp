@@ -29,17 +29,25 @@ h2 {
     text-transform: capitalize;
 }
 
-
-.home-title {
-  letter-spacing: 0px;
-  font-size: 36px;
-  margin: 0;
-  font-weight: 300;
+.top-padding-text {
+  padding-top: 2vh;
 }
 
-.home-title.opportunities {
-    margin-top: 30vh;
+@media (max-width: 575px) {
+  .top-padding-text-limited {
+    padding-top: 2vh;
   }
+}
+
+.home-title {
+  margin-top: 17vh;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.negative-padding {
+  margin-top: 15vh;
+}
 
 .profile-sponsorship {
   font-size: 13px;
