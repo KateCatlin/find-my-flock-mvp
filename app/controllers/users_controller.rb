@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_collections, only: [:edit]
   before_action :set_user, only: [:show, :edit, :destroy, :update, :update_resume, :activate, :deactivate, :edit_skills, :edit_skills_return]
 
+
   def index
   end
 
@@ -82,7 +83,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit, :min_salary, :github_profile)
+    params.require(:user).permit(:first_name, :last_name, :location, :resume_file_path, :photo, :US_work_permit, :min_salary, :github_profile, :linkedin_profile)
   end
 
   def set_collections

@@ -136,7 +136,10 @@ ActiveRecord::Schema.define(version: 20180510144948) do
     t.boolean "US_work_permit", default: false
     t.integer "min_salary"
     t.string "linkedin_profile"
+<<<<<<< HEAD
     t.string "github_profile"
+=======
+>>>>>>> 1bdd43aa2f4b1d4cbcbead468bd99e0ac7235c6e
     t.index ["registration_id"], name: "index_users_on_registration_id"
   end
 
