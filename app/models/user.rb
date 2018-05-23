@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, on: :update
   validates :resume, presence: true, on: :update_resume
   validates :github_profile, :format => URI::regexp(%w(http https)), on: :update, allow_blank: true
+  validates :linkedin_profile, :format => URI::regexp(%w(http https)), on: :update, allow_blank: true
 
 
   acts_as_taggable_on :skills, :values, :locations
