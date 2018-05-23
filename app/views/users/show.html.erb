@@ -2,9 +2,9 @@
 
   <div class="profile-header">
    <div class="row justify-content-center centered">
-      <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
+    <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
       <%= cl_image_tag current_user.photo, height: 180, width: 180, crop: :fill, :radius => :max, :gravity => :face %>
-      </div>
+    </div>
 
     <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
       <div class="heading-box">
@@ -12,94 +12,97 @@
           <div class="underlined-medium">Your account</div></h3>
 
           <% if (current_user.github_profile.present?) %>
-            <%= link_to current_user.github_profile do %>
-            <i class="fab fa-github fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
-            <% end %>
+          <%= link_to current_user.github_profile, target: :_blank do %>
+          <i class="fab fa-github fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
+          <% end %>
           <% else %>
-        <br>
-        <br>
-        <% if (current_user.linkedin_profile.present?) %>
-            <%= link_to current_user.linkedin_profile do %>
-              <i class="fab fa-linkedin fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
-            <% end %>
+          <br>
+          <br>
+          <% end %>
+          <% if (current_user.linkedin_profile.present?) %>
+          <%= link_to current_user.linkedin_profile, target: :_blank do %>
+          <i class="fab fa-linkedin fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
+          <% end %>
           <% else %>
+          <br>
+          <br>
           <% end %>
 
-        <p class="centered">Job search:</p>
-        <h5 class="centered"> <%= current_user.return_activation_status %></h5>
-        <% if !current_user.location_list.empty? %>
-        <br>
-        <p class="centered">Looking for jobs in:</p>
-        <h6 class="centered"><%= current_user.location_list %></h6>
-        <% end %>
-        <% if (current_user.US_work_permit == false) %>
+          <p class="centered">Job search:</p>
+          <h5 class="centered"> <%= current_user.return_activation_status %></h5>
+          <% if !current_user.location_list.empty? %>
+          <br>
+          <p class="centered">Looking for jobs in:</p>
+          <h6 class="centered"><%= current_user.location_list %></h6>
+          <% end %>
+          <% if (current_user.US_work_permit == false) %>
           <h6 style="font-size: 13px; font-weight: 100;">Require sponsorship for a US employment visa</h6>
-        <% else %>
+          <% else %>
           <h6 style="font-size: 13px; font-weight: 100;">Legally authorized to work in the US without sponsorship.</h6>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Buttons Edit / Deactivate / Suspend if sm, md and large screen sizes -->
-<div class="hidden-xs-down centered">
-  <div class="profile-buttons-container centered">
-    <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
-    <% if current_user.is_active %>
-    <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, method: :get,  class: "btn profile-small" %></p>
-    <% else %>
-    <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, method: :get, class: "btn profile-small" %></p>
-    <% end %>
-    <p class="centered"><%= link_to "Suspend my account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
-  </div>
-</div>
-
-<!-- Buttons Edit / Deactivate / Suspend if xs screen size -->
-<div class="hidden-sm-up centered">
-  <div class="profile-buttons-container-small">
-    <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
-    <% if current_user.is_active %>
-    <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, method: :get,  class: "btn profile-small" %></p>
-    <% else %>
-    <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, method: :get, class: "btn profile-small" %></p>
-    <% end %>
-    <p class="centered"><%= link_to "Suspend my account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
-  </div>
-</div>
-
-<br>
-<!-- <hr class="separator"> -->
-
-<div class="values-skills row justify-content-center">
-  <div class="col-xs-12 col-sm-6 col-md-4">
-
-    <div class="profile-box">
-      <h4 class="profile-title centered">Your skills</h4>
-      <br>
-      <% current_user.skills_competencies.sort_by.each do |skill, competency| %>
-      <ul>
-        <li class="skills-list centered" style="background-color: #ffffff;color:black"><%= competency[1..-1] %></li>
-        <li class="skills-list centered""><%= skill.upcase %></li>
-      </ul>
+  <!-- Buttons Edit / Deactivate / Suspend if sm, md and large screen sizes -->
+  <div class="hidden-xs-down centered">
+    <div class="profile-buttons-container centered">
+      <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
+      <% if current_user.is_active %>
+      <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, method: :get,  class: "btn profile-small" %></p>
+      <% else %>
+      <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, method: :get, class: "btn profile-small" %></p>
       <% end %>
+      <p class="centered"><%= link_to "Suspend my account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="profile-box">
-      <h4 class="profile-title centered">Your benefits</h4>
-      <br>
-      <% current_user.value_list.each do |value| %>
-      <ul class="skills-list centered">
-
-        <li class="centered"><%= value %></li>
-      </ul>
+  <!-- Buttons Edit / Deactivate / Suspend if xs screen size -->
+  <div class="hidden-sm-up centered">
+    <div class="profile-buttons-container-small">
+      <p class="centered"><%= link_to 'Edit your profile', edit_user_path(current_user), class: "btn profile-small" %></p>
+      <% if current_user.is_active %>
+      <p class="centered"><%= link_to "Deactivate the job search", deactivate_path(current_user), data: { confirm: "Are you sure? We will no longer consider you for jobs." }, method: :get,  class: "btn profile-small" %></p>
+      <% else %>
+      <p class="centered"><%= link_to "Activate", activate_path(current_user), data: { confirm: "Great! In this case we will reach out to you about good fits." }, method: :get, class: "btn profile-small" %></p>
       <% end %>
-
+      <p class="centered"><%= link_to "Suspend my account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn profile-small" %></p>
     </div>
   </div>
-</div>
+
+  <br>
+  <!-- <hr class="separator"> -->
+
+  <div class="values-skills row justify-content-center">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+
+      <div class="profile-box">
+        <h4 class="profile-title centered">Your skills</h4>
+        <br>
+        <% current_user.skills_competencies.sort_by.each do |skill, competency| %>
+        <ul>
+          <li class="skills-list centered" style="background-color: #ffffff;color:black"><%= competency[1..-1] %></li>
+          <li class="skills-list centered""><%= skill.upcase %></li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="profile-box">
+        <h4 class="profile-title centered">Your benefits</h4>
+        <br>
+        <% current_user.value_list.each do |value| %>
+        <ul class="skills-list centered">
+
+          <li class="centered"><%= value %></li>
+        </ul>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 
