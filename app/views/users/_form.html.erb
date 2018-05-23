@@ -291,10 +291,12 @@
             return false;
           }
 
-
+          if (linkedinProfile.value != ""){
           if (!(linkedinProfile.value.includes("http://")) && !(linkedinProfile.value.includes("https://"))){
             alert("Your LinkedIn url is in the wrong format. Should be 'https://linkedin.com/in/username'.");
             return false;
+          }
+
           }
 
           let selectedCount = 0
