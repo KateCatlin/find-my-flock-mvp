@@ -189,7 +189,6 @@
 
 
 .section-6-background {
-  background-color: white;
   padding-top: 7vh;
   padding-bottom: 7vh;
 }
@@ -253,6 +252,10 @@
   max-width: 120px;
   overflow: hidden;
   object-fit: cover;
+}
+
+#resized-khanacademy img {
+  max-width: 190px;
 }
 
 .quote-mark {
