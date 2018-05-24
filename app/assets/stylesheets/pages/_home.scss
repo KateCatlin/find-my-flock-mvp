@@ -189,7 +189,6 @@
 
 
 .section-6-background {
-  background-color: white;
   padding-top: 7vh;
   padding-bottom: 7vh;
 }
@@ -206,19 +205,13 @@
   justify-content: space-around;
 }
 
-.benefits-list {
-  margin-left: 18px;
-}
-
 .benefits-section {
   padding: 3vh;
-  background-color: #f3f3f3;
-  border: 1px solid #c5c5c5;
+  background-color: white;
+  border: 1px solid #c7c7c7;
 }
 
-.small-text {
-  font-size: 12px;
-}
+
 
 .logo-home {
   margin-top: 5vh;
@@ -253,6 +246,10 @@
   max-width: 120px;
   overflow: hidden;
   object-fit: cover;
+}
+
+#resized-khanacademy img {
+  max-width: 190px;
 }
 
 .quote-mark {

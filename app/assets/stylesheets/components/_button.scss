@@ -25,10 +25,10 @@
   font-size: 12px;
 }
 
-  .btn:hover {
+.btn:hover {
   background-color: $gray;
   color: white;
-  }
+}
 
 .btn.apply {
   border: 1px solid $light-orange;
@@ -78,7 +78,7 @@
   transition: all 0.6s ease 0s;
 }
 
-  .btn-orange.joinbutton {
+.btn-orange.joinbutton {
   padding: 10px 15px;
   height: 45px;
   width: 140px;
@@ -95,56 +95,49 @@
   transition: all 0.6s ease 0s;
 }
 
-  .btn-orange.joinbutton.cta-end-hp {
-    padding: 10px 15px;
-    height: 45px;
-    width: 415px;
-    margin: 4vh;
-    margin-top: 11vh;
-    border: 1px solid #ffa67b;
-    transition: 0.1s background-color ease-in-out;
-    text-decoration: none;
-    color: white;
-    letter-spacing: 5px;
-    background-color: #ffa67b;
-    font-weight: 900;
-    font-family: "Montserrat", "sans-serif";
-    font-size: 15px;
-    transition: all 0.6s ease 0s;
-}
-
 .btn-orange.profile-button {
-padding: 10px 15px;
+  padding: 10px 15px;
   height: 45px;
-
   margin: 1vh;
-  border: 1px solid $light-orange;
+  border: 1px solid #67bacb;;
   transition: 0.1s background-color ease-in-out;
   text-decoration: none;
   color: white;
   letter-spacing: 5px;
-  background-color: $light-orange;
+  background-color: #67bacb;;
   font-weight: 900;
   font-family: "Montserrat", "sans-serif";
   font-size: 15px;
   transition: all 0.6s ease 0s;width: 201px;
-
 }
-.btn-orange.dashboard-button {
-width: 201px;
-padding: 10px 15px;
+
+.btn-orange.joinbutton.cta-end-hp {
+  padding: 10px 15px;
   height: 45px;
-  margin: 1vh;
-  border: 1px solid #67bacb;
+  width: 415px;
+  margin: 4vh;
+  margin-top: 11vh;
+  border: 1px solid #ffa67b;
   transition: 0.1s background-color ease-in-out;
   text-decoration: none;
   color: white;
   letter-spacing: 5px;
-  background-color: #67bacb;
+  background-color: #ffa67b;
   font-weight: 900;
   font-family: "Montserrat", "sans-serif";
   font-size: 15px;
   transition: all 0.6s ease 0s;
+}
+
+@media (max-width: 500px) {
+  .btn-orange.joinbutton.cta-end-hp {
+    font-size: 14px;
+    width: 215px;
+  }
+}
+
+.btn-orange.dashboard-button {
+  width: 201px;
 
 }
 
@@ -167,7 +160,7 @@ padding: 10px 15px;
 
 
 .dropdown-toggle::after {
-    display: none;
+  display: none;
 }
 
 
@@ -197,14 +190,14 @@ padding: 10px 15px;
   color: #636363
 }
 
-  .btn-wide {
-    width: 100%;
-  }
+.btn-wide {
+  width: 100%;
+}
 
-   .active-btn {
-     background-color: $gray;
-    color: white;
-  }
+.active-btn {
+ background-color: $gray;
+ color: white;
+}
 
 .registration-button {
   margin-top: 20px;
