@@ -67,11 +67,10 @@
 }
 
 .job-photo {
-  display: flex;
-  width: 300px;
-  height: 200px;
+max-width: 500px;
   margin: 0 auto;
   margin-bottom: 10vh;
+  border: 1px solid #e6e6e6;
 }
 
 .favorite-block {

@@ -4,7 +4,7 @@
 <body style="background-color: white">
   <div style="margin-right: 2vh; margin-left: 2vh;">
 
-  <div class="job-section mx-auto">
+  <div class="job-section mx-auto" style="margin-top: 5vh;">
 
   <h3 class="underlined-medium-blue centered small-padded-title mx-auto"><%= @job.title %></h3>
   <br>
@@ -74,7 +74,7 @@
       <!-- Values, skills and salary displayed on xs and small screen sizes -->
       <div class="hidden-sm-up">
         <div class="grid-bordered">
-          <h5 class="small-padding-bot">Values:</h5>
+          <h5 class="small-padding-bot centered">Values:</h5>
           <% @job.value_list.each do |value| %>
           <ul class="values-list">
             <li><p><%= value %></p></li>
@@ -115,11 +115,12 @@
 
     </div>
   </div>
-
+</div>
 
   <div class="row justify-content-center text-center">
     <div class="bottom-buttons col-8">
 
+<div class="hidden-xs-down">
       <div class="inline">
         <div id="app-link">
           <% if @already_applied%>
@@ -135,7 +136,7 @@
           <% end %>
         </div>
 
-        or
+        <p>or</p>
 
         <div class="favorite-block" data-job-id='<%= @job.id %>'>
           <% if favorite = @job.user_favorite(current_user) %>
@@ -153,6 +154,44 @@
 
         </div>
       </div>
+    </div>
+
+
+    <div class="hidden-sm-up mx-auto">
+
+        <div id="app-link" style="margin-left: 25px;">
+          <% if @already_applied%>
+          <%= link_to 'Cancel Application', job_application_path(@job, @application), remote: :true, method: :delete, class: "btn cancel" %>
+          <% elsif @user.resume_file_path.file %>
+          <button type="button" class="btn btn apply" style="font-family: Montserrat, sans-serif;" data-toggle="modal" data-target="#confirmApplicationModal">
+            Apply Now
+          </button>
+          <% else %>
+          <button type="button" class="btn btn apply" style="font-family: Montserrat, sans-serif;" data-toggle="modal" data-target="#noResumeModal">
+            Apply Now
+          </button>
+          <% end %>
+        </div>
+
+        <p>or</p>
+
+        <div data-job-id='<%= @job.id %>'>
+          <% if favorite = @job.user_favorite(current_user) %>
+
+          <%= link_to favorite_path(favorite), remote: true, method: :delete do %>
+          <div class="saveme">Remove from your favorites</div><i class="fas fa-heart unfav"></i>
+          <% end %>
+
+          <% else %>
+
+          <%= link_to job_favorites_path(@job), remote: true, method: :post do %>
+          <div class="saveme">Add to your favorites</div><i class="fas fa-heart fav"> </i>
+          <% end %>
+          <% end %>
+
+
+      </div>
+    </div>
 
       <br>
       <br>
