@@ -13,32 +13,33 @@
 
           <% if (current_user.github_profile.present?) %>
           <%= link_to current_user.github_profile, target: :_blank do %>
-          <i class="fab fa-github fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
-          <% end %>
-          <% else %>
-          <br>
-          <br>
-          <% end %>
-          <% if (current_user.linkedin_profile.present?) %>
-          <%= link_to current_user.linkedin_profile, target: :_blank do %>
-          <i class="fab fa-linkedin fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
+          <i class="fab fa-github fa-2x no-underline" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
           <% end %>
           <% else %>
           <br>
           <br>
           <% end %>
 
-          <p class="centered">Job search:</p>
-          <h5 class="centered"> <%= current_user.return_activation_status %></h5>
-          <% if !current_user.location_list.empty? %>
+          <% if (current_user.linkedin_profile.present?) %>
+          <%= link_to current_user.linkedin_profile, target: :_blank do %>
+          <i class="fab fa-linkedin fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh; margin-top: 3vh;"></i>
+          <% end %>
+          <% else %>
+          <br>
+          <br>
+          <% end %>
+
+          <p class="centered small-padding-top">Your job search status is defined as: <b><%= current_user.return_activation_status %></b></p>
+          <% if current_user.location_list.empty? %>
+          <% else %>
           <br>
           <p class="centered">Looking for jobs in:</p>
           <h6 class="centered"><%= current_user.location_list %></h6>
           <% end %>
           <% if (current_user.US_work_permit == false) %>
-          <h6 style="font-size: 13px; font-weight: 100;">Require sponsorship for a US employment visa</h6>
+          <p>You require sponsorship for a US employment visa</p>
           <% else %>
-          <h6 style="font-size: 13px; font-weight: 100;">Legally authorized to work in the US without sponsorship.</h6>
+          <p>You are legally authorized to work in the US without sponsorship.</p>
           <% end %>
         </div>
       </div>

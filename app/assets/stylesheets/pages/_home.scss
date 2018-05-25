@@ -208,6 +208,7 @@
 
 .benefits-list {
   margin-left: 18px;
+  list-style: none;
 }
 
 .benefits-section {
@@ -492,4 +493,14 @@
     100% {
       opacity: 0;
     }
+  }
+
+  .job-section {
+    padding-bottom: 10vh;
+    border: 1px solid #bee3ea;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    background-color: #f9f9f9;
+    max-width: 750px;
+
   }
