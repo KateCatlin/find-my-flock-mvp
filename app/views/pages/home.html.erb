@@ -8,8 +8,8 @@
     </a>
     <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
 
-    <li class="hidden-sm-down" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
-    <li class="hidden-sm-down" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li class="hidden-sm-down" id="nav-right-padding"><%= link_to "Jobs", dashboard_index_path %></li>
+    <li class="hidden-sm-down" id="nav-right-padding"> <%= link_to "Profile", user_path(current_user) %></li>
     <li class="hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
 
     <!-- Dropdown Menu -->
@@ -18,8 +18,8 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <%= link_to "My Profile", user_path(current_user), class: "dropdown-padding" %>
-        <%= link_to "Dashboard", dashboard_index_path %>
+        <%= link_to "Jobs", dashboard_index_path %>
+        <%= link_to "Profile", user_path(current_user), class: "dropdown-padding" %>
         <%= link_to "Log out", destroy_registration_session_path,:method => :delete %>
       </div>
     </div>
@@ -54,7 +54,7 @@
       <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
     </a>
     <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
-    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Jobs", new_registration_session_path %></li>
+    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Jobs", jobsamples_path %></li>
     <li class="sign-up hidden-sm-down" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
 
 
@@ -64,7 +64,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <%= link_to "Log In", new_registration_session_path %>
+        <%= link_to "Jobs", jobsamples_path %>
         <%= link_to "Sign Up", new_registration_registration_path %>
       </div>
     </div>
@@ -78,8 +78,8 @@
         <br>
 
         <% if current_user %>
-        <%= link_to 'My Profile', user_path(current_user), class: "btn btn-orange joinbutton profile-button" %>
-        <%= link_to 'Job Dashboard', dashboard_index_path, class: "btn btn-orange dashboard-button" %>
+        <%= link_to 'Jobs', dashboard_index_path, class: "btn btn-orange dashboard-button" %>
+        <%= link_to 'Profile', user_path(current_user), class: "btn btn-orange joinbutton profile-button" %>
 
         <% else %>
 
