@@ -2,14 +2,14 @@
 
   <div class="profile-header">
    <div class="row justify-content-center centered">
-    <div class="col-xs-12 col-sm-4 col-md-4 justify-content-center align-self-center">
-      <%= cl_image_tag current_user.photo, height: 180, width: 180, crop: :fill, :radius => :max, :gravity => :face %>
+    <div class="col-xs-12 col-sm-3 col-md-3 justify-content-center align-self-center">
+      <%= cl_image_tag current_user.photo, height: 140, width: 140, crop: :fill, :radius => :max, :gravity => :face %>
     </div>
 
-    <div class="col-xs-12 col-sm-8 col-md-8 justify-content-center align-self-center">
+    <div class="col-xs-12 col-sm-9 col-md-9 justify-content-center align-self-center">
       <div class="heading-box">
-        <h3 class="centered dashboard-home">
-          <div class="underlined-medium">Your account</div></h3>
+        <h4 class="centered dashboard-home">
+          <div class="underlined-medium mx-auto" style="max-width: 319px"><%= current_user.first_name %> <%=current_user.last_name %></div></h3>
 
           <% if (current_user.github_profile.present?) %>
           <%= link_to current_user.github_profile, target: :_blank do %>
