@@ -283,12 +283,8 @@
           const firstName = document.querySelector("#user_first_name").value
           const lastName = document.querySelector("#user_last_name").value
           const minSalary = document.querySelector("#user_min_salary").value
-<<<<<<< HEAD
           const gitHub = document.querySelector("#user_github_profile")
-=======
           const linkedinProfile = document.querySelector("#user_linkedin_profile")
-
->>>>>>> 1bdd43aa2f4b1d4cbcbead468bd99e0ac7235c6e
 
           if (firstName.replace(/\s/g, '') == "") {
             alert("Please enter a first name.");
@@ -300,15 +296,11 @@
             return false;
           }
 
-<<<<<<< HEAD
-
           if (!(gitHub.value.includes("http://")) && !(gitHub.value.includes("https://"))){
             alert("Your GitHub url is in the wrong format. Should be 'https://github.com/username'.");
             return false;
           }
 
-
-=======
           if (linkedinProfile.value != ""){
           if (!(linkedinProfile.value.includes("http://")) && !(linkedinProfile.value.includes("https://"))){
             alert("Your LinkedIn url is in the wrong format. Should be 'https://linkedin.com/in/username'.");
@@ -316,7 +308,6 @@
           }
 
           }
->>>>>>> 1bdd43aa2f4b1d4cbcbead468bd99e0ac7235c6e
 
           let selectedCount = 0
           options.forEach((option) => {
