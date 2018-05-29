@@ -1,7 +1,7 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400|IM+Fell+Double+Pica:');
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica|Montserrat:200,300,400|Roboto:300,400');
 // Define fonts for body and headers
-$body-font: "Lora", serif;
+$body-font: "Roboto", sans-serif;
 $headers-font: 'Montserrat', sans-serif;
 
 h1, h2, h3, h4, h5 {
@@ -12,10 +12,16 @@ h1, h2, h3, h4, h5 {
 a {
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
+
 }
+  a:hover, a:focus {
+    text-decoration: none !important;
+  }
 
 p {
-
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 15px;
 }
 
 .no-space {
@@ -27,7 +33,7 @@ p {
 }
 
 .body-text {
-  font-family: "Lora", serif;
+  font-family: "Roboto", sans-serif;
   text-transform: none;
   font-size: 16px;
 }
