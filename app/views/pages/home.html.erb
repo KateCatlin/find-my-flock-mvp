@@ -407,13 +407,7 @@
               <div class="centered">
                 <%= link_to 'Join us now!', new_registration_registration_path, class: "btn btn-orange joinbutton cta-end-hp" %>
               </div>
-
-              <% if current_user %>
-              <div class="bottom-padding-home"></div>
-              <% else %>
-              <div class="centered">
-                <%= link_to 'Join us now!', new_registration_registration_path, class: "btn btn-orange joinbutton cta-end-hp" %>
-              </div>
+              <% end %>
 
             </div>
           </div>
