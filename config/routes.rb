@@ -36,5 +36,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
+  resources :jobsamples, only: [:index]
+
 end
 

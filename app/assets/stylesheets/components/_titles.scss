@@ -2,15 +2,21 @@
   text-align: center;
 }
 
+.no-underline a:hover a:focus{
+  text-decoration: none !important;
+}
 
 .padded-title {
   padding-top: 75px;
   padding-bottom: 30px;
 }
 
-.bigger-title {
-  font-weight: 600;
-  font-size: 40px;
+.small-padding-top {
+  padding-top: 2vh;
+}
+
+.small-padding-bot {
+  padding-bottom: 2vh;
 }
 
 .small-padded-title {

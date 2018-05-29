@@ -8,8 +8,8 @@
     </a>
     <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
 
-    <li class="hidden-sm-down" id="nav-right-padding"> <%= link_to "My Profile", user_path(current_user) %></li>
-    <li class="hidden-sm-down" id="nav-right-padding"><%= link_to "Dashboard", dashboard_index_path %></li>
+    <li class="hidden-sm-down" id="nav-right-padding"><%= link_to "Jobs", dashboard_index_path %></li>
+    <li class="hidden-sm-down" id="nav-right-padding"> <%= link_to "Profile", user_path(current_user) %></li>
     <li class="hidden-sm-down" id="nav-right"><%= link_to "Log out", destroy_registration_session_path,:method => :delete %></li>
 
     <!-- Dropdown Menu -->
@@ -18,8 +18,8 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <%= link_to "My Profile", user_path(current_user), class: "dropdown-padding" %>
-        <%= link_to "Dashboard", dashboard_index_path %>
+        <%= link_to "Jobs", dashboard_index_path %>
+        <%= link_to "Profile", user_path(current_user), class: "dropdown-padding" %>
         <%= link_to "Log out", destroy_registration_session_path,:method => :delete %>
       </div>
     </div>
@@ -54,7 +54,7 @@
       <img class="small-size" src="/assets/flock_logo-75ccb73b5853afc6ceaf58080f6910bb4c70ac51e78cb8e74c4146302876f788.png" alt="Flock logo">
     </a>
     <li id="nav-left"> <%= link_to "ind my Flock", root_path %></li>
-    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Log In", new_registration_session_path %></li>
+    <li class="underline hidden-sm-down" id="nav-right-padding"><%= link_to "Jobs", jobsamples_path %></li>
     <li class="sign-up hidden-sm-down" id="nav-right"><%= link_to "Sign Up", new_registration_registration_path %></li>
 
 
@@ -64,7 +64,8 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <%= link_to "Log In", new_registration_session_path %>
+        <%= link_to "Jobs", jobsamples_path %>
+        <br>
         <%= link_to "Sign Up", new_registration_registration_path %>
       </div>
     </div>
@@ -78,8 +79,8 @@
         <br>
 
         <% if current_user %>
-        <%= link_to 'My Profile', user_path(current_user), class: "btn btn-orange joinbutton profile-button" %>
-        <%= link_to 'Job Dashboard', dashboard_index_path, class: "btn btn-orange dashboard-button" %>
+        <%= link_to 'Jobs', dashboard_index_path, class: "btn btn-orange dashboard-button" %>
+        <%= link_to 'Profile', user_path(current_user), class: "btn btn-orange joinbutton profile-button" %>
 
         <% else %>
 
@@ -117,7 +118,7 @@
           <%=image_tag("affinitysearchicon.png")%>
         </div>
         <div class="row small-padded-text">
-          We  provide  the  ability  to  search  for  benefits  with  greater  nuance.
+          <p>We  provide  the  ability  to  search  for  benefits  with  greater  nuance.</p>
         </div>
       </div>
     </div>
@@ -128,7 +129,7 @@
           <%=image_tag("transparencyicon.png")%>
         </div>
         <div class="row small-padded-text">
-          More transparency around benefits, salary and company culture.
+          <p>More transparency around benefits, salary and company culture.</p>
         </div>
       </div>
     </div>
@@ -139,7 +140,7 @@
           <%=image_tag("timeicon.png")%>
         </div>
         <div class="row small-padded-text">
-         A fast application process that respects your time.
+         <p>A fast application process that respects your time.</p>
        </div>
      </div>
    </div>
@@ -150,7 +151,7 @@
         <%=image_tag("interviewicon.png")%>
       </div>
       <div class="row small-padded-text">
-        Get an interview coaching with a real human.
+        <p>Get an interview coaching with a real human.</p>
       </div>
     </div>
   </div>
@@ -168,262 +169,253 @@
       <div class="row large-padding-home ">
         <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("createprofileicon.png")%></div>
         <div class="col-md-9 col-sm-9"><h5 class="top-padding-text-limited">1. Create a profile</h5>
-          Tell us about yourself — your skills, your
-          preferred benefits, and your deal breakers.
-        Our application respects your time.</div>
-      </div>
-
-      <!-- Since the items ordering on bootstrap doesn't work, hide the wrong content on xs to display the ordered one -->
-      <div class="hidden-xs-down">
-        <div class="row large-padding-home">
-          <div class="col-sm-9 col-md-9"><h5>2. Search jobs</h5>
-            Review job listings that match your unique
-            self. Filter lists further or adjust preferences
-          to see more or less jobs. </div>
-          <div class="col-sm-3 col-md-3 pictures-resized"><%=image_tag("filtericon.png")%></div>
+          <p>Tell us about yourself — your skills, your preferred benefits, and your deal breakers. Our application respects your time.</p></div>
         </div>
-      </div>
 
-      <div class="hidden-sm-up">
-        <div class="row large-padding-home">
-          <div class="col-sm-3 col-md-3 pictures-resized"><%=image_tag("filtericon.png")%></div>
-          <div class="col-sm-9 col-md-9"><h5 class="top-padding-text">2. Search jobs</h5>
-            Review job listings that match your unique
-            self. Filter lists further or adjust preferences
-          to see more or less jobs. </div>
-        </div>
-      </div>
-
-      <div class="row large-padding-home flex-steps">
-        <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("applicationicon.png")%></div>
-        <div class="col-md-9 col-sm-9"><h5 class="top-padding-text-limited">3. Apply </h5>
-          Apply for jobs and add a custom message to
-          go with it. Your application will be reviewed
-          by our team and if you are a good match
-        we’ll arrange an introduction. </div>
-      </div>
-
-
-      <div class="hidden-xs-down">
-        <div class="row padding-home flex-steps">
-          <div class="col-md-9 col-sm-9"><h5>4. Interview with confidence</h5>
-            If you are chosen for an interview we’ll get
-            on the phone to provide free interview prep
-          so that you’ll go in feeling your best self. </div>
-          <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("coachingicon.png")%></div>
-        </div>
-      </div>
-
-
-      <div class="hidden-sm-up">
-        <div class="row large-padding-home flex-steps">
-          <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("coachingicon.png")%></div>
-          <div class="col-md-9 col-sm-9"><h5 class="top-padding-text">4. Interview with confidence</h5>
-            If you are chosen for an interview we’ll get
-            on the phone to provide free interview prep
-          so that you’ll go in feeling your best self. </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-<!-- Beginning Section 4 - Testimonials -->
-<div class="section-4-background">
-  <h4 class="centered blue-text">Testimonials</h4>
-  <div class="section-4 centered">
-
-    <!-- First line wit icons -->
-    <div class="testimonial-element">
-      <div class="col">
-        <div class="row justify-center padding-home rounded-img">
-          <%=image_tag("heather-fmf.png")%>
-        </div>
-        <h6 class="top-padding-text" style="font-size: 18px">Heather, Engineering Manager</h6>
-        <div class="row">
-          <p class="small-text"><span class="quote-mark">“ </span>Flock immediately found unique opportunities for me that aligned with my values and professional goals. They provided thoughtful personal support throughout the process and celebrated with me when I signed on to my dream job at Mapbox.<span class="quote-mark">"</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-element">
-      <div class="col">
-        <div class="row justify-center padding-home rounded-img">
-          <%=image_tag("rachel-fmf.png")%>
-        </div>
-        <h6 class="top-padding-text" style="font-size: 18px">Rachel, Tech Ops Engineer</h6>
-        <div class="row">
-          <p class="small-text"><span class="quote-mark">“ </span>Even after helping me find such an amazing fit with so many intelligent engineers, Flock's continued mentorship program has helped me to define and develop my career with guidance, peer mentorship and support in an organized setting.<span class="quote-mark">"</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-element">
-      <div class="col">
-        <div class="row justify-center padding-home rounded-img">
-          <%=image_tag("dirk-fmf.png")%>
-        </div>
-        <h6 class="top-padding-text" style="font-size: 18px">Dirk, Linux Systems Admin</h6>
-        <div class="row">
-          <p class="small-text">There were not many of jobs in Dirk's midwest town that were going in the technical direction he wanted for his career. We helped him find a job in the Denver area with a global startup where they process and store over 50 billion events per day.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- Beginning of Section 5 - Companies -->
-<!-- End of Section 5 - Companies -->
-
-<div class="section-5-background">
-  <h4 class="centered blue-text">Companies</h4>
-  <div class="section-5">
-
-    <div class="row centered justify-content-center" style="display:flex; align-items: center;">
-
-      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home" id="resized-khanacademy">
-        <%=image_tag("khanacademy-logo.png")%>
-      </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
-        <%=image_tag("infuse-logo.png")%>
-      </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
-        <%=image_tag("kickboard-logo.jpg")%>
-      </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
-        <%=image_tag("democracyworks-logo.png")%>
-      </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
-        <%=image_tag("kuna-logo.png")%>
-      </div>
-
-      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
-        <%=image_tag("emersonstone-logo.png")%>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- DESIGN 1: Beginning of Section 6 - Benefits and values of the company -->
-
-<div class="section-6-background">
-  <div class="section-6">
-    <h4 class="centered blue-text">Benefits and company culture</h4>
-    <h5 class="centered">Our search paramaters include:</h5>
-    <br>
-
-    <div class="benefits-section">
-      <div class="row mx-auto">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <div class="small-icon-resized benefit-title">
-            <div class="mr-3"><%=image_tag("health.png") %></div>
-            <div><h6>Health</h6></div>
-          </div>
-          <div class="small-text benefits-list" style="list-style-type: none;">
-            <li>100% Covered Health Insurance</li>
-            <li>Vision Insurance</li>
-            <li>Dental Insurance</li>
-            <li>Trans-inclusive Healthcare</li>
+        <!-- Since the items ordering on bootstrap doesn't work, hide the wrong content on xs to display the ordered one -->
+        <div class="hidden-xs-down">
+          <div class="row large-padding-home">
+            <div class="col-sm-9 col-md-9"><h5>2. Search jobs</h5>
+              <p>Review job listings that match your unique self. Filter lists further or adjust preferences to see more or less jobs.</p> </div>
+              <div class="col-sm-3 col-md-3 pictures-resized"><%=image_tag("filtericon.png")%></div>
+            </div>
           </div>
 
-        </div>
+          <div class="hidden-sm-up">
+            <div class="row large-padding-home">
+              <div class="col-sm-3 col-md-3 pictures-resized"><%=image_tag("filtericon.png")%></div>
+              <div class="col-sm-9 col-md-9"><h5 class="top-padding-text">2. Search jobs</h5>
+                <p>Review job listings that match your unique self. Filter lists further or adjust preferences to see more or less jobs.</p> </div>
+              </div>
+            </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="row large-padding-home flex-steps">
+              <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("applicationicon.png")%></div>
+              <div class="col-md-9 col-sm-9"><h5 class="top-padding-text-limited">3. Apply </h5>
+                <p>Apply for jobs and add a custom message to go with it. Your application will be reviewed by our team and if you are a good match we’ll arrange an introduction.</p> </div>
+              </div>
 
-          <div class="small-icon-resized benefit-title">
-            <div class="mr-3"><%=image_tag("retirement.png")%></div>
-            <div><h6>Retirement</h6></div>
+
+              <div class="hidden-xs-down">
+                <div class="row padding-home flex-steps">
+                  <div class="col-md-9 col-sm-9"><h5>4. Interview with confidence</h5>
+                    <p>If you are chosen for an interview we’ll get on the phone to provide free interview prep so that you’ll go in feeling your best self.</p> </div>
+                    <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("coachingicon.png")%></div>
+                  </div>
+                </div>
+
+
+                <div class="hidden-sm-up">
+                  <div class="row large-padding-home flex-steps">
+                    <div class="col-md-3 col-sm-3 pictures-resized"><%=image_tag("coachingicon.png")%></div>
+                    <div class="col-md-9 col-sm-9"><h5 class="top-padding-text">4. Interview with confidence</h5>
+                      <p>If you are chosen for an interview we’ll get on the phone to provide free interview prep so that you’ll go in feeling your best self.</p> </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Beginning Section 4 - Testimonials -->
+            <div class="section-4-background">
+              <h4 class="centered blue-text">Testimonials</h4>
+              <div class="section-4 centered">
+
+                <!-- First line wit icons -->
+                <div class="testimonial-element">
+                  <div class="col">
+                    <div class="row justify-center padding-home rounded-img">
+                      <%=image_tag("heather-fmf.png")%>
+                    </div>
+                    <h6 class="top-padding-text" style="font-size: 18px">Heather, Engineering Manager</h6>
+                    <div class="row">
+                      <p class="small-text"><span class="quote-mark">“ </span>Flock immediately found unique opportunities for me that aligned with my values and professional goals. They provided thoughtful personal support throughout the process and celebrated with me when I signed on to my dream job at Mapbox.<span class="quote-mark">"</span></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="testimonial-element">
+                  <div class="col">
+                    <div class="row justify-center padding-home rounded-img">
+                      <%=image_tag("rachel-fmf.png")%>
+                    </div>
+                    <h6 class="top-padding-text" style="font-size: 18px">Rachel, Tech Ops Engineer</h6>
+                    <div class="row">
+                      <p class="small-text"><span class="quote-mark">“ </span>Even after helping me find such an amazing fit with so many intelligent engineers, Flock's continued mentorship program has helped me to define and develop my career with guidance, peer mentorship and support in an organized setting.<span class="quote-mark">"</span></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="testimonial-element">
+                  <div class="col">
+                    <div class="row justify-center padding-home rounded-img">
+                      <%=image_tag("dirk-fmf.png")%>
+                    </div>
+                    <h6 class="top-padding-text" style="font-size: 18px">Dirk, Linux Systems Admin</h6>
+                    <div class="row">
+                      <p class="small-text">There were not many of jobs in Dirk's midwest town that were going in the technical direction he wanted for his career. We helped him find a job in the Denver area with a global startup where they process and store over 50 billion events per day.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Beginning of Section 5 - Companies -->
+            <!-- End of Section 5 - Companies -->
+
+            <div class="section-5-background">
+              <h4 class="centered blue-text">Companies</h4>
+              <div class="section-5">
+
+                <div class="row centered justify-content-center" style="display:flex; align-items: center;">
+
+                  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home" id="resized-khanacademy">
+                    <%=image_tag("khanacademy-logo.png")%>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
+                    <%=image_tag("infuse-logo.png")%>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
+                    <%=image_tag("kickboard-logo.jpg")%>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
+                    <%=image_tag("democracyworks-logo.png")%>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
+                    <%=image_tag("kuna-logo.png")%>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 resized-logo logo-home">
+                    <%=image_tag("emersonstone-logo.png")%>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- DESIGN 1: Beginning of Section 6 - Benefits and values of the company -->
+
+            <div class="section-6-background">
+              <div class="section-6">
+                <h4 class="centered blue-text">Benefits and company culture</h4>
+                <h5 class="centered">Our search paramaters include:</h5>
+                <br>
+
+                <div class="benefits-section">
+                  <div class="row mx-auto">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+
+                      <div class="small-icon-resized benefit-title">
+                        <div class="mr-3"><%=image_tag("health.png") %></div>
+                        <div><h6>Health</h6></div>
+                      </div>
+                      <div class="small-text benefits-list" style="list-style-type: none;">
+                        <li>100% Covered Health Insurance</li>
+                        <li>Vision Insurance</li>
+                        <li>Dental Insurance</li>
+                        <li>Trans-inclusive Healthcare</li>
+                      </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+
+                      <div class="small-icon-resized benefit-title">
+                        <div class="mr-3"><%=image_tag("retirement.png")%></div>
+                        <div><h6>Retirement</h6></div>
+                      </div>
+                      <div class="small-text" style="list-style-type: none;">
+                        <li>401(k) Matching</li>
+                        <li>401(k)</li>
+                      </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+
+                      <div class="small-icon-resized benefit-title">
+                        <div class="mr-3"><%=image_tag("vacation.png")%></div>
+                        <div><h6>Vacation</h6></div>
+
+                      </div>
+                      <div class="small-text" style="list-style-type: none;">
+                        <li>Unlimited Vacation</li>
+                        <li>Remote</li>
+                        <li>Flexible Hours</li>
+                        <li>Beach Within 60 Minutes</li>
+                        <li>Mountain Within 60 Minutes</li>
+                      </div>
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+
+                      <div class="small-icon-resized benefit-title">
+                        <div class="mr-3"><%=image_tag("family.png")%></div>
+
+                        <div><h6>Family</h6></div>
+                      </div>
+                      <div class="small-text" style="list-style-type: none;">
+                        <li>Life Insurance</li>
+                        <li>90+ Days Parental Leave</li>
+                        <li>60+ Days Parental Leave</li>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+
+                      <div class="small-icon-resized benefit-title">
+                        <div class="mr-3"><%=image_tag("office.png")%></div>
+                        <div><h6>Office</h6></div>
+                      </div>
+                      <div class="small-text" style="list-style-type: none;">
+                        <li>Office Dogs</li>
+                        <li>Lunch provided</li>
+                      </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+
+                      <div class="small-icon-resized benefit-title">
+                        <div class="mr-3"><%=image_tag("eye.png")%></div>
+
+                        <div><h6>Other</h6></div>
+                      </div>
+                      <div class="small-text" style="list-style-type: none;">
+                        <li>Professional Development Budget</li>
+                        <li>Equity</li>
+                        <li>Environmental Mission</li>
+                        <li>Social Mission</li>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <% if current_user %>
+              <div class="bottom-padding-home"></div>
+              <% else %>
+              <div class="centered">
+                <%= link_to 'Join us now!', new_registration_registration_path, class: "btn btn-orange joinbutton cta-end-hp" %>
+              </div>
+
+              <% if current_user %>
+              <div class="bottom-padding-home"></div>
+              <% else %>
+              <div class="centered">
+                <%= link_to 'Join us now!', new_registration_registration_path, class: "btn btn-orange joinbutton cta-end-hp" %>
+              </div>
+
+            </div>
           </div>
-          <div class="small-text" style="list-style-type: none;">
-            <li>401(k) Matching</li>
-            <li>401(k)</li>
-          </div>
 
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <div class="small-icon-resized benefit-title">
-            <div class="mr-3"><%=image_tag("vacation.png")%></div>
-            <div><h6>Vacation</h6></div>
-
-          </div>
-          <div class="small-text" style="list-style-type: none;">
-            <li>Unlimited Vacation</li>
-            <li>Remote</li>
-            <li>Flexible Hours</li>
-            <li>Beach Within 60 Minutes</li>
-            <li>Mountain Within 60 Minutes</li>
-          </div>
-        </div>
-
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <div class="small-icon-resized benefit-title">
-            <div class="mr-3"><%=image_tag("family.png")%></div>
-
-            <div><h6>Family</h6></div>
-          </div>
-          <div class="small-text" style="list-style-type: none;">
-            <li>Life Insurance</li>
-            <li>90+ Days Parental Leave</li>
-            <li>60+ Days Parental Leave</li>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <div class="small-icon-resized benefit-title">
-            <div class="mr-3"><%=image_tag("office.png")%></div>
-            <div><h6>Office</h6></div>
-          </div>
-          <div class="small-text" style="list-style-type: none;">
-            <li>Office Dogs</li>
-            <li>Lunch provided</li>
-          </div>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <div class="small-icon-resized benefit-title">
-            <div class="mr-3"><%=image_tag("eye.png")%></div>
-
-            <div><h6>Other</h6></div>
-          </div>
-          <div class="small-text" style="list-style-type: none;">
-            <li>Professional Development Budget</li>
-            <li>Equity</li>
-            <li>Environmental Mission</li>
-            <li>Social Mission</li>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <% if current_user %>
-  <div class="bottom-padding-home"></div>
-  <% else %>
-  <div class="centered">
-    <%= link_to 'Join us now!', new_registration_registration_path, class: "btn btn-orange joinbutton cta-end-hp" %>
-  </div>
-  <% end %>
-</div>
-
-</div>
-
-</div>
-
-</body>
+        </body>
