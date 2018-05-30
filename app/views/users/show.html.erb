@@ -16,8 +16,6 @@
           <i class="fab fa-github fa-2x no-underline" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh;"></i>
           <% end %>
           <% else %>
-          <br>
-          <br>
           <% end %>
 
           <% if (current_user.linkedin_profile.present?) %>
@@ -25,8 +23,6 @@
           <i class="fab fa-linkedin fa-2x" style="color: #ffa67b; text-decoration: none; margin-bottom: 1vh; margin-right: 1vh; margin-left: 1vh; margin-top: 3vh;"></i>
           <% end %>
           <% else %>
-          <br>
-          <br>
           <% end %>
 
           <p class="centered small-padding-top">Your job search status is defined as: <b><%= current_user.return_activation_status %></b></p>
