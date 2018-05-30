@@ -67,8 +67,8 @@
                 <%= f.error_notification %>
                 <%= f.input :first_name, :label_html => { :class => 'form-text' } %>
                 <%= f.input :last_name, :label_html => { :class => 'form-text' } %>
-                <%= f.input :github_profile, :label_html => { :class => 'form-text' } %>
-                 <h2 id="github-alert" style="display: none" >Alertttttttttttt</h2>
+                <%= f.input :github_profile, :label_html => { :class => 'form-text' }, :placeholder => "https://github.com/YOUR_USERNAME" %>
+                <h2 id="github-alert" style="display: none" >Alert</h2>
                 <%= f.input :linkedin_profile, :label_html => { :class => 'form-text' }, :placeholder => "https://linkedin.com/in/YOUR_USERNAME/" %>
                 <br>
                 <a class="nav-link next-btn btn btn-wide" data-toggle="tab" href="#cv" role="tab" data-next-tab="cv-tab">Next</a>
@@ -214,15 +214,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <center><h4 class="modal-title">Where is this info going?</h4></center>
-        </div>
-        <div class="modal-body">
-          <center><p><strong>Welcome to Find My Flock!</strong><br>Next you'll create your profile. Honesty and accuracy will help you be successful in finding a job. <br><br> <strong>What happens when I apply?</strong><br>Your privacy is extremely important to us. The information shared here will be reviewed by a Job Finding Advocate from our team assigned specifically to you before being sent to an employer. <br>They'll become your biggest cheerleader! We'll make sure you aren't already working at the company you're applying to, that this will truly be a dream job for you, or we'll suggest others. <br><br> <strong>What gets shared?</strong><br>When your personal Job Finding Advocate submits your information to our client, they will only share your skills and resume from this form. Your desired salary and benefits will NOT be shared. You will have an opportunity to customize a resume or cover letter at that time. <br><br> We will never share your information with anyone else, or spam you with unwanted jobs/emails.</p></center>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-wide btn-group-justified" style:"font-family: Montserrat" width="100%" data-dismiss="modal">Got it!</button>
-        </div>
+        <center><h4 class="modal-title">Where is this info going?</h4></center>
       </div>
+      <div class="modal-body">
+        <center><p><strong>Welcome to Find My Flock!</strong><br>Next you'll create your profile. Honesty and accuracy will help you be successful in finding a job. <br><br> <strong>What happens when I apply?</strong><br>Your privacy is extremely important to us. The information shared here will be reviewed by a Job Finding Advocate from our team assigned specifically to you before being sent to an employer. <br>They'll become your biggest cheerleader! We'll make sure you aren't already working at the company you're applying to, that this will truly be a dream job for you, or we'll suggest others. <br><br> <strong>What gets shared?</strong><br>When your personal Job Finding Advocate submits your information to our client, they will only share your skills and resume from this form. Your desired salary and benefits will NOT be shared. You will have an opportunity to customize a resume or cover letter at that time. <br><br> We will never share your information with anyone else, or spam you with unwanted jobs/emails.</p></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-wide btn-group-justified" style:"font-family: Montserrat" width="100%" data-dismiss="modal">Got it!</button>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -296,16 +296,18 @@
             return false;
           }
 
-          if (!(gitHub.value.includes("http://")) && !(gitHub.value.includes("https://"))){
-            alert("Your GitHub url is in the wrong format. Should be 'https://github.com/username'.");
-            return false;
+          if (gitHub.value != ""){
+            if (!(gitHub.value.includes("http://")) && !(gitHub.value.includes("https://"))){
+              alert("Your GitHub url is in the wrong format. Should be 'https://github.com/username'.");
+              return false;
+            }
           }
 
           if (linkedinProfile.value != ""){
-          if (!(linkedinProfile.value.includes("http://")) && !(linkedinProfile.value.includes("https://"))){
-            alert("Your LinkedIn url is in the wrong format. Should be 'https://linkedin.com/in/username'.");
-            return false;
-          }
+            if (!(linkedinProfile.value.includes("http://")) && !(linkedinProfile.value.includes("https://"))){
+              alert("Your LinkedIn url is in the wrong format. Should be 'https://linkedin.com/in/username'.");
+              return false;
+            }
 
           }
 
