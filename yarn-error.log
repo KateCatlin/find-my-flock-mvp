@@ -1,17 +1,17 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
+  /Users/Socks/.nvm/versions/node/v9.11.1/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js check --integrity
 
 PATH: 
-  /home/benskiff/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/benskiff/.rbenv/versions/2.4.3/bin:/home/benskiff/.rbenv/libexec:/home/benskiff/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/benskiff/.rbenv/shims:/home/benskiff/.rbenv/bin:/home/benskiff/bin:/home/benskiff/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /Users/Socks/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/Users/Socks/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:/Users/Socks/.nvm/versions/node/v9.11.1/bin:./bin:./node_modules/.bin:/Users/Socks/.rbenv/shims:/Users/Socks/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 
 Yarn version: 
-  1.5.1
+  1.3.2
 
 Node version: 
-  8.9.4
+  9.11.1
 
 Platform: 
-  linux x64
+  darwin x64
 
 npm manifest: 
   {
@@ -7422,10 +7422,10 @@ Lockfile:
       yeoman-environment "^1.1.0"
 
 Trace: 
-  Error: Found 1 errors.
-      at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
-      at /usr/share/yarn/lib/cli.js:59470:13
+  ReferenceError: Unknown language key integrityNodeDoesntMatch
+      at ConsoleReporter.lang (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:33004:13)
+      at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:57471:30
       at Generator.next (<anonymous>)
-      at step (/usr/share/yarn/lib/cli.js:98:30)
-      at /usr/share/yarn/lib/cli.js:109:13
+      at step (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:92:30)
+      at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:103:13
       at <anonymous>
